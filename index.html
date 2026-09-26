@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Source Claude Cowork Alternatives — Honest Comparison (2026)</title>
+<meta name="description" content="A source-cited comparison of open-source and self-hostable Claude Cowork alternatives: Kortix (Suna), OpenWork, and Eigent — license, self-hosting, model choice, pricing, and human review, compared honestly against Anthropic's closed Claude Cowork.">
+<link rel="canonical" href="https://opensourceclaudecowork.com/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Open Source Claude Cowork Alternatives",
+  "url": "https://opensourceclaudecowork.com/",
+  "description": "Source-cited comparison of open-source and self-hostable Claude Cowork alternatives.",
+  "isPartOf": { "@type": "WebSite", "name": "Open Source Claude Cowork", "url": "https://opensourceclaudecowork.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Open source Claude Cowork alternatives",
+  "itemListElement": [
+    { "@type": "SoftwareApplication", "position": 1, "name": "Kortix (Suna)", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Cloud", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Self-host free; managed cloud $40/seat/mo + usage" } },
+    { "@type": "SoftwareApplication", "position": 2, "name": "OpenWork", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Windows, Linux", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Desktop free; Team from $10/seat/mo" } },
+    { "@type": "SoftwareApplication", "position": 3, "name": "Eigent", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Self-host free; cloud from $19.99/mo" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is there an open source alternative to Claude Cowork?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. OpenWork and Eigent are open-source desktop/workspace apps, and Kortix (Suna) is a source-available (Elastic License 2.0) AI management system. All three let you bring your own model keys and run locally or self-hosted, unlike Anthropic's closed Claude Cowork." } },
+    { "@type": "Question", "name": "Can you self-host a Claude Cowork alternative?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Kortix, OpenWork, and Eigent can all run on infrastructure you control. Kortix runs on your own VPC or on-prem network; OpenWork is local-first on your desktop; Eigent supports self-hosted deployment with your own models." } },
+    { "@type": "Question", "name": "What is the difference between open source and source-available?", "acceptedAnswer": { "@type": "Answer", "text": "OSI-approved open-source licenses (like MIT or Apache 2.0) permit unrestricted use, modification, and redistribution. Source-available licenses, like the Elastic License 2.0 that Kortix uses, let you read and self-host the code but restrict reselling it as a competing hosted service. Kortix is source-available, not OSI-open — an honest distinction that matters for commercial teams." } }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Home">
+      <span class="mark">oc</span>
+      <span>Open Source Claude Cowork</span>
+      <span class="tld">opensourceclaudecowork.com</span>
+    </a>
+    <nav>
+      <a href="/#compare">Comparison</a>
+      <a href="/self-hosting.html">Self-hosting guide</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Sovereign AI for knowledge work</p>
+      <h1>Open-source Claude&nbsp;Cowork alternatives, compared honestly.</h1>
+      <p class="lede">Claude Cowork is a capable agent for knowledge work — but it is closed, Anthropic-only, and can't be self-hosted. If you want to own the code, the models, and the infrastructure, these are the open-source and source-available alternatives worth evaluating, side by side.</p>
+      <p class="meta">Last updated September 2026 · grounded in each project's public docs · competitor rows reflect publicly documented behavior</p>
+    </div>
+  </div>
+
+  <section id="compare">
+    <div class="wrap">
+      <h2>The comparison</h2>
+      <p class="section-sub">The dimensions that actually decide a self-host decision: how open the license really is, whether you can run it yourself, which models it accepts, what it costs, and whether a human stays in the loop.</p>
+      <div class="table-wrap">
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Kortix (Suna)</th>
+              <th>OpenWork</th>
+              <th>Eigent</th>
+              <th>Claude Cowork</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="dim">Source</td>
+              <td class="flag-partial">Source-available <small>Elastic License 2.0 — read it, fork it, self-host it; not OSI-open</small></td>
+              <td class="flag-open">Open source <small>built on OpenCode</small></td>
+              <td class="flag-open">Open source <small>"100% open source"</small></td>
+              <td class="flag-closed">Closed <small>proprietary, Anthropic</small></td>
+            </tr>
+            <tr>
+              <td class="dim">Models</td>
+              <td>Any provider, your own API keys</td>
+              <td>50+ LLMs across providers, BYOK</td>
+              <td>Cloud, enterprise gateway, or local models (BYOK)</td>
+              <td>Anthropic only (Opus 4.5)</td>
+            </tr>
+            <tr>
+              <td class="dim">Where it runs</td>
+              <td>Your VPC or on-prem; managed cloud optional</td>
+              <td>Local-first desktop (macOS/Windows/Linux)</td>
+              <td>Local or self-hosted; cloud optional</td>
+              <td>Anthropic cloud only</td>
+            </tr>
+            <tr>
+              <td class="dim">Self-host</td>
+              <td class="flag-open">Yes <small>Docker images; laptop, VPS, VPC, on-prem</small></td>
+              <td class="flag-open">Yes <small>files stay on your machine</small></td>
+              <td class="flag-open">Yes <small>run on your own infra</small></td>
+              <td class="flag-closed">No</td>
+            </tr>
+            <tr>
+              <td class="dim">Pricing</td>
+              <td>Self-host free · cloud $40/seat/mo + usage</td>
+              <td>Desktop free · Team from $10/seat/mo</td>
+              <td>Self-host free · cloud from $19.99/mo</td>
+              <td>Included with Pro / Max</td>
+            </tr>
+            <tr>
+              <td class="dim">Human review</td>
+              <td>Change-request merge (deny-by-default)</td>
+              <td>Reviews + approvals</td>
+              <td>Reviews + approvals, traceability</td>
+              <td>Sandboxed actions, per-app permission</td>
+            </tr>
+            <tr>
+              <td class="dim">Isolation model</td>
+              <td>Isolated sandbox per session, on its own branch</td>
+              <td>Local machine; optional sandboxed cloud</td>
+              <td>Local execution; browser access scoped</td>
+              <td>Apple VM (VZVirtualMachine)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">* License and pricing as published in each project's documentation as of September 2026. Kortix's Elastic License 2.0 is source-available, not OSI-approved — see the FAQ for why that distinction matters.</p>
+    </div>
+  </section>
+
+  <section id="platforms">
+    <div class="wrap">
+      <h2>The candidates</h2>
+      <p class="section-sub">One honest paragraph each — what it is, what it isn't, and who it is for.</p>
+      <div class="grid">
+        <div class="card">
+          <span class="tag">source-available · self-host</span>
+          <h3>Kortix (Suna)</h3>
+          <p><a class="site" href="https://github.com/kortix-ai/suna">github.com/kortix-ai/suna</a> — an open-source AI Management System and the self-hostable alternative to Claude Cowork. Your agents, skills, memory, and connectors live in one git repo you own. Each session runs in an isolated sandbox on its own branch, and work reaches <code>main</code> only through a change request a human approves.</p>
+          <ul>
+            <li>Elastic License 2.0 — read and self-host the code, but not OSI-open.</li>
+            <li>Any model, your own keys; run on your VPC or on-prem.</li>
+            <li>Self-host free; managed cloud $40/seat/mo + usage.</li>
+            <li>Three commands: <code>install</code>, <code>kortix init</code>, <code>kortix ship</code>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">open source · desktop</span>
+          <h3>OpenWork</h3>
+          <p><a class="site" href="https://openworklabs.com">openworklabs.com</a> — a free, open-source desktop app positioned as the open-source alternative to Claude Cowork and Codex. Built on OpenCode, it runs locally so your files stay on your machine, and it connects to 50+ LLMs with your own keys.</p>
+          <ul>
+            <li>macOS, Windows, Linux desktop; local-first.</li>
+            <li>Anthropic-compatible plugins and skills run as-is.</li>
+            <li>OpenWork Connect — an MCP gateway shared across a team.</li>
+            <li>Desktop free; Team from $10/seat/mo.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">open source · workspace</span>
+          <h3>Eigent</h3>
+          <p><a class="site" href="https://www.eigent.ai">eigent.ai</a> — an open-source "Cowork desktop" with a workspace model: agents, skills, and connectors are packaged once and reused across sessions. Model-agnostic, with local execution and self-hosted deployment.</p>
+          <ul>
+            <li>BYOK or local models; cloud, gateway, or local.</li>
+            <li>Traceability: inspect sources, file history, approvals.</li>
+            <li>Self-host free; cloud from $19.99/mo.</li>
+            <li>SOC 2 / GDPR readiness in progress.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">closed · reference</span>
+          <h3>Claude Cowork (Anthropic)</h3>
+          <p>The closed baseline this site compares against. A research preview that brings Claude Code's agentic capabilities to Claude Desktop — Opus 4.5, Computer Use for screen control, and an Apple VM sandbox. Included with Pro and Max subscriptions.</p>
+          <ul>
+            <li>Anthropic-only models; no self-host.</li>
+            <li>Runs in Anthropic's cloud.</li>
+            <li>Closed source — you don't own the configuration.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout alt">
+        <p><strong>A note on names in this space.</strong> <code>claudecowork.im</code> is a keyword-matched <em>guide site</em> about Claude Cowork (a tutorial, not an alternative), and <code>kuse.ai</code> is a workflow-automation tool aimed at lead generation rather than a self-hosted agent platform. Both rank for "claude cowork" queries but are different products — included here only to avoid confusion.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="choose">
+    <div class="wrap">
+      <h2>How to choose</h2>
+      <p class="section-sub">The deciding question is not "which is best" but "which failure mode can you live with."</p>
+      <ol class="steps">
+        <li><strong>Do you need OSI-open, or is source-available enough?</strong> If your team must redistribute a fork as a hosted service, OpenWork or Eigent's license posture may fit better than Kortix's Elastic 2.0. If you only need to read and self-host the code, source-available is enough.</li>
+        <li><strong>Where does the work actually run?</strong> Desktop-only and local-first (OpenWork) is simplest. A fleet of org-scale agents that share memory and land work through change requests points to a server-side system (Kortix).</li>
+        <li><strong>Who reviews the output?</strong> All three keep a human in the loop, but the shape differs: Kortix gates everything behind a deny-by-default change request; OpenWork and Eigent use in-app review and approval flows.</li>
+        <li><strong>What is your budget ceiling?</strong> Self-hosting is free on all three; the paid tiers differ mainly in managed hosting and team features.</li>
+      </ol>
+      <div class="callout">
+        <p><strong>Honest caveat.</strong> "Open source" is doing a lot of work in this category. Kortix is <em>source-available</em>, not OSI-open — its Elastic 2.0 license forbids offering it as a competing managed service. If that matters for your procurement, check each project's license file, not its marketing page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="selfhost">
+    <div class="wrap">
+      <h2>Self-hosting, in practice</h2>
+      <p class="section-sub">A genuinely self-hosted agent platform means your data, models, and configuration stay on hardware you control. Here's what that looks like per project — and the honest trade-offs.</p>
+      <p>Kortix self-hosting starts with Docker images (<code>kortix self-host start</code>) and switches the CLI between cloud and your own hosts. OpenWork keeps files local to your desktop and sends prompts only to the model provider you pick. Eigent packages a workspace you run on your own infrastructure with the models you choose.</p>
+      <p><a href="/self-hosting.html">Read the full self-hosting guide →</a></p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Is there a truly open source alternative to Claude Cowork?</summary>
+        <p>OpenWork and Eigent describe themselves as open source. Kortix (Suna) is source-available under the Elastic License 2.0 — you can read, fork, and self-host the code, but you can't resell it as a competing hosted service. All three are alternatives in the sense that matter most to self-hosters: you own the code and the data, and you can run them without Anthropic.</p>
+      </details>
+      <details>
+        <summary>What's the difference between "open source" and "source-available"?</summary>
+        <p>OSI-approved licenses (MIT, Apache-2.0, GPL) grant broad rights to use, modify, and redistribute, including commercially. Source-available licenses (like Elastic 2.0) publish the code but restrict one or more uses — typically selling it as a hosted service. Kortix is source-available; treat it as "readable and self-hostable," not "OSI-open."</p>
+      </details>
+      <details>
+        <summary>Can I run these without an Anthropic subscription?</summary>
+        <p>Yes. Kortix, OpenWork, and Eigent are all model-agnostic: you bring your own API keys (OpenAI, Anthropic, Google, local models) or run local models. Claude Cowork itself is the exception — it is tied to Anthropic's Pro/Max subscriptions.</p>
+      </details>
+      <details>
+        <summary>Which one is best for a team of non-technical users?</summary>
+        <p>OpenWork is the most point-and-click (a desktop app with one-click imports). Kortix targets org-scale agent fleets governed through change requests, which suits engineering-led teams. Eigent sits between them with a reusable workspace and review flow.</p>
+      </details>
+      <details>
+        <summary>Why does <code>claudecowork.im</code> rank for this keyword?</summary>
+        <p>It's a keyword-matched domain hosting a guide <em>about</em> Claude Cowork. It ranks because the domain and content are on-topic — a useful reminder that for this term, engines reward sites that are about the term, which is exactly why this comparison hub exists on its own domain.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>Open Source Claude Cowork</strong> · a source-cited comparison hub.</p>
+      <p class="disclaimer">This is an independent comparison. It is not affiliated with Anthropic, OpenWork, or Eigent. "Claude Cowork" is a trademark of Anthropic; used here only to identify the product being compared. Product facts were verified against public documentation in September 2026 and may change. Verify licenses and pricing at each vendor's source before committing.</p>
+    </div>
+    <div>
+      <p>Sources: <a href="https://github.com/kortix-ai/suna">Kortix/Suna</a> · <a href="https://openworklabs.com">OpenWork</a> · <a href="https://www.eigent.ai">Eigent</a> · <a href="https://kortix.com/docs">Kortix docs</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
