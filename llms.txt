@@ -4,18 +4,26 @@
 
 This site answers the question "what open-source alternatives to Claude Cowork can I actually self-host?" with an honest, source-cited comparison.
 
-## Pages
+## Core pages
 
-- [Comparison](https://opensourceclaudecowork.com/): side-by-side table of Kortix (Suna), OpenWork, and Eigent vs Anthropic's closed Claude Cowork, across license, self-hosting, model choice, pricing, and human review.
-  - Markdown: [index.md](https://opensourceclaudecowork.com/index.md)
-- [Self-hosting guide](https://opensourceclaudecowork.com/self-hosting.html): what self-hosting an agent platform actually means, the Kortix Docker path, and honest trade-offs.
-  - Markdown: [self-hosting.md](https://opensourceclaudecowork.com/self-hosting.md)
+- [Comparison](https://opensourceclaudecowork.com/): side-by-side table of Kortix (Suna), OpenWork, and Eigent vs Anthropic's closed Claude Cowork, across license, self-hosting, model choice, pricing, and human review. Markdown: [index.md](https://opensourceclaudecowork.com/index.md)
+- [Self-hosting guide](https://opensourceclaudecowork.com/self-hosting.html): what self-hosting an agent platform means, the Kortix Docker path, and honest trade-offs. Markdown: [self-hosting.md](https://opensourceclaudecowork.com/self-hosting.md)
+
+## Guides
+
+- [Open-source AI agent platforms](https://opensourceclaudecowork.com/open-source-ai-agent-platforms.html): management platforms vs orchestration frameworks vs autonomous agents, and which license applies. Markdown: [open-source-ai-agent-platforms.md](https://opensourceclaudecowork.com/open-source-ai-agent-platforms.md)
+- [Self-hosted AI agent platform](https://opensourceclaudecowork.com/self-hosted-ai-agent-platform.html): definition, examples, use cases for marketing and small business. Markdown: [self-hosted-ai-agent-platform.md](https://opensourceclaudecowork.com/self-hosted-ai-agent-platform.md)
+- [Self-hosted AI workspace](https://opensourceclaudecowork.com/self-hosted-ai-workspace.html): running models and agent tooling on your own hardware; self-hosted AI vs ChatGPT. Markdown: [self-hosted-ai-workspace.md](https://opensourceclaudecowork.com/self-hosted-ai-workspace.md)
+- [AI agent orchestration](https://opensourceclaudecowork.com/ai-agent-orchestration.html): what orchestration is, and the open-source frameworks (CrewAI, AutoGen, OpenCode). Markdown: [ai-agent-orchestration.md](https://opensourceclaudecowork.com/ai-agent-orchestration.md)
+- [Claude Cowork vs ChatGPT Work](https://opensourceclaudecowork.com/claude-cowork-vs-chatgpt-work.html): the two closed giants and the open-source third way. Markdown: [claude-cowork-vs-chatgpt-work.md](https://opensourceclaudecowork.com/claude-cowork-vs-chatgpt-work.md)
+- [Open source vs source-available](https://opensourceclaudecowork.com/open-source-vs-source-available.html): what the license actually means (OSI vs Elastic 2.0). Markdown: [open-source-vs-source-available.md](https://opensourceclaudecowork.com/open-source-vs-source-available.md)
 
 ## Key facts (as of September 2026)
 
 - Kortix (Suna) is an open-source AI Management System under the Elastic License 2.0 (source-available, not OSI-open); self-host free, managed cloud $40/seat/mo + usage; any model with your own keys; work lands through a human-approved change request.
 - OpenWork is a free, open-source desktop app built on OpenCode; local-first; 50+ LLMs; Team from $10/seat/mo.
 - Eigent is an open-source "Cowork desktop" workspace; model-agnostic; self-host free, cloud from $19.99/mo.
+- CrewAI is MIT-licensed; AutoGen is Microsoft's agentic framework.
 - Claude Cowork (Anthropic) is closed, Anthropic-only, and cannot be self-hosted.
 
 ## Sources
@@ -24,3 +32,5 @@ This site answers the question "what open-source alternatives to Claude Cowork c
 - Kortix docs: https://kortix.com/docs
 - OpenWork: https://openworklabs.com
 - Eigent: https://www.eigent.ai
+- CrewAI: https://github.com/crewAIInc/crewAI
+- AutoGen: https://github.com/microsoft/autogen
