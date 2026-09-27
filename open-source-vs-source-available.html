@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Source vs Source-Available: What the License Actually Means</title>
+<meta name="description" content="The honest difference between OSI open-source licenses (MIT, Apache-2.0) and source-available licenses (Elastic 2.0), and why it matters when you self-host an AI agent platform.">
+<link rel="canonical" href="https://opensourceclaudecowork.com/open-source-vs-source-available.html">
+<link rel="alternate" type="text/markdown" href="/open-source-vs-source-available.md">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M5 5l14 14M19 5L5 19'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Open Source vs Source-Available: What the License Actually Means","url":"https://opensourceclaudecowork.com/open-source-vs-source-available.html","description":"The honest difference between OSI open-source licenses (MIT, Apache-2.0) and source-available licenses (Elastic 2.0), and why it matters when you self-host an AI agent platform.","dateModified":"2026-09-26"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between open source and source-available?", "acceptedAnswer": {"@type": "Answer", "text": "OSI-approved licenses (MIT, Apache-2.0, GPL) permit unrestricted use, modification, and redistribution. Source-available licenses (Elastic 2.0) publish the code but restrict one or more uses \u2014 typically reselling it as a competing hosted service."}}, {"@type": "Question", "name": "Is Kortix open source?", "acceptedAnswer": {"@type": "Answer", "text": "Kortix (Suna) is source-available under the Elastic License 2.0. You can read, fork, and self-host the code, but you cannot offer it as a competing hosted service."}}, {"@type": "Question", "name": "Why does the license matter for self-hosting?", "acceptedAnswer": {"@type": "Answer", "text": "If you only need to run the software yourself, source-available is often enough. If you must redistribute a fork commercially, you need an OSI-open license like MIT or Apache-2.0."}}]}</script>
+</head><header class="site-header"><div class="wrap nav"><a class="brand" href="/" aria-label="Home"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude&nbsp;Cowork</span><span class="tld">/license</span></a><nav class="nav-links"><a href="/">Comparison</a><a href="/open-source-ai-agent-platforms.html">Platforms</a><a href="/self-hosting.html">Self-hosting</a></nav><div class="nav-actions"><button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button"><svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><a class="btn btn-primary" href="/#compare">Compare</a></div></div></header>
+<main>
+
+  <section class="hero" style="padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-10)"><div class="wrap"><p class="eyebrow">Read the license, not the marketing</p><h1 style="max-width:20ch">Open source vs source-available.</h1><p class="lede">"Open source" is doing a lot of work in the AI agent space. Two projects can both call themselves open while granting very different rights. Here's the difference, and why it matters when you self-host.</p><p class="meta">September 2026</p></div></section>
+
+  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">The distinction</p><h2>Two license families</h2></div>
+    <div class="grid">
+      <div class="card"><span class="tag">OSI open source</span><h3>MIT · Apache-2.0 · GPL</h3><p>Approved by the Open Source Initiative. Broad rights to use, modify, and redistribute — including commercially. Examples: CrewAI (MIT), AutoGen.</p></div>
+      <div class="card"><span class="tag">source-available</span><h3>Elastic 2.0 · BUSL</h3><p>The code is published and self-hostable, but one or more uses are restricted — typically offering it as a competing hosted service. Kortix (Suna) uses Elastic 2.0.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">Why it matters</p><h2>What the license changes for you</h2></div>
+    <ol class="steps">
+      <li><strong>Self-hosting only?</strong> Both families work — you can run the code yourself.</li>
+      <li><strong>Fork and redistribute?</strong> You need OSI-open (MIT/Apache-2.0); source-available forbids reselling as a competing service.</li>
+      <li><strong>Procurement review?</strong> Check the license file, not the marketing page — "open" is not a license.</li>
+    </ol>
+    <div class="callout"><span class="ic" aria-hidden="true">i</span><p><strong>Kortix, honestly:</strong> Suna is Elastic License 2.0 — source-available, not OSI-open. You can read, fork, and self-host it; you can't resell it as a competing managed service. If you need OSI-open, weigh CrewAI, AutoGen, OpenWork, or Eigent instead.</p></div>
+  </div></section>
+
+  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">FAQ</p><h2>Common questions</h2></div>
+    <details class="faq"><summary>What is the difference between open source and source-available?<span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p>OSI licenses permit unrestricted redistribution. Source-available licenses publish the code but restrict one or more uses (typically reselling as a hosted service).</p></div></details>
+    <details class="faq"><summary>Is Kortix open source?<span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p>Kortix (Suna) is source-available under Elastic License 2.0. Read, fork, and self-host it — but don't resell it as a competing hosted service.</p></div></details>
+    <details class="faq"><summary>Why does the license matter for self-hosting?<span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p>Self-hosting works under both. Redistribution requires OSI-open (MIT/Apache-2.0). Check the license file before committing.</p></div></details>
+  </div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap footer-grid"><div><a class="brand" href="/"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude Cowork</span></a><p class="disclaimer">Independent, not affiliated with any vendor named here. Verify licenses and pricing at each project's source.</p></div><div class="footer-src"><p><strong>Guides</strong></p><p><a href="/open-source-ai-agent-platforms.html">Platforms</a> · <a href="/self-hosted-ai-agent-platform.html">Self-hosted agents</a> · <a href="/self-hosted-ai-workspace.html">AI workspace</a> · <a href="/ai-agent-orchestration.html">Orchestration</a> · <a href="/claude-cowork-vs-chatgpt-work.html">vs ChatGPT Work</a> · <a href="/open-source-vs-source-available.html">License</a></p><p style="margin-top:var(--space-3)"><a href="/open-source-vs-source-available.md">Markdown</a> · <a href="/llms.txt">llms.txt</a></p></div></div></footer><script>(function(){var r=document.documentElement,K='oscc-theme',t=document.querySelector('[data-theme-toggle]'),s=document.querySelector('.i-sun'),m=document.querySelector('.i-moon');function a(x){r.setAttribute('data-theme',x);if(s&&m){s.style.display=x==='dark'?'none':'block';m.style.display=x==='dark'?'block':'none';}}var st=null;try{st=localStorage.getItem(K);}catch(e){}a(st||'dark');if(t)t.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';a(n);try{localStorage.setItem(K,n);}catch(e){}});var es=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:0.12});es.forEach(function(e){io.observe(e);});}else{es.forEach(function(e){e.classList.add('is-visible');});}})();</script>
+</body>
+</html>
