@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open-Source AI Agent Platforms: A Comparison (2026)</title>
+<meta name="description" content="Open-source AI agent platforms compared by license and capability: Kortix (Suna), OpenWork, Eigent, plus orchestration frameworks CrewAI and AutoGen — OSI-open vs source-available, self-host reality, and how to choose.">
+<link rel="canonical" href="https://opensourceclaudecowork.com/open-source-ai-agent-platforms.html">
+<link rel="alternate" type="text/markdown" href="/open-source-ai-agent-platforms.md">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M5 5l14 14M19 5L5 19'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Open-Source AI Agent Platforms: A Comparison","url":"https://opensourceclaudecowork.com/open-source-ai-agent-platforms.html","description":"Open-source AI agent platforms compared by license and capability.","dateModified":"2026-09-26"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is there an open source AI agent platform?","acceptedAnswer":{"@type":"Answer","text":"Yes. Kortix (Suna), OpenWork, and Eigent are open-source or source-available AI agent platforms, and CrewAI, AutoGen, and AutoGPT are open-source agent frameworks. They differ in license and in what they bundle."}},
+{"@type":"Question","name":"What is the best open source AI agent platform?","acceptedAnswer":{"@type":"Answer","text":"No single best. If you need OSI-open, CrewAI/AutoGen (MIT/open). If you want a governed, self-hosted management platform, Kortix (source-available). If you want a local-first desktop app, OpenWork."}},
+{"@type":"Question","name":"Is CrewAI open source?","acceptedAnswer":{"@type":"Answer","text":"Yes, CrewAI is MIT-licensed. It is an orchestration framework for coordinating multiple agents — a library, not a turnkey management platform."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap nav"><a class="brand" href="/" aria-label="Home"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude&nbsp;Cowork</span><span class="tld">/platforms</span></a><nav class="nav-links"><a href="/">Comparison</a><a href="/open-source-ai-agent-platforms.html">Platforms</a><a href="/self-hosting.html">Self-hosting</a></nav><div class="nav-actions"><button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button"><svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><a class="btn btn-primary" href="/#compare">Compare</a></div></div></header>
+
+<main>
+  <section class="hero" style="padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-10)"><div class="wrap"><p class="eyebrow">The category, not one product</p><h1 style="max-width:20ch">Open-source AI agent platforms, compared.</h1><p class="lede">"Open-source AI agent platform" spans three different things — agent <em>management</em> platforms, agent <em>orchestration</em> frameworks, and autonomous-agent projects. Here's how to tell them apart, and which license actually applies to each.</p><p class="meta">Grounded in public docs · September 2026</p></div></section>
+
+  <section class="section reveal"><div class="wrap">
+    <div class="section-head"><p class="kicker">Three kinds of "platform"</p><h2>Management vs orchestration vs autonomy</h2><p class="sub">Most "best open source AI agent platform" lists blur three categories. They are not interchangeable.</p></div>
+    <div class="grid">
+      <div class="card"><span class="tag">management platform</span><h3>Kortix (Suna)</h3><p>The whole lifecycle — agents, skills, memory, connectors, secrets, and a human review gate — in one git repo you own. Sessions run in isolated sandboxes and land work through change requests.</p><ul><li>Elastic 2.0 (source-available).</li><li>Self-host free; cloud $40/seat/mo.</li><li>Any model, your own keys.</li></ul></div>
+      <div class="card"><span class="tag">orchestration framework</span><h3>CrewAI · AutoGen</h3><p>Libraries you build on: CrewAI ("framework for orchestrating role-playing, autonomous agents") and Microsoft's AutoGen ("a programming framework for agentic AI"). You write the coordination logic.</p><ul><li>CrewAI is MIT; AutoGen is open source.</li><li>You self-assemble hosting, memory, and review.</li><li>Great for engineers building custom workflows.</li></ul></div>
+      <div class="card"><span class="tag">autonomous agent</span><h3>AutoGPT</h3><p>The original "accessible AI" autonomous-agent project (~187k stars). A starting point for self-directed agents, rather than a managed platform you'd run a company on.</p><ul><li>Open source.</li><li>Research-grade autonomy, not a governed fleet.</li></ul></div>
+    </div>
+    <div class="callout"><span class="ic" aria-hidden="true">i</span><p><strong>Why the distinction matters:</strong> a framework (CrewAI/AutoGen) gives you a library but leaves hosting, memory, secrets, and review to you. A management platform (Kortix) bundles those. Pick the category before the project.</p></div>
+  </div></section>
+
+  <section class="section reveal"><div class="wrap">
+    <div class="section-head"><p class="kicker">License reality</p><h2>Open source is not one thing</h2></div>
+    <p style="max-width:52em;color:var(--ink-muted)">CrewAI is MIT — genuinely OSI-open. Kortix (Suna) is Elastic License 2.0 — source-available: you can read and self-host the code but can't resell it as a competing hosted service. OpenWork and Eigent describe themselves as open source. <a href="/open-source-vs-source-available.html">Read the license explainer →</a></p>
+  </div></section>
+
+  <section class="section reveal"><div class="wrap">
+    <div class="section-head"><p class="kicker">How to choose</p><h2>Start from the license you can live with</h2></div>
+    <ol class="steps">
+      <li><strong>Confirm the license.</strong> OSI-open (CrewAI, AutoGen) for redistribution; source-available (Kortix) if you only need to self-host.</li>
+      <li><strong>Decide management vs framework.</strong> A governed fleet → management platform. A library to build on → framework.</li>
+      <li><strong>Check self-host reality.</strong> Kortix runs on your VPC/on-prem; frameworks leave deployment to you.</li>
+      <li><strong>Keep a human in the loop.</strong> Look for a review gate (change requests or approvals).</li>
+    </ol>
+  </div></section>
+
+  <section class="section reveal"><div class="wrap">
+    <div class="section-head"><p class="kicker">FAQ</p><h2>Common questions</h2></div>
+    <details class="faq"><summary>Is there an open source AI agent platform?<span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p>Yes — Kortix (Suna), OpenWork, and Eigent are open-source or source-available agent platforms, and CrewAI, AutoGen, and AutoGPT are open-source frameworks. They differ in license and what they bundle.</p></div></details>
+    <details class="faq"><summary>What is the best open source AI agent platform?<span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p>No single best. OSI-open: CrewAI/AutoGen. Governed self-hosted platform: Kortix (source-available). Local-first desktop: OpenWork.</p></div></details>
+    <details class="faq"><summary>Is CrewAI open source?<span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p>Yes, CrewAI is MIT-licensed. It is an orchestration framework for coordinating multiple agents — a library, not a turnkey management platform.</p></div></details>
+  </div></section>
+</main>
+
+<footer class="site-footer"><div class="wrap footer-grid"><div><a class="brand" href="/"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude Cowork</span></a><p class="disclaimer">Independent, not affiliated with any vendor named here. Verify licenses at each project's source.</p></div><div class="footer-src"><p><strong>Guides</strong></p><p><a href="/open-source-ai-agent-platforms.html">Platforms</a> · <a href="/self-hosted-ai-agent-platform.html">Self-hosted agents</a> · <a href="/self-hosted-ai-workspace.html">AI workspace</a> · <a href="/ai-agent-orchestration.html">Orchestration</a> · <a href="/claude-cowork-vs-chatgpt-work.html">vs ChatGPT Work</a> · <a href="/open-source-vs-source-available.html">License</a></p><p style="margin-top:var(--space-3)"><a href="/open-source-ai-agent-platforms.md">Markdown</a> · <a href="/llms.txt">llms.txt</a></p></div></div></footer>
+
+<script>(function(){var r=document.documentElement,K='oscc-theme',t=document.querySelector('[data-theme-toggle]'),s=document.querySelector('.i-sun'),m=document.querySelector('.i-moon');function a(x){r.setAttribute('data-theme',x);if(s&&m){s.style.display=x==='dark'?'none':'block';m.style.display=x==='dark'?'block':'none';}}var st=null;try{st=localStorage.getItem(K);}catch(e){}a(st||'dark');if(t)t.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';a(n);try{localStorage.setItem(K,n);}catch(e){}});var es=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:0.12});es.forEach(function(e){io.observe(e);});}else{es.forEach(function(e){e.classList.add('is-visible');});}})();</script>
+</body>
+</html>
