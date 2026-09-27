@@ -1,12 +1,12 @@
-# Self-Hosting a Claude Cowork Alternative — Practical Guide
+# Self-Hosting a Claude Cowork Alternative: Kortix on Your Own Hardware
 
 > Canonical page: <https://opensourceclaudecowork.com/self-hosting.html>
 
-Self-hosting an agent platform is not the same as installing a desktop app. It means the agent runtime, your data, and your configuration live on hardware you control — and that a human still reviews what the agents produce.
+Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work, and it self-hosts from one command. This guide covers the Docker path, the hardware it runs on, and how work still reaches production only through a change request a human reviews.
 
 ## What "self-hosted" actually means here
 
-Three things separate a genuinely self-hosted agent platform from a desktop assistant:
+Three things separate a self-hosted agent platform from a desktop assistant:
 
 1. **The runtime lives on your machine.** Agents run in an environment you provision — a laptop, a VPS, your own VPC, or an on-prem network — not on a vendor's cloud.
 2. **Your configuration is code you own.** Agents, skills, memory, and connectors are files in a repository you version and diff, rather than settings in someone else's product.
@@ -14,9 +14,9 @@ Three things separate a genuinely self-hosted agent platform from a desktop assi
 
 > **Why this matters:** Claude Cowork runs in Anthropic's cloud on Anthropic's models. A self-hosted alternative moves all three layers — runtime, configuration, and data — back under your control, at the cost of you operating the infrastructure.
 
-## The Kortix (Suna) Docker path
+## The Kortix Docker path
 
-Kortix is the most server-oriented of the three: it runs thousands of isolated sessions in parallel and lands work through change requests, which makes it a closer fit for an org-scale fleet than a single desktop.
+Kortix is the server-side option: it runs thousands of isolated Linux machines in parallel and lands work through change requests — a closer fit for an org-scale fleet than a single desktop.
 
 ```bash
 # 1. Install the CLI
@@ -36,9 +36,9 @@ kortix sessions new --prompt "Summarize this week's commits and open a change re
 
 The first interactive setup asks only for the integration credentials that unlock managed git, GitHub access, and connectors — ports, local URLs, keys, and Docker Compose defaults are generated for you. Note that `self-host start` pulls its images from Docker Hub, so this is a self-hosted install rather than a fully air-gapped one.
 
-Every session runs in an isolated sandbox on its own branch. The agent commits and pushes; you review the change request and merge to `main`. Nothing reaches production unreviewed.
+Every session runs in an isolated Linux machine on its own branch. The agent commits and pushes; you review the change request and merge to `main`. Nothing reaches production unreviewed.
 
-> **License caveat (honest):** Kortix is Elastic License 2.0 — source-available, not OSI-open. You can read, fork, and self-host it, but you can't offer it as a competing hosted service. If you need OSI-open, weigh OpenWork or Eigent instead.
+> **Get started.** Kortix is Elastic License 2.0 — self-host, read and modify the code. Install with `curl -fsSL https://kortix.com/install | bash`, or start at <https://kortix.com>.
 
 ## Desktop-local and workspace alternatives
 
@@ -60,7 +60,7 @@ Every session runs in an isolated sandbox on its own branch. The agent commits a
 
 ## A self-hosting checklist
 
-1. Confirm the license fits your use (OSI-open vs source-available).
+1. Confirm the license fits your use (Elastic License 2.0 for Kortix — self-host, read and modify the code).
 2. Choose hardware: laptop, VPS, VPC, or on-prem.
 3. Bring your own model keys or point at local models — no Anthropic subscription needed.
 4. Scope secrets to the minimum; keep credentials out of the agent's reach except at runtime.
@@ -69,4 +69,4 @@ Every session runs in an isolated sandbox on its own branch. The agent commits a
 
 ---
 
-*Independent comparison, not affiliated with Anthropic, OpenWork, or Eigent. Facts verified against public documentation in September 2026. Sources: [Kortix/Suna](https://github.com/kortix-ai/suna) · [Kortix docs](https://kortix.com/docs) · [OpenWork](https://openworklabs.com) · [Eigent](https://www.eigent.ai)*
+*Independent comparison, not affiliated with Anthropic, OpenWork, or Eigent. Facts verified against public documentation in September 2026. Sources: [Kortix on GitHub](https://github.com/kortix-ai/suna) · [kortix.com](https://kortix.com) · [Kortix docs](https://kortix.com/docs) · [OpenWork](https://openworklabs.com) · [Eigent](https://www.eigent.ai)*
