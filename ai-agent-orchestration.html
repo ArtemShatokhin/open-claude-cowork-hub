@@ -34,7 +34,7 @@
 </nav><div class="nav-actions"><button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button"><svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><a class="btn btn-primary" href="/#compare">Compare</a></div></div></header>
 <main>
 
-  <section class="hero" style="padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-10)"><div class="wrap"><p class="eyebrow">Coordination, not a single agent</p><h1 style="max-width:20ch">AI agent orchestration, explained.</h1><p class="lede">Orchestration is what turns a single assistant into a team: coordinating multiple agents, sequencing steps, and passing context between them. Here's what it means and which open-source frameworks do it.</p><p class="meta">Grounded in public docs · September 2026</p></div></section>
+  <section class="hero" style="padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-10)"><div class="wrap"><p class="eyebrow">Coordination, not a single agent</p><h1 style="max-width:20ch">AI agent orchestration, explained.</h1><p class="lede">Orchestration coordinates multiple agents toward one outcome — assigning roles, sequencing steps, and passing context. Kortix bundles it: a real agent harness (OpenCode) runs multi-step agent teams with per-tool permissions, and the result lands as a change request a human reads as a diff. This page covers what orchestration is and the open-source frameworks that do it.</p><p class="meta">Grounded in public docs · September 2026</p></div></section>
 
   <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">The concept</p><h2>What orchestration is</h2><p class="sub">A single agent does one thing at a time. Orchestration coordinates several agents toward one outcome.</p></div>
     <ol class="steps">
@@ -48,9 +48,9 @@
     <div class="grid">
       <div class="card"><span class="tag">MIT</span><h3>CrewAI</h3><p>"Framework for orchestrating role-playing, autonomous AI agents." A Python library for building teams of agents that collaborate — ~59k stars.</p></div>
       <div class="card"><span class="tag">Microsoft</span><h3>AutoGen</h3><p>"A programming framework for agentic AI." Multi-agent conversations for complex workflows — ~61k stars.</p></div>
-      <div class="card"><span class="tag">agent runtime</span><h3>OpenCode</h3><p>The open-source agent CLI that Kortix and OpenWork build on. Agents with a scoped reach into tools, on isolated sandboxes.</p></div>
+      <div class="card"><span class="tag">agent runtime</span><h3>OpenCode</h3><p>The open-source agent harness that powers Kortix. A real runtime with planning, tool use, multi-step runs that finish, and permissions per tool down to a single command — running inside an isolated Linux machine per session.</p></div>
     </div>
-    <div class="callout"><span class="ic" aria-hidden="true">i</span><p><strong>Framework vs platform:</strong> CrewAI/AutoGen give you a library and leave hosting, memory, secrets, and review to you. A management platform (Kortix) bundles orchestration with a review gate and audit trail.</p></div>
+    <div class="callout"><span class="ic" aria-hidden="true">i</span><p><strong>Framework vs platform:</strong> CrewAI/AutoGen give you a library and leave hosting, memory, secrets, and review to you. Kortix bundles orchestration with a review gate and audit trail, and starts at <a href="https://kortix.com">kortix.com</a>.</p></div>
   </div></section>
 
   <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">When you need it</p><h2>Single agent vs multi-agent</h2></div>
