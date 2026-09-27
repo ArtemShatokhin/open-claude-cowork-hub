@@ -1,6 +1,6 @@
 /* ============================================================
    Open Source Claude Cowork — comparison hub
-   Design language lifted from Kortix/Suna apps/web:
+   Design language lifted from Kortix apps/web:
    ink monochrome identity · surface-lift hierarchy (never opacity
    on type) · hairline borders · one signal blue (#0099ff, links/
    focus only, never a fill) · Roobert-style grotesque + mono ·
@@ -49,7 +49,7 @@
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }
 
-/* ---- Palette: DARK (default — Suna ships dark) ---- */
+/* ---- Palette: DARK (default — Kortix ships dark) ---- */
 :root,
 [data-theme='dark'] {
   color-scheme: dark;
@@ -374,7 +374,7 @@ a, button, [role='button'], input, summary {
   color: var(--ink-faint);
 }
 
-/* ---- Terminal demo (echo of Suna's cli-demo) ---- */
+/* ---- Terminal demo (echo of Kortix's cli-demo) ---- */
 .terminal {
   background: var(--code-bg);
   border: 1px solid var(--hairline);
