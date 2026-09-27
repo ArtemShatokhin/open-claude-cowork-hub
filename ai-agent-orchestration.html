@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Agent Orchestration: What It Is and the Open-Source Frameworks</title>
+<meta name="description" content="What AI agent orchestration means, the open-source frameworks (CrewAI, AutoGen, OpenCode), when you need multi-agent coordination vs a single agent, and how it differs from a management platform.">
+<link rel="canonical" href="https://opensourceclaudecowork.com/ai-agent-orchestration.html">
+<link rel="alternate" type="text/markdown" href="/ai-agent-orchestration.md">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M5 5l14 14M19 5L5 19'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI Agent Orchestration: What It Is and the Open-Source Frameworks","url":"https://opensourceclaudecowork.com/ai-agent-orchestration.html","description":"What AI agent orchestration means, the open-source frameworks (CrewAI, AutoGen, OpenCode), when you need multi-agent coordination vs a single agent, and how it differs from a management platform.","dateModified":"2026-09-26"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AI orchestration?", "acceptedAnswer": {"@type": "Answer", "text": "Orchestration is coordinating multiple AI agents to complete a task together \u2014 assigning roles, sequencing steps, and passing context between agents \u2014 rather than one agent doing everything alone."}}, {"@type": "Question", "name": "What is the best AI agent orchestrator?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your stack. CrewAI and AutoGen are popular open-source orchestration frameworks. If you want a governed, self-hosted platform that includes orchestration and a review gate, Kortix bundles it."}}, {"@type": "Question", "name": "Which framework is best for AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "CrewAI (MIT) for role-based agent teams; AutoGen (Microsoft) for programming agentic workflows. Both are libraries you build on, not turnkey platforms."}}]}</script>
+</head><header class="site-header"><div class="wrap nav"><a class="brand" href="/" aria-label="Home"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude&nbsp;Cowork</span><span class="tld">/orchestration</span></a><nav class="nav-links"><a href="/">Comparison</a><a href="/open-source-ai-agent-platforms.html">Platforms</a><a href="/self-hosting.html">Self-hosting</a></nav><div class="nav-actions"><button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button"><svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><a class="btn btn-primary" href="/#compare">Compare</a></div></div></header>
+<main>
+
+  <section class="hero" style="padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-10)"><div class="wrap"><p class="eyebrow">Coordination, not a single agent</p><h1 style="max-width:20ch">AI agent orchestration, explained.</h1><p class="lede">Orchestration is what turns a single assistant into a team: coordinating multiple agents, sequencing steps, and passing context between them. Here's what it means and which open-source frameworks do it.</p><p class="meta">Grounded in public docs · September 2026</p></div></section>
+
+  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">The concept</p><h2>What orchestration is</h2><p class="sub">A single agent does one thing at a time. Orchestration coordinates several agents toward one outcome.</p></div>
+    <ol class="steps">
+      <li><strong>Role assignment.</strong> A researcher agent, a writer agent, a reviewer agent — each with a defined job.</li>
+      <li><strong>Sequencing and handoffs.</strong> Output of one step becomes the input to the next.</li>
+      <li><strong>Shared context.</strong> Agents pass state and memory so the team stays coherent.</li>
+    </ol>
+  </div></section>
+
+  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">Open-source frameworks</p><h2>The frameworks that do it</h2></div>
+    <div class="grid">
+      <div class="card"><span class="tag">MIT</span><h3>CrewAI</h3><p>"Framework for orchestrating role-playing, autonomous AI agents." A Python library for building teams of agents that collaborate — ~59k stars.</p></div>
+      <div class="card"><span class="tag">Microsoft</span><h3>AutoGen</h3><p>"A programming framework for agentic AI." Multi-agent conversations for complex workflows — ~61k stars.</p></div>
+      <div class="card"><span class="tag">agent runtime</span><h3>OpenCode</h3><p>The open-source agent CLI that Kortix and OpenWork build on. Agents with a scoped reach into tools, on isolated sandboxes.</p></div>
+    </div>
+    <div class="callout"><span class="ic" aria-hidden="true">i</span><p><strong>Framework vs platform:</strong> CrewAI/AutoGen give you a library and leave hosting, memory, secrets, and review to you. A management platform (Kortix) bundles orchestration with a review gate and audit trail.</p></div>
+  </div></section>
+
+  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">When you need it</p><h2>Single agent vs multi-agent</h2></div>
+    <p style="max-width:52em;color:var(--ink-muted)">One agent is enough for a single bounded task. Orchestration earns its complexity when the work is naturally several roles — research, synthesis, and review — that benefit from specialization and handoffs. Start simple; add orchestration only when a single agent's output quality plateaus.</p>
+    <p style="margin-top:var(--space-6)"><a href="/open-source-ai-agent-platforms.html">Compare platforms and frameworks →</a></p>
+  </div></section>
+
+</main>
+<footer class="site-footer"><div class="wrap footer-grid"><div><a class="brand" href="/"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude Cowork</span></a><p class="disclaimer">Independent, not affiliated with any vendor named here. Verify licenses and pricing at each project's source.</p></div><div class="footer-src"><p><strong>Guides</strong></p><p><a href="/open-source-ai-agent-platforms.html">Platforms</a> · <a href="/self-hosted-ai-agent-platform.html">Self-hosted agents</a> · <a href="/self-hosted-ai-workspace.html">AI workspace</a> · <a href="/ai-agent-orchestration.html">Orchestration</a> · <a href="/claude-cowork-vs-chatgpt-work.html">vs ChatGPT Work</a> · <a href="/open-source-vs-source-available.html">License</a></p><p style="margin-top:var(--space-3)"><a href="/ai-agent-orchestration.md">Markdown</a> · <a href="/llms.txt">llms.txt</a></p></div></div></footer><script>(function(){var r=document.documentElement,K='oscc-theme',t=document.querySelector('[data-theme-toggle]'),s=document.querySelector('.i-sun'),m=document.querySelector('.i-moon');function a(x){r.setAttribute('data-theme',x);if(s&&m){s.style.display=x==='dark'?'none':'block';m.style.display=x==='dark'?'block':'none';}}var st=null;try{st=localStorage.getItem(K);}catch(e){}a(st||'dark');if(t)t.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';a(n);try{localStorage.setItem(K,n);}catch(e){}});var es=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:0.12});es.forEach(function(e){io.observe(e);});}else{es.forEach(function(e){e.classList.add('is-visible');});}})();</script>
+</body>
+</html>
