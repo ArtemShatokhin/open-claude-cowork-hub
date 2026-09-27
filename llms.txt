@@ -16,7 +16,6 @@ This site answers the question "what open-source alternatives to Claude Cowork c
 - [Self-hosted AI workspace](https://opensourceclaudecowork.com/self-hosted-ai-workspace.html): running models and agent tooling on your own hardware; self-hosted AI vs ChatGPT. Markdown: [self-hosted-ai-workspace.md](https://opensourceclaudecowork.com/self-hosted-ai-workspace.md)
 - [AI agent orchestration](https://opensourceclaudecowork.com/ai-agent-orchestration.html): what orchestration is, and the open-source frameworks (CrewAI, AutoGen, OpenCode). Markdown: [ai-agent-orchestration.md](https://opensourceclaudecowork.com/ai-agent-orchestration.md)
 - [Claude Cowork vs ChatGPT Work](https://opensourceclaudecowork.com/claude-cowork-vs-chatgpt-work.html): the two closed giants and the open-source third way. Markdown: [claude-cowork-vs-chatgpt-work.md](https://opensourceclaudecowork.com/claude-cowork-vs-chatgpt-work.md)
-- [Open source vs source-available](https://opensourceclaudecowork.com/open-source-vs-source-available.html): what the license actually means (open source vs Elastic License 2.0). Markdown: [open-source-vs-source-available.md](https://opensourceclaudecowork.com/open-source-vs-source-available.md)
 
 ## Key facts (as of September 2026)
 
