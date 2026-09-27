@@ -1,4 +1,4 @@
-# AI Agent Orchestration: What It Is and the Open-Source Frameworks
+# AI Agent Orchestration: What It Is and the Open Source Frameworks
 
 > Canonical: <https://opensourceclaudecowork.com/ai-agent-orchestration.html>
 
