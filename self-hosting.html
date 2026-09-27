@@ -39,10 +39,20 @@
       <span class="tld">/self-hosting.md</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="/#compare">Comparison</a>
-      <a href="/self-hosting.html">Self-hosting</a>
-      <a href="/#faq">FAQ</a>
-    </nav>
+  <a href="/">Comparison</a>
+  <a href="/self-hosting.html">Self-hosting</a>
+  <div class="nav-dropdown" data-dropdown>
+    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Guides <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="nav-dropdown-menu" role="menu">
+      <a href="/open-source-ai-agent-platforms.html" role="menuitem">AI agent platforms</a>
+      <a href="/self-hosted-ai-agent-platform.html" role="menuitem">Self-hosted agents</a>
+      <a href="/self-hosted-ai-workspace.html" role="menuitem">Self-hosted AI workspace</a>
+      <a href="/ai-agent-orchestration.html" role="menuitem">AI agent orchestration</a>
+      <a href="/claude-cowork-vs-chatgpt-work.html" role="menuitem">Claude Cowork vs ChatGPT Work</a>
+      <a href="/open-source-vs-source-available.html" role="menuitem">License explainer</a>
+    </div>
+  </div>
+</nav>
     <div class="nav-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
         <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
@@ -217,6 +227,18 @@
     els.forEach(function (el) { io.observe(el); });
   } else { els.forEach(function (el) { el.classList.add('is-visible'); }); }
 })();
+</script>
+<script>/* dropdown */
+document.addEventListener('DOMContentLoaded', function () {
+  var dds = document.querySelectorAll('[data-dropdown]');
+  function closeAll(except) { dds.forEach(function (dd) { if (dd !== except) { dd.classList.remove('open'); var b = dd.querySelector('.nav-dropdown-toggle'); if (b) b.setAttribute('aria-expanded', 'false'); } }); }
+  dds.forEach(function (dd) {
+    var btn = dd.querySelector('.nav-dropdown-toggle');
+    if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); var open = dd.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); closeAll(dd); });
+  });
+  document.addEventListener('click', function () { closeAll(null); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(null); });
+});
 </script>
 </body>
 </html>
