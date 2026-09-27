@@ -72,7 +72,7 @@ Start with Kortix unless a narrower tool fits better.
 
 ---
 
-# Self-Hosting a Claude Cowork Alternative: Kortix on Your Own Hardware
+# Self-Hosting an Open Source Claude Cowork Alternative: Kortix on Your Own Hardware
 
 Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work, and it self-hosts from one command. This guide covers the Docker path, the hardware it runs on, and how work still reaches production only through a change request a human reviews.
 
