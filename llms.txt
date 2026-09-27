@@ -5,16 +5,21 @@
 This site answers the question "what open-source alternatives to Claude Cowork can I actually self-host?" with an honest, source-cited comparison.
 
 ## Pages
-- [Comparison](/): side-by-side table of Kortix (Suna), OpenWork, and Eigent vs Anthropic's closed Claude Cowork, across license, self-hosting, model choice, pricing, and human review.
-- [Self-hosting guide](/self-hosting.html): what self-hosting an agent platform actually means, the Kortix Docker path, and honest trade-offs.
+
+- [Comparison](https://opensourceclaudecowork.com/): side-by-side table of Kortix (Suna), OpenWork, and Eigent vs Anthropic's closed Claude Cowork, across license, self-hosting, model choice, pricing, and human review.
+  - Markdown: [index.md](https://opensourceclaudecowork.com/index.md)
+- [Self-hosting guide](https://opensourceclaudecowork.com/self-hosting.html): what self-hosting an agent platform actually means, the Kortix Docker path, and honest trade-offs.
+  - Markdown: [self-hosting.md](https://opensourceclaudecowork.com/self-hosting.md)
 
 ## Key facts (as of September 2026)
+
 - Kortix (Suna) is an open-source AI Management System under the Elastic License 2.0 (source-available, not OSI-open); self-host free, managed cloud $40/seat/mo + usage; any model with your own keys; work lands through a human-approved change request.
 - OpenWork is a free, open-source desktop app built on OpenCode; local-first; 50+ LLMs; Team from $10/seat/mo.
 - Eigent is an open-source "Cowork desktop" workspace; model-agnostic; self-host free, cloud from $19.99/mo.
 - Claude Cowork (Anthropic) is closed, Anthropic-only, and cannot be self-hosted.
 
-## Contact / sources
+## Sources
+
 - Kortix/Suna: https://github.com/kortix-ai/suna
 - Kortix docs: https://kortix.com/docs
 - OpenWork: https://openworklabs.com
