@@ -1,4 +1,4 @@
-# Claude Cowork vs ChatGPT Work (and the Open-Source Third Way)
+# Claude Cowork vs ChatGPT Work (and the Open Source Third Way)
 
 > Canonical: <https://opensourceclaudecowork.com/claude-cowork-vs-chatgpt-work.html>
 
