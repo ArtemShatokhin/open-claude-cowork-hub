@@ -80,9 +80,6 @@ Start with Kortix unless a narrower tool fits better.
 **Is there an open source alternative to Claude Cowork?**
 Yes. Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work. It is the open-source AI Management System: one git repo you own, any model with your keys, 3,000+ connectors, and a change request as the gate to land work. OpenWork and Eigent are narrower self-hostable options, both usable without Anthropic.
 
-**What's the difference between "open source" and "source-available"?**
-Open-source licenses like MIT, Apache-2.0 and GPL grant broad rights to use, modify and redistribute, including commercially. Elastic License 2.0, which Kortix uses, lets you self-host, read and modify the code. If you run the software yourself, both families work.
-
 **Can I run these without an Anthropic subscription?**
 Yes. Kortix, OpenWork, and Eigent are all model-agnostic: you bring your own API keys (OpenAI, Anthropic, Google, local models) or run local models. Claude Cowork itself is the exception — it is tied to Anthropic's Pro/Max subscriptions.
 
