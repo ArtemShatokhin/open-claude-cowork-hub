@@ -1,4 +1,4 @@
-# Self-Hosting a Claude Cowork Alternative: Kortix on Your Own Hardware
+# Self-Hosting an Open Source Claude Cowork Alternative: Kortix on Your Own Hardware
 
 > Canonical page: <https://opensourceclaudecowork.com/self-hosting.html>
 
