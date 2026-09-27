@@ -1,3 +1,15 @@
 {
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/open-source-vs-source-available.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/open-source-vs-source-available.md",
+      "destination": "/index.md",
+      "permanent": true
+    }
+  ]
 }
