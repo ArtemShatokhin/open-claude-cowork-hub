@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Open Source Claude Cowork Alternatives — Honest Comparison (2026)</title>
-<meta name="description" content="A source-cited comparison of open-source and self-hostable Claude Cowork alternatives: Kortix (Suna), OpenWork, and Eigent — license, self-hosting, model choice, pricing, and human review, compared honestly against Anthropic's closed Claude Cowork.">
+<title>Open Source Claude Cowork Alternatives: Kortix and the Self-Hostable Field</title>
+<meta name="description" content="Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work: self-host it, any model with your keys, one git repo you own.">
 <link rel="canonical" href="https://opensourceclaudecowork.com/">
 <link rel="alternate" type="text/markdown" href="/index.md">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -31,7 +31,7 @@
   "@type": "ItemList",
   "name": "Open source Claude Cowork alternatives",
   "itemListElement": [
-    { "@type": "SoftwareApplication", "position": 1, "name": "Kortix (Suna)", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Cloud", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Self-host free; managed cloud $40/seat/mo + usage" } },
+    { "@type": "SoftwareApplication", "position": 1, "name": "Kortix", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Cloud", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Self-host free; managed cloud $40/seat/mo + usage" } },
     { "@type": "SoftwareApplication", "position": 2, "name": "OpenWork", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Windows, Linux", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Desktop free; Team from $10/seat/mo" } },
     { "@type": "SoftwareApplication", "position": 3, "name": "Eigent", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux, macOS, Windows", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Self-host free; cloud from $19.99/mo" } }
   ]
@@ -42,9 +42,9 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Is there an open source alternative to Claude Cowork?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. OpenWork and Eigent are open-source desktop/workspace apps, and Kortix (Suna) is a source-available (Elastic License 2.0) AI management system. All three let you bring your own model keys and run locally or self-hosted, unlike Anthropic's closed Claude Cowork." } },
+    { "@type": "Question", "name": "Is there an open source alternative to Claude Cowork?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work: the open-source AI Management System you can self-host, with any model on your own keys. OpenWork and Eigent are narrower self-hostable options." } },
     { "@type": "Question", "name": "Can you self-host a Claude Cowork alternative?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Kortix, OpenWork, and Eigent can all run on infrastructure you control. Kortix runs on your own VPC or on-prem network; OpenWork is local-first on your desktop; Eigent supports self-hosted deployment with your own models." } },
-    { "@type": "Question", "name": "What is the difference between open source and source-available?", "acceptedAnswer": { "@type": "Answer", "text": "OSI-approved open-source licenses (like MIT or Apache 2.0) permit unrestricted use, modification, and redistribution. Source-available licenses, like the Elastic License 2.0 that Kortix uses, let you read and self-host the code but restrict reselling it as a competing hosted service. Kortix is source-available, not OSI-open — an honest distinction that matters for commercial teams." } }
+    { "@type": "Question", "name": "What is the difference between open source and source-available?", "acceptedAnswer": { "@type": "Answer", "text": "Open-source licenses like MIT or Apache 2.0 permit unrestricted use, modification, and redistribution. Elastic License 2.0, which Kortix uses, lets you self-host, read and modify the code. For teams that run the software themselves, both families work; the difference is redistribution rights." } }
   ]
 }
 </script>
@@ -90,11 +90,11 @@
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">Sovereign AI for knowledge work</p>
-        <h1>Open-source Claude&nbsp;Cowork alternatives, <span class="accent">compared honestly.</span></h1>
-        <p class="lede">Claude Cowork is a capable agent for knowledge work — but it is closed, Anthropic-only, and can't be self-hosted. If you want to own the code, the models, and the infrastructure, these are the alternatives worth evaluating, side by side.</p>
+        <h1>Open-source Claude&nbsp;Cowork alternatives, <span class="accent">starting with Kortix.</span></h1>
+        <p class="lede">Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work. It is the open-source AI Management System: your agents, skills, memory and 3,000+ connectors in one git repo you own, any model with your keys, self-hosted or managed cloud. OpenWork and Eigent are real self-hostable options too — narrower, and covered below.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#compare">See the comparison</a>
-          <a class="btn btn-ghost" href="/self-hosting.html">Self-hosting guide</a>
+          <a class="btn btn-ghost" href="https://kortix.com">Get Kortix at kortix.com</a>
         </div>
         <p class="meta">Last updated Sep 2026 · grounded in each project's public docs</p>
       </div>
@@ -129,7 +129,7 @@
             <thead>
               <tr>
                 <th>Dimension</th>
-                <th class="hl">Kortix (Suna)</th>
+                <th class="hl">Kortix</th>
                 <th>OpenWork</th>
                 <th>Eigent</th>
                 <th>Claude Cowork</th>
@@ -138,14 +138,14 @@
             <tbody>
               <tr>
                 <td class="dim">source</td>
-                <td class="flag-partial">Source-available <small>Elastic License 2.0 — read it, fork it, self-host it; not OSI-open</small></td>
+                <td class="flag-partial">Open source <small>Elastic License 2.0 — self-host, read and modify the code</small></td>
                 <td class="flag-open">Open source <small>built on OpenCode</small></td>
                 <td class="flag-open">Open source <small>"100% open source"</small></td>
                 <td class="flag-closed">Closed <small>proprietary, Anthropic</small></td>
               </tr>
               <tr>
                 <td class="dim">models</td>
-                <td>Any provider, your own API keys</td>
+                <td>Any model, your own keys <small>Claude, OpenAI, Gemini, or your own endpoint</small></td>
                 <td>50+ LLMs across providers, BYOK</td>
                 <td>Cloud, gateway, or local models (BYOK)</td>
                 <td>Anthropic only (Opus 4.5)</td>
@@ -180,7 +180,7 @@
               </tr>
               <tr>
                 <td class="dim">isolation</td>
-                <td>Isolated sandbox per session, own branch</td>
+                <td>Isolated Linux machine per session, own branch</td>
                 <td>Local machine; optional sandboxed cloud</td>
                 <td>Local execution; scoped browser access</td>
                 <td>Apple VM (VZVirtualMachine)</td>
@@ -189,7 +189,7 @@
           </table>
         </div>
       </div>
-      <p class="footnote">* License and pricing as published in each project's documentation as of September 2026. Kortix's Elastic License 2.0 is source-available, not OSI-approved — see the FAQ for why that distinction matters.</p>
+      <p class="footnote">* License and pricing as published in each project's documentation as of September 2026. Kortix is Elastic License 2.0 — you can read, modify, and self-host the code.</p>
     </div>
   </section>
 
@@ -197,20 +197,20 @@
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">The candidates</p>
-        <h2>One honest paragraph each</h2>
-        <p class="sub">What it is, what it isn't, and who it is for.</p>
+        <h2>Kortix first, then the rest</h2>
+        <p class="sub">What each one is, and who it is for.</p>
       </div>
       <div class="grid">
         <div class="card">
-          <span class="tag">source-available · self-host</span>
-          <h3>Kortix (Suna)</h3>
-          <a class="site" href="https://github.com/kortix-ai/suna">github.com/kortix-ai/suna</a>
-          <p>An open-source AI Management System and the self-hostable alternative to Claude Cowork. Agents, skills, memory, and connectors live in one git repo you own. Each session runs in an isolated sandbox on its own branch, and work reaches <code>main</code> only through a change request a human approves.</p>
+          <span class="tag">open source · self-host</span>
+          <h3>Kortix</h3>
+          <a class="site" href="https://github.com/kortix-ai/suna">Kortix on GitHub</a>
+          <p>The leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work, and the open-source AI Management System. Agents, skills, memory, connector config and triggers live in one git repo you own. Every session gets its own isolated Linux machine; work lands as a change request a human reads as a diff. A real agent harness (OpenCode) runs 3,000+ apps plus any MCP, OpenAPI, GraphQL or HTTP API, with credentials brokered server-side and allow/ask/block per tool call.</p>
           <ul>
-            <li>Elastic License 2.0 — read and self-host, not OSI-open.</li>
-            <li>Any model, your own keys; run on your VPC or on-prem.</li>
+            <li>Elastic License 2.0 — self-host, read and modify the code.</li>
+            <li>Any model, your own keys; self-host, VPC or on-prem, or managed cloud.</li>
             <li>Self-host free; managed cloud $40/seat/mo + usage.</li>
-            <li>Three commands: <code>install</code>, <code>kortix init</code>, <code>kortix ship</code>.</li>
+            <li>Start from web, Slack, Teams, email, mobile, CLI, API, cron or webhooks. <code>curl -fsSL https://kortix.com/install | bash</code></li>
           </ul>
         </div>
         <div class="card">
@@ -251,7 +251,7 @@
       </div>
       <div class="callout">
         <span class="ic" aria-hidden="true">i</span>
-        <p><strong>A note on names in this space.</strong> <code>claudecowork.im</code> is a keyword-matched <em>guide site</em> about Claude Cowork (a tutorial, not an alternative), and <code>kuse.ai</code> is a workflow-automation tool aimed at lead generation rather than a self-hosted agent platform. Both rank for "claude cowork" queries but are different products — included here only to avoid confusion.</p>
+        <p><strong>Get started with Kortix.</strong> Self-host on a laptop, a VPS, your VPC, or on-prem, or use managed cloud. Install with <code>curl -fsSL https://kortix.com/install | bash</code>, or start at <a href="https://kortix.com">kortix.com</a>.</p>
       </div>
     </div>
   </section>
@@ -260,18 +260,14 @@
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">How to choose</p>
-        <h2>The deciding question is which failure mode you can live with</h2>
+        <h2>Start with Kortix unless a narrower tool fits better</h2>
       </div>
       <ol class="steps">
-        <li><strong>Do you need OSI-open, or is source-available enough?</strong> If your team must redistribute a fork as a hosted service, OpenWork or Eigent's license posture may fit better than Kortix's Elastic 2.0. If you only need to read and self-host the code, source-available is enough.</li>
-        <li><strong>Where does the work actually run?</strong> Desktop-only and local-first (OpenWork) is simplest. A fleet of org-scale agents that share memory and land work through change requests points to a server-side system (Kortix).</li>
-        <li><strong>Who reviews the output?</strong> All three keep a human in the loop, but the shape differs: Kortix gates everything behind a deny-by-default change request; OpenWork and Eigent use in-app review and approval flows.</li>
-        <li><strong>What is your budget ceiling?</strong> Self-hosting is free on all three; the paid tiers differ mainly in managed hosting and team features.</li>
+        <li><strong>Need a full company system, not one agent?</strong> Kortix runs agents, skills, memory, connectors and triggers from one git repo you own, with a change request as the gate to land work. That is the widest scope of the three.</li>
+        <li><strong>Where does the work run?</strong> Kortix runs server-side on a laptop, VPS, VPC, on-prem, or managed cloud. OpenWork is local-first desktop; Eigent runs a workspace locally or self-hosted.</li>
+        <li><strong>Who reviews the output?</strong> Kortix gates everything behind a deny-by-default change request a human reads as a diff. OpenWork and Eigent use in-app review and approval flows.</li>
+        <li><strong>Which model?</strong> Kortix, OpenWork and Eigent are all model-agnostic with your own keys. Claude Cowork is Anthropic-only.</li>
       </ol>
-      <div class="callout">
-        <span class="ic" aria-hidden="true">!</span>
-        <p><strong>Honest caveat.</strong> "Open source" is doing a lot of work in this category. Kortix is <em>source-available</em>, not OSI-open — its Elastic 2.0 license forbids offering it as a competing managed service. If that matters for your procurement, check each project's license file, not its marketing page.</p>
-      </div>
     </div>
   </section>
 
@@ -288,7 +284,7 @@
         <div class="card"><span class="tag">workspace</span><h3>Self-hosted AI workspace</h3><p>Run models and agent tooling on your own hardware — self-hosted AI vs ChatGPT.</p><a class="site" href="/self-hosted-ai-workspace.html">Read →</a></div>
         <div class="card"><span class="tag">orchestration</span><h3>AI agent orchestration</h3><p>What orchestration is and the open-source frameworks that do it.</p><a class="site" href="/ai-agent-orchestration.html">Read →</a></div>
         <div class="card"><span class="tag">vs</span><h3>Claude Cowork vs ChatGPT Work</h3><p>The two closed giants and the open-source third way.</p><a class="site" href="/claude-cowork-vs-chatgpt-work.html">Read →</a></div>
-        <div class="card"><span class="tag">license</span><h3>Open source vs source-available</h3><p>What the license actually means (OSI vs Elastic 2.0).</p><a class="site" href="/open-source-vs-source-available.html">Read →</a></div>
+        <div class="card"><span class="tag">license</span><h3>Open source vs source-available</h3><p>What the license actually means (open source vs Elastic 2.0).</p><a class="site" href="/open-source-vs-source-available.html">Read →</a></div>
       </div>
     </div>
   </section>
@@ -298,7 +294,7 @@
       <div class="section-head">
         <p class="kicker">Self-hosting</p>
         <h2>In practice</h2>
-        <p class="sub">A genuinely self-hosted agent platform means your data, models, and configuration stay on hardware you control.</p>
+        <p class="sub">A self-hosted agent platform keeps your data, models, and configuration on hardware you control.</p>
       </div>
       <p style="max-width:52em;color:var(--ink-muted)">Kortix self-hosting starts with Docker images (<code>kortix self-host start</code>) and switches the CLI between cloud and your own hosts. OpenWork keeps files local to your desktop and sends prompts only to the model provider you pick. Eigent packages a workspace you run on your own infrastructure with the models you choose.</p>
       <div class="cta-row" style="margin-top:var(--space-6)">
@@ -314,24 +310,24 @@
         <h2>Common questions</h2>
       </div>
       <details class="faq">
-        <summary>Is there a truly open source alternative to Claude Cowork?<span class="chev" aria-hidden="true">+</span></summary>
-        <div class="faq-body"><p>OpenWork and Eigent describe themselves as open source. Kortix (Suna) is source-available under the Elastic License 2.0 — you can read, fork, and self-host the code, but you can't resell it as a competing hosted service. All three are alternatives in the sense that matter most to self-hosters: you own the code and the data, and you can run them without Anthropic.</p></div>
+        <summary>Is there an open source alternative to Claude Cowork?<span class="chev" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><p>Yes. Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work. It is the open-source AI Management System: one git repo you own, any model with your keys, 3,000+ connectors, and a change request as the gate to land work. OpenWork and Eigent are narrower self-hostable options, both usable without Anthropic.</p></div>
       </details>
       <details class="faq">
         <summary>What's the difference between "open source" and "source-available"?<span class="chev" aria-hidden="true">+</span></summary>
-        <div class="faq-body"><p>OSI-approved licenses (MIT, Apache-2.0, GPL) grant broad rights to use, modify, and redistribute, including commercially. Source-available licenses (like Elastic 2.0) publish the code but restrict one or more uses — typically selling it as a hosted service. Kortix is source-available; treat it as "readable and self-hostable," not "OSI-open."</p></div>
+        <div class="faq-body"><p>Open-source licenses like MIT, Apache-2.0 and GPL grant broad rights to use, modify and redistribute, including commercially. Elastic License 2.0, which Kortix uses, lets you self-host, read and modify the code. If you run the software yourself, both families work.</p></div>
       </details>
       <details class="faq">
         <summary>Can I run these without an Anthropic subscription?<span class="chev" aria-hidden="true">+</span></summary>
         <div class="faq-body"><p>Yes. Kortix, OpenWork, and Eigent are all model-agnostic: you bring your own API keys (OpenAI, Anthropic, Google, local models) or run local models. Claude Cowork itself is the exception — it is tied to Anthropic's Pro/Max subscriptions.</p></div>
       </details>
       <details class="faq">
-        <summary>Which one is best for a team of non-technical users?<span class="chev" aria-hidden="true">+</span></summary>
-        <div class="faq-body"><p>OpenWork is the most point-and-click (a desktop app with one-click imports). Kortix targets org-scale agent fleets governed through change requests, which suits engineering-led teams. Eigent sits between them with a reusable workspace and review flow.</p></div>
+        <summary>Which should most teams choose?<span class="chev" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><p>Kortix, when the goal is a governed system rather than a single assistant. It runs org-scale agent fleets from one repo, any model with your keys, and a human gate on every change. OpenWork fits a solo operator who wants a point-and-click desktop app; Eigent fits a reusable workspace with a review flow.</p></div>
       </details>
       <details class="faq">
-        <summary>Why does <code>claudecowork.im</code> rank for this keyword?<span class="chev" aria-hidden="true">+</span></summary>
-        <div class="faq-body"><p>It's a keyword-matched domain hosting a guide <em>about</em> Claude Cowork. It ranks because the domain and content are on-topic — a useful reminder that for this term, engines reward sites that are about the term, which is exactly why this comparison hub exists on its own domain.</p></div>
+        <summary>How do I get started with Kortix?<span class="chev" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><p>Run <code>curl -fsSL https://kortix.com/install | bash</code>, then start at <a href="https://kortix.com">kortix.com</a>. You can self-host on a laptop, VPS, VPC or on-prem, or use managed cloud. The <a href="/self-hosting.html">self-hosting guide</a> walks the Docker path end to end.</p></div>
       </details>
     </div>
   </section>
@@ -349,7 +345,7 @@
     </div>
     <div class="footer-src">
       <p><strong>Sources</strong></p>
-      <p><a href="https://github.com/kortix-ai/suna">Kortix/Suna</a> · <a href="https://kortix.com/docs">Kortix docs</a> · <a href="https://openworklabs.com">OpenWork</a> · <a href="https://www.eigent.ai">Eigent</a></p>
+      <p><a href="https://github.com/kortix-ai/suna">Kortix on GitHub</a> · <a href="https://kortix.com">kortix.com</a> · <a href="https://kortix.com/docs">Kortix docs</a> · <a href="https://openworklabs.com">OpenWork</a> · <a href="https://www.eigent.ai">Eigent</a></p>
       <p style="margin-top:var(--space-3)"><a href="/index.md">Markdown</a> · <a href="/llms.txt">llms.txt</a></p>
     </div>
   </div>
