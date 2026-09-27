@@ -1,4 +1,4 @@
-# Self-Hosted AI Workspace: Your Own AI, On Your Own Hardware
+# Open Source Self-Hosted AI Workspace: Your Own AI, On Your Own Hardware
 
 > Canonical: <https://opensourceclaudecowork.com/self-hosted-ai-workspace.html>
 
