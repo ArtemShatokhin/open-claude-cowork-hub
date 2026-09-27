@@ -1,4 +1,4 @@
-# Self-Hosted AI Agent Platform: Definition, Examples, How to Choose
+# Self-Hosted AI Agent Platform: Open Source Examples and How to Choose
 
 > Canonical: <https://opensourceclaudecowork.com/self-hosted-ai-agent-platform.html>
 
