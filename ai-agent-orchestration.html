@@ -17,6 +17,25 @@
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI Agent Orchestration: What It Is and the Open-Source Frameworks","url":"https://opensourceclaudecowork.com/ai-agent-orchestration.html","description":"What AI agent orchestration means, the open-source frameworks (CrewAI, AutoGen, OpenCode), when you need multi-agent coordination vs a single agent, and how it differs from a management platform.","dateModified":"2026-09-26"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AI orchestration?", "acceptedAnswer": {"@type": "Answer", "text": "Orchestration is coordinating multiple AI agents to complete a task together \u2014 assigning roles, sequencing steps, and passing context between agents \u2014 rather than one agent doing everything alone."}}, {"@type": "Question", "name": "What is the best AI agent orchestrator?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your stack. CrewAI and AutoGen are popular open-source orchestration frameworks. If you want a governed, self-hosted platform that includes orchestration and a review gate, Kortix bundles it."}}, {"@type": "Question", "name": "Which framework is best for AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "CrewAI (MIT) for role-based agent teams; AutoGen (Microsoft) for programming agentic workflows. Both are libraries you build on, not turnkey platforms."}}]}</script>
+<!-- GA4 + consent mode: analytics cookies only after Accept -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage': 'denied','wait_for_update':500});
+try{if(localStorage.getItem('kx-consent')==='granted'){gtag('consent','update',{'analytics_storage': 'granted'});}}catch(e){}
+gtag('js',new Date());gtag('config', 'G-DT6FGYCF6P');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6FGYCF6P"></script>
+<script>
+(function(){var k='kx-consent',v=null;try{v=localStorage.getItem(k);}catch(e){}if(v)return;
+function show(){var b=document.createElement('div');b.id=k;b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
+b.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:2147483000;background:#111;color:#fff;border:1px solid rgba(255,255,255,.28);font:14px/1.45 system-ui,sans-serif;padding:12px 14px;border-radius:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 6px 24px rgba(0,0,0,.3)';
+var t=document.createElement('span');t.style.cssText='flex:1 1 220px';t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
+function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;
+x.style.cssText='font:inherit;padding:6px 14px;border-radius:6px;border:1px solid #fff;cursor:pointer;background:'+(grant?'#fff':'transparent')+';color:'+(grant?'#111':'#fff');
+x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage': 'granted'});}b.remove();};return x;}
+b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));document.body.appendChild(b);}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',show);}else{show();}})();
+</script>
 </head><header class="site-header"><div class="wrap nav"><a class="brand" href="/" aria-label="Home"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude&nbsp;Cowork</span><span class="tld">/orchestration</span></a><nav class="nav-links" aria-label="Primary">
   <a href="/">Comparison</a>
   <a href="/self-hosting.html">Self-hosting</a>
