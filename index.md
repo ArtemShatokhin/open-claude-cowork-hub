@@ -75,6 +75,34 @@ Start with Kortix unless a narrower tool fits better.
 3. **Who reviews the output?** Kortix gates everything behind a deny-by-default change request a human reads as a diff. OpenWork and Eigent use in-app review and approval flows.
 4. **Which model?** Kortix, OpenWork and Eigent are all model-agnostic with your own keys. Claude Cowork is Anthropic-only.
 
+## Self-hosted Claude Cowork: what you actually install
+
+Claude Cowork itself runs only in Anthropic's cloud, so a self-hosted setup means running one of the open source alternatives on hardware you control. Kortix is the recommended pick: the open-source AI Management System, where agents, skills, memory, and connectors live in one git repo you own. On your own box it runs as one Docker Compose stack. Every session boots its own isolated Linux machine on a separate sandbox provider, and nothing reaches your repo until you merge the change request a session opens. Kortix is open source (Elastic License 2.0) — self-host, read and modify the code ([Kortix on GitHub](https://github.com/kortix-ai/suna)).
+
+OpenWork asks for the least: a desktop app for macOS, Windows, and Linux that keeps your files on your machine, with an optional self-hosted control plane (OpenWork Den) for teams ([OpenWork repository](https://github.com/different-ai/openwork)). Eigent runs a desktop app with a local backend server, the setup its [repository](https://github.com/eigent-ai/eigent) calls the recommended way to run it, or a self-hosted deployment for teams that want review and approval flows on their own infrastructure.
+
+The install footprint, side by side:
+
+| Option | What you install | Where data and config live | Which models |
+|---|---|---|---|
+| Kortix | the kortix CLI and one Docker Compose stack on a Linux box | Postgres and file storage under `~/.config/kortix/self-host/`; config in your git repo | any model with your key, the default on self-hosted |
+| OpenWork | a desktop app (macOS, Windows, Linux); Den control plane optional for teams | on your machine by default; team data on your Den server | 50+ providers with your keys, or local via Ollama |
+| Eigent | a desktop app plus local backend server; self-hosted deployment for orgs | local by default; self-hosted keeps it on infrastructure you control | cloud, enterprise gateway, or local models (vLLM, Ollama, LM Studio) |
+
+*Install footprint as published by each project, checked October 2026.*
+
+Once it runs, a Kortix instance keeps everything under `~/.config/kortix/self-host/<instance>/`: Postgres in `volumes/db/data`, files in `volumes/storage`, and secrets in `.env`. Each API container defaults to a 640 MiB memory limit, which suits an 8 GiB host; on a 16 GiB host the docs suggest raising it to 1 GiB.
+
+From bare box to running Kortix, in five steps (the self-hosting docs list every flag):
+
+1. Install the CLI on the box: `curl -fsSL https://kortix.com/install | bash`. macOS and Linux binaries only; there is no Windows build yet.
+2. Point DNS at that box: an A/AAAA record for your domain and one for `api.<domain>`, with ports 80 and 443 open so the bundled Caddy proxy can issue a TLS certificate.
+3. Initialize and start the stack: `kortix self-host init --domain kortix.example.com`, then `kortix self-host start`. One Docker Compose stack comes up (frontend, API, LLM gateway, Supabase distribution), and `kortix self-host status` tracks it.
+4. Set the sandbox provider key with `kortix self-host configure`. Agent sessions run on that separate provider (Daytona by default; Platinum and E2B are also supported), outside the Compose stack.
+5. Sign up in the dashboard and connect your own model key in the picker, the default for self-hosted instances. Then scaffold your first project with `kortix init my-app` and start sessions from the web app, Slack, or the CLI.
+
+No domain yet? `kortix self-host init --tunnel cloudflare` followed by `kortix self-host start` brings up an evaluation instance without one, and the tunnel URL changes on every restart, so use it for evaluation. For hardware choices and a pre-flight checklist before you onboard a team, see the full [self-hosting guide](https://opensourceclaudecowork.com/self-hosting.html). Ready to run it yourself? Start at [kortix.com](https://kortix.com).
+
 ## FAQ
 
 **Is there an open source alternative to Claude Cowork?**
