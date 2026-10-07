@@ -305,6 +305,67 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </div>
   </section>
 
+  <section class="section reveal" id="selfhosted-setup">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Self-hosted setup</p>
+        <h2>Self-hosted Claude Cowork: what you actually install</h2>
+        <p class="sub">What self-hosting a Claude Cowork alternative means in practice, and the install footprint of each option.</p>
+      </div>
+      <p style="max-width:52em;color:var(--ink-muted)">Claude Cowork itself runs only in Anthropic's cloud, so a self-hosted setup means running one of the open source alternatives on hardware you control. Kortix is the recommended pick: the open-source AI Management System, where agents, skills, memory, and connectors live in one git repo you own. On your own box it runs as one Docker Compose stack. Every session boots its own isolated Linux machine on a separate sandbox provider, and nothing reaches your repo until you merge the change request a session opens. Kortix is open source (Elastic License 2.0) — self-host, read and modify the code (<a href="https://github.com/kortix-ai/suna">Kortix on GitHub</a>).</p>
+      <p style="max-width:52em;color:var(--ink-muted)">OpenWork asks for the least: a desktop app for macOS, Windows, and Linux that keeps your files on your machine, with an optional self-hosted control plane (OpenWork Den) for teams (<a href="https://github.com/different-ai/openwork">OpenWork repository</a>). Eigent runs a desktop app with a local backend server, the setup its <a href="https://github.com/eigent-ai/eigent">repository</a> calls the recommended way to run it, or a self-hosted deployment for teams that want review and approval flows on their own infrastructure.</p>
+      <p style="max-width:52em;color:var(--ink-muted)">The install footprint, side by side:</p>
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table class="cmp">
+            <thead>
+              <tr>
+                <th>Option</th>
+                <th>What you install</th>
+                <th>Where data and config live</th>
+                <th>Which models</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="dim"><strong>Kortix</strong></td>
+                <td>the kortix CLI and one Docker Compose stack on a Linux box</td>
+                <td>Postgres and file storage under <code>~/.config/kortix/self-host/</code>; config in your git repo</td>
+                <td>any model with your key, the default on self-hosted</td>
+              </tr>
+              <tr>
+                <td class="dim">OpenWork</td>
+                <td>a desktop app (macOS, Windows, Linux); Den control plane optional for teams</td>
+                <td>on your machine by default; team data on your Den server</td>
+                <td>50+ providers with your keys, or local via Ollama</td>
+              </tr>
+              <tr>
+                <td class="dim">Eigent</td>
+                <td>a desktop app plus local backend server; self-hosted deployment for orgs</td>
+                <td>local by default; self-hosted keeps it on infrastructure you control</td>
+                <td>cloud, enterprise gateway, or local models (vLLM, Ollama, LM Studio)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="footnote">Install footprint as published by each project, checked October 2026.</p>
+      <p style="max-width:52em;color:var(--ink-muted)">Once it runs, a Kortix instance keeps everything under <code>~/.config/kortix/self-host/&lt;instance&gt;/</code>: Postgres in <code>volumes/db/data</code>, files in <code>volumes/storage</code>, and secrets in <code>.env</code>. Each API container defaults to a 640 MiB memory limit, which suits an 8 GiB host; on a 16 GiB host the docs suggest raising it to 1 GiB.</p>
+      <p style="max-width:52em;color:var(--ink-muted)">From bare box to running Kortix, in five steps (the self-hosting docs list every flag):</p>
+      <ol class="steps">
+        <li><strong>Install the CLI</strong> on the box: <code>curl -fsSL https://kortix.com/install | bash</code>. macOS and Linux binaries only; there is no Windows build yet.</li>
+        <li><strong>Point DNS at that box:</strong> an A/AAAA record for your domain and one for <code>api.&lt;domain&gt;</code>, with ports 80 and 443 open so the bundled Caddy proxy can issue a TLS certificate.</li>
+        <li><strong>Initialize and start the stack:</strong> <code>kortix self-host init --domain kortix.example.com</code>, then <code>kortix self-host start</code>. One Docker Compose stack comes up (frontend, API, LLM gateway, Supabase distribution), and <code>kortix self-host status</code> tracks it.</li>
+        <li><strong>Set the sandbox provider key</strong> with <code>kortix self-host configure</code>. Agent sessions run on that separate provider (Daytona by default; Platinum and E2B are also supported), outside the Compose stack.</li>
+        <li><strong>Sign up in the dashboard</strong> and connect your own model key in the picker, the default for self-hosted instances. Then scaffold your first project with <code>kortix init my-app</code> and start sessions from the web app, Slack, or the CLI.</li>
+      </ol>
+      <p style="max-width:52em;color:var(--ink-muted)">No domain yet? <code>kortix self-host init --tunnel cloudflare</code> followed by <code>kortix self-host start</code> brings up an evaluation instance without one, and the tunnel URL changes on every restart, so use it for evaluation. For hardware choices and a pre-flight checklist before you onboard a team, see the full <a href="/self-hosting.html">self-hosting guide</a>.</p>
+      <div class="cta-row" style="margin-top:var(--space-6)">
+        <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Ready to run it yourself? Start at kortix.com →</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section reveal" id="selfhost">
     <div class="wrap">
       <div class="section-head">
