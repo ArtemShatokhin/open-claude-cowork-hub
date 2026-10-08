@@ -1,33 +1,48 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Self-Hosting an Open Source Claude Cowork Alternative: Kortix on Your Own Hardware</title>
-<meta name="description" content="Self-host Kortix, the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work: the Docker path, hardware choices, and reviewed change requests.">
-<link rel="canonical" href="https://opensourceclaudecowork.com/self-hosting.html">
-<link rel="alternate" type="text/markdown" href="/self-hosting.md">
-<meta name="robots" content="index, follow">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M5 5l14 14M19 5L5 19'/%3E%3C/svg%3E">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Open Source Claude Cowork">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='2' width='20' height='20' rx='3' fill='%2393401c'/%3E%3Cpath d='M12 6.8 17.2 12 12 17.2 6.8 12Z' fill='none' stroke='%23faf8f2' stroke-width='1.8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "Self-host an open-source Claude Cowork alternative",
-  "step": [
-    { "@type": "HowToStep", "name": "Pick a self-hostable platform", "text": "Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work; OpenWork (local-first desktop) and Eigent (self-hosted workspace) are narrower options." },
-    { "@type": "HowToStep", "name": "Provision the hardware", "text": "A laptop, a VPS, your own VPC, or on-prem network. For Kortix, run kortix self-host start to pull Docker images." },
-    { "@type": "HowToStep", "name": "Bring your own model keys", "text": "All three accept your own API keys or local models; no Anthropic subscription required." },
-    { "@type": "HowToStep", "name": "Keep a human in the loop", "text": "Route work through change requests or in-app approvals so nothing lands unreviewed." }
-  ]
-}
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ocpc.css">
+<script>
+(function(){var t=null;try{t=localStorage.getItem('osc-theme')}catch(e){}
+if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+document.documentElement.setAttribute('data-theme',t)})();
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","name":"Open Source Claude Cowork","url":"https://opensourceclaudecowork.com/","description":"Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work.","publisher":{"@type":"Organization","name":"Open Source Claude Cowork","url":"https://opensourceclaudecowork.com/"}},
+ {"@type":"WebPage","name":"Self-host an open-source Claude Cowork alternative (Kortix install guide)","url":"https://opensourceclaudecowork.com/self-hosting.html","description":"Self-host the open-source Claude Cowork alternative on one box: the real Kortix install commands, the on-disk footprint, and how the merge gate works."},
+ {"@type":"SoftwareApplication","name":"Kortix","applicationCategory":"BusinessApplication","operatingSystem":"Linux, macOS, Windows (self-hosted) or cloud","url":"https://kortix.com","description":"Kortix is the open-source AI Operating System — the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Open source, self-host free"}}
+]}
+</script>
+<title>Self-host an open-source Claude Cowork alternative (Kortix install guide) | Open Source Claude Cowork</title>
+<meta name="description" content="Self-host the open-source Claude Cowork alternative on one box: the real Kortix install commands, the on-disk footprint, and how the merge gate works.">
+<meta property="og:title" content="Self-host an open-source Claude Cowork alternative (Kortix install guide)">
+<meta property="og:description" content="Self-host the open-source Claude Cowork alternative on one box: the real Kortix install commands, the on-disk footprint, and how the merge gate works.">
+<meta property="og:url" content="https://opensourceclaudecowork.com/self-hosting.html">
+<link rel="canonical" href="https://opensourceclaudecowork.com/self-hosting.html">
+<link rel="alternate" type="text/markdown" href="/self-hosting.md">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"Self-host Kortix, the open-source Claude Cowork alternative","description":"Self-host the open-source Claude Cowork alternative on one box: the real Kortix install commands, the on-disk footprint, and how the merge gate works.","supply":[{"@type":"HowToSupply","name":"A Linux box or VPS with Docker"},{"@type":"HowToSupply","name":"A domain with A or AAAA records"},{"@type":"HowToSupply","name":"A sandbox provider key and a model API key"}],"tool":[{"@type":"HowToTool","name":"The kortix CLI"}],"step":[
+ {"@type":"HowToStep","position":1,"name":"Install the CLI","text":"Install the CLI: curl -fsSL https://kortix.com/install | bash. The installer ships a prebuilt binary for macOS and Linux; Windows is unsupported."},
+ {"@type":"HowToStep","position":2,"name":"Point DNS and open ports","text":"Create A or AAAA records for your domain and for api.<domain>, both aimed at the box, and open ports 80 and 443 so the bundled Caddy proxy can issue its TLS certificate."},
+ {"@type":"HowToStep","position":3,"name":"Render the stack","text":"Run kortix self-host init --domain kortix.example.com. The command writes docker-compose.yml, .env, a Caddyfile and an updater script into ~/.config/kortix/self-host/<instance>/, with ports, URLs and keys already generated."},
+ {"@type":"HowToStep","position":4,"name":"Start it","text":"Run kortix self-host start, which runs docker compose up for you."},
+ {"@type":"HowToStep","position":5,"name":"Watch it settle","text":"kortix self-host status, kortix self-host logs and kortix self-host doctor report progress while the containers come up."},
+ {"@type":"HowToStep","position":6,"name":"Add the two credentials","text":"kortix self-host configure prompts for the sandbox provider key and, optionally, a managed-git token. Sign in to the dashboard afterward and connect your own LLM key in the model picker; self-hosted instances use your own key by default."}
+]}
+</script>
+
 <!-- GA4 + consent mode: analytics cookies only after Accept -->
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
@@ -49,214 +64,337 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 </script>
 <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Updates"></head>
 <body>
-
+<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="Open Source Claude Cowork — home">
-      <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span>
+      <span class="seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
+      </span>
       <span>Open Source Claude&nbsp;Cowork</span>
-      <span class="tld">/self-hosting.md</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-  <a href="/">Comparison</a>
-  <a href="/self-hosting.html">Self-hosting</a>
-  <div class="nav-dropdown" data-dropdown>
-    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Guides <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
-    <div class="nav-dropdown-menu" role="menu">
-      <a href="/open-source-ai-agent-platforms.html" role="menuitem">AI agent platforms</a>
-      <a href="/self-hosted-ai-agent-platform.html" role="menuitem">Self-hosted agents</a>
-      <a href="/self-hosted-ai-workspace.html" role="menuitem">Self-hosted AI workspace</a>
-      <a href="/ai-agent-orchestration.html" role="menuitem">AI agent orchestration</a>
-      <a href="/claude-cowork-vs-chatgpt-work.html" role="menuitem">Claude Cowork vs ChatGPT Work</a>
-    </div>
-  </div>
-</nav>
+      <a href="/">Comparison</a>
+      <a href="/self-hosting.html" aria-current="page">Self-hosting</a>
+      <details class="nav-drop">
+        <summary>Guides
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="nav-drop-menu">
+          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<span>The three categories, six projects</span></a>
+          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<span>What you own, what you rent</span></a>
+          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<span>The two layers, the hardware</span></a>
+          <a href="/ai-agent-orchestration.html">AI agent orchestration<span>Frameworks vs a platform</span></a>
+          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<span>The two closed baselines</span></a>
+        </div>
+      </details>
+    </nav>
     <div class="nav-actions">
-      <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button">
-        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme" type="button">
+        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a class="btn btn-primary" href="/#compare">Compare alternatives</a>
+      <details class="nav-menu">
+        <summary aria-label="Open menu">&#9776;</summary>
+        <nav class="nav-menu-panel" aria-label="Mobile">
+          <span class="m-label">Site</span>
+          <a href="/">Comparison</a>
+          <a href="/self-hosting.html">Self-hosting guide</a>
+          <a href="/open-source-ai-agent-platforms.html">AI agent platforms</a>
+          <a href="/self-hosted-ai-agent-platform.html">Self-hosted platform</a>
+          <a href="/self-hosted-ai-workspace.html">Self-hosted workspace</a>
+          <a href="/ai-agent-orchestration.html">Agent orchestration</a>
+          <a href="/claude-cowork-vs-chatgpt-work.html">Cowork vs ChatGPT Work</a>
+          <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Get started with Kortix</a>
+        </nav>
+      </details>
     </div>
   </div>
 </header>
 
-<main>
-  <section class="hero" style="padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-10)">
-    <div class="wrap">
-      <p class="eyebrow">Own the stack</p>
-      <h1 style="max-width:20ch">Self-hosting an open source Claude Cowork alternative.</h1>
-      <p class="lede">Kortix is the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work, and it self-hosts from one command. This guide covers the Docker path, the hardware it runs on, and how work still reaches production only through a change request a human reviews.</p>
-      <p class="meta">Practical, not exhaustive · grounded in public docs · September 2026</p>
-    </div>
-  </section>
+<main id="main">
+<div class="wrap">
+  <div class="page-head">
+    <p class="filing-code">File no. 002 · Self-hosting</p>
+    <h1>Self-host an open-source Claude Cowork alternative with Kortix</h1>
+    <p class="lede">Self-hosting an open-source Claude Cowork alternative comes down to one Docker Compose stack on a Linux box. Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. Its self-host install is two CLI commands: <code>kortix self-host init</code> renders the stack, and <code>kortix self-host start</code> runs it. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.</p>
+  </div>
+</div>
 
-  <section class="section reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">The basics</p>
-        <h2>What "self-hosted" actually means here</h2>
-      </div>
-      <ol class="steps">
-        <li><strong>The runtime lives on your machine.</strong> Agents run in an environment you provision — a laptop, a VPS, your own VPC, or an on-prem network — not on a vendor's cloud.</li>
-        <li><strong>Your configuration is code you own.</strong> Agents, skills, memory, and connectors are files in a repository you version and diff, rather than settings in someone else's product.</li>
-        <li><strong>Secrets and data don't leave your perimeter.</strong> Credentials are stored where you control them, and model calls go to providers you've chosen with your own keys.</li>
-      </ol>
-      <div class="callout">
-        <span class="ic" aria-hidden="true">i</span>
-        <p><strong>Why this matters:</strong> Claude Cowork runs in Anthropic's cloud on Anthropic's models. A self-hosted alternative moves all three layers — runtime, configuration, and data — back under your control, at the cost of you operating the infrastructure.</p>
-      </div>
+<section class="section" style="padding-top:var(--space-6)">
+  <div class="wrap">
+    <div class="prose">
+      <p>Self-hosted has a precise meaning here. The Compose stack holds the frontend, the API, the LLM gateway and a vendored Supabase distribution, all on your box. Agents, skills, company memory and connector configuration live in one git repository you own, and every model call runs on your own API keys. Claude Cowork itself has no self-hosted mode; OpenWork's <a href="https://openworklabs.com" rel="nofollow">feature table</a> records self-hosting as unavailable for it. The guide to <a href="/self-hosted-ai-agent-platform.html">self-hosted AI agent platforms</a> defines the properties that separate one from a hosted service.</p>
+      <p>Kortix is open source (Elastic License 2.0): self-host it, read it and modify it. The code is on <a href="https://github.com/kortix-ai/suna" rel="nofollow">Kortix on GitHub</a>.</p>
     </div>
-  </section>
+    <figure class="figure">
+      <svg viewBox="0 0 680 560" role="img" aria-label="Self-host architecture: your box runs the Docker Compose stack (Caddy, kortix-api, llm-gateway, frontend, vendored Supabase distribution, updater) with config and volumes on disk; agent sandboxes and the image registry sit off the box; work lands through a change request a human merges">
+          <!-- your box -->
+          <rect class="box" x="8" y="8" width="424" height="298" rx="6"/>
+          <text class="t-lab" x="24" y="30">Your box · Docker Compose</text>
+          <rect class="box" x="24" y="44" width="392" height="34" rx="4"/>
+          <text class="t-code" x="38" y="65">Caddy</text><text class="t-mut" x="110" y="65" style="font-size:10px">reverse proxy · ACME TLS · ports 80/443</text>
+          <rect class="box" x="24" y="86" width="124" height="34" rx="4"/><text class="t-code" x="38" y="107">kortix-api</text>
+          <rect class="box" x="156" y="86" width="124" height="34" rx="4"/><text class="t-code" x="170" y="107">llm-gateway</text>
+          <rect class="box" x="288" y="86" width="128" height="34" rx="4"/><text class="t-code" x="302" y="107">frontend</text>
+          <rect class="box" x="24" y="128" width="392" height="96" rx="4"/>
+          <text class="t-lab" x="38" y="148" style="font-size:9px">Vendored Supabase distribution · pinned by digest</text>
+          <g>
+            <rect x="38" y="158" width="84" height="20" rx="10" class="box"/><text class="t-code" x="80" y="171" text-anchor="middle" style="font-size:10px">Kong</text>
+            <rect x="130" y="158" width="84" height="20" rx="10" class="box"/><text class="t-code" x="172" y="171" text-anchor="middle" style="font-size:10px">GoTrue</text>
+            <rect x="222" y="158" width="94" height="20" rx="10" class="box"/><text class="t-code" x="269" y="171" text-anchor="middle" style="font-size:10px">PostgREST</text>
+            <rect x="324" y="158" width="78" height="20" rx="10" class="box"/><text class="t-code" x="363" y="171" text-anchor="middle" style="font-size:10px">Storage</text>
+            <rect x="38" y="186" width="84" height="20" rx="10" class="box"/><text class="t-code" x="80" y="199" text-anchor="middle" style="font-size:10px">Realtime</text>
+            <rect x="130" y="186" width="84" height="20" rx="10" class="box"/><text class="t-code" x="172" y="199" text-anchor="middle" style="font-size:10px">Studio</text>
+            <rect x="222" y="186" width="94" height="20" rx="10" class="box"/><text class="t-code" x="269" y="199" text-anchor="middle" style="font-size:10px">Supavisor</text>
+          </g>
+          <rect class="box" x="24" y="232" width="392" height="34" rx="4"/>
+          <text class="t-code" x="38" y="253">kortix-updater</text><text class="t-mut" x="150" y="253" style="font-size:10px">checks for new images once a day (02:00 default)</text>
+          <text class="t-code" x="24" y="290" style="font-size:10.5px">~/.config/kortix/self-host/<instance>/</text>
+          <text class="t-mut" x="24" y="300" style="font-size:9.5px">docker-compose.yml · .env · Caddyfile · volumes/db/data (Postgres) · volumes/storage</text>
+          <!-- off the box -->
+          <rect class="box-ven" x="452" y="8" width="220" height="140" rx="6"/>
+          <text class="t-lab" x="468" y="30">Off the box</text>
+          <rect class="box" x="468" y="44" width="188" height="44" rx="4"/>
+          <text class="t-code" x="482" y="62" style="font-size:10.5px">Sandbox provider</text>
+          <text class="t-mut" x="482" y="78" style="font-size:9.5px">one isolated machine per session · Daytona default, Platinum or E2B</text>
+          <rect class="box" x="468" y="98" width="188" height="40" rx="4"/>
+          <text class="t-code" x="482" y="114" style="font-size:10.5px">Image registry</text>
+          <text class="t-mut" x="482" y="130" style="font-size:9.5px">docker.io/kortix/* pulled by start</text>
+          <path class="arr" d="M432 66 h16"/><path class="arrhead" d="M443 61 l6 5 -6 5"/>
+          <text class="t-mut" x="424" y="56" text-anchor="end" style="font-size:9.5px">egress</text>
+          <path class="arr" d="M468 118 h-22" /><path class="arrhead" d="M451 113 l-6 5 6 5"/>
+          <!-- merge gate -->
+          <text class="t-lab" x="8" y="352">The merge gate on every change</text>
+          <g>
+            <rect class="box" x="8" y="368" width="96" height="60" rx="4"/>
+            <text class="t-ink" x="56" y="392" text-anchor="middle" style="font-size:11.5px">Session</text>
+            <text class="t-mut" x="56" y="408" text-anchor="middle" style="font-size:9.5px">starts anywhere</text>
+            <path class="arr" d="M108 398 h12"/><path class="arrhead" d="M116 393 l6 5 -6 5"/>
+            <rect class="box" x="124" y="368" width="104" height="60" rx="4"/>
+            <text class="t-ink" x="176" y="392" text-anchor="middle" style="font-size:11.5px">Sandbox</text>
+            <text class="t-mut" x="176" y="408" text-anchor="middle" style="font-size:9.5px">own branch</text>
+            <path class="arr" d="M232 398 h12"/><path class="arrhead" d="M240 393 l6 5 -6 5"/>
+            <rect class="box" x="248" y="368" width="96" height="60" rx="4"/>
+            <text class="t-ink" x="296" y="392" text-anchor="middle" style="font-size:11.5px">Agent</text>
+            <text class="t-mut" x="296" y="408" text-anchor="middle" style="font-size:9.5px">commits, pushes</text>
+            <path class="arr-ox" d="M348 398 h12"/><path class="arrhead-ox" d="M356 393 l6 5 -6 5"/>
+            <rect class="box-ox" x="364" y="368" width="118" height="60" rx="4"/>
+            <text class="t-ink" x="423" y="392" text-anchor="middle" style="font-size:11.5px">Change request</text>
+            <text class="t-mut" x="423" y="408" text-anchor="middle" style="font-size:9.5px">a human reads the diff</text>
+            <path class="arr" d="M486 398 h12"/><path class="arrhead" d="M494 393 l6 5 -6 5"/>
+            <rect class="box" x="502" y="368" width="170" height="60" rx="4"/>
+            <text class="t-ink" x="587" y="392" text-anchor="middle" style="font-size:11.5px">Default branch</text>
+            <text class="t-mut" x="587" y="408" text-anchor="middle" style="font-size:9.5px">only reviewed work lands</text>
+          </g>
+          <text class="t-mut" x="8" y="468" style="font-size:10.5px">Sandbox compute never runs on your hardware: the API reaches the provider over egress, and the</text>
+          <text class="t-mut" x="8" y="484" style="font-size:10.5px">registry needs no credentials. Runtime, configuration and data stay on your box.</text>
+        </svg>
+        <figcaption><b>Figure A</b> The self-hosted stack: one Compose artifact on your box, secrets in <code>.env</code>, data in your volumes, and two planned outbound dependencies (sandbox provider, image registry). Per the Kortix architecture docs.</figcaption>
+    </figure>
+  </div>
+</section>
 
-  <section class="section reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Kortix</p>
-        <h2>The Docker path</h2>
-        <p class="sub">Kortix is the server-side option: it runs thousands of isolated Linux machines in parallel and lands work through change requests — a closer fit for an org-scale fleet than a single desktop.</p>
-      </div>
-      <div class="terminal" style="margin-bottom: var(--space-6)">
-        <div class="terminal-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">self-host · zsh</span></div>
-        <div class="terminal-body">
-          <div class="line"><span class="prompt">$</span> <span class="cmd">curl -fsSL https://kortix.com/install | bash</span></div>
-          <div class="line"><span class="prompt">$</span> <span class="cmd">kortix self-host start</span></div>
-          <div class="line"><span class="out">pulling Docker images…</span></div>
-          <div class="line"><span class="prompt">$</span> <span class="cmd">kortix hosts use selfhost</span> <span class="dim"># switch between self-host and cloud</span></div>
-          <div class="line"><span class="prompt">$</span> <span class="cmd">kortix init &amp;&amp; kortix ship</span></div>
-          <div class="line"><span class="ok">✓</span> <span class="out">project live</span><span class="cursor"></span></div>
-        </div>
-      </div>
-      <p style="max-width:52em;color:var(--ink-muted)">The first interactive setup asks only for the integration credentials that unlock managed git, GitHub access, and connectors — ports, local URLs, keys, and Docker Compose defaults are generated for you. Note that <code>self-host start</code> pulls its images from Docker Hub, so this is a self-hosted install rather than a fully air-gapped one.</p>
-      <p style="max-width:52em;color:var(--ink-muted);margin-top:var(--space-4)">Every session runs in an isolated sandbox on its own branch. The agent commits and pushes; you review the change request and merge to <code>main</code>. Nothing reaches production unreviewed.</p>
-      <div class="callout">
-        <span class="ic" aria-hidden="true">i</span>
-        <p><strong>Get started.</strong> Kortix is Elastic License 2.0 — self-host, read and modify the code. Install with <code>curl -fsSL https://kortix.com/install | bash</code>, or start at <a href="https://kortix.com" rel="nofollow">kortix.com</a>.</p>
-      </div>
+<section class="section section--offset">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">01 · The install</p><h2>The install, command by command</h2></div>
+    <div class="prose">
+      <p>The <a href="https://kortix.com/docs" rel="nofollow">Kortix self-hosting docs</a> document two routes: a one-shot bootstrap script that installs Docker, the CLI and the stack in a single command on a bare Linux box, and a manual path through the CLI. The manual path is worth knowing in its own right, because it shows exactly what the bootstrap automates.</p>
     </div>
-  </section>
+    <ol class="steps">
+      <li><strong>Install the CLI:</strong> <code>curl -fsSL https://kortix.com/install | bash</code>. The installer ships a prebuilt binary for macOS and Linux; Windows is unsupported.</li>
+      <li><strong>Point DNS and open ports.</strong> Create A or AAAA records for your domain and for <code>api.<domain></code>, both aimed at the box, and open ports 80 and 443 so the bundled Caddy proxy can issue its TLS certificate.</li>
+      <li><strong>Render the stack:</strong> <code>kortix self-host init --domain kortix.example.com</code>. The command writes <code>docker-compose.yml</code>, <code>.env</code>, a Caddyfile and an updater script into <code>~/.config/kortix/self-host/<instance>/</code>, with ports, URLs and keys already generated.</li>
+      <li><strong>Start it:</strong> <code>kortix self-host start</code>, which runs <code>docker compose up</code> for you.</li>
+      <li><strong>Watch it settle:</strong> <code>kortix self-host status</code>, <code>kortix self-host logs</code> and <code>kortix self-host doctor</code> report progress while the containers come up.</li>
+      <li><strong>Add the two credentials:</strong> <code>kortix self-host configure</code> prompts for the sandbox provider key and, optionally, a managed-git token. Sign in to the dashboard afterward and connect your own LLM key in the model picker; self-hosted instances use your own key by default.</li>
+    </ol>
+    <div class="prose"><p>Init generates the mechanical parts, so the human inputs reduce to two credentials and a model key.</p></div>
+    <div class="term" role="img" aria-label="Annotated first-run terminal sequence for self-hosting Kortix">
+      <div class="t-head"><i></i><i></i><i></i><span class="t-title">first run · bare linux box</span></div>
+      <pre><span class="p">$</span> curl -fsSL https://kortix.com/install | bash
+<span class="c"># installs the kortix CLI (prebuilt binary, macOS and Linux)</span>
 
-  <section class="section reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Alternatives</p>
-        <h2>Desktop-local and workspace options</h2>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <span class="tag">server-side</span>
-          <h3>Kortix</h3>
-          <p>Org-scale specialist agents running in parallel with a shared memory, work landing only through reviewed change requests, per-resource permissions, an audit trail, and encrypted-at-rest secrets.</p>
-        </div>
-        <div class="card">
-          <span class="tag">local-first</span>
-          <h3>OpenWork</h3>
-          <p>Local-first by design: you install the desktop app, your files stay on your machine, and prompts go only to the LLM provider you choose. No server to operate — simpler, but no always-on agent fleet.</p>
-        </div>
-        <div class="card">
-          <span class="tag">workspace</span>
-          <h3>Eigent</h3>
-          <p>Packages a workspace you run locally or self-host, connecting the models you choose (cloud, enterprise gateway, or local). Its review and approval flow keeps permission decisions visible.</p>
-        </div>
-      </div>
-      <h3 style="margin-top:var(--space-10);font-size:var(--text-xl)">When desktop-local beats server-side</h3>
-      <ul class="steps" style="list-style:disc;padding-left:var(--space-6);display:grid;gap:var(--space-2);max-width:52em">
-        <li style="color:var(--ink-muted)">You're a solo operator or small team with no interest in running infrastructure.</li>
-        <li style="color:var(--ink-muted)">Your work is file-centric on a single machine (documents, spreadsheets, research).</li>
-        <li style="color:var(--ink-muted)">You want zero cloud footprint and are comfortable with one machine's uptime.</li>
-      </ul>
-      <h3 style="margin-top:var(--space-8);font-size:var(--text-xl)">When server-side (Kortix) wins</h3>
-      <ul style="list-style:disc;padding-left:var(--space-6);display:grid;gap:var(--space-2);max-width:52em">
-        <li style="color:var(--ink-muted)">You need org-scale specialist agents running in parallel with a shared memory.</li>
-        <li style="color:var(--ink-muted)">You want work to land only through reviewed change requests.</li>
-        <li style="color:var(--ink-muted)">You need per-resource permissions, an audit trail, and encrypted-at-rest secrets.</li>
-      </ul>
-    </div>
-  </section>
+<span class="p">$</span> kortix self-host init --domain kortix.example.com
+<span class="c"># renders docker-compose.yml, .env, Caddyfile and the updater</span>
+<span class="c"># into ~/.config/kortix/self-host/<instance>/ — ports, URLs and</span>
+<span class="c"># keys are generated for you</span>
 
-  <section class="section reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Checklist</p>
-        <h2>A self-hosting checklist</h2>
-      </div>
-      <ol class="steps">
-        <li>Confirm the license fits your use (Elastic License 2.0 for Kortix — self-host, read and modify the code).</li>
-        <li>Choose hardware: laptop, VPS, VPC, or on-prem.</li>
-        <li>Bring your own model keys or point at local models — no Anthropic subscription needed.</li>
-        <li>Scope secrets to the minimum; keep credentials out of the agent's reach except at runtime.</li>
-        <li>Turn on the human gate: change requests or approvals, deny-by-default.</li>
-        <li>Test one small workflow end-to-end before onboarding a team.</li>
-      </ol>
-      <div class="cta-row" style="margin-top:var(--space-8)">
-        <a class="btn btn-ghost" href="/">← Back to the comparison</a>
-      </div>
-    </div>
-  </section>
-</main>
+<span class="p">$</span> kortix self-host start
+<span class="c"># runs docker compose up</span>
 
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <a class="brand" href="/" aria-label="Home">
-        <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span>
-        <span>Open Source Claude Cowork</span>
-      </a>
-      <p>A source-cited comparison hub.</p>
-      <p class="disclaimer">Independent comparison, not affiliated with Anthropic, OpenWork, or Eigent. Facts verified against public documentation in September 2026. Verify licenses and pricing at each vendor's source.</p>
-    </div>
-    <div class="footer-src">
-      <p><strong>Sources</strong></p>
-      <p><a href="https://github.com/kortix-ai/suna">Kortix on GitHub</a> · <a href="https://kortix.com" rel="nofollow">kortix.com</a> · <a href="https://kortix.com/docs" rel="nofollow">Kortix docs</a> · <a href="https://openworklabs.com">OpenWork</a> · <a href="https://www.eigent.ai">Eigent</a></p>
-      <p style="margin-top:var(--space-3)"><a href="/self-hosting.md">Markdown</a> · <a href="/llms.txt">llms.txt</a></p>
+<span class="p">$</span> kortix self-host configure
+<span class="c"># prompts: sandbox provider key; optional managed-git token</span>
+
+<span class="p">$</span> kortix self-host status
+<span class="c"># progress while the containers settle (also: logs, doctor)</span></pre>
     </div>
   </div>
-</footer>
+</section>
 
+<section class="section">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">02 · On disk</p><h2>Where the install lives on disk</h2></div>
+    <div class="prose">
+      <p>One directory holds the entire instance: <code>~/.config/kortix/self-host/<instance>/</code>. Inside the Compose file sit the three application images (frontend, API, LLM gateway), the vendored Supabase distribution (Kong, GoTrue auth, PostgREST, Storage, Realtime, Studio and the Supavisor pooler, every image pinned by digest), and Caddy plus the updater container once a domain is set.</p>
+    </div>
+    <div class="tablewrap">
+      <table class="reg-table reg-table--plain">
+        <thead><tr><th scope="col">Under ~/.config/kortix/self-host/<instance>/</th><th scope="col">What it holds</th></tr></thead>
+        <tbody>
+          <tr><td class="col-first"><code>docker-compose.yml</code>, Caddyfile, updater script</td><td>The rendered stack definition and settings</td></tr>
+          <tr><td class="col-first"><code>volumes/db/data</code></td><td>The Postgres database</td></tr>
+          <tr><td class="col-first"><code>volumes/storage</code></td><td>File storage</td></tr>
+          <tr><td class="col-first"><code>.env</code></td><td>Every secret and signing key the instance uses</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>Memory has a documented default. Each API container is capped at 640 MiB, which the <a href="https://kortix.com/docs" rel="nofollow">docs</a> size for an 8 GiB host. On a 16 GiB host whose API traffic reaches that cap, raise the limit to 1 GiB with <code>kortix self-host env set KORTIX_API_MEMORY_LIMIT=1024m</code>, then confirm the result with <code>docker stats --no-stream</code>.</p>
+      <p>Treat those paths as the backup set. Kortix has no separate backup system, so copy <code>volumes/db/data</code>, <code>volumes/storage</code> and <code>.env</code> somewhere off the box before you run any destructive command.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--offset">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">03 · Evaluate first</p><h2>Evaluate first with a tunnel</h2></div>
+    <div class="prose">
+      <p>A first look needs no DNS. Run <code>kortix self-host init --tunnel cloudflare</code>, then <code>kortix self-host start</code>, and the stack comes up behind a Cloudflare tunnel. The tunnel URL changes on every restart, so treat this mode as evaluation-only.</p>
+      <p>A persistent domain matters for reasons beyond certificates. Caddy needs a stable name to issue TLS, and agent sandboxes need a stable URL to call back to the API; with neither a domain nor a tunnel, sessions cannot run at all. The domain is the one configuration step that separates a trial from a deployment.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">04 · The gate</p><h2>The merge gate on every change</h2></div>
+    <div class="prose">
+      <p>A session runs an agent on an isolated Linux sandbox, on its own branch, powered by the OpenCode harness. The agent plans, runs tools, commits and pushes. When the work is ready, it opens a change request.</p>
+    </div>
+    <ol class="steps">
+      <li>A session starts, from the dashboard, Slack, Teams, email, the CLI or an API call.</li>
+      <li>Its agent runs on an isolated sandbox machine with its own branch.</li>
+      <li>The agent commits and pushes the work it did.</li>
+      <li>A change request opens against the project.</li>
+      <li>You read the diff and merge it into the default branch.</li>
+    </ol>
+    <div class="prose">
+      <p>From the CLI, the same review is <code>kortix cr ls</code> to list change requests, <code>kortix cr diff 1</code> to read the patch and <code>kortix cr merge 1</code> to land it. Nothing reaches the default branch unreviewed, however the session was started. On a self-hosted box that gate is the point: the agent holds broad tool access inside its sandbox, and the change request is where you keep control. How sessions and reviewers fit into a wider agent operation is the subject of the <a href="/ai-agent-orchestration.html">AI agent orchestration guide</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--offset">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">05 · Network</p><h2>What still touches the internet</h2></div>
+    <div class="prose">
+      <p>Two facts matter for planning. First, <code>kortix self-host start</code> pulls images from the Kortix organization on Docker Hub, and the bundled updater checks for new images once a day at a fixed local hour (2 a.m. by default); the registry needs no credentials. A self-hosted Kortix keeps its runtime, configuration and data on your box, and it is not an air-gapped install. You can pin an exact version with <code>kortix self-host update --tag 0.9.84</code>, or turn auto-update off entirely.</p>
+      <p>Second, agent sandboxes run off the box. Sessions execute on a separate sandbox provider, Daytona by default, with Platinum and E2B as supported alternatives; the API reaches the provider over egress, and sandbox compute never runs on your hardware. The split keeps parallel sessions off your machine, at the cost of one outbound dependency to plan for.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">06 · Sizing</p><h2>Sizing the host</h2></div>
+    <div class="prose">
+      <ul>
+        <li>An 8 GiB host is enough with defaults: keep the 640 MiB per-container API limit.</li>
+        <li>A 16 GiB host earns its extra memory under heavy API traffic: raise the limit to 1 GiB.</li>
+        <li>The same rendered stack runs unchanged on a laptop, a VPS or any cloud VM; moving to a domain changes one setting, <code>KORTIX_DOMAIN</code>.</li>
+        <li>Placement is your call: a VPS, a VPC or on-prem hardware all run the same artifact, provided the domain and ports 80 and 443 are in place.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--offset">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">07 · Alternatives</p><h2>Narrower alternatives, briefly</h2></div>
+    <div class="prose">
+      <p>Kortix is the recommendation for a governed company system on your own infrastructure. Two other open-source projects fit narrower shapes.</p>
+      <p><a href="https://openworklabs.com" rel="nofollow">OpenWork</a> is a free, open-source desktop app for macOS, Windows and Linux, built on OpenCode. It runs local-first on your own files with your own model keys, and teams add central management through OpenWork Cloud. It fits an individual workstation best; the team layer lives in its cloud plans.</p>
+      <p><a href="https://www.eigent.ai/docs" rel="nofollow">Eigent</a> is an open-source desktop app for assembling a multi-agent workforce, built on the CAMEL-AI framework. It deploys locally with your own API keys or local models, and it asks for human input when a task stalls. Teams that want a local agent workspace with a checkpoint in the loop are its audience.</p>
+      <p>The guide to <a href="/open-source-ai-agent-platforms.html">open-source AI agent platforms</a> covers the wider field, including these two in context. For the workspace angle in particular, the <a href="/self-hosted-ai-workspace.html">self-hosted AI workspace guide</a> goes deeper.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">08 · Onboarding</p><h2>Before you onboard the team</h2></div>
+    <div class="prose">
+      <p>Work through this list before the first teammate signs in:</p>
+      <ul>
+        <li>A persistent domain with A or AAAA records for the domain and <code>api.<domain></code>, and ports 80 and 443 open.</li>
+        <li>A sandbox provider key: Daytona by default, or Platinum or E2B if you prefer.</li>
+        <li>Model keys connected in the dashboard's model picker.</li>
+        <li>Off-box copies of <code>volumes/db/data</code>, <code>volumes/storage</code> and <code>.env</code>.</li>
+        <li>An update policy: the stable channel by default, or a pinned version with auto-update off.</li>
+        <li>Named reviewers who read and merge each change request.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--offset">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">09 · Where to start</p><h2>Where to start</h2></div>
+    <div class="prose">
+      <p>One Compose artifact, two commands to render and start it, and a review gate between agent work and your default branch: that is the whole install. Point a domain at a Linux box, run init and start, and your team has an open-source Claude Cowork alternative its work can flow through. <a href="https://kortix.com" rel="nofollow">Self-host open-source Kortix</a> to begin, and the <a href="/">comparisons hub</a> collects the rest of the site's guides, including the <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work breakdown</a> of the closed suites.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/">
+        <span class="seal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
+        </span>
+        <span>Open Source Claude&nbsp;Cowork</span>
+      </a>
+      <p>Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work. Every product fact comes from the project's own site or repository, checked October 2026.</p>
+    </div>
+    <nav class="foot-col" aria-label="Guides">
+      <h3>The site</h3>
+      <ul>
+        <li><a href="/">Comparison: the field, side by side</a></li>
+        <li><a href="/self-hosting.html">Self-hosting guide</a></li>
+        <li><a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms</a></li>
+        <li><a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform</a></li>
+        <li><a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace</a></li>
+        <li><a href="/ai-agent-orchestration.html">AI agent orchestration</a></li>
+        <li><a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work</a></li>
+      </ul>
+    </nav>
+    <nav class="foot-col" aria-label="Kortix links">
+      <h3>Kortix</h3>
+      <ul>
+        <li><a href="https://kortix.com" rel="nofollow">Kortix</a></li>
+        <li><a href="https://kortix.com/docs" rel="nofollow">Documentation</a></li>
+        <li><a href="https://github.com/kortix-ai/suna" rel="nofollow">Kortix on GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap foot-base">
+    <span>FILED OCTOBER 2026 · OPENSOURCECLAUDECOWORK.COM</span>
+    <span>OPEN SOURCE · YOUR REPO · YOUR KEYS</span>
+  </div>
+</footer>
 <script>
-(function () {
-  var root = document.documentElement;
-  var KEY = 'oscc-theme';
-  var toggle = document.querySelector('[data-theme-toggle]');
-  var sun = document.querySelector('.i-sun');
-  var moon = document.querySelector('.i-moon');
-  function apply(theme) {
-    root.setAttribute('data-theme', theme);
-    if (sun && moon) {
-      sun.style.display = theme === 'dark' ? 'none' : 'block';
-      moon.style.display = theme === 'dark' ? 'block' : 'none';
-    }
-  }
-  var stored = null;
-  try { stored = localStorage.getItem(KEY); } catch (e) {}
-  apply(stored || 'dark');
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      apply(next);
-      try { localStorage.setItem(KEY, next); } catch (e) {}
-    });
-  }
-  var els = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    els.forEach(function (el) { io.observe(el); });
-  } else { els.forEach(function (el) { el.classList.add('is-visible'); }); }
-})();
-</script>
-<script>/* dropdown */
-document.addEventListener('DOMContentLoaded', function () {
-  var dds = document.querySelectorAll('[data-dropdown]');
-  function closeAll(except) { dds.forEach(function (dd) { if (dd !== except) { dd.classList.remove('open'); var b = dd.querySelector('.nav-dropdown-toggle'); if (b) b.setAttribute('aria-expanded', 'false'); } }); }
-  dds.forEach(function (dd) {
-    var btn = dd.querySelector('.nav-dropdown-toggle');
-    if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); var open = dd.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); closeAll(dd); });
+(function(){
+  var b=document.querySelector('[data-theme-toggle]');
+  if(!b)return;
+  b.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('osc-theme',next);}catch(e){}
   });
-  document.addEventListener('click', function () { closeAll(null); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(null); });
-});
+})();
 </script>
 </body>
 </html>
