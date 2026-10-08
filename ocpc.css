@@ -552,6 +552,13 @@ a, button, [role="button"], [role="link"], input, textarea, select {
   letter-spacing: 0.1em; text-transform: uppercase; margin-right: 0.4em;
 }
 .figure--bleed { padding: var(--space-4); }
+/* Small screens: figures keep their drawn label size and pan inside the
+   plate — the same pattern as .tablewrap — so chip and axis labels stay
+   readable instead of shrinking with the viewport. */
+@media (max-width: 700px) {
+  .figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .figure svg { min-width: 620px; }
+}
 
 /* Stamps — the wax-seal chips */
 .stamp {
@@ -707,6 +714,13 @@ a, button, [role="button"], [role="link"], input, textarea, select {
   font-family: var(--font-body) !important;
 }
 #kx-consent button { border-radius: var(--radius-md) !important; }
+/* The injected Decline button ships white-on-white inline styles: give it the
+   ghost outline so it reads on the light banner as it already does in dark. */
+#kx-consent button + button {
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+  background: transparent !important;
+}
 
 /* ---- Diagram plates: shared SVG vocabulary ---- */
 .figure .t-ink  { font: 600 13px var(--font-body); fill: var(--color-text); }
