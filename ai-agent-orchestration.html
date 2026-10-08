@@ -1,22 +1,47 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Agent Orchestration: What It Is and the Open-Source Frameworks</title>
-<meta name="description" content="What AI agent orchestration means, the open-source frameworks (CrewAI, AutoGen, OpenCode), when you need multi-agent coordination vs a single agent, and how it differs from a management platform.">
-<link rel="canonical" href="https://opensourceclaudecowork.com/ai-agent-orchestration.html">
-<link rel="alternate" type="text/markdown" href="/ai-agent-orchestration.md">
-<meta name="robots" content="index, follow">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M5 5l14 14M19 5L5 19'/%3E%3C/svg%3E">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Open Source Claude Cowork">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='2' width='20' height='20' rx='3' fill='%2393401c'/%3E%3Cpath d='M12 6.8 17.2 12 12 17.2 6.8 12Z' fill='none' stroke='%23faf8f2' stroke-width='1.8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI Agent Orchestration: What It Is and the Open-Source Frameworks","url":"https://opensourceclaudecowork.com/ai-agent-orchestration.html","description":"What AI agent orchestration means, the open-source frameworks (CrewAI, AutoGen, OpenCode), when you need multi-agent coordination vs a single agent, and how it differs from a management platform.","dateModified":"2026-09-26"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AI orchestration?", "acceptedAnswer": {"@type": "Answer", "text": "Orchestration is coordinating multiple AI agents to complete a task together \u2014 assigning roles, sequencing steps, and passing context between agents \u2014 rather than one agent doing everything alone."}}, {"@type": "Question", "name": "What is the best AI agent orchestrator?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your stack. CrewAI and AutoGen are popular open-source orchestration frameworks. If you want a governed, self-hosted platform that includes orchestration and a review gate, Kortix bundles it."}}, {"@type": "Question", "name": "Which framework is best for AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "CrewAI (MIT) for role-based agent teams; AutoGen (Microsoft) for programming agentic workflows. Both are libraries you build on, not turnkey platforms."}}]}</script>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ocpc.css">
+<script>
+(function(){var t=null;try{t=localStorage.getItem('osc-theme')}catch(e){}
+if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","name":"Open Source Claude Cowork","url":"https://opensourceclaudecowork.com/","description":"Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work.","publisher":{"@type":"Organization","name":"Open Source Claude Cowork","url":"https://opensourceclaudecowork.com/"}},
+ {"@type":"WebPage","name":"Open Source AI Agent Orchestration: Frameworks vs Platform","url":"https://opensourceclaudecowork.com/ai-agent-orchestration.html","description":"What open source AI agent orchestration is, how CrewAI, AutoGen and OpenCode handle it, and when a bundled platform beats a framework you assemble."},
+ {"@type":"SoftwareApplication","name":"Kortix","applicationCategory":"BusinessApplication","operatingSystem":"Linux, macOS, Windows (self-hosted) or cloud","url":"https://kortix.com","description":"Kortix is the open-source AI Operating System — the leading open-source alternative to Claude Cowork and OpenAI ChatGPT Work.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Open source, self-host free"}}
+]}
+</script>
+<title>Open Source AI Agent Orchestration: Frameworks vs Platform | Open Source Claude Cowork</title>
+<meta name="description" content="What open source AI agent orchestration is, how CrewAI, AutoGen and OpenCode handle it, and when a bundled platform beats a framework you assemble.">
+<meta property="og:title" content="Open Source AI Agent Orchestration: Frameworks vs Platform">
+<meta property="og:description" content="What open source AI agent orchestration is, how CrewAI, AutoGen and OpenCode handle it, and when a bundled platform beats a framework you assemble.">
+<meta property="og:url" content="https://opensourceclaudecowork.com/ai-agent-orchestration.html">
+<link rel="canonical" href="https://opensourceclaudecowork.com/ai-agent-orchestration.html">
+<link rel="alternate" type="text/markdown" href="/ai-agent-orchestration.md">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Open source AI agent orchestration: how it works and when you need it","description":"What open source AI agent orchestration is, how CrewAI, AutoGen and OpenCode handle it, and when a bundled platform beats a framework you assemble.","datePublished":"2026-09-26","dateModified":"2026-10-08","author":{"@type":"Organization","name":"Open Source Claude Cowork","url":"https://opensourceclaudecowork.com/"},"publisher":{"@type":"Organization","name":"Open Source Claude Cowork","url":"https://opensourceclaudecowork.com/"},"mainEntityOfPage":"https://opensourceclaudecowork.com/ai-agent-orchestration.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Do you need a framework to orchestrate AI agents?","acceptedAnswer":{"@type":"Answer","text":"No. A script that runs agents in order and passes files between them is orchestration. Frameworks package that coordination with roles, retries and memory; a platform also runs the agents for you, with hosting, permissions and a review gate."}},
+ {"@type":"Question","name":"How is agent orchestration different from workflow automation?","acceptedAnswer":{"@type":"Answer","text":"A workflow tool runs the same steps in the same order every time, suiting predictable processes. Orchestration hands each step to an autonomous agent that plans its own route, for open-ended work such as research or debugging. Kortix draws the same line: fixed flowcharts to workflow builders, open-ended work to agents."}}
+]}
+</script>
+
 <!-- GA4 + consent mode: analytics cookies only after Accept -->
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
@@ -36,59 +61,286 @@ x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch
 b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));document.body.appendChild(b);}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',show);}else{show();}})();
 </script>
-<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Updates"></head><header class="site-header"><div class="wrap nav"><a class="brand" href="/" aria-label="Home"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude&nbsp;Cowork</span><span class="tld">/orchestration</span></a><nav class="nav-links" aria-label="Primary">
-  <a href="/">Comparison</a>
-  <a href="/self-hosting.html">Self-hosting</a>
-  <div class="nav-dropdown" data-dropdown>
-    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Guides <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
-    <div class="nav-dropdown-menu" role="menu">
-      <a href="/open-source-ai-agent-platforms.html" role="menuitem">AI agent platforms</a>
-      <a href="/self-hosted-ai-agent-platform.html" role="menuitem">Self-hosted agents</a>
-      <a href="/self-hosted-ai-workspace.html" role="menuitem">Self-hosted AI workspace</a>
-      <a href="/ai-agent-orchestration.html" role="menuitem">AI agent orchestration</a>
-      <a href="/claude-cowork-vs-chatgpt-work.html" role="menuitem">Claude Cowork vs ChatGPT Work</a>
+<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Updates"></head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Open Source Claude Cowork — home">
+      <span class="seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
+      </span>
+      <span>Open Source Claude&nbsp;Cowork</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/">Comparison</a>
+      <a href="/self-hosting.html">Self-hosting</a>
+      <details class="nav-drop">
+        <summary>Guides
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="nav-drop-menu">
+          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<span>The three categories, six projects</span></a>
+          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<span>What you own, what you rent</span></a>
+          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<span>The two layers, the hardware</span></a>
+          <a href="/ai-agent-orchestration.html" aria-current="page">AI agent orchestration<span>Frameworks vs a platform</span></a>
+          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<span>The two closed baselines</span></a>
+        </div>
+      </details>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme" type="button">
+        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <details class="nav-menu">
+        <summary aria-label="Open menu">&#9776;</summary>
+        <nav class="nav-menu-panel" aria-label="Mobile">
+          <span class="m-label">Site</span>
+          <a href="/">Comparison</a>
+          <a href="/self-hosting.html">Self-hosting guide</a>
+          <a href="/open-source-ai-agent-platforms.html">AI agent platforms</a>
+          <a href="/self-hosted-ai-agent-platform.html">Self-hosted platform</a>
+          <a href="/self-hosted-ai-workspace.html">Self-hosted workspace</a>
+          <a href="/ai-agent-orchestration.html">Agent orchestration</a>
+          <a href="/claude-cowork-vs-chatgpt-work.html">Cowork vs ChatGPT Work</a>
+          <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Get started with Kortix</a>
+        </nav>
+      </details>
     </div>
   </div>
-</nav><div class="nav-actions"><button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" type="button"><svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><a class="btn btn-primary" href="/#compare">Compare</a></div></div></header>
-<main>
+</header>
 
-  <section class="hero" style="padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-10)"><div class="wrap"><p class="eyebrow">Coordination, not a single agent</p><h1 style="max-width:20ch">Open source AI agent orchestration, explained.</h1><p class="lede">Orchestration coordinates multiple agents toward one outcome — assigning roles, sequencing steps, and passing context. Kortix bundles it: a real agent harness (OpenCode) runs multi-step agent teams with per-tool permissions, and the result lands as a change request a human reads as a diff. This page covers what orchestration is and the open-source frameworks that do it.</p><p class="meta">Grounded in public docs · September 2026</p></div></section>
+<main id="main">
+<div class="wrap">
+  <div class="page-head">
+    <p class="filing-code">File no. 006 · Orchestration</p>
+    <h1>Open source AI agent orchestration: how it works and when you need it</h1>
+    <p class="lede">Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.</p>
+    <p class="lede" style="margin-top:var(--space-4)">You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work comparison</a> breaks that choice down.</p>
+  </div>
+</div>
 
-  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">The concept</p><h2>What orchestration is</h2><p class="sub">A single agent does one thing at a time. Orchestration coordinates several agents toward one outcome.</p></div>
-    <ol class="steps">
-      <li><strong>Role assignment.</strong> A researcher agent, a writer agent, a reviewer agent — each with a defined job.</li>
-      <li><strong>Sequencing and handoffs.</strong> Output of one step becomes the input to the next.</li>
-      <li><strong>Shared context.</strong> Agents pass state and memory so the team stays coherent.</li>
-    </ol>
-  </div></section>
-
-  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">Open-source frameworks</p><h2>The frameworks that do it</h2></div>
-    <div class="grid">
-      <div class="card"><span class="tag">MIT</span><h3>CrewAI</h3><p>"Framework for orchestrating role-playing, autonomous AI agents." A Python library for building teams of agents that collaborate — ~59k stars.</p></div>
-      <div class="card"><span class="tag">Microsoft</span><h3>AutoGen</h3><p>"A programming framework for agentic AI." Multi-agent conversations for complex workflows — ~61k stars.</p></div>
-      <div class="card"><span class="tag">agent runtime</span><h3>OpenCode</h3><p>The open-source agent harness that powers Kortix. A real runtime with planning, tool use, multi-step runs that finish, and permissions per tool down to a single command — running inside an isolated Linux machine per session.</p></div>
+<section class="section" style="padding-top:var(--space-4)">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">01 · What it adds</p><h2>What orchestration adds to a single agent</h2></div>
+    <div class="prose">
+      <p>A single agent is one model, one harness and one job: fix this bug, draft this email. It finishes while the task fits inside its context window and toolset. Orchestration enters when the job outgrows that shape. It adds three things a lone agent cannot supply: roles with narrow responsibilities, a sequence that decides what comes next, and a way to pass context between steps.</p>
+      <p>Context passing matters most. The researcher writes findings to a file, the writer drafts from that file, and the reviewer checks the draft against it. Each agent starts from a clean, relevant context instead of a twenty-minute transcript. Shorter contexts cut invented facts and token cost. The <a href="/open-source-ai-agent-platforms.html">open source AI agent platforms guide</a> and the <a href="/">open source Claude Cowork hub</a> collect the wider field.</p>
     </div>
-    <div class="callout"><span class="ic" aria-hidden="true">i</span><p><strong>Framework vs platform:</strong> CrewAI/AutoGen give you a library and leave hosting, memory, secrets, and review to you. Kortix bundles orchestration with a review gate and audit trail, and starts at <a href="https://kortix.com" rel="nofollow">kortix.com</a>.</p></div>
-  </div></section>
+  </div>
+</section>
 
-  <section class="section reveal"><div class="wrap"><div class="section-head"><p class="kicker">When you need it</p><h2>Single agent vs multi-agent</h2></div>
-    <p style="max-width:52em;color:var(--ink-muted)">One agent is enough for a single bounded task. Orchestration earns its complexity when the work is naturally several roles — research, synthesis, and review — that benefit from specialization and handoffs. Start simple; add orchestration only when a single agent's output quality plateaus.</p>
-    <p style="margin-top:var(--space-6)"><a href="/open-source-ai-agent-platforms.html">Compare platforms and frameworks →</a></p>
-  </div></section>
+<section class="section section--offset">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">02 · The frameworks</p><h2>The open source frameworks engineers build on</h2></div>
+    <div class="prose">
+      <p><a href="https://github.com/crewAIInc/crewAI" rel="nofollow">CrewAI</a> is a Python framework for role-based agent teams, MIT licensed and actively developed (about 59,000 GitHub stars, checked October 2026). You define agents with roles and goals, grouped into crews for autonomy or flows for event-driven pipelines. It leaves hosting, secrets, permissions and approval steps to you. A commercial control plane, the AMP Suite, sells that layer to organisations that want it managed.</p>
+      <p><a href="https://github.com/microsoft/autogen" rel="nofollow">AutoGen</a> is Microsoft's framework for multi-agent conversations, published under CC BY 4.0 (about 61,000 stars, checked October 2026). It is now in maintenance mode: the README states it will receive no new features and points new users to Microsoft Agent Framework. Its no-code AutoGen Studio interface is explicitly not meant for production, and developers implement authentication and security themselves.</p>
+      <p><a href="https://github.com/sst/opencode" rel="nofollow">OpenCode</a> is an open source AI coding agent that runs in your terminal, MIT licensed and developed quickly (about 212,000 stars, checked October 2026). It is a harness for one agent: a full-access build mode and a read-only plan mode that asks before shell commands. No hosting, no shared memory, no review layer: the narrowest tool here. Kortix uses OpenCode as its agent harness, configured by a file in your repo, so it comes built in while sessions, permissions and review come from the platform.</p>
+    </div>
+  </div>
+</section>
 
+<section class="section">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">03 · Framework or platform</p><h2>Framework or platform: what you still build yourself</h2></div>
+    <div class="prose">
+      <p>Coordination is only part of a running system: someone has to host the agents, hold their memory, keep credentials safe, govern tool calls and review the result.</p>
+    </div>
+    <figure class="figure">
+      <svg viewBox="0 0 680 312" role="img" aria-label="Side-by-side comparison: a framework library leaves hosting, memory, secrets and review to you, while Kortix bundles all four with a human change-request gate">
+        <rect class="box-ven" x="8" y="8" width="320" height="246" rx="6"/>
+        <text class="t-lab" x="24" y="32">Library · CrewAI · AutoGen</text>
+        <g>
+          <text class="t-code" x="24" y="60" style="font-size:10.5px">Hosting</text><text class="t-mut" x="120" y="60" style="font-size:10px">you supply the runtime</text>
+          <text class="t-code" x="24" y="92" style="font-size:10.5px">Memory</text><text class="t-mut" x="120" y="92" style="font-size:10px">you build and host it</text>
+          <text class="t-code" x="24" y="124" style="font-size:10.5px">Secrets</text><text class="t-mut" x="120" y="124" style="font-size:10px">you hold them yourself</text>
+          <text class="t-code" x="24" y="156" style="font-size:10.5px">Tool permissions</text><text class="t-mut" x="150" y="156" style="font-size:10px">you code them</text>
+          <text class="t-code" x="24" y="188" style="font-size:10.5px">Review gate</text><text class="t-mut" x="130" y="188" style="font-size:10px">you build it</text>
+        </g>
+        <text class="t-mut" x="24" y="236" style="font-size:10px">dashed: the surroundings are your project too</text>
+        <rect class="box" x="352" y="8" width="320" height="246" rx="6"/>
+        <text class="t-lab" x="368" y="32">Kortix · platform</text>
+        <g>
+          <text class="t-code" x="368" y="60" style="font-size:10.5px">Hosting</text><text class="t-mut" x="464" y="60" style="font-size:10px">managed cloud or self-hosted</text>
+          <text class="t-code" x="368" y="92" style="font-size:10.5px">Memory</text><text class="t-mut" x="464" y="92" style="font-size:10px">files in your repo</text>
+          <text class="t-code" x="368" y="124" style="font-size:10.5px">Credentials</text><text class="t-mut" x="478" y="124" style="font-size:10px">brokered server-side</text>
+          <text class="t-code" x="368" y="156" style="font-size:10.5px">Tool permissions</text><text class="t-mut" x="494" y="156" style="font-size:10px">allow / ask / block</text>
+          <text class="t-code" x="368" y="188" style="font-size:10.5px">Review gate</text><text class="t-mut" x="474" y="188" style="font-size:10px">change request, human merge</text>
+        </g>
+        <text class="t-mut" x="368" y="236" style="font-size:10px">solid: the surroundings ship with the platform</text>
+        <g transform="translate(8,270)">
+          <rect class="box-ven" width="150" height="30" rx="3"/><text class="t-lab" x="75" y="20" text-anchor="middle">You build it all</text>
+        </g>
+        <g transform="translate(352,270)">
+          <rect class="box-you" width="150" height="30" rx="3"/><text class="t-ox" x="75" y="20" text-anchor="middle" style="fill:var(--color-keep)">Ships bundled</text>
+        </g>
+      </svg>
+      <figcaption><b>Figure B</b> Harness vs library on the four dimensions that decide the build.</figcaption>
+    </figure>
+    <div class="tablewrap">
+      <table class="reg-table reg-table--plain">
+        <thead><tr><th scope="col">Dimension</th><th scope="col">Kortix</th><th scope="col">CrewAI</th><th scope="col">AutoGen</th></tr></thead>
+        <tbody>
+          <tr><td class="col-first">Open source</td><td><span class="mark-yes">Yes</span> (Elastic License 2.0)</td><td><span class="mark-yes">Yes</span> (MIT)</td><td><span class="mark-yes">Yes</span> (CC BY 4.0)</td></tr>
+          <tr><td class="col-first">Hosting</td><td>Managed cloud or self-hosted</td><td>Your own application</td><td>Your own application</td></tr>
+          <tr><td class="col-first">Memory and secrets</td><td>Files in your repo; brokered credentials</td><td>You build and host</td><td>You build and host</td></tr>
+          <tr><td class="col-first">Tool permissions</td><td>Allow, ask or block per tool</td><td>You code them</td><td>You code them</td></tr>
+          <tr><td class="col-first">Review gate</td><td>Change request a human merges</td><td>You build it</td><td>You build it</td></tr>
+          <tr><td class="col-first">Status</td><td>Actively developed</td><td>Actively developed</td><td>Maintenance mode</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>The frameworks leave hosting, permissions and the review gate to you; Kortix bundles them. Pick a framework to add coordination to an application you already operate. Pick Kortix when you want orchestration, runtime, permissions and the human gate in one place you own; the <a href="/self-hosted-ai-agent-platform.html">self-hosted AI agent platform guide</a> covers that path.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--offset">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">04 · The pattern</p><h2>A research, synthesis and review pattern with a human gate</h2></div>
+    <div class="prose">
+      <p>Here is a pattern worth stealing, in Kortix or any framework. The task: a defensible brief on a market, a competitor or a technical question.</p>
+    </div>
+    <figure class="figure">
+      <svg viewBox="0 0 680 216" role="img" aria-label="Diagram of a three-agent orchestration: researcher, writer and reviewer passing findings.md and draft.md, ending at a change request a human reads and merges">
+        <path class="arr" d="M431 22 H270"/><path class="arrhead" d="M276 17 l-6 5 6 5"/>
+        <text class="t-ox" x="350" y="14" text-anchor="middle" style="font-size:10px">EDITS LOOP BACK</text>
+        <rect class="box" x="8" y="30" width="150" height="104" rx="4"/>
+        <text class="t-ink" x="24" y="52" style="font-size:12px">Researcher</text>
+        <text class="t-mut" x="24" y="70" style="font-size:9.5px">web access only</text>
+        <text class="t-mut" x="24" y="84" style="font-size:9.5px">writes findings.md, a</text>
+        <text class="t-mut" x="24" y="98" style="font-size:9.5px">source URL beside</text>
+        <text class="t-mut" x="24" y="112" style="font-size:9.5px">each finding</text>
+        <path class="arr" d="M162 82 h14"/><path class="arrhead" d="M171 77 l6 5 -6 5"/>
+        <rect class="box" x="182" y="30" width="148" height="104" rx="4"/>
+        <text class="t-ink" x="198" y="52" style="font-size:12px">Writer</text>
+        <text class="t-mut" x="198" y="70" style="font-size:9.5px">findings.md in, no web</text>
+        <text class="t-mut" x="198" y="84" style="font-size:9.5px">every claim traces to a</text>
+        <text class="t-mut" x="198" y="98" style="font-size:9.5px">line of that file;</text>
+        <text class="t-mut" x="198" y="112" style="font-size:9.5px">produces draft.md</text>
+        <path class="arr" d="M334 82 h14"/><path class="arrhead" d="M343 77 l6 5 -6 5"/>
+        <rect class="box" x="356" y="30" width="150" height="104" rx="4"/>
+        <text class="t-ink" x="372" y="52" style="font-size:12px">Reviewer</text>
+        <text class="t-mut" x="372" y="70" style="font-size:9.5px">draft.md against</text>
+        <text class="t-mut" x="372" y="84" style="font-size:9.5px">findings.md; flags</text>
+        <text class="t-mut" x="372" y="98" style="font-size:9.5px">unsupported claims,</text>
+        <text class="t-mut" x="372" y="112" style="font-size:9.5px">signs off</text>
+        <path class="arr-ox" d="M510 82 h14"/><path class="arrhead-ox" d="M519 77 l6 5 -6 5"/>
+        <rect class="box-ox" x="530" y="30" width="142" height="104" rx="4"/>
+        <text class="t-ink" x="546" y="52" style="font-size:12px">Human gate</text>
+        <text class="t-mut" x="546" y="70" style="font-size:9.5px">the change request:</text>
+        <text class="t-mut" x="546" y="84" style="font-size:9.5px">a person reads the</text>
+        <text class="t-mut" x="546" y="98" style="font-size:9.5px">diff, merges or</text>
+        <text class="t-mut" x="546" y="112" style="font-size:9.5px">sends it back</text>
+        <text class="t-mut" x="8" y="166" style="font-size:10px">The handoffs are files in a shared repo: findings.md becomes the writer's input, draft.md the</text>
+        <text class="t-mut" x="8" y="182" style="font-size:10px">reviewer's. Passing a file needs no framework; the pattern runs on any stack.</text>
+      </svg>
+      <figcaption><b>Figure A</b> Three roles, two files, one human gate.</figcaption>
+    </figure>
+    <ol class="steps">
+      <li><strong>Research.</strong> The researcher gets web access and nothing else, writing raw, attributed findings to a file, source URL beside each one.</li>
+      <li><strong>Synthesis.</strong> The writer gets the findings file and no web access. Every claim in its draft must trace to a line in that file; a missing fact means more research, never a guess.</li>
+      <li><strong>Review.</strong> The reviewer reads the draft against the findings file, flags every unsupported claim and unsourced number, and sends the draft back with edits or signs off.</li>
+      <li><strong>Human gate.</strong> The finished draft lands as a change request: a diff of what the agents changed. A person reads it, comments, requests changes or merges.</li>
+    </ol>
+    <div class="prose">
+      <p>The handoffs are files in a shared repo: findings.md becomes the writer's input, draft.md becomes the reviewer's. Passing a file needs no framework, so the pattern runs on any stack. What Kortix adds is the machinery around that pattern: an isolated machine per agent, permissions that keep the researcher away from other tools, and ask-gates that pause the run until a person approves the call.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">05 · Worth it</p><h2>When orchestration is worth it</h2></div>
+    <div class="prose">
+      <p>Start with one agent: most tasks fit one capable agent with the right tools, and every extra agent multiplies token cost, failure points and review surface. Add orchestration when one of these is true:</p>
+      <ul>
+        <li>Output plateaus: bigger prompts stop helping, so split the work into roles.</li>
+        <li>Steps need different permissions: research needs the web, sending the result needs a gate.</li>
+        <li>Work must be checked before it lands: a reviewer plus a human merge gate catch errors once.</li>
+        <li>The job runs unattended: sequenced steps are easier to monitor and restart than one long run.</li>
+      </ul>
+      <p>If none of those apply, orchestration is overhead: one agent with a good harness finishes bounded work faster and costs less. A <a href="/self-hosted-ai-workspace.html">self-hosted AI workspace</a> makes either call easier: start small, grow into teams in the same setup.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--offset">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">06 · Run it</p><h2>Run the pattern on Kortix</h2></div>
+    <div class="prose">
+      <p>Kortix ships this pattern as a product: agents, skills and memory in one git repo you own, any model with your keys, per-tool permissions down to a single command, and a change request closing every run. Get started at <a href="https://kortix.com" rel="nofollow">kortix.com</a>, <a href="https://kortix.com/docs" rel="nofollow">read the docs</a>, or browse <a href="https://github.com/kortix-ai/suna" rel="nofollow">Kortix on GitHub</a>. The <a href="/self-hosting.html">self-hosting guide</a> covers running it on your own hardware.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="titleblock"><p class="code">07 · Questions</p><h2>Agent orchestration questions</h2></div>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>Do you need a framework to orchestrate AI agents?</h3>
+        <p>No. A script that runs agents in order and passes files between them is orchestration. Frameworks package that coordination with roles, retries and memory; a platform also runs the agents for you, with hosting, permissions and a review gate.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How is agent orchestration different from workflow automation?</h3>
+        <p>A workflow tool runs the same steps in the same order every time, suiting predictable processes. Orchestration hands each step to an autonomous agent that plans its own route, for open-ended work such as research or debugging. Kortix draws the same line: fixed flowcharts to workflow builders, open-ended work to agents.</p>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
-<footer class="site-footer"><div class="wrap footer-grid"><div><a class="brand" href="/"><span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span><span>Open Source Claude Cowork</span></a><p class="disclaimer">Independent, not affiliated with any vendor named here. Verify licenses and pricing at each project's source.</p></div><div class="footer-src"><p><strong>Guides</strong></p><p><a href="/open-source-ai-agent-platforms.html">Platforms</a> · <a href="/self-hosted-ai-agent-platform.html">Self-hosted agents</a> · <a href="/self-hosted-ai-workspace.html">AI workspace</a> · <a href="/ai-agent-orchestration.html">Orchestration</a> · <a href="/claude-cowork-vs-chatgpt-work.html">vs ChatGPT Work</a></p><p style="margin-top:var(--space-3)"><a href="/ai-agent-orchestration.md">Markdown</a> · <a href="/llms.txt">llms.txt</a></p></div></div></footer><script>(function(){var r=document.documentElement,K='oscc-theme',t=document.querySelector('[data-theme-toggle]'),s=document.querySelector('.i-sun'),m=document.querySelector('.i-moon');function a(x){r.setAttribute('data-theme',x);if(s&&m){s.style.display=x==='dark'?'none':'block';m.style.display=x==='dark'?'block':'none';}}var st=null;try{st=localStorage.getItem(K);}catch(e){}a(st||'dark');if(t)t.addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';a(n);try{localStorage.setItem(K,n);}catch(e){}});var es=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:0.12});es.forEach(function(e){io.observe(e);});}else{es.forEach(function(e){e.classList.add('is-visible');});}})();</script>
-<script>/* dropdown */
-document.addEventListener('DOMContentLoaded', function () {
-  var dds = document.querySelectorAll('[data-dropdown]');
-  function closeAll(except) { dds.forEach(function (dd) { if (dd !== except) { dd.classList.remove('open'); var b = dd.querySelector('.nav-dropdown-toggle'); if (b) b.setAttribute('aria-expanded', 'false'); } }); }
-  dds.forEach(function (dd) {
-    var btn = dd.querySelector('.nav-dropdown-toggle');
-    if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); var open = dd.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); closeAll(dd); });
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/">
+        <span class="seal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
+        </span>
+        <span>Open Source Claude&nbsp;Cowork</span>
+      </a>
+      <p>Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work. Every product fact comes from the project's own site or repository, checked October 2026.</p>
+    </div>
+    <nav class="foot-col" aria-label="Guides">
+      <h3>The site</h3>
+      <ul>
+        <li><a href="/">Comparison: the field, side by side</a></li>
+        <li><a href="/self-hosting.html">Self-hosting guide</a></li>
+        <li><a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms</a></li>
+        <li><a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform</a></li>
+        <li><a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace</a></li>
+        <li><a href="/ai-agent-orchestration.html">AI agent orchestration</a></li>
+        <li><a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work</a></li>
+      </ul>
+    </nav>
+    <nav class="foot-col" aria-label="Kortix links">
+      <h3>Kortix</h3>
+      <ul>
+        <li><a href="https://kortix.com" rel="nofollow">Kortix</a></li>
+        <li><a href="https://kortix.com/docs" rel="nofollow">Documentation</a></li>
+        <li><a href="https://github.com/kortix-ai/suna" rel="nofollow">Kortix on GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap foot-base">
+    <span>FILED OCTOBER 2026 · OPENSOURCECLAUDECOWORK.COM</span>
+    <span>OPEN SOURCE · YOUR REPO · YOUR KEYS</span>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.querySelector('[data-theme-toggle]');
+  if(!b)return;
+  b.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('osc-theme',next);}catch(e){}
   });
-  document.addEventListener('click', function () { closeAll(null); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(null); });
-});
+})();
 </script>
 </body>
 </html>
