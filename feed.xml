@@ -5,54 +5,54 @@
   <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
   <link rel="alternate" href="https://opensourceclaudecowork.com/"/>
   <id>https://opensourceclaudecowork.com/</id>
-  <updated>2026-10-08T18:13:13Z</updated>
+  <updated>2026-10-08T18:17:08Z</updated>
   <entry>
     <title>Open Source AI Agent Orchestration: Frameworks vs Platform | Open Source Claude Cowork</title>
     <link href="https://opensourceclaudecowork.com/ai-agent-orchestration.html"/>
     <id>https://opensourceclaudecowork.com/ai-agent-orchestration.html</id>
-    <updated>2026-10-08T18:13:13Z</updated>
+    <updated>2026-10-08T18:17:08Z</updated>
     <summary>What open source AI agent orchestration is, how CrewAI, AutoGen and OpenCode handle it, and when a bundled platform beats a framework you assemble.</summary>
   </entry>
   <entry>
     <title>Claude Cowork vs ChatGPT Work, and the open-source third option | Open Source Claude Cowork</title>
     <link href="https://opensourceclaudecowork.com/claude-cowork-vs-chatgpt-work.html"/>
     <id>https://opensourceclaudecowork.com/claude-cowork-vs-chatgpt-work.html</id>
-    <updated>2026-10-08T18:13:13Z</updated>
+    <updated>2026-10-08T18:17:08Z</updated>
     <summary>How Claude Cowork and ChatGPT Work compare on ownership, models and self-hosting, and why Kortix is the open-source alternative to both.</summary>
   </entry>
   <entry>
     <title>Open Source Claude Cowork Alternative: Kortix, OpenWork and Eigent Compared | Open Source Claude Cowork</title>
     <link href="https://opensourceclaudecowork.com/"/>
     <id>https://opensourceclaudecowork.com/</id>
-    <updated>2026-10-08T18:13:13Z</updated>
+    <updated>2026-10-08T18:17:08Z</updated>
     <summary>Kortix, OpenWork and Eigent compared as open source Claude Cowork alternatives, with a decision table built from each project</summary>
   </entry>
   <entry>
     <title>Open Source AI Agent Platforms: Three Categories Compared | Open Source Claude Cowork</title>
     <link href="https://opensourceclaudecowork.com/open-source-ai-agent-platforms.html"/>
     <id>https://opensourceclaudecowork.com/open-source-ai-agent-platforms.html</id>
-    <updated>2026-10-08T18:13:13Z</updated>
+    <updated>2026-10-08T18:17:08Z</updated>
     <summary>Open source AI agent platforms fall into three categories, and this licence-checked comparison of six projects shows which one you need.</summary>
   </entry>
   <entry>
     <title>Open-Source Self-Hosted AI Agent Platforms: What You Own, What You Rent | Open Source Claude Cowork</title>
     <link href="https://opensourceclaudecowork.com/self-hosted-ai-agent-platform.html"/>
     <id>https://opensourceclaudecowork.com/self-hosted-ai-agent-platform.html</id>
-    <updated>2026-10-08T18:13:13Z</updated>
+    <updated>2026-10-08T18:17:08Z</updated>
     <summary>What a self-hosted AI agent platform is, what you own vs rent in Kortix, OpenWork and Eigent, and the command that boots Kortix on your own hardware.</summary>
   </entry>
   <entry>
     <title>Self-Hosted AI Workspace: The Open-Source Setup, Layer by Layer | Open Source Claude Cowork</title>
     <link href="https://opensourceclaudecowork.com/self-hosted-ai-workspace.html"/>
     <id>https://opensourceclaudecowork.com/self-hosted-ai-workspace.html</id>
-    <updated>2026-10-08T18:13:13Z</updated>
+    <updated>2026-10-08T18:17:08Z</updated>
     <summary>A self-hosted AI workspace runs agent tooling and models on machines you control; Kortix is the open-source AI Operating System that ships it as one git repo.</summary>
   </entry>
   <entry>
     <title>Self-host an open-source Claude Cowork alternative (Kortix install guide) | Open Source Claude Cowork</title>
     <link href="https://opensourceclaudecowork.com/self-hosting.html"/>
     <id>https://opensourceclaudecowork.com/self-hosting.html</id>
-    <updated>2026-10-08T18:13:13Z</updated>
+    <updated>2026-10-08T18:17:08Z</updated>
     <summary>Self-host the open-source Claude Cowork alternative on one box: the real Kortix install commands, the on-disk footprint, and how the merge gate works.</summary>
   </entry>
 </feed>
