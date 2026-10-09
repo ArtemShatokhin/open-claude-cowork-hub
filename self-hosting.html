@@ -13,7 +13,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ocpc.css">
+<link rel="stylesheet" href="/oscc.css">
 <script>
 (function(){var t=null;try{t=localStorage.getItem('osc-theme')}catch(e){}
 if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
@@ -54,53 +54,51 @@ gtag('js',new Date());gtag('config', 'G-DT6FGYCF6P');
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6FGYCF6P"></script>
 <script>
 (function(){var k='kx-consent',v=null;try{v=localStorage.getItem(k);}catch(e){}if(v)return;
-function show(){var b=document.createElement('div');b.id=k;b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
-b.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:2147483000;background:#111;color:#fff;border:1px solid rgba(255,255,255,.28);font:14px/1.45 system-ui,sans-serif;padding:12px 14px;border-radius:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 6px 24px rgba(0,0,0,.3)';
-var t=document.createElement('span');t.style.cssText='flex:1 1 220px';t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
-function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;
-x.style.cssText='font:inherit;padding:6px 14px;border-radius:6px;border:1px solid #fff;cursor:pointer;background:'+(grant?'#fff':'transparent')+';color:'+(grant?'#111':'#fff');
-x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage': 'granted'});}b.remove();};return x;}
-b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));document.body.appendChild(b);}
+function show(){var bar=document.createElement('div');bar.className='consent-bar';
+var b=document.createElement('div');b.className='consent-inner wrap';b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
+var t=document.createElement('span');t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
+function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;if(grant)x.className='consent-allow';
+x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage':'granted'});}bar.remove();};return x;}
+b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));bar.appendChild(b);
+var slot=document.querySelector('.consent-slot');(slot||document.body).appendChild(bar);}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',show);}else{show();}})();
 </script>
 <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Updates"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap nav">
+<header class="site-head">
+  <div class="wrap head-row">
     <a class="brand" href="/" aria-label="Open Source Claude Cowork — home">
-      <span class="seal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-      </span>
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
       <span>Open Source Claude&nbsp;Cowork</span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="head-nav" aria-label="Primary">
       <a href="/">Comparison</a>
       <a href="/self-hosting.html" aria-current="page">Self-hosting</a>
       <details class="nav-drop">
         <summary>Guides
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </summary>
-        <div class="nav-drop-menu">
-          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<span>The three categories, six projects</span></a>
-          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<span>What you own, what you rent</span></a>
-          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<span>The two layers, the hardware</span></a>
-          <a href="/ai-agent-orchestration.html">AI agent orchestration<span>Frameworks vs a platform</span></a>
-          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<span>The two closed baselines</span></a>
+        <div class="nav-drop-panel">
+          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<small>The three categories, six projects</small></a>
+          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<small>What you own, what you rent</small></a>
+          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<small>The two layers, the hardware</small></a>
+          <a href="/ai-agent-orchestration.html">AI agent orchestration<small>Frameworks vs a platform</small></a>
+          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<small>The two closed baselines</small></a>
         </div>
       </details>
     </nav>
-    <div class="nav-actions">
+    <div class="head-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme" type="button">
         <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
+      <a class="btn btn-primary btn-head" href="https://kortix.com" rel="nofollow">Get started</a>
       <details class="nav-menu">
-        <summary aria-label="Open menu">&#9776;</summary>
+        <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
         <nav class="nav-menu-panel" aria-label="Mobile">
-          <span class="m-label">Site</span>
           <a href="/">Comparison</a>
-          <a href="/self-hosting.html">Self-hosting guide</a>
+          <a href="/self-hosting.html" aria-current="page">Self-hosting guide</a>
           <a href="/open-source-ai-agent-platforms.html">AI agent platforms</a>
           <a href="/self-hosted-ai-agent-platform.html">Self-hosted platform</a>
           <a href="/self-hosted-ai-workspace.html">Self-hosted workspace</a>
@@ -113,16 +111,32 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </header>
 
-<main id="main">
-<div class="wrap">
-  <div class="page-head">
-    <p class="filing-code">File no. 002 · Self-hosting</p>
-    <h1>Self-host an open-source Claude Cowork alternative with Kortix</h1>
-    <p class="lede">Self-hosting an open-source Claude Cowork alternative comes down to one Docker Compose stack on a Linux box. Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. Its self-host install is two CLI commands: <code>kortix self-host init</code> renders the stack, and <code>kortix self-host start</code> runs it. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.</p>
-  </div>
-</div>
 
-<section class="section" style="padding-top:var(--space-6)">
+<main id="main">
+<section class="hero hero--install">
+  <div class="wrap hero-split">
+    <div class="hero-copy">
+      <h1>Self-host an open-source Claude Cowork alternative with Kortix</h1>
+      <p class="hero-lead">Self-hosting an open-source Claude Cowork alternative comes down to one Docker Compose stack on a Linux box. Kortix is open source, and its self-host install is two CLI commands: <code>kortix self-host init</code> renders the stack, and <code>kortix self-host start</code> runs it.</p>
+      <div class="hero-body">
+        <p>Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.</p>
+      </div>
+      <div class="hero-cta">
+        <p class="cta-prefix">Kortix also runs as managed cloud:</p>
+        <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Try Kortix</a>
+      </div>
+    </div>
+    <figure class="hero-term term">
+      <div class="t-head"><i></i><i></i><i></i><span class="t-title">the whole install · a linux box</span></div>
+      <pre><span class="p">$</span> curl -fsSL https://kortix.com/install | bash
+<span class="p">$</span> kortix self-host init --domain kortix.example.com
+<span class="p">$</span> kortix self-host start</pre>
+      <figcaption>The three commands this guide annotates, in the order you run them.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap">
     <div class="prose">
       <p>Self-hosted has a precise meaning here. The Compose stack holds the frontend, the API, the LLM gateway and a vendored Supabase distribution, all on your box. Agents, skills, company memory and connector configuration live in one git repository you own, and every model call runs on your own API keys. Claude Cowork itself has no self-hosted mode; OpenWork's <a href="https://openworklabs.com" rel="nofollow">feature table</a> records self-hosting as unavailable for it. The guide to <a href="/self-hosted-ai-agent-platform.html">self-hosted AI agent platforms</a> defines the properties that separate one from a hosted service.</p>
@@ -196,9 +210,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">01 · The install</p><h2>The install, command by command</h2></div>
+    <div class="section-head"><h2>The install, command by command</h2></div>
     <div class="prose">
       <p>The <a href="https://kortix.com/docs" rel="nofollow">Kortix self-hosting docs</a> document two routes: a one-shot bootstrap script that installs Docker, the CLI and the stack in a single command on a bare Linux box, and a manual path through the CLI. The manual path is worth knowing in its own right, because it shows exactly what the bootstrap automates.</p>
     </div>
@@ -235,18 +249,18 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">02 · On disk</p><h2>Where the install lives on disk</h2></div>
+    <div class="section-head"><h2>Where the install lives on disk</h2></div>
     <div class="prose">
       <p>One directory holds the entire instance: <code>~/.config/kortix/self-host/<instance>/</code>. Inside the Compose file sit the three application images (frontend, API, LLM gateway), the vendored Supabase distribution (Kong, GoTrue auth, PostgREST, Storage, Realtime, Studio and the Supavisor pooler, every image pinned by digest), and Caddy plus the updater container once a domain is set.</p>
     </div>
     <div class="tablewrap">
-      <table class="reg-table reg-table--plain">
+      <table class="data-table data-table--plain">
         <thead><tr><th scope="col">Under ~/.config/kortix/self-host/<instance>/</th><th scope="col">What it holds</th></tr></thead>
         <tbody>
-          <tr><td class="col-first"><code>docker-compose.yml</code>, Caddyfile, updater script</td><td>The rendered stack definition and settings</td></tr>
-          <tr><td class="col-first"><code>volumes/db/data</code></td><td>The Postgres database</td></tr>
-          <tr><td class="col-first"><code>volumes/storage</code></td><td>File storage</td></tr>
-          <tr><td class="col-first"><code>.env</code></td><td>Every secret and signing key the instance uses</td></tr>
+          <tr><td class="row-name"><code>docker-compose.yml</code>, Caddyfile, updater script</td><td>The rendered stack definition and settings</td></tr>
+          <tr><td class="row-name"><code>volumes/db/data</code></td><td>The Postgres database</td></tr>
+          <tr><td class="row-name"><code>volumes/storage</code></td><td>File storage</td></tr>
+          <tr><td class="row-name"><code>.env</code></td><td>Every secret and signing key the instance uses</td></tr>
         </tbody>
       </table>
     </div>
@@ -257,9 +271,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">03 · Evaluate first</p><h2>Evaluate first with a tunnel</h2></div>
+    <div class="section-head"><h2>Evaluate first with a tunnel</h2></div>
     <div class="prose">
       <p>A first look needs no DNS. Run <code>kortix self-host init --tunnel cloudflare</code>, then <code>kortix self-host start</code>, and the stack comes up behind a Cloudflare tunnel. The tunnel URL changes on every restart, so treat this mode as evaluation-only.</p>
       <p>A persistent domain matters for reasons beyond certificates. Caddy needs a stable name to issue TLS, and agent sandboxes need a stable URL to call back to the API; with neither a domain nor a tunnel, sessions cannot run at all. The domain is the one configuration step that separates a trial from a deployment.</p>
@@ -269,7 +283,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">04 · The gate</p><h2>The merge gate on every change</h2></div>
+    <div class="section-head"><h2>The merge gate on every change</h2></div>
     <div class="prose">
       <p>A session runs an agent on an isolated Linux sandbox, on its own branch, powered by the OpenCode harness. The agent plans, runs tools, commits and pushes. When the work is ready, it opens a change request.</p>
     </div>
@@ -286,9 +300,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">05 · Network</p><h2>What still touches the internet</h2></div>
+    <div class="section-head"><h2>What still touches the internet</h2></div>
     <div class="prose">
       <p>Two facts matter for planning. First, <code>kortix self-host start</code> pulls images from the Kortix organization on Docker Hub, and the bundled updater checks for new images once a day at a fixed local hour (2 a.m. by default); the registry needs no credentials. A self-hosted Kortix keeps its runtime, configuration and data on your box, and it is not an air-gapped install. You can pin an exact version with <code>kortix self-host update --tag 0.9.84</code>, or turn auto-update off entirely.</p>
       <p>Second, agent sandboxes run off the box. Sessions execute on a separate sandbox provider, Daytona by default, with Platinum and E2B as supported alternatives; the API reaches the provider over egress, and sandbox compute never runs on your hardware. The split keeps parallel sessions off your machine, at the cost of one outbound dependency to plan for.</p>
@@ -298,7 +312,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">06 · Sizing</p><h2>Sizing the host</h2></div>
+    <div class="section-head"><h2>Sizing the host</h2></div>
     <div class="prose">
       <ul>
         <li>An 8 GiB host is enough with defaults: keep the 640 MiB per-container API limit.</li>
@@ -310,9 +324,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">07 · Alternatives</p><h2>Narrower alternatives, briefly</h2></div>
+    <div class="section-head"><h2>Narrower alternatives, briefly</h2></div>
     <div class="prose">
       <p>Kortix is the recommendation for a governed company system on your own infrastructure. Two other open-source projects fit narrower shapes.</p>
       <p><a href="https://openworklabs.com" rel="nofollow">OpenWork</a> is a free, open-source desktop app for macOS, Windows and Linux, built on OpenCode. It runs local-first on your own files with your own model keys, and teams add central management through OpenWork Cloud. It fits an individual workstation best; the team layer lives in its cloud plans.</p>
@@ -324,7 +338,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">08 · Onboarding</p><h2>Before you onboard the team</h2></div>
+    <div class="section-head"><h2>Before you onboard the team</h2></div>
     <div class="prose">
       <p>Work through this list before the first teammate signs in:</p>
       <ul>
@@ -339,30 +353,29 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">09 · Where to start</p><h2>Where to start</h2></div>
+    <div class="section-head"><h2>Where to start</h2></div>
     <div class="prose">
       <p>One Compose artifact, two commands to render and start it, and a review gate between agent work and your default branch: that is the whole install. Point a domain at a Linux box, run init and start, and your team has an open-source Claude Cowork alternative its work can flow through. <a href="https://kortix.com" rel="nofollow">Self-host open-source Kortix</a> to begin, and the <a href="/">comparisons hub</a> collects the rest of the site's guides, including the <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work breakdown</a> of the closed suites.</p>
     </div>
   </div>
 </section>
 </main>
-<footer class="site-footer">
+<div class="consent-slot"></div>
+<footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <a class="brand" href="/">
-        <span class="seal" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-        </span>
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
         <span>Open Source Claude&nbsp;Cowork</span>
       </a>
       <p>Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work. Every product fact comes from the project's own site or repository, checked October 2026.</p>
     </div>
-    <nav class="foot-col" aria-label="Guides">
+    <nav class="foot-col" aria-label="The site">
       <h3>The site</h3>
       <ul>
-        <li><a href="/">Comparison: the field, side by side</a></li>
+        <li><a href="/">The comparison</a></li>
         <li><a href="/self-hosting.html">Self-hosting guide</a></li>
         <li><a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms</a></li>
         <li><a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform</a></li>
@@ -381,10 +394,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </nav>
   </div>
   <div class="wrap foot-base">
-    <span>FILED OCTOBER 2026 · OPENSOURCECLAUDECOWORK.COM</span>
-    <span>OPEN SOURCE · YOUR REPO · YOUR KEYS</span>
+    <span>opensourceclaudecowork.com · October 2026</span>
+    <span>Open source · your repo · your keys</span>
   </div>
 </footer>
+
 <script>
 (function(){
   var b=document.querySelector('[data-theme-toggle]');
