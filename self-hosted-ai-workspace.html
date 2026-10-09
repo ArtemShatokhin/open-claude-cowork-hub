@@ -13,7 +13,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ocpc.css">
+<link rel="stylesheet" href="/oscc.css">
 <script>
 (function(){var t=null;try{t=localStorage.getItem('osc-theme')}catch(e){}
 if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
@@ -51,56 +51,54 @@ gtag('js',new Date());gtag('config', 'G-DT6FGYCF6P');
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6FGYCF6P"></script>
 <script>
 (function(){var k='kx-consent',v=null;try{v=localStorage.getItem(k);}catch(e){}if(v)return;
-function show(){var b=document.createElement('div');b.id=k;b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
-b.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:2147483000;background:#111;color:#fff;border:1px solid rgba(255,255,255,.28);font:14px/1.45 system-ui,sans-serif;padding:12px 14px;border-radius:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 6px 24px rgba(0,0,0,.3)';
-var t=document.createElement('span');t.style.cssText='flex:1 1 220px';t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
-function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;
-x.style.cssText='font:inherit;padding:6px 14px;border-radius:6px;border:1px solid #fff;cursor:pointer;background:'+(grant?'#fff':'transparent')+';color:'+(grant?'#111':'#fff');
-x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage': 'granted'});}b.remove();};return x;}
-b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));document.body.appendChild(b);}
+function show(){var bar=document.createElement('div');bar.className='consent-bar';
+var b=document.createElement('div');b.className='consent-inner wrap';b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
+var t=document.createElement('span');t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
+function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;if(grant)x.className='consent-allow';
+x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage':'granted'});}bar.remove();};return x;}
+b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));bar.appendChild(b);
+var slot=document.querySelector('.consent-slot');(slot||document.body).appendChild(bar);}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',show);}else{show();}})();
 </script>
 <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Updates"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap nav">
+<header class="site-head">
+  <div class="wrap head-row">
     <a class="brand" href="/" aria-label="Open Source Claude Cowork — home">
-      <span class="seal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-      </span>
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
       <span>Open Source Claude&nbsp;Cowork</span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="head-nav" aria-label="Primary">
       <a href="/">Comparison</a>
       <a href="/self-hosting.html">Self-hosting</a>
       <details class="nav-drop">
         <summary>Guides
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </summary>
-        <div class="nav-drop-menu">
-          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<span>The three categories, six projects</span></a>
-          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<span>What you own, what you rent</span></a>
-          <a href="/self-hosted-ai-workspace.html" aria-current="page">Self-hosted AI workspace<span>The two layers, the hardware</span></a>
-          <a href="/ai-agent-orchestration.html">AI agent orchestration<span>Frameworks vs a platform</span></a>
-          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<span>The two closed baselines</span></a>
+        <div class="nav-drop-panel">
+          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<small>The three categories, six projects</small></a>
+          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<small>What you own, what you rent</small></a>
+          <a href="/self-hosted-ai-workspace.html" aria-current="page">Self-hosted AI workspace<small>The two layers, the hardware</small></a>
+          <a href="/ai-agent-orchestration.html">AI agent orchestration<small>Frameworks vs a platform</small></a>
+          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<small>The two closed baselines</small></a>
         </div>
       </details>
     </nav>
-    <div class="nav-actions">
+    <div class="head-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme" type="button">
         <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
+      <a class="btn btn-primary btn-head" href="https://kortix.com" rel="nofollow">Get started</a>
       <details class="nav-menu">
-        <summary aria-label="Open menu">&#9776;</summary>
+        <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
         <nav class="nav-menu-panel" aria-label="Mobile">
-          <span class="m-label">Site</span>
           <a href="/">Comparison</a>
           <a href="/self-hosting.html">Self-hosting guide</a>
           <a href="/open-source-ai-agent-platforms.html">AI agent platforms</a>
           <a href="/self-hosted-ai-agent-platform.html">Self-hosted platform</a>
-          <a href="/self-hosted-ai-workspace.html">Self-hosted workspace</a>
+          <a href="/self-hosted-ai-workspace.html" aria-current="page">Self-hosted workspace</a>
           <a href="/ai-agent-orchestration.html">Agent orchestration</a>
           <a href="/claude-cowork-vs-chatgpt-work.html">Cowork vs ChatGPT Work</a>
           <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Get started with Kortix</a>
@@ -110,19 +108,40 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </header>
 
-<main id="main">
-<div class="wrap">
-  <div class="page-head">
-    <p class="filing-code">File no. 005 · The workspace</p>
-    <h1>Self-hosted AI workspace: the open-source setup, layer by layer</h1>
-    <p class="lede">A self-hosted AI workspace is an agent setup that runs on machines and accounts you control: the model, the harness that turns a model into an agent, the memory your company accumulates, and the connectors into your tools. Kortix is an open-source AI Operating System that ships that setup as one git repo you own: agents and skills as files, 3,000+ apps and connectors, any model with your own API keys, and an isolated Linux machine for every session. Install it on a Linux box as a Docker Compose stack, run it in your VPC or on-prem, or use managed cloud when you want zero setup.</p>
-    <p class="lede" style="margin-top:var(--space-4)">The confusion starts because the phrase packs two decisions into one word. People routinely self-host one layer and leave the other with a vendor. Sorting them out tells you what you need to buy and run.</p>
-  </div>
-</div>
 
-<section class="section" style="padding-top:var(--space-4)">
+<main id="main">
+<section class="hero hero--layers">
+  <div class="wrap hero-stackgrid">
+    <div class="hero-copy">
+      <h1>Self-hosted AI workspace: the open-source setup, layer by layer</h1>
+      <p class="hero-lead">A self-hosted AI workspace is an agent setup that runs on machines and accounts you control. Kortix is the open-source AI Operating System that ships the whole setup as one git repo you own.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Get started with open-source Kortix</a>
+      </div>
+      <div class="hero-body">
+        <p>A self-hosted AI workspace has four parts: the model, the harness that turns a model into an agent, the memory your company accumulates, and the connectors into your tools. Kortix gives you agents and skills as files, 3,000+ apps and connectors, any model with your own API keys, and an isolated Linux machine for every session. Install it on a Linux box as a Docker Compose stack, run it in your VPC or on-prem, or use managed cloud when you want zero setup.</p>
+        <p>The confusion starts because the phrase packs two decisions into one word. People routinely self-host one layer and leave the other with a vendor. Sorting them out tells you what you need to buy and run.</p>
+      </div>
+    </div>
+    <figure class="layerstack">
+      <div class="stack-band">
+        <span class="stack-no">Layer 1</span>
+        <span class="stack-name">Models</span>
+        <span class="stack-sub">Where tokens come from: a hosted API called with your own key, or open weights on your own GPU</span>
+      </div>
+      <div class="stack-band stack-band--base">
+        <span class="stack-no">Layer 2</span>
+        <span class="stack-name">Agent tooling</span>
+        <span class="stack-sub">Everything that turns tokens into finished work: harness, memory, connectors, permissions, the session machine</span>
+      </div>
+      <figcaption class="stack-note">What "self-hosted" can mean: most teams self-host one layer and rent the other. This page sorts the two.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">01 · The layers</p><h2>The two layers hiding in one phrase</h2></div>
+    <div class="section-head"><h2>The two layers hiding in one phrase</h2></div>
     <div class="prose">
       <p>The model layer is where tokens come from: a hosted API called with your own key, from providers such as Anthropic, OpenAI or Google, or open weights you run yourself on a local runtime such as Ollama, vLLM or LM Studio. That second option is what most people picture when they hear "self-hosted AI", and it dictates GPU hardware.</p>
       <p>The agent tooling layer is everything that turns tokens into finished work: the harness that plans multi-step runs and calls tools, the memory the workspace gathers, the connectors into your other systems, the permissions that say what an agent may touch, and the machine each session runs on. You can swap a model in an afternoon; the tooling layer's memory and configuration are what you keep.</p>
@@ -157,17 +176,17 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">02 · The setups</p><h2>The three real setups</h2></div>
+    <div class="section-head"><h2>The three real setups</h2></div>
     <div class="prose"><p>Almost every project that calls itself self-hosted fits one of three shapes:</p></div>
     <div class="tablewrap">
-      <table class="reg-table reg-table--plain">
+      <table class="data-table data-table--plain">
         <thead><tr><th scope="col">Setup</th><th scope="col">Where things run</th><th scope="col">What you own</th><th scope="col">The trade-off</th></tr></thead>
         <tbody>
-          <tr><td class="col-first">Local model, local tooling</td><td>Weights and agent software on your hardware</td><td>Everything, inference included</td><td>GPU required; model size capped by VRAM</td></tr>
-          <tr><td class="col-first">Self-hosted tooling, hosted model</td><td>Tooling on your box; model a metered API call</td><td>Workspace, memory, config, keys</td><td>Prompts and work product pass through the provider</td></tr>
-          <tr><td class="col-first">Fully managed</td><td>Everything in the vendor's cloud behind a sign-in</td><td>Nothing</td><td>Closed product, no self-host option</td></tr>
+          <tr><td class="row-name">Local model, local tooling</td><td>Weights and agent software on your hardware</td><td>Everything, inference included</td><td>GPU required; model size capped by VRAM</td></tr>
+          <tr><td class="row-name">Self-hosted tooling, hosted model</td><td>Tooling on your box; model a metered API call</td><td>Workspace, memory, config, keys</td><td>Prompts and work product pass through the provider</td></tr>
+          <tr><td class="row-name">Fully managed</td><td>Everything in the vendor's cloud behind a sign-in</td><td>Nothing</td><td>Closed product, no self-host option</td></tr>
         </tbody>
       </table>
     </div>
@@ -179,7 +198,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">03 · What you run</p><h2>What you run: Kortix, OpenWork, Eigent</h2></div>
+    <div class="section-head"><h2>What you run: Kortix, OpenWork, Eigent</h2></div>
     <div class="prose">
       <p>Kortix self-hosts as a single Docker Compose stack on a Linux box: frontend, API, LLM gateway and the Supabase distribution, started with <code>kortix self-host start</code>. Sessions run on the sandbox provider you configure; the instance uses your own LLM key by default. Kortix is open source (Elastic License 2.0): you can self-host, read and modify the code. The <a href="https://kortix.com/docs/self-hosting" rel="nofollow">Kortix self-hosting docs</a> cover install, updates and backups. The source is <a href="https://github.com/kortix-ai/suna" rel="nofollow">Kortix on GitHub</a>, and the <a href="/self-hosting.html">step-by-step self-hosting guide</a> expands each step.</p>
       <p>OpenWork is a free, open-source desktop app for macOS, Windows and Linux, built on OpenCode, that runs AI agents against your own files. It connects to 50+ model providers with your own API keys, and in desktop mode your files stay on your machine while prompts go directly to the provider you choose, per <a href="https://openworklabs.com" rel="nofollow">OpenWork's own site</a> (checked October 2026). Teams get self-hosted or managed private instances.</p>
@@ -189,19 +208,19 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">04 · The hardware</p><h2>The hardware reality</h2></div>
+    <div class="section-head"><h2>The hardware reality</h2></div>
     <div class="prose">
       <p>The model layer decides whether you need a GPU. The tooling layer is ordinary server software: containers, a database, a reverse proxy.</p>
     </div>
     <div class="tablewrap">
-      <table class="reg-table reg-table--plain">
+      <table class="data-table data-table--plain">
         <thead><tr><th scope="col">Layer</th><th scope="col">What it takes</th><th scope="col">Realistic starting point</th></tr></thead>
         <tbody>
-          <tr><td class="col-first">Agent tooling (Kortix stack)</td><td>Docker Compose: API, gateway, database</td><td>A small Linux VPS or homelab box</td></tr>
-          <tr><td class="col-first">Kortix API containers</td><td>640 MiB memory limit per container by default</td><td>8 GiB host; 16 GiB under heavy traffic</td></tr>
-          <tr><td class="col-first">Local models</td><td>VRAM scales with model size; large models want GPU</td><td>A GPU laptop or workstation</td></tr>
+          <tr><td class="row-name">Agent tooling (Kortix stack)</td><td>Docker Compose: API, gateway, database</td><td>A small Linux VPS or homelab box</td></tr>
+          <tr><td class="row-name">Kortix API containers</td><td>640 MiB memory limit per container by default</td><td>8 GiB host; 16 GiB under heavy traffic</td></tr>
+          <tr><td class="row-name">Local models</td><td>VRAM scales with model size; large models want GPU</td><td>A GPU laptop or workstation</td></tr>
         </tbody>
       </table>
     </div>
@@ -238,19 +257,19 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">05 · The managed baseline</p><h2>Self-hosted AI vs ChatGPT</h2></div>
+    <div class="section-head"><h2>Self-hosted AI vs ChatGPT</h2></div>
     <div class="prose">
       <p>ChatGPT is the fully managed reference point: <a href="https://openai.com/chatgpt/" rel="nofollow">OpenAI's own page</a> describes a hosted app you sign into or download, built for questions, writing, images, work and code, and states that chats may be reviewed and used to improve OpenAI's models. There is no self-host option in that setup.</p>
     </div>
     <div class="tablewrap">
-      <table class="reg-table reg-table--plain">
+      <table class="data-table data-table--plain">
         <thead><tr><th scope="col">&nbsp;</th><th scope="col">Kortix, self-hosted</th><th scope="col">ChatGPT</th></tr></thead>
         <tbody>
-          <tr><td class="col-first">Setup</td><td>One Docker Compose command on your box</td><td>Sign in or install the app</td></tr>
-          <tr><td class="col-first">Data location</td><td>Your server, your database</td><td>OpenAI's cloud</td></tr>
-          <tr><td class="col-first">Models</td><td>Any provider, your own keys</td><td>OpenAI's models</td></tr>
-          <tr><td class="col-first">Cost shape</td><td>Free to self-host; managed cloud per seat</td><td>Free to start, paid tiers beyond</td></tr>
-          <tr><td class="col-first">Lock-in</td><td>A git repo you can clone and move</td><td>Setup and history live in the product</td></tr>
+          <tr><td class="row-name">Setup</td><td>One Docker Compose command on your box</td><td>Sign in or install the app</td></tr>
+          <tr><td class="row-name">Data location</td><td>Your server, your database</td><td>OpenAI's cloud</td></tr>
+          <tr><td class="row-name">Models</td><td>Any provider, your own keys</td><td>OpenAI's models</td></tr>
+          <tr><td class="row-name">Cost shape</td><td>Free to self-host; managed cloud per seat</td><td>Free to start, paid tiers beyond</td></tr>
+          <tr><td class="row-name">Lock-in</td><td>A git repo you can clone and move</td><td>Setup and history live in the product</td></tr>
         </tbody>
       </table>
     </div>
@@ -260,9 +279,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">06 · Answers</p><h2>Self-hosted AI workspace FAQ</h2></div>
+    <div class="section-head"><h2>Self-hosted AI workspace FAQ</h2></div>
     <div class="faq">
       <div class="faq-item">
         <h3>Can you self-host AI completely, model included?</h3>
@@ -282,28 +301,27 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">07 · The setup to copy</p><h2>The setup to copy</h2></div>
+    <div class="section-head"><h2>The setup to copy</h2></div>
     <div class="prose">
       <p>For a team that wants ownership without a hardware project, the middle row is the answer: self-hosted tooling, hosted models, your own keys. Kortix is made for that shape and is the leading open-source alternative to Claude Cowork and ChatGPT Work. Clone it, point it at your model provider, and <a href="https://kortix.com" rel="nofollow">get started with Kortix</a>. More guides live on the <a href="/">open-source Claude Cowork hub</a>.</p>
     </div>
   </div>
 </section>
 </main>
-<footer class="site-footer">
+<div class="consent-slot"></div>
+<footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <a class="brand" href="/">
-        <span class="seal" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-        </span>
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
         <span>Open Source Claude&nbsp;Cowork</span>
       </a>
       <p>Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work. Every product fact comes from the project's own site or repository, checked October 2026.</p>
     </div>
-    <nav class="foot-col" aria-label="Guides">
+    <nav class="foot-col" aria-label="The site">
       <h3>The site</h3>
       <ul>
-        <li><a href="/">Comparison: the field, side by side</a></li>
+        <li><a href="/">The comparison</a></li>
         <li><a href="/self-hosting.html">Self-hosting guide</a></li>
         <li><a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms</a></li>
         <li><a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform</a></li>
@@ -322,10 +340,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </nav>
   </div>
   <div class="wrap foot-base">
-    <span>FILED OCTOBER 2026 · OPENSOURCECLAUDECOWORK.COM</span>
-    <span>OPEN SOURCE · YOUR REPO · YOUR KEYS</span>
+    <span>opensourceclaudecowork.com · October 2026</span>
+    <span>Open source · your repo · your keys</span>
   </div>
 </footer>
+
 <script>
 (function(){
   var b=document.querySelector('[data-theme-toggle]');
