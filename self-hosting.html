@@ -118,9 +118,6 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div class="hero-copy">
       <h1>Self-host an open-source Claude Cowork alternative with Kortix</h1>
       <p class="hero-lead">Self-hosting an open-source Claude Cowork alternative comes down to one Docker Compose stack on a Linux box. Kortix is open source, and its self-host install is two CLI commands: <code>kortix self-host init</code> renders the stack, and <code>kortix self-host start</code> runs it.</p>
-      <div class="hero-body">
-        <p>Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.</p>
-      </div>
       <div class="hero-cta">
         <p class="cta-prefix">Kortix also runs as managed cloud:</p>
         <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Try Kortix</a>
@@ -138,7 +135,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
+    <div class="section-head"><h2>What self-hosted means</h2></div>
     <div class="prose">
+      <p>Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.</p>
       <p>Self-hosted has a precise meaning here. The Compose stack holds the frontend, the API, the LLM gateway and a vendored Supabase distribution, all on your box. Agents, skills, company memory and connector configuration live in one git repository you own, and every model call runs on your own API keys. Claude Cowork itself has no self-hosted mode; OpenWork's <a href="https://openworklabs.com" rel="nofollow">feature table</a> records self-hosting as unavailable for it. The guide to <a href="/self-hosted-ai-agent-platform.html">self-hosted AI agent platforms</a> defines the properties that separate one from a hosted service.</p>
       <p>Kortix is open source (Elastic License 2.0): self-host it, read it and modify it. The code is on <a href="https://github.com/kortix-ai/suna" rel="nofollow">Kortix on GitHub</a>.</p>
     </div>
