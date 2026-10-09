@@ -2,7 +2,11 @@
 
 > Canonical page: <https://opensourceclaudecowork.com/open-source-ai-agent-platforms.html>
 
-Search for an open source AI agent platform and you get projects that share a label and little else. The phrase covers three categories: systems a whole company runs as infrastructure, code frameworks developers build on, and autonomous agents that chase a goal on their own. The category decides the pick: what you install, what you build, and who reviews the work. Kortix is the company-system option: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work, with agents, skills, memory and connectors in one git repo you own.
+Search for an open source AI agent platform and you get projects that share a label and little else. Kortix is the open-source AI Operating System built to run a whole company.
+
+The label covers three categories: systems a whole company runs as infrastructure, code frameworks developers build on, and autonomous agents that chase a goal on their own. The category decides the pick: what you install, what you build, and who reviews the work. Kortix is the company-system option: the leading open-source alternative to Claude Cowork and ChatGPT Work, with agents, skills, memory and connectors in one git repo you own.
+
+[Try Kortix](https://kortix.com) self-hosted or on the managed cloud.
 
 ## Three categories hide inside the label
 
