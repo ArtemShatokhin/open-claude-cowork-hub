@@ -13,7 +13,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ocpc.css">
+<link rel="stylesheet" href="/oscc.css">
 <script>
 (function(){var t=null;try{t=localStorage.getItem('osc-theme')}catch(e){}
 if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
@@ -53,57 +53,55 @@ gtag('js',new Date());gtag('config', 'G-DT6FGYCF6P');
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6FGYCF6P"></script>
 <script>
 (function(){var k='kx-consent',v=null;try{v=localStorage.getItem(k);}catch(e){}if(v)return;
-function show(){var b=document.createElement('div');b.id=k;b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
-b.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:2147483000;background:#111;color:#fff;border:1px solid rgba(255,255,255,.28);font:14px/1.45 system-ui,sans-serif;padding:12px 14px;border-radius:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 6px 24px rgba(0,0,0,.3)';
-var t=document.createElement('span');t.style.cssText='flex:1 1 220px';t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
-function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;
-x.style.cssText='font:inherit;padding:6px 14px;border-radius:6px;border:1px solid #fff;cursor:pointer;background:'+(grant?'#fff':'transparent')+';color:'+(grant?'#111':'#fff');
-x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage': 'granted'});}b.remove();};return x;}
-b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));document.body.appendChild(b);}
+function show(){var bar=document.createElement('div');bar.className='consent-bar';
+var b=document.createElement('div');b.className='consent-inner wrap';b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
+var t=document.createElement('span');t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
+function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;if(grant)x.className='consent-allow';
+x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage':'granted'});}bar.remove();};return x;}
+b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));bar.appendChild(b);
+var slot=document.querySelector('.consent-slot');(slot||document.body).appendChild(bar);}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',show);}else{show();}})();
 </script>
 <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Updates"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap nav">
+<header class="site-head">
+  <div class="wrap head-row">
     <a class="brand" href="/" aria-label="Open Source Claude Cowork — home">
-      <span class="seal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-      </span>
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
       <span>Open Source Claude&nbsp;Cowork</span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="head-nav" aria-label="Primary">
       <a href="/">Comparison</a>
       <a href="/self-hosting.html">Self-hosting</a>
       <details class="nav-drop">
         <summary>Guides
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </summary>
-        <div class="nav-drop-menu">
-          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<span>The three categories, six projects</span></a>
-          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<span>What you own, what you rent</span></a>
-          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<span>The two layers, the hardware</span></a>
-          <a href="/ai-agent-orchestration.html" aria-current="page">AI agent orchestration<span>Frameworks vs a platform</span></a>
-          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<span>The two closed baselines</span></a>
+        <div class="nav-drop-panel">
+          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<small>The three categories, six projects</small></a>
+          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<small>What you own, what you rent</small></a>
+          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<small>The two layers, the hardware</small></a>
+          <a href="/ai-agent-orchestration.html" aria-current="page">AI agent orchestration<small>Frameworks vs a platform</small></a>
+          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<small>The two closed baselines</small></a>
         </div>
       </details>
     </nav>
-    <div class="nav-actions">
+    <div class="head-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme" type="button">
         <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
+      <a class="btn btn-primary btn-head" href="https://kortix.com" rel="nofollow">Get started</a>
       <details class="nav-menu">
-        <summary aria-label="Open menu">&#9776;</summary>
+        <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
         <nav class="nav-menu-panel" aria-label="Mobile">
-          <span class="m-label">Site</span>
           <a href="/">Comparison</a>
           <a href="/self-hosting.html">Self-hosting guide</a>
           <a href="/open-source-ai-agent-platforms.html">AI agent platforms</a>
           <a href="/self-hosted-ai-agent-platform.html">Self-hosted platform</a>
           <a href="/self-hosted-ai-workspace.html">Self-hosted workspace</a>
-          <a href="/ai-agent-orchestration.html">Agent orchestration</a>
+          <a href="/ai-agent-orchestration.html" aria-current="page">Agent orchestration</a>
           <a href="/claude-cowork-vs-chatgpt-work.html">Cowork vs ChatGPT Work</a>
           <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Get started with Kortix</a>
         </nav>
@@ -112,19 +110,50 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </header>
 
-<main id="main">
-<div class="wrap">
-  <div class="page-head">
-    <p class="filing-code">File no. 006 · Orchestration</p>
-    <h1>Open source AI agent orchestration: how it works and when you need it</h1>
-    <p class="lede">Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.</p>
-    <p class="lede" style="margin-top:var(--space-4)">You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work comparison</a> breaks that choice down.</p>
-  </div>
-</div>
 
-<section class="section" style="padding-top:var(--space-4)">
+<main id="main">
+<section class="hero hero--chain">
   <div class="wrap">
-    <div class="titleblock"><p class="code">01 · What it adds</p><h2>What orchestration adds to a single agent</h2></div>
+    <div class="hero-copy">
+      <h1>Open source AI agent orchestration: how it works and when you need it</h1>
+      <p class="hero-lead">Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. Kortix runs that coordination as open source you can self-host.</p>
+      <div class="hero-body">
+        <p>A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.</p>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Get started with open-source Kortix</a>
+      </div>
+      <div class="hero-body">
+        <p>You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work comparison</a> breaks that choice down.</p>
+      </div>
+    </div>
+    <figure class="hero-chain">
+      <ol class="chain-steps">
+        <li class="chain-step">
+          <span class="chain-role">Researcher</span>
+          <span class="chain-io">writes findings to a file</span>
+        </li>
+        <li class="chain-step">
+          <span class="chain-role">Writer</span>
+          <span class="chain-io">drafts from that file</span>
+        </li>
+        <li class="chain-step">
+          <span class="chain-role">Reviewer</span>
+          <span class="chain-io">checks the draft against it</span>
+        </li>
+        <li class="chain-step chain-step--gate">
+          <span class="chain-role">The human gate</span>
+          <span class="chain-io">a change request a human reads before it merges</span>
+        </li>
+      </ol>
+      <figcaption>The pattern this page builds, in the order the work flows. Each step starts from a clean, relevant context.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>What orchestration adds to a single agent</h2></div>
     <div class="prose">
       <p>A single agent is one model, one harness and one job: fix this bug, draft this email. It finishes while the task fits inside its context window and toolset. Orchestration enters when the job outgrows that shape. It adds three things a lone agent cannot supply: roles with narrow responsibilities, a sequence that decides what comes next, and a way to pass context between steps.</p>
       <p>Context passing matters most. The researcher writes findings to a file, the writer drafts from that file, and the reviewer checks the draft against it. Each agent starts from a clean, relevant context instead of a twenty-minute transcript. Shorter contexts cut invented facts and token cost. The <a href="/open-source-ai-agent-platforms.html">open source AI agent platforms guide</a> and the <a href="/">open source Claude Cowork hub</a> collect the wider field.</p>
@@ -132,9 +161,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">02 · The frameworks</p><h2>The open source frameworks engineers build on</h2></div>
+    <div class="section-head"><h2>The open source frameworks engineers build on</h2></div>
     <div class="prose">
       <p><a href="https://github.com/crewAIInc/crewAI" rel="nofollow">CrewAI</a> is a Python framework for role-based agent teams, MIT licensed and actively developed (about 59,000 GitHub stars, checked October 2026). You define agents with roles and goals, grouped into crews for autonomy or flows for event-driven pipelines. It leaves hosting, secrets, permissions and approval steps to you. A commercial control plane, the AMP Suite, sells that layer to organisations that want it managed.</p>
       <p><a href="https://github.com/microsoft/autogen" rel="nofollow">AutoGen</a> is Microsoft's framework for multi-agent conversations, published under CC BY 4.0 (about 61,000 stars, checked October 2026). It is now in maintenance mode: the README states it will receive no new features and points new users to Microsoft Agent Framework. Its no-code AutoGen Studio interface is explicitly not meant for production, and developers implement authentication and security themselves.</p>
@@ -145,7 +174,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">03 · Framework or platform</p><h2>Framework or platform: what you still build yourself</h2></div>
+    <div class="section-head"><h2>Framework or platform: what you still build yourself</h2></div>
     <div class="prose">
       <p>Coordination is only part of a running system: someone has to host the agents, hold their memory, keep credentials safe, govern tool calls and review the result.</p>
     </div>
@@ -181,15 +210,15 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <figcaption><b>Figure B</b> Harness vs library on the four dimensions that decide the build.</figcaption>
     </figure>
     <div class="tablewrap">
-      <table class="reg-table reg-table--plain">
+      <table class="data-table data-table--plain">
         <thead><tr><th scope="col">Dimension</th><th scope="col">Kortix</th><th scope="col">CrewAI</th><th scope="col">AutoGen</th></tr></thead>
         <tbody>
-          <tr><td class="col-first">Open source</td><td><span class="mark-yes">Yes</span> (Elastic License 2.0)</td><td><span class="mark-yes">Yes</span> (MIT)</td><td><span class="mark-yes">Yes</span> (CC BY 4.0)</td></tr>
-          <tr><td class="col-first">Hosting</td><td>Managed cloud or self-hosted</td><td>Your own application</td><td>Your own application</td></tr>
-          <tr><td class="col-first">Memory and secrets</td><td>Files in your repo; brokered credentials</td><td>You build and host</td><td>You build and host</td></tr>
-          <tr><td class="col-first">Tool permissions</td><td>Allow, ask or block per tool</td><td>You code them</td><td>You code them</td></tr>
-          <tr><td class="col-first">Review gate</td><td>Change request a human merges</td><td>You build it</td><td>You build it</td></tr>
-          <tr><td class="col-first">Status</td><td>Actively developed</td><td>Actively developed</td><td>Maintenance mode</td></tr>
+          <tr><td class="row-name">Open source</td><td><span class="mark-yes">Yes</span> (Elastic License 2.0)</td><td><span class="mark-yes">Yes</span> (MIT)</td><td><span class="mark-yes">Yes</span> (CC BY 4.0)</td></tr>
+          <tr><td class="row-name">Hosting</td><td>Managed cloud or self-hosted</td><td>Your own application</td><td>Your own application</td></tr>
+          <tr><td class="row-name">Memory and secrets</td><td>Files in your repo; brokered credentials</td><td>You build and host</td><td>You build and host</td></tr>
+          <tr><td class="row-name">Tool permissions</td><td>Allow, ask or block per tool</td><td>You code them</td><td>You code them</td></tr>
+          <tr><td class="row-name">Review gate</td><td>Change request a human merges</td><td>You build it</td><td>You build it</td></tr>
+          <tr><td class="row-name">Status</td><td>Actively developed</td><td>Actively developed</td><td>Maintenance mode</td></tr>
         </tbody>
       </table>
     </div>
@@ -199,9 +228,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">04 · The pattern</p><h2>A research, synthesis and review pattern with a human gate</h2></div>
+    <div class="section-head"><h2>A research, synthesis and review pattern with a human gate</h2></div>
     <div class="prose">
       <p>Here is a pattern worth stealing, in Kortix or any framework. The task: a defensible brief on a market, a competitor or a technical question.</p>
     </div>
@@ -255,7 +284,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">05 · Worth it</p><h2>When orchestration is worth it</h2></div>
+    <div class="section-head"><h2>When orchestration is worth it</h2></div>
     <div class="prose">
       <p>Start with one agent: most tasks fit one capable agent with the right tools, and every extra agent multiplies token cost, failure points and review surface. Add orchestration when one of these is true:</p>
       <ul>
@@ -269,9 +298,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">06 · Run it</p><h2>Run the pattern on Kortix</h2></div>
+    <div class="section-head"><h2>Run the pattern on Kortix</h2></div>
     <div class="prose">
       <p>Kortix ships this pattern as a product: agents, skills and memory in one git repo you own, any model with your keys, per-tool permissions down to a single command, and a change request closing every run. Get started at <a href="https://kortix.com" rel="nofollow">kortix.com</a>, <a href="https://kortix.com/docs" rel="nofollow">read the docs</a>, or browse <a href="https://github.com/kortix-ai/suna" rel="nofollow">Kortix on GitHub</a>. The <a href="/self-hosting.html">self-hosting guide</a> covers running it on your own hardware.</p>
     </div>
@@ -280,7 +309,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">07 · Questions</p><h2>Agent orchestration questions</h2></div>
+    <div class="section-head"><h2>Agent orchestration questions</h2></div>
     <div class="faq">
       <div class="faq-item">
         <h3>Do you need a framework to orchestrate AI agents?</h3>
@@ -294,21 +323,20 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 </main>
-<footer class="site-footer">
+<div class="consent-slot"></div>
+<footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <a class="brand" href="/">
-        <span class="seal" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-        </span>
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
         <span>Open Source Claude&nbsp;Cowork</span>
       </a>
       <p>Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work. Every product fact comes from the project's own site or repository, checked October 2026.</p>
     </div>
-    <nav class="foot-col" aria-label="Guides">
+    <nav class="foot-col" aria-label="The site">
       <h3>The site</h3>
       <ul>
-        <li><a href="/">Comparison: the field, side by side</a></li>
+        <li><a href="/">The comparison</a></li>
         <li><a href="/self-hosting.html">Self-hosting guide</a></li>
         <li><a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms</a></li>
         <li><a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform</a></li>
@@ -327,10 +355,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </nav>
   </div>
   <div class="wrap foot-base">
-    <span>FILED OCTOBER 2026 · OPENSOURCECLAUDECOWORK.COM</span>
-    <span>OPEN SOURCE · YOUR REPO · YOUR KEYS</span>
+    <span>opensourceclaudecowork.com · October 2026</span>
+    <span>Open source · your repo · your keys</span>
   </div>
 </footer>
+
 <script>
 (function(){
   var b=document.querySelector('[data-theme-toggle]');
