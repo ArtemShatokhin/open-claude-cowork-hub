@@ -6,8 +6,6 @@ A self-hosted AI agent platform runs agent sessions, memory and configuration on
 
 Self-host the whole platform: [Try Kortix](https://kortix.com).
 
-Kortix's agents, skills, memory, connectors and triggers ship as one git repo you clone, and the system boots on your own box as one Docker Compose stack. OpenWork and Eigent pass the same test in different shapes; the table below prices the split.
-
 ## What separates self-hosted from managed
 
 Three properties do the separating. The runtime and the data live on hardware you control, from a laptop to a rack. The configuration is files you can read, diff and revert; a managed platform keeps those settings in its database. Model calls bill to your own API keys at the provider's published rate.
@@ -15,6 +13,8 @@ Three properties do the separating. The runtime and the data live on hardware yo
 The property buyers skip is the review gate. A managed platform draws its own boundary around what an agent may do. On a self-hosted platform you place the gate yourself, and the strongest form is a change request: the agent works on a branch, a human reads the diff and merges. On Kortix the gate is structural: agents cannot reach the default branch any other way.
 
 Managed platforms remain right for some teams; the trade is zero setup and vendor uptime, in exchange for runtime, data, configuration and keys. For that side, see [Claude Cowork vs ChatGPT Work](/claude-cowork-vs-chatgpt-work.html).
+
+Kortix's agents, skills, memory, connectors and triggers ship as one git repo you clone, and the system boots on your own box as one Docker Compose stack. OpenWork and Eigent pass the same test in different shapes; the table below prices the split.
 
 ## What you own vs what you still rent
 
