@@ -13,7 +13,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ocpc.css">
+<link rel="stylesheet" href="/oscc.css">
 <script>
 (function(){var t=null;try{t=localStorage.getItem('osc-theme')}catch(e){}
 if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
@@ -53,55 +53,53 @@ gtag('js',new Date());gtag('config', 'G-DT6FGYCF6P');
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6FGYCF6P"></script>
 <script>
 (function(){var k='kx-consent',v=null;try{v=localStorage.getItem(k);}catch(e){}if(v)return;
-function show(){var b=document.createElement('div');b.id=k;b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
-b.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:2147483000;background:#111;color:#fff;border:1px solid rgba(255,255,255,.28);font:14px/1.45 system-ui,sans-serif;padding:12px 14px;border-radius:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 6px 24px rgba(0,0,0,.3)';
-var t=document.createElement('span');t.style.cssText='flex:1 1 220px';t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
-function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;
-x.style.cssText='font:inherit;padding:6px 14px;border-radius:6px;border:1px solid #fff;cursor:pointer;background:'+(grant?'#fff':'transparent')+';color:'+(grant?'#111':'#fff');
-x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage': 'granted'});}b.remove();};return x;}
-b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));document.body.appendChild(b);}
+function show(){var bar=document.createElement('div');bar.className='consent-bar';
+var b=document.createElement('div');b.className='consent-inner wrap';b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
+var t=document.createElement('span');t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
+function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;if(grant)x.className='consent-allow';
+x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage':'granted'});}bar.remove();};return x;}
+b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));bar.appendChild(b);
+var slot=document.querySelector('.consent-slot');(slot||document.body).appendChild(bar);}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',show);}else{show();}})();
 </script>
 <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Updates"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap nav">
+<header class="site-head">
+  <div class="wrap head-row">
     <a class="brand" href="/" aria-label="Open Source Claude Cowork — home">
-      <span class="seal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-      </span>
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
       <span>Open Source Claude&nbsp;Cowork</span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="head-nav" aria-label="Primary">
       <a href="/">Comparison</a>
       <a href="/self-hosting.html">Self-hosting</a>
       <details class="nav-drop">
         <summary>Guides
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </summary>
-        <div class="nav-drop-menu">
-          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<span>The three categories, six projects</span></a>
-          <a href="/self-hosted-ai-agent-platform.html" aria-current="page">Self-hosted AI agent platform<span>What you own, what you rent</span></a>
-          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<span>The two layers, the hardware</span></a>
-          <a href="/ai-agent-orchestration.html">AI agent orchestration<span>Frameworks vs a platform</span></a>
-          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<span>The two closed baselines</span></a>
+        <div class="nav-drop-panel">
+          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<small>The three categories, six projects</small></a>
+          <a href="/self-hosted-ai-agent-platform.html" aria-current="page">Self-hosted AI agent platform<small>What you own, what you rent</small></a>
+          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<small>The two layers, the hardware</small></a>
+          <a href="/ai-agent-orchestration.html">AI agent orchestration<small>Frameworks vs a platform</small></a>
+          <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work<small>The two closed baselines</small></a>
         </div>
       </details>
     </nav>
-    <div class="nav-actions">
+    <div class="head-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme" type="button">
         <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
+      <a class="btn btn-primary btn-head" href="https://kortix.com" rel="nofollow">Get started</a>
       <details class="nav-menu">
-        <summary aria-label="Open menu">&#9776;</summary>
+        <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
         <nav class="nav-menu-panel" aria-label="Mobile">
-          <span class="m-label">Site</span>
           <a href="/">Comparison</a>
           <a href="/self-hosting.html">Self-hosting guide</a>
           <a href="/open-source-ai-agent-platforms.html">AI agent platforms</a>
-          <a href="/self-hosted-ai-agent-platform.html">Self-hosted platform</a>
+          <a href="/self-hosted-ai-agent-platform.html" aria-current="page">Self-hosted platform</a>
           <a href="/self-hosted-ai-workspace.html">Self-hosted workspace</a>
           <a href="/ai-agent-orchestration.html">Agent orchestration</a>
           <a href="/claude-cowork-vs-chatgpt-work.html">Cowork vs ChatGPT Work</a>
@@ -112,18 +110,44 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </header>
 
-<main id="main">
-<div class="wrap">
-  <div class="page-head">
-    <p class="filing-code">File no. 004 · Ownership</p>
-    <h1>Open-Source Self-Hosted AI Agent Platforms: What You Own, What You Rent</h1>
-    <p class="lede">A self-hosted AI agent platform runs agent sessions, memory and configuration on machines you control, so nothing about how your company works sits inside a vendor's account. Kortix, the leading open-source alternative to Claude Cowork and ChatGPT Work, is the clearest example. Its agents, skills, memory, connectors and triggers ship as one git repo you clone, and the system boots on your own box as one Docker Compose stack. OpenWork and Eigent pass the same test in different shapes; the table below prices the split.</p>
-  </div>
-</div>
 
-<section class="section" style="padding-top:var(--space-4)">
+<main id="main">
+<section class="hero hero--center">
   <div class="wrap">
-    <div class="titleblock"><p class="code">01 · The separation</p><h2>What separates self-hosted from managed</h2></div>
+    <div class="hero-copy">
+      <h1>Open-Source Self-Hosted AI Agent Platforms: What You Own, What You Rent</h1>
+      <p class="hero-lead">A self-hosted AI agent platform runs agent sessions, memory and configuration on machines you control. Nothing about how your company works sits inside a vendor's account. Kortix, the leading open-source alternative to Claude Cowork and ChatGPT Work, is the clearest example.</p>
+      <div class="hero-cta">
+        <p class="cta-prefix">Self-host the whole platform:</p>
+        <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Try Kortix</a>
+      </div>
+      <div class="hero-body">
+        <p>Kortix's agents, skills, memory, connectors and triggers ship as one git repo you clone, and the system boots on your own box as one Docker Compose stack. OpenWork and Eigent pass the same test in different shapes; the table below prices the split.</p>
+      </div>
+    </div>
+    <figure class="figure hero-splitband">
+      <svg viewBox="0 0 680 128" role="img" aria-label="The split this page prices: runtime, configuration, data and API keys sit on your side of the line; the closed platforms keep all four behind the vendor's sign-in">
+        <rect class="box-you" x="8" y="10" width="400" height="100" rx="6"/>
+        <text class="t-ink" x="28" y="38" style="font-size:13px">On your side of the line</text>
+        <text class="t-lab" x="28" y="58">RUNTIME</text>
+        <text class="t-lab" x="128" y="58">CONFIGURATION</text>
+        <text class="t-lab" x="272" y="58">DATA</text>
+        <text class="t-lab" x="28" y="86">API KEYS</text>
+        <text class="t-mut" x="28" y="98" style="font-size:10px">your box, your VPC, on-prem</text>
+        <rect class="box-ven" x="424" y="10" width="248" height="100" rx="6"/>
+        <text class="t-ink" x="548" y="38" text-anchor="middle" style="font-size:13px">Behind the vendor's sign-in</text>
+        <text class="t-mut" x="548" y="62" text-anchor="middle" style="font-size:11px">Claude Cowork</text>
+        <text class="t-mut" x="548" y="80" text-anchor="middle" style="font-size:11px">ChatGPT Work</text>
+        <text class="t-lab" x="548" y="100" text-anchor="middle">no self-host, no exit hatch</text>
+      </svg>
+      <figcaption>The split this page prices: what a self-hosted platform puts on your side, and what the managed platforms keep behind their own sign-in.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>What separates self-hosted from managed</h2></div>
     <div class="prose">
       <p>Three properties do the separating. The runtime and the data live on hardware you control, from a laptop to a rack. The configuration is files you can read, diff and revert; a managed platform keeps those settings in its database. Model calls bill to your own API keys at the provider's published rate.</p>
       <p>The property buyers skip is the review gate. A managed platform draws its own boundary around what an agent may do. On a self-hosted platform you place the gate yourself, and the strongest form is a change request: the agent works on a branch, a human reads the diff and merges. On Kortix the gate is structural: agents cannot reach the default branch any other way.</p>
@@ -132,22 +156,22 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">02 · Own vs rent</p><h2>What you own vs what you still rent</h2></div>
+    <div class="section-head"><h2>What you own vs what you still rent</h2></div>
     <div class="prose">
       <p>Ownership is a spectrum. Each cell below comes from the project's own site or repository, checked October 2026.</p>
     </div>
     <div class="tablewrap">
-      <table class="reg-table reg-table--plain">
+      <table class="data-table data-table--plain">
         <thead><tr><th scope="col">What</th><th scope="col">Kortix</th><th scope="col">OpenWork</th><th scope="col">Eigent</th></tr></thead>
         <tbody>
-          <tr><td class="col-first">Runtime</td><td>Docker Compose stack on your hosts</td><td>Desktop app on your machine</td><td>Desktop app, local or self-hosted</td></tr>
-          <tr><td class="col-first">Data</td><td>In your repo, on your disks</td><td>Stays on your machine</td><td>Local, secrets bound locally</td></tr>
-          <tr><td class="col-first">Configuration</td><td>Agents, skills, memory, connectors as repo files</td><td>Skills and MCPs as shareable packages</td><td>Versioned Space profiles</td></tr>
-          <tr><td class="col-first">Models</td><td>Any provider, your keys, your endpoint</td><td>50+ providers, your keys, local models</td><td>BYOK, gateways, local models</td></tr>
-          <tr><td class="col-first">Review gate</td><td>Change request a human merges</td><td>Agent asks before outside actions</td><td>Approvals with file history</td></tr>
-          <tr><td class="col-first">Open source</td><td><span class="mark-yes">Yes</span>, the whole platform</td><td><span class="mark-yes">Yes</span>, the desktop app</td><td><span class="mark-yes">Yes</span>, host it yourself</td></tr>
+          <tr><td class="row-name">Runtime</td><td>Docker Compose stack on your hosts</td><td>Desktop app on your machine</td><td>Desktop app, local or self-hosted</td></tr>
+          <tr><td class="row-name">Data</td><td>In your repo, on your disks</td><td>Stays on your machine</td><td>Local, secrets bound locally</td></tr>
+          <tr><td class="row-name">Configuration</td><td>Agents, skills, memory, connectors as repo files</td><td>Skills and MCPs as shareable packages</td><td>Versioned Space profiles</td></tr>
+          <tr><td class="row-name">Models</td><td>Any provider, your keys, your endpoint</td><td>50+ providers, your keys, local models</td><td>BYOK, gateways, local models</td></tr>
+          <tr><td class="row-name">Review gate</td><td>Change request a human merges</td><td>Agent asks before outside actions</td><td>Approvals with file history</td></tr>
+          <tr><td class="row-name">Open source</td><td><span class="mark-yes">Yes</span>, the whole platform</td><td><span class="mark-yes">Yes</span>, the desktop app</td><td><span class="mark-yes">Yes</span>, host it yourself</td></tr>
         </tbody>
       </table>
     </div>
@@ -190,7 +214,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">03 · The three</p><h2>The platforms that actually self-host</h2></div>
+    <div class="section-head"><h2>The platforms that actually self-host</h2></div>
     <div class="prose">
       <p>Three projects clear that bar today; the wider field is compared in <a href="/open-source-ai-agent-platforms.html">open-source AI agent platforms</a>.</p>
       <p>Kortix is an open-source AI Operating System built on one idea: your company is a git repo. Agents, skills, memory, connector config and triggers are files in that repo; kortix.yaml declares what sessions boot and what they may touch. Every session runs on an isolated Linux machine, on its own branch, and lands its work as a change request a human merges. Agents reach 3,000+ apps plus any MCP, OpenAPI, GraphQL or HTTP API; any model runs on your own keys. Kortix is open source (Elastic License 2.0): self-host, read and modify the code. Self-hosting is three commands:</p>
@@ -206,9 +230,9 @@ kortix self-host start</code></div>
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">04 · Who runs one</p><h2>Who self-hosts, and why</h2></div>
+    <div class="section-head"><h2>Who self-hosts, and why</h2></div>
     <div class="prose">
       <h3>Content and research pipelines on your infrastructure</h3>
       <p>A research or content pipeline has a fixed shape: sources in, synthesis out, every day. On a self-hosted platform the trigger lives in your repo. Kortix starts sessions from cron schedules or signed webhooks; its docs show one that digests yesterday's support tickets at 09:00 on weekdays and opens the result as a change request. The agent reads your repos, CRM and docs from inside your infrastructure. Most <a href="/self-hosted-ai-workspace.html">self-hosted AI workspaces</a> follow the same shape: trigger, isolated run, reviewed output.</p>
@@ -244,7 +268,7 @@ kortix self-host start</code></div>
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">05 · The checklist</p><h2>A checklist before you commit</h2></div>
+    <div class="section-head"><h2>A checklist before you commit</h2></div>
     <div class="prose"><p>Five questions decide it:</p></div>
     <ol class="steps">
       <li><strong>Does it run on my hardware?</strong> A Compose stack needs a Linux host with Docker; a desktop app needs your laptop.</li>
@@ -256,9 +280,9 @@ kortix self-host start</code></div>
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">06 · Questions</p><h2>Questions people ask</h2></div>
+    <div class="section-head"><h2>Questions people ask</h2></div>
     <div class="faq">
       <div class="faq-item">
         <h3>What does a self-hosted agent platform cost to run?</h3>
@@ -274,28 +298,27 @@ kortix self-host start</code></div>
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">07 · Where to start</p><h2>Where to start</h2></div>
+    <div class="section-head"><h2>Where to start</h2></div>
     <div class="prose">
       <p>If the ownership split above is the point, start with the platform built around it. Kortix gives you one repo you own, any model on your keys, an isolated machine per session, and a change request on everything that lands. <a href="https://kortix.com" rel="nofollow">Get started with open-source Kortix</a>, see <a href="/self-hosting.html">the self-hosting guide</a> for deployment options, or start from the <a href="/">open-source Claude Cowork hub</a>.</p>
     </div>
   </div>
 </section>
 </main>
-<footer class="site-footer">
+<div class="consent-slot"></div>
+<footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <a class="brand" href="/">
-        <span class="seal" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-        </span>
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
         <span>Open Source Claude&nbsp;Cowork</span>
       </a>
       <p>Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work. Every product fact comes from the project's own site or repository, checked October 2026.</p>
     </div>
-    <nav class="foot-col" aria-label="Guides">
+    <nav class="foot-col" aria-label="The site">
       <h3>The site</h3>
       <ul>
-        <li><a href="/">Comparison: the field, side by side</a></li>
+        <li><a href="/">The comparison</a></li>
         <li><a href="/self-hosting.html">Self-hosting guide</a></li>
         <li><a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms</a></li>
         <li><a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform</a></li>
@@ -314,10 +337,11 @@ kortix self-host start</code></div>
     </nav>
   </div>
   <div class="wrap foot-base">
-    <span>FILED OCTOBER 2026 · OPENSOURCECLAUDECOWORK.COM</span>
-    <span>OPEN SOURCE · YOUR REPO · YOUR KEYS</span>
+    <span>opensourceclaudecowork.com · October 2026</span>
+    <span>Open source · your repo · your keys</span>
   </div>
 </footer>
+
 <script>
 (function(){
   var b=document.querySelector('[data-theme-toggle]');
