@@ -117,14 +117,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div class="hero-copy">
       <h1>Open source AI agent orchestration: how it works and when you need it</h1>
       <p class="hero-lead">Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. Kortix runs that coordination as open source you can self-host.</p>
-      <div class="hero-body">
-        <p>A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.</p>
-      </div>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Get started with open-source Kortix</a>
-      </div>
-      <div class="hero-body">
-        <p>You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work comparison</a> breaks that choice down.</p>
       </div>
     </div>
     <figure class="hero-chain">
@@ -155,8 +149,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="wrap">
     <div class="section-head"><h2>What orchestration adds to a single agent</h2></div>
     <div class="prose">
-      <p>A single agent is one model, one harness and one job: fix this bug, draft this email. It finishes while the task fits inside its context window and toolset. Orchestration enters when the job outgrows that shape. It adds three things a lone agent cannot supply: roles with narrow responsibilities, a sequence that decides what comes next, and a way to pass context between steps.</p>
+      <p>A single agent is one model, one harness and one job: fix this bug, draft this email. It finishes while the task fits inside its context window and toolset. Orchestration enters when the job outgrows that shape. It adds three things a lone agent cannot supply: roles with narrow responsibilities, a sequence that decides what comes next, and a way to pass context between steps. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.</p>
       <p>Context passing matters most. The researcher writes findings to a file, the writer drafts from that file, and the reviewer checks the draft against it. Each agent starts from a clean, relevant context instead of a twenty-minute transcript. Shorter contexts cut invented facts and token cost. The <a href="/open-source-ai-agent-platforms.html">open source AI agent platforms guide</a> and the <a href="/">open source Claude Cowork hub</a> collect the wider field.</p>
+      <p>You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the <a href="/claude-cowork-vs-chatgpt-work.html">Claude Cowork vs ChatGPT Work comparison</a> breaks that choice down.</p>
     </div>
   </div>
 </section>
