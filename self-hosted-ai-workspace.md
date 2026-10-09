@@ -2,7 +2,11 @@
 
 > Canonical page: <https://opensourceclaudecowork.com/self-hosted-ai-workspace.html>
 
-A self-hosted AI workspace is an agent setup that runs on machines and accounts you control: the model, the harness that turns a model into an agent, the memory your company accumulates, and the connectors into your tools. Kortix is an open-source AI Operating System that ships that setup as one git repo you own: agents and skills as files, 3,000+ apps and connectors, any model with your own API keys, and an isolated Linux machine for every session. Install it on a Linux box as a Docker Compose stack, run it in your VPC or on-prem, or use managed cloud when you want zero setup.
+A self-hosted AI workspace is an agent setup that runs on machines and accounts you control. Kortix is the open-source AI Operating System that ships the whole setup as one git repo you own.
+
+[Get started with open-source Kortix](https://kortix.com).
+
+A self-hosted AI workspace has four parts: the model, the harness that turns a model into an agent, the memory your company accumulates, and the connectors into your tools. Kortix gives you agents and skills as files, 3,000+ apps and connectors, any model with your own API keys, and an isolated Linux machine for every session. Install it on a Linux box as a Docker Compose stack, run it in your VPC or on-prem, or use managed cloud when you want zero setup.
 
 The confusion starts because the phrase packs two decisions into one word. People routinely self-host one layer and leave the other with a vendor. Sorting them out tells you what you need to buy and run.
 
