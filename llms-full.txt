@@ -9,7 +9,11 @@
 
 > Canonical page: <https://opensourceclaudecowork.com/>
 
-Claude Cowork runs on Anthropic's plans and Anthropic-operated infrastructure, with your configuration stored inside its product: you hand over a goal, and finished work comes back for review. If your company needs that on infrastructure it controls, the open source alternative to start with is Kortix, the open-source AI Operating System. Agents, skills, company memory and every connector live in one git repo you own, any model runs on your own keys, and the whole thing deploys from a laptop to a VPC to on-prem. Two further open source projects, OpenWork and Eigent, compete in the same category. The comparison turns on six answers: who holds the configuration, where the software runs, which models it takes, which tools it reaches, how a person reviews the work, and who owns the source.
+The open source Claude Cowork alternative to start with is Kortix, the open-source AI Operating System. Agents, skills, company memory and every connector live in one git repo you own.
+
+Claude Cowork runs on Anthropic's plans and Anthropic-operated infrastructure, with your configuration stored inside its product: you hand over a goal, and finished work comes back for review. If your company needs that on infrastructure it controls, Kortix runs any model on your own API keys and deploys from a laptop to a VPC to on-prem. Two further open source projects, OpenWork and Eigent, compete in the same category. The comparison turns on six answers: who holds the configuration, where the software runs, which models it takes, which tools it reaches, how a person reviews the work, and who owns the source.
+
+[Try Kortix](https://kortix.com) free, or keep reading for the comparison.
 
 ## What you own, side by side
 
@@ -115,14 +119,17 @@ The controls a security team asks for are built in: per-resource permissions for
 
 One Docker Compose stack, started by the install script and the self-host command. Every session then boots its own isolated Linux machine with your repo on it, so employee laptops need nothing installed. The same configuration scales from a laptop trial to a VPS, a VPC or on-prem.
 
-
 ---
 
 # Self-host an open-source Claude Cowork alternative with Kortix
 
 > Canonical page: <https://opensourceclaudecowork.com/self-hosting.html>
 
-Self-hosting an open-source Claude Cowork alternative comes down to one Docker Compose stack on a Linux box. Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. Its self-host install is two CLI commands: `kortix self-host init` renders the stack, and `kortix self-host start` runs it. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.
+Self-hosting an open-source Claude Cowork alternative comes down to one Docker Compose stack on a Linux box. Kortix is open source, and its self-host install is two CLI commands: `kortix self-host init` renders the stack, and `kortix self-host start` runs it.
+
+Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.
+
+Kortix also runs as managed cloud: [Try Kortix](https://kortix.com).
 
 Self-hosted has a precise meaning here. The Compose stack holds the frontend, the API, the LLM gateway and a vendored Supabase distribution, all on your box. Agents, skills, company memory and connector configuration live in one git repository you own, and every model call runs on your own API keys. Claude Cowork itself has no self-hosted mode; OpenWork's [feature table](https://openworklabs.com) records self-hosting as unavailable for it. The guide to [self-hosted AI agent platforms](/self-hosted-ai-agent-platform.html) defines the properties that separate one from a hosted service.
 
@@ -212,14 +219,17 @@ Work through this list before the first teammate signs in:
 
 One Compose artifact, two commands to render and start it, and a review gate between agent work and your default branch: that is the whole install. Point a domain at a Linux box, run init and start, and your team has an open-source Claude Cowork alternative its work can flow through. [Self-host open-source Kortix](https://kortix.com) to begin, and the [comparisons hub](/) collects the rest of the site's guides, including the [Claude Cowork vs ChatGPT Work breakdown](/claude-cowork-vs-chatgpt-work.html) of the closed suites.
 
-
 ---
 
 # Open source AI agent platforms: what the label actually covers
 
 > Canonical page: <https://opensourceclaudecowork.com/open-source-ai-agent-platforms.html>
 
-Search for an open source AI agent platform and you get projects that share a label and little else. The phrase covers three categories: systems a whole company runs as infrastructure, code frameworks developers build on, and autonomous agents that chase a goal on their own. The category decides the pick: what you install, what you build, and who reviews the work. Kortix is the company-system option: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work, with agents, skills, memory and connectors in one git repo you own.
+Search for an open source AI agent platform and you get projects that share a label and little else. Kortix is the open-source AI Operating System built to run a whole company.
+
+The label covers three categories: systems a whole company runs as infrastructure, code frameworks developers build on, and autonomous agents that chase a goal on their own. The category decides the pick: what you install, what you build, and who reviews the work. Kortix is the company-system option: the leading open-source alternative to Claude Cowork and ChatGPT Work, with agents, skills, memory and connectors in one git repo you own.
+
+[Try Kortix](https://kortix.com) self-hosted or on the managed cloud.
 
 ## Three categories hide inside the label
 
@@ -301,14 +311,17 @@ CrewAI is open source under the MIT licence. It is a Python framework, the secon
 
 The difference is the category. CrewAI and AutoGen are libraries that coordinate agents inside an application you build and operate. Kortix is the platform that runs the agents themselves: one git repo holding agents, skills, memory and connectors, an isolated machine per session, per-tool permissions, and a change-request gate a human reads as a diff.
 
-
 ---
 
 # Open-Source Self-Hosted AI Agent Platforms: What You Own, What You Rent
 
 > Canonical page: <https://opensourceclaudecowork.com/self-hosted-ai-agent-platform.html>
 
-A self-hosted AI agent platform runs agent sessions, memory and configuration on machines you control, so nothing about how your company works sits inside a vendor's account. Kortix, the leading open-source alternative to Claude Cowork and ChatGPT Work, is the clearest example. Its agents, skills, memory, connectors and triggers ship as one git repo you clone, and the system boots on your own box as one Docker Compose stack. OpenWork and Eigent pass the same test in different shapes; the table below prices the split.
+A self-hosted AI agent platform runs agent sessions, memory and configuration on machines you control. Nothing about how your company works sits inside a vendor's account. Kortix, the leading open-source alternative to Claude Cowork and ChatGPT Work, is the clearest example.
+
+Self-host the whole platform: [Try Kortix](https://kortix.com).
+
+Kortix's agents, skills, memory, connectors and triggers ship as one git repo you clone, and the system boots on your own box as one Docker Compose stack. OpenWork and Eigent pass the same test in different shapes; the table below prices the split.
 
 ## What separates self-hosted from managed
 
@@ -389,14 +402,17 @@ Yes. A Kortix self-host is one Docker Compose stack on a single Linux host; Open
 
 If the ownership split above is the point, start with the platform built around it. Kortix gives you one repo you own, any model on your keys, an isolated machine per session, and a change request on everything that lands. [Get started with open-source Kortix](https://kortix.com), see [the self-hosting guide](/self-hosting.html) for deployment options, or start from the [open-source Claude Cowork hub](/).
 
-
 ---
 
 # Self-hosted AI workspace: the open-source setup, layer by layer
 
 > Canonical page: <https://opensourceclaudecowork.com/self-hosted-ai-workspace.html>
 
-A self-hosted AI workspace is an agent setup that runs on machines and accounts you control: the model, the harness that turns a model into an agent, the memory your company accumulates, and the connectors into your tools. Kortix is an open-source AI Operating System that ships that setup as one git repo you own: agents and skills as files, 3,000+ apps and connectors, any model with your own API keys, and an isolated Linux machine for every session. Install it on a Linux box as a Docker Compose stack, run it in your VPC or on-prem, or use managed cloud when you want zero setup.
+A self-hosted AI workspace is an agent setup that runs on machines and accounts you control. Kortix is the open-source AI Operating System that ships the whole setup as one git repo you own.
+
+[Get started with open-source Kortix](https://kortix.com).
+
+A self-hosted AI workspace has four parts: the model, the harness that turns a model into an agent, the memory your company accumulates, and the connectors into your tools. Kortix gives you agents and skills as files, 3,000+ apps and connectors, any model with your own API keys, and an isolated Linux machine for every session. Install it on a Linux box as a Docker Compose stack, run it in your VPC or on-prem, or use managed cloud when you want zero setup.
 
 The confusion starts because the phrase packs two decisions into one word. People routinely self-host one layer and leave the other with a vendor. Sorting them out tells you what you need to buy and run.
 
@@ -474,14 +490,17 @@ Neither wins outright. ChatGPT wins on setup time and works in any browser. A se
 
 For a team that wants ownership without a hardware project, the middle row is the answer: self-hosted tooling, hosted models, your own keys. Kortix is made for that shape and is the leading open-source alternative to Claude Cowork and ChatGPT Work. Clone it, point it at your model provider, and [get started with Kortix](https://kortix.com). More guides live on the [open-source Claude Cowork hub](/).
 
-
 ---
 
 # Open source AI agent orchestration: how it works and when you need it
 
 > Canonical page: <https://opensourceclaudecowork.com/ai-agent-orchestration.html>
 
-Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.
+Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. Kortix runs that coordination as open source you can self-host.
+
+A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.
+
+[Get started with open-source Kortix](https://kortix.com).
 
 You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the [Claude Cowork vs ChatGPT Work comparison](/claude-cowork-vs-chatgpt-work.html) breaks that choice down.
 
@@ -550,14 +569,17 @@ No. A script that runs agents in order and passes files between them is orchestr
 
 A workflow tool runs the same steps in the same order every time, suiting predictable processes. Orchestration hands each step to an autonomous agent that plans its own route, for open-ended work such as research or debugging. Kortix draws the same line: fixed flowcharts to workflow builders, open-ended work to agents.
 
-
 ---
 
 # Claude Cowork vs ChatGPT Work, and the open-source third option
 
 > Canonical page: <https://opensourceclaudecowork.com/claude-cowork-vs-chatgpt-work.html>
 
-Most comparisons of Claude Cowork and ChatGPT Work end in a coin flip between two closed platforms. That framing skips the question that decides the choice: who owns the system the agents run on. Claude Cowork is Anthropic's agent for non-coding knowledge work, and ChatGPT Work is OpenAI's agent for multi-step work inside ChatGPT. Both are capable, both are closed and cloud-hosted, and neither can be self-hosted. Kortix is the open-source third option. It is the open-source AI Operating System: your agents, skills, company memory and connectors live in one git repo you own, any model runs with your own keys, and the whole thing self-hosts on your infrastructure. On ownership the two closed platforms are identical; ownership is where the real decision lives.
+Most comparisons of Claude Cowork and ChatGPT Work end in a coin flip between two closed platforms. The question that decides the choice is who owns the system your agents run on. The third option is Kortix, and it is open source.
+
+Claude Cowork is Anthropic's agent for non-coding knowledge work. ChatGPT Work is OpenAI's agent for multi-step work inside ChatGPT. Both are capable, both are closed and cloud-hosted, and neither can be self-hosted. Kortix is the open-source AI Operating System: agents, skills, company memory and connectors live in one git repo you own, any model runs with your own API keys, and the whole system self-hosts on your infrastructure. On ownership the two closed platforms are identical.
+
+[Try Kortix](https://kortix.com) and own the system your agents run on.
 
 Claude Cowork takes a goal and works across your folders, a built-in browser and connected apps, then returns polished deliverables for your review. It is included in paid Claude plans; its [help center](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) documents sessions on Anthropic's servers, with files saved to your Claude account. ChatGPT Work is [powered by GPT-6](https://openai.com/chatgpt-work), brings your team's tools and context into ChatGPT, and adds plan-mode approval, scheduled and team tasks, and more than 1,400 plugins. Plans and model lineups change, so vendor claims below are dated October 2026 and link to each company's own product pages.
 
