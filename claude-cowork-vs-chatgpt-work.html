@@ -13,7 +13,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/ocpc.css">
+<link rel="stylesheet" href="/oscc.css">
 <script>
 (function(){var t=null;try{t=localStorage.getItem('osc-theme')}catch(e){}
 if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
@@ -47,58 +47,56 @@ gtag('js',new Date());gtag('config', 'G-DT6FGYCF6P');
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT6FGYCF6P"></script>
 <script>
 (function(){var k='kx-consent',v=null;try{v=localStorage.getItem(k);}catch(e){}if(v)return;
-function show(){var b=document.createElement('div');b.id=k;b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
-b.style.cssText='position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:2147483000;background:#111;color:#fff;border:1px solid rgba(255,255,255,.28);font:14px/1.45 system-ui,sans-serif;padding:12px 14px;border-radius:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 6px 24px rgba(0,0,0,.3)';
-var t=document.createElement('span');t.style.cssText='flex:1 1 220px';t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
-function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;
-x.style.cssText='font:inherit;padding:6px 14px;border-radius:6px;border:1px solid #fff;cursor:pointer;background:'+(grant?'#fff':'transparent')+';color:'+(grant?'#111':'#fff');
-x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage': 'granted'});}b.remove();};return x;}
-b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));document.body.appendChild(b);}
+function show(){var bar=document.createElement('div');bar.className='consent-bar';
+var b=document.createElement('div');b.className='consent-inner wrap';b.setAttribute('role','dialog');b.setAttribute('aria-label','Analytics consent');
+var t=document.createElement('span');t.textContent='We use analytics cookies to learn which pages help readers. Allow them?';b.appendChild(t);
+function btn(label,grant){var x=document.createElement('button');x.type='button';x.textContent=label;if(grant)x.className='consent-allow';
+x.onclick=function(){try{localStorage.setItem(k,grant?'granted':'denied');}catch(e){}if(grant){gtag('consent','update',{'analytics_storage':'granted'});}bar.remove();};return x;}
+b.appendChild(btn('Accept',true));b.appendChild(btn('Decline',false));bar.appendChild(b);
+var slot=document.querySelector('.consent-slot');(slot||document.body).appendChild(bar);}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',show);}else{show();}})();
 </script>
 <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Updates"></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap nav">
+<header class="site-head">
+  <div class="wrap head-row">
     <a class="brand" href="/" aria-label="Open Source Claude Cowork — home">
-      <span class="seal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-      </span>
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
       <span>Open Source Claude&nbsp;Cowork</span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="head-nav" aria-label="Primary">
       <a href="/">Comparison</a>
       <a href="/self-hosting.html">Self-hosting</a>
       <details class="nav-drop">
         <summary>Guides
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </summary>
-        <div class="nav-drop-menu">
-          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<span>The three categories, six projects</span></a>
-          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<span>What you own, what you rent</span></a>
-          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<span>The two layers, the hardware</span></a>
-          <a href="/ai-agent-orchestration.html">AI agent orchestration<span>Frameworks vs a platform</span></a>
-          <a href="/claude-cowork-vs-chatgpt-work.html" aria-current="page">Claude Cowork vs ChatGPT Work<span>The two closed baselines</span></a>
+        <div class="nav-drop-panel">
+          <a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms<small>The three categories, six projects</small></a>
+          <a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform<small>What you own, what you rent</small></a>
+          <a href="/self-hosted-ai-workspace.html">Self-hosted AI workspace<small>The two layers, the hardware</small></a>
+          <a href="/ai-agent-orchestration.html">AI agent orchestration<small>Frameworks vs a platform</small></a>
+          <a href="/claude-cowork-vs-chatgpt-work.html" aria-current="page">Claude Cowork vs ChatGPT Work<small>The two closed baselines</small></a>
         </div>
       </details>
     </nav>
-    <div class="nav-actions">
+    <div class="head-actions">
       <button class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme" type="button">
         <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
+      <a class="btn btn-primary btn-head" href="https://kortix.com" rel="nofollow">Get started</a>
       <details class="nav-menu">
-        <summary aria-label="Open menu">&#9776;</summary>
+        <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
         <nav class="nav-menu-panel" aria-label="Mobile">
-          <span class="m-label">Site</span>
           <a href="/">Comparison</a>
           <a href="/self-hosting.html">Self-hosting guide</a>
           <a href="/open-source-ai-agent-platforms.html">AI agent platforms</a>
           <a href="/self-hosted-ai-agent-platform.html">Self-hosted platform</a>
           <a href="/self-hosted-ai-workspace.html">Self-hosted workspace</a>
           <a href="/ai-agent-orchestration.html">Agent orchestration</a>
-          <a href="/claude-cowork-vs-chatgpt-work.html">Cowork vs ChatGPT Work</a>
+          <a href="/claude-cowork-vs-chatgpt-work.html" aria-current="page">Cowork vs ChatGPT Work</a>
           <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Get started with Kortix</a>
         </nav>
       </details>
@@ -106,33 +104,65 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </header>
 
-<main id="main">
-<div class="wrap">
-  <div class="page-head">
-    <p class="filing-code">File no. 007 · The fork</p>
-    <h1>Claude Cowork vs ChatGPT Work, and the open-source third option</h1>
-    <p class="lede">Most comparisons of Claude Cowork and ChatGPT Work end in a coin flip between two closed platforms. That framing skips the question that decides the choice: who owns the system the agents run on. Claude Cowork is Anthropic's agent for non-coding knowledge work, and ChatGPT Work is OpenAI's agent for multi-step work inside ChatGPT. Both are capable, both are closed and cloud-hosted, and neither can be self-hosted. Kortix is the open-source third option. It is the open-source AI Operating System: your agents, skills, company memory and connectors live in one git repo you own, any model runs with your own keys, and the whole thing self-hosts on your infrastructure. On ownership the two closed platforms are identical; ownership is where the real decision lives.</p>
-    <p class="lede" style="margin-top:var(--space-4)">Claude Cowork takes a goal and works across your folders, a built-in browser and connected apps, then returns polished deliverables for your review. It is included in paid Claude plans; its <a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork" rel="nofollow">help center</a> documents sessions on Anthropic's servers, with files saved to your Claude account. ChatGPT Work is <a href="https://openai.com/chatgpt-work" rel="nofollow">powered by GPT-6</a>, brings your team's tools and context into ChatGPT, and adds plan-mode approval, scheduled and team tasks, and more than 1,400 plugins. Plans and model lineups change, so vendor claims below are dated October 2026 and link to each company's own product pages.</p>
-  </div>
-</div>
 
-<section class="section" style="padding-top:var(--space-4)">
+<main id="main">
+<section class="hero hero--fork">
   <div class="wrap">
-    <div class="titleblock"><p class="code">01 · The structure</p><h2>The structural comparison</h2></div>
+    <div class="hero-copy">
+      <h1>Claude Cowork vs ChatGPT Work, and the open-source third option</h1>
+      <p class="hero-lead">Most comparisons of Claude Cowork and ChatGPT Work end in a coin flip between two closed platforms. The question that decides the choice is who owns the system your agents run on. The third option is Kortix, and it is open source.</p>
+      <div class="hero-body">
+        <p>Claude Cowork is Anthropic's agent for non-coding knowledge work. ChatGPT Work is OpenAI's agent for multi-step work inside ChatGPT. Both are capable, both are closed and cloud-hosted, and neither can be self-hosted. Kortix is the open-source AI Operating System: agents, skills, company memory and connectors live in one git repo you own, any model runs with your own API keys, and the whole system self-hosts on your infrastructure. On ownership the two closed platforms are identical.</p>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://kortix.com" rel="nofollow">Try Kortix</a>
+        <p class="cta-note">and own the system your agents run on.</p>
+      </div>
+      <div class="hero-body">
+        <p>Claude Cowork takes a goal and works across your folders, a built-in browser and connected apps, then returns polished deliverables for your review. It is included in paid Claude plans; its <a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork" rel="nofollow">help center</a> documents sessions on Anthropic's servers, with files saved to your Claude account. ChatGPT Work is <a href="https://openai.com/chatgpt-work" rel="nofollow">powered by GPT-6</a>, brings your team's tools and context into ChatGPT, and adds plan-mode approval, scheduled and team tasks, and more than 1,400 plugins. Plans and model lineups change, so vendor claims below are dated October 2026 and link to each company's own product pages.</p>
+      </div>
+    </div>
+    <figure class="figure hero-fork">
+      <svg viewBox="0 0 680 216" role="img" aria-label="The fork: Claude Cowork and ChatGPT Work both end at the vendor, which holds the configuration, the data and the model; the Kortix road ends with you, holding the repo, the keys and the runtime">
+        <rect class="box-ven" x="24" y="14" width="212" height="42" rx="4"/>
+        <text class="t-ink" x="130" y="40" text-anchor="middle" style="font-size:12px">Claude Cowork</text>
+        <rect class="box-ven" x="252" y="14" width="212" height="42" rx="4"/>
+        <text class="t-ink" x="358" y="40" text-anchor="middle" style="font-size:12px">ChatGPT Work</text>
+        <rect class="box-ox" x="496" y="14" width="160" height="42" rx="4"/>
+        <text class="t-ink" x="576" y="40" text-anchor="middle" style="font-size:12px">Kortix</text>
+        <path class="arr" d="M130 56 V96"/><path class="arrhead" d="M126 94 l4 6 4 -6"/>
+        <path class="arr" d="M358 56 V96"/><path class="arrhead" d="M354 94 l4 6 4 -6"/>
+        <path class="arr-ox" d="M576 56 V96"/><path class="arrhead-ox" d="M572 94 l4 6 4 -6"/>
+        <rect class="box-ven" x="24" y="102" width="440" height="66" rx="4"/>
+        <text class="t-ink" x="244" y="128" text-anchor="middle" style="font-size:12px">The vendor owns it</text>
+        <text class="t-mut" x="244" y="148" text-anchor="middle" style="font-size:10px">config · data · work history · model lineup</text>
+        <rect class="box-you" x="476" y="102" width="180" height="66" rx="4"/>
+        <text class="t-ink" x="566" y="128" text-anchor="middle" style="font-size:12px">You own it</text>
+        <text class="t-mut" x="566" y="148" text-anchor="middle" style="font-size:10px">the repo · your keys · the runtime</text>
+        <text class="t-mut" x="24" y="196" style="font-size:10.5px">Two closed platforms differ in features; on ownership they end in the same place. The fork is the third road.</text>
+      </svg>
+      <figcaption><b>The fork</b> Where each road ends. The full structural comparison is the first table below.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>The structural comparison</h2></div>
     <div class="prose">
       <p>Feature lists overlap; structure does not. The table below puts the three platforms on the axes that outlast any release cycle: configuration, hosting, models, connectors and the approval gate.</p>
     </div>
     <div class="tablewrap">
-      <table class="reg-table reg-table--plain">
+      <table class="data-table data-table--plain">
         <thead><tr><th scope="col">Dimension</th><th scope="col">Kortix</th><th scope="col">Claude Cowork</th><th scope="col">ChatGPT Work</th></tr></thead>
         <tbody>
-          <tr><td class="col-first">Open source</td><td><span class="mark-yes">Yes</span></td><td><span class="mark-no">No</span></td><td><span class="mark-no">No</span></td></tr>
-          <tr><td class="col-first">Your configuration</td><td>Files in a git repo you own</td><td>Settings in Anthropic's product</td><td>Settings in OpenAI's product</td></tr>
-          <tr><td class="col-first">Self-hosting</td><td>Yes, one Docker Compose stack</td><td>Not offered</td><td>Not offered</td></tr>
-          <tr><td class="col-first">Where it runs</td><td>Your hardware, your VPC or managed cloud</td><td>Anthropic's cloud or your cloud provider</td><td>OpenAI's cloud</td></tr>
-          <tr><td class="col-first">Models</td><td>Any provider, your own API keys</td><td>Claude models only</td><td>OpenAI's GPT-6</td></tr>
-          <tr><td class="col-first">Connectors</td><td>3,000+ apps plus any MCP or API</td><td>Anthropic's connector directory</td><td>1,400+ plugins</td></tr>
-          <tr><td class="col-first">Review gate</td><td>Change request a human merges</td><td>Approval prompts you configure</td><td>Plan mode approval</td></tr>
+          <tr><td class="row-name">Open source</td><td><span class="mark-yes">Yes</span></td><td><span class="mark-no">No</span></td><td><span class="mark-no">No</span></td></tr>
+          <tr><td class="row-name">Your configuration</td><td>Files in a git repo you own</td><td>Settings in Anthropic's product</td><td>Settings in OpenAI's product</td></tr>
+          <tr><td class="row-name">Self-hosting</td><td>Yes, one Docker Compose stack</td><td>Not offered</td><td>Not offered</td></tr>
+          <tr><td class="row-name">Where it runs</td><td>Your hardware, your VPC or managed cloud</td><td>Anthropic's cloud or your cloud provider</td><td>OpenAI's cloud</td></tr>
+          <tr><td class="row-name">Models</td><td>Any provider, your own API keys</td><td>Claude models only</td><td>OpenAI's GPT-6</td></tr>
+          <tr><td class="row-name">Connectors</td><td>3,000+ apps plus any MCP or API</td><td>Anthropic's connector directory</td><td>1,400+ plugins</td></tr>
+          <tr><td class="row-name">Review gate</td><td>Change request a human merges</td><td>Approval prompts you configure</td><td>Plan mode approval</td></tr>
         </tbody>
       </table>
     </div>
@@ -142,9 +172,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">02 · Identical, here</p><h2>Where Claude Cowork and ChatGPT Work are the same</h2></div>
+    <div class="section-head"><h2>Where Claude Cowork and ChatGPT Work are the same</h2></div>
     <div class="prose">
       <p>Both products are closed and single-vendor. There is no source you can read, fork or audit, and the roadmap belongs to the vendor. Anthropic's plan pages state that prices and plans change at its discretion, and OpenAI gates features like Space by plan tier. Inside a closed product, the admin settings panel is the only control surface.</p>
       <p>Neither offers self-hosting. Claude Cowork runs on Anthropic's servers, and its help center says sessions and files are saved to your Claude account. Enterprise deployments can route the compute through your own Amazon Bedrock, Google Cloud or Microsoft Foundry account, which changes whose bill the usage lands on, while the software itself stays closed. ChatGPT Work runs inside ChatGPT on OpenAI's plans, with no self-hosted distribution. In both cases the vendor holds the configuration, the memory and the work history.</p>
@@ -154,7 +184,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">03 · The fork</p><h2>The fork: who owns the workspace</h2></div>
+    <div class="section-head"><h2>The fork: who owns the workspace</h2></div>
     <div class="prose">
       <p>The axis the two-horse race hides is ownership. In Kortix the company is one git repo: agents and skills are markdown files, memory is files that accumulate, and connector config, triggers and the machine image are declared in kortix.yaml. You can grep the entire system, diff any proposed change and roll any part back. Each session boots its own isolated Linux machine on its own branch, and finished work reaches main only through a change request a human reviews before merging.</p>
     </div>
@@ -193,9 +223,9 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   </div>
 </section>
 
-<section class="section section--offset">
+<section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">04 · The decision</p><h2>How to decide</h2></div>
+    <div class="section-head"><h2>How to decide</h2></div>
     <div class="prose">
       <ul>
         <li>Pick Claude Cowork or ChatGPT Work when you want a managed product for individual or team use, accept one vendor for models and hosting, and need nothing self-hosted.</li>
@@ -233,7 +263,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
 <section class="section">
   <div class="wrap">
-    <div class="titleblock"><p class="code">05 · Filed reading</p><h2>Related reading</h2></div>
+    <div class="section-head"><h2>Related reading</h2></div>
     <div class="prose">
       <ul>
         <li>The <a href="/self-hosting.html">self-hosting guide</a> covers deployment on a VPS, in a VPC and on-prem.</li>
@@ -242,28 +272,27 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <li><a href="/ai-agent-orchestration.html">AI agent orchestration</a> explains how sessions, triggers and review gates fit together.</li>
       </ul>
     </div>
-    <div class="file-card">
+    <div class="closing">
       <h2>Make the ownership decision once, on your side of the wall</h2>
       <p>You can start without a purchase decision. Install with <code>curl -fsSL https://kortix.com/install | bash</code>, or read the source at <a href="https://github.com/kortix-ai/suna" rel="nofollow">Kortix on GitHub</a>. Managed cloud exists for teams that prefer not to run the stack themselves. <a href="https://kortix.com" rel="nofollow">Get started with open-source Kortix</a> and make the ownership decision once, on your side of the wall.</p>
     </div>
   </div>
 </section>
 </main>
-<footer class="site-footer">
+<div class="consent-slot"></div>
+<footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <a class="brand" href="/">
-        <span class="seal" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
-        </span>
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><path d="M12 6.8 17.2 12 12 17.2 6.8 12Z"/></svg>
         <span>Open Source Claude&nbsp;Cowork</span>
       </a>
       <p>Comparisons of open-source, self-hostable alternatives to Claude Cowork and ChatGPT Work. Every product fact comes from the project's own site or repository, checked October 2026.</p>
     </div>
-    <nav class="foot-col" aria-label="Guides">
+    <nav class="foot-col" aria-label="The site">
       <h3>The site</h3>
       <ul>
-        <li><a href="/">Comparison: the field, side by side</a></li>
+        <li><a href="/">The comparison</a></li>
         <li><a href="/self-hosting.html">Self-hosting guide</a></li>
         <li><a href="/open-source-ai-agent-platforms.html">Open source AI agent platforms</a></li>
         <li><a href="/self-hosted-ai-agent-platform.html">Self-hosted AI agent platform</a></li>
@@ -282,10 +311,11 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </nav>
   </div>
   <div class="wrap foot-base">
-    <span>FILED OCTOBER 2026 · OPENSOURCECLAUDECOWORK.COM</span>
-    <span>OPEN SOURCE · YOUR REPO · YOUR KEYS</span>
+    <span>opensourceclaudecowork.com · October 2026</span>
+    <span>Open source · your repo · your keys</span>
   </div>
 </footer>
+
 <script>
 (function(){
   var b=document.querySelector('[data-theme-toggle]');
