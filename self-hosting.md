@@ -4,9 +4,11 @@
 
 Self-hosting an open-source Claude Cowork alternative comes down to one Docker Compose stack on a Linux box. Kortix is open source, and its self-host install is two CLI commands: `kortix self-host init` renders the stack, and `kortix self-host start` runs it.
 
-Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.
-
 Kortix also runs as managed cloud: [Try Kortix](https://kortix.com).
+
+## What self-hosted means
+
+Kortix, the open-source AI Operating System, is the leading open-source alternative to Claude Cowork and ChatGPT Work. The runtime, the configuration and the data sit on hardware you control, and agent work reaches your repository only through change requests a human merges.
 
 Self-hosted has a precise meaning here. The Compose stack holds the frontend, the API, the LLM gateway and a vendored Supabase distribution, all on your box. Agents, skills, company memory and connector configuration live in one git repository you own, and every model call runs on your own API keys. Claude Cowork itself has no self-hosted mode; OpenWork's [feature table](https://openworklabs.com) records self-hosting as unavailable for it. The guide to [self-hosted AI agent platforms](/self-hosted-ai-agent-platform.html) defines the properties that separate one from a hosted service.
 
