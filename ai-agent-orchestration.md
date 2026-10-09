@@ -2,7 +2,11 @@
 
 > Canonical page: <https://opensourceclaudecowork.com/ai-agent-orchestration.html>
 
-Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.
+Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. Kortix runs that coordination as open source you can self-host.
+
+A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.
+
+[Get started with open-source Kortix](https://kortix.com).
 
 You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the [Claude Cowork vs ChatGPT Work comparison](/claude-cowork-vs-chatgpt-work.html) breaks that choice down.
 
