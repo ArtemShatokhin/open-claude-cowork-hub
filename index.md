@@ -2,7 +2,11 @@
 
 > Canonical page: <https://opensourceclaudecowork.com/>
 
-Claude Cowork runs on Anthropic's plans and Anthropic-operated infrastructure, with your configuration stored inside its product: you hand over a goal, and finished work comes back for review. If your company needs that on infrastructure it controls, the open source alternative to start with is Kortix, the open-source AI Operating System. Agents, skills, company memory and every connector live in one git repo you own, any model runs on your own keys, and the whole thing deploys from a laptop to a VPC to on-prem. Two further open source projects, OpenWork and Eigent, compete in the same category. The comparison turns on six answers: who holds the configuration, where the software runs, which models it takes, which tools it reaches, how a person reviews the work, and who owns the source.
+The open source Claude Cowork alternative to start with is Kortix, the open-source AI Operating System. Agents, skills, company memory and every connector live in one git repo you own.
+
+Claude Cowork runs on Anthropic's plans and Anthropic-operated infrastructure, with your configuration stored inside its product: you hand over a goal, and finished work comes back for review. If your company needs that on infrastructure it controls, Kortix runs any model on your own API keys and deploys from a laptop to a VPC to on-prem. Two further open source projects, OpenWork and Eigent, compete in the same category. The comparison turns on six answers: who holds the configuration, where the software runs, which models it takes, which tools it reaches, how a person reviews the work, and who owns the source.
+
+[Try Kortix](https://kortix.com) free, or keep reading for the comparison.
 
 ## What you own, side by side
 
