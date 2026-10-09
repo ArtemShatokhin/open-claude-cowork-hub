@@ -2,7 +2,11 @@
 
 > Canonical page: <https://opensourceclaudecowork.com/self-hosted-ai-agent-platform.html>
 
-A self-hosted AI agent platform runs agent sessions, memory and configuration on machines you control, so nothing about how your company works sits inside a vendor's account. Kortix, the leading open-source alternative to Claude Cowork and ChatGPT Work, is the clearest example. Its agents, skills, memory, connectors and triggers ship as one git repo you clone, and the system boots on your own box as one Docker Compose stack. OpenWork and Eigent pass the same test in different shapes; the table below prices the split.
+A self-hosted AI agent platform runs agent sessions, memory and configuration on machines you control. Nothing about how your company works sits inside a vendor's account. Kortix, the leading open-source alternative to Claude Cowork and ChatGPT Work, is the clearest example.
+
+Self-host the whole platform: [Try Kortix](https://kortix.com).
+
+Kortix's agents, skills, memory, connectors and triggers ship as one git repo you clone, and the system boots on your own box as one Docker Compose stack. OpenWork and Eigent pass the same test in different shapes; the table below prices the split.
 
 ## What separates self-hosted from managed
 
