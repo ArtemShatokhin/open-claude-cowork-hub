@@ -4,13 +4,11 @@
 
 Most comparisons of Claude Cowork and ChatGPT Work end in a coin flip between two closed platforms. The question that decides the choice is who owns the system your agents run on. The third option is Kortix, and it is open source.
 
-Claude Cowork is Anthropic's agent for non-coding knowledge work. ChatGPT Work is OpenAI's agent for multi-step work inside ChatGPT. Both are capable, both are closed and cloud-hosted, and neither can be self-hosted. Kortix is the open-source AI Operating System: agents, skills, company memory and connectors live in one git repo you own, any model runs with your own API keys, and the whole system self-hosts on your infrastructure. On ownership the two closed platforms are identical.
-
 [Try Kortix](https://kortix.com) and own the system your agents run on.
 
-Claude Cowork takes a goal and works across your folders, a built-in browser and connected apps, then returns polished deliverables for your review. It is included in paid Claude plans; its [help center](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) documents sessions on Anthropic's servers, with files saved to your Claude account. ChatGPT Work is [powered by GPT-6](https://openai.com/chatgpt-work), brings your team's tools and context into ChatGPT, and adds plan-mode approval, scheduled and team tasks, and more than 1,400 plugins. Plans and model lineups change, so vendor claims below are dated October 2026 and link to each company's own product pages.
-
 ## The structural comparison
+
+Claude Cowork is Anthropic's agent for non-coding knowledge work. ChatGPT Work is OpenAI's agent for multi-step work inside ChatGPT. Both are capable, both are closed and cloud-hosted, and neither can be self-hosted. Kortix is the open-source AI Operating System: agents, skills, company memory and connectors live in one git repo you own, any model runs with your own API keys, and the whole system self-hosts on your infrastructure. On ownership the two closed platforms are identical.
 
 Feature lists overlap; structure does not. The table below puts the three platforms on the axes that outlast any release cycle: configuration, hosting, models, connectors and the approval gate.
 
@@ -25,6 +23,8 @@ Feature lists overlap; structure does not. The table below puts the three platfo
 | Review gate | Change request a human merges | Approval prompts you configure | Plan mode approval |
 
 Vendor rows come from each company's own pages, checked October 2026: [Claude Cowork's product page](https://claude.com/product/cowork) and [help center](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) for Anthropic, [OpenAI's ChatGPT Work page](https://openai.com/chatgpt-work) for OpenAI. Kortix rows come from [kortix.com](https://kortix.com) and [the docs](https://kortix.com/docs).
+
+Claude Cowork takes a goal and works across your folders, a built-in browser and connected apps, then returns polished deliverables for your review. It is included in paid Claude plans; its [help center](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) documents sessions on Anthropic's servers, with files saved to your Claude account. ChatGPT Work is [powered by GPT-6](https://openai.com/chatgpt-work), brings your team's tools and context into ChatGPT, and adds plan-mode approval, scheduled and team tasks, and more than 1,400 plugins. Plans and model lineups change, so vendor claims on this page are dated October 2026 and link to each company's own product pages.
 
 ## Where Claude Cowork and ChatGPT Work are the same
 
