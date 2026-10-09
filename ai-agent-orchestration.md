@@ -4,17 +4,15 @@
 
 Agent orchestration is coordinating several AI agents toward one outcome: each agent gets a role, the work runs in a defined sequence, and context passes between steps until something finished comes out. Kortix runs that coordination as open source you can self-host.
 
-A single agent does one bounded task. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.
-
 [Get started with open-source Kortix](https://kortix.com).
-
-You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the [Claude Cowork vs ChatGPT Work comparison](/claude-cowork-vs-chatgpt-work.html) breaks that choice down.
 
 ## What orchestration adds to a single agent
 
-A single agent is one model, one harness and one job: fix this bug, draft this email. It finishes while the task fits inside its context window and toolset. Orchestration enters when the job outgrows that shape. It adds three things a lone agent cannot supply: roles with narrow responsibilities, a sequence that decides what comes next, and a way to pass context between steps.
+A single agent is one model, one harness and one job: fix this bug, draft this email. It finishes while the task fits inside its context window and toolset. Orchestration enters when the job outgrows that shape. It adds three things a lone agent cannot supply: roles with narrow responsibilities, a sequence that decides what comes next, and a way to pass context between steps. A job that needs research, then synthesis, then review usually runs better as three chained agents than as one agent juggling all three.
 
 Context passing matters most. The researcher writes findings to a file, the writer drafts from that file, and the reviewer checks the draft against it. Each agent starts from a clean, relevant context instead of a twenty-minute transcript. Shorter contexts cut invented facts and token cost. The [open source AI agent platforms guide](/open-source-ai-agent-platforms.html) and the [open source Claude Cowork hub](/) collect the wider field.
+
+You can assemble that coordination from open source frameworks, or run it on a platform that bundles it. Kortix bundles it: the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Its harness runs agent teams on isolated Linux machines, every tool call follows per-tool rules, and finished work lands as a change request a human reads before it merges. If you are weighing the closed platforms, the [Claude Cowork vs ChatGPT Work comparison](/claude-cowork-vs-chatgpt-work.html) breaks that choice down.
 
 ## The open source frameworks engineers build on
 
