@@ -6,17 +6,17 @@ A self-hosted AI workspace is an agent setup that runs on machines and accounts 
 
 [Get started with open-source Kortix](https://kortix.com).
 
-A self-hosted AI workspace has four parts: the model, the harness that turns a model into an agent, the memory your company accumulates, and the connectors into your tools. Kortix gives you agents and skills as files, 3,000+ apps and connectors, any model with your own API keys, and an isolated Linux machine for every session. Install it on a Linux box as a Docker Compose stack, run it in your VPC or on-prem, or use managed cloud when you want zero setup.
+## The two layers hiding in one phrase
 
 The confusion starts because the phrase packs two decisions into one word. People routinely self-host one layer and leave the other with a vendor. Sorting them out tells you what you need to buy and run.
-
-## The two layers hiding in one phrase
 
 The model layer is where tokens come from: a hosted API called with your own key, from providers such as Anthropic, OpenAI or Google, or open weights you run yourself on a local runtime such as Ollama, vLLM or LM Studio. That second option is what most people picture when they hear "self-hosted AI", and it dictates GPU hardware.
 
 The agent tooling layer is everything that turns tokens into finished work: the harness that plans multi-step runs and calls tools, the memory the workspace gathers, the connectors into your other systems, the permissions that say what an agent may touch, and the machine each session runs on. You can swap a model in an afternoon; the tooling layer's memory and configuration are what you keep.
 
-Kortix's own architecture makes the split explicit: its self-hosted stack runs the frontend, API, LLM gateway and database, while agent sessions run on a separate sandbox provider such as Daytona or E2B. In practice, owning the tooling layer is what a self-hosted AI workspace means, and the two layers do not have to live on one machine. The platform side gets a fuller treatment in our guide to the [self-hosted AI agent platform](/self-hosted-ai-agent-platform.html).
+A self-hosted AI workspace has four parts: the model, the harness that turns a model into an agent, the memory your company accumulates, and the connectors into your tools. Kortix gives you agents and skills as files, 3,000+ apps and connectors, any model with your own API keys, and an isolated Linux machine for every session.
+
+Kortix's own architecture makes the split explicit: its self-hosted stack runs the frontend, API, LLM gateway and database, while agent sessions run on a separate sandbox provider such as Daytona or E2B. You can install it on a Linux box as a Docker Compose stack, run it in your VPC or on-prem, or use managed cloud when you want zero setup. In practice, owning the tooling layer is what a self-hosted AI workspace means, and the two layers do not have to live on one machine. The platform side gets a fuller treatment in our guide to the [self-hosted AI agent platform](/self-hosted-ai-agent-platform.html).
 
 ## The three real setups
 
