@@ -29,7 +29,7 @@ export function Inline({ text }: { text: string }): ReactNode {
             key={i}
             href={t.href}
             rel={EXTERNAL.test(t.href) ? 'nofollow noopener' : undefined}
-            className="text-foreground decoration-kortix-base-ink hover:decoration-foreground underline decoration-1 underline-offset-4 transition-colors duration-fast"
+            className="text-foreground decoration-kortix-base-ink hover:decoration-foreground inline-block py-3 underline decoration-1 underline-offset-4 transition-colors duration-fast"
           >
             {t.text}
           </a>
