@@ -1,5 +1,4 @@
 {
-  "trailingSlash": false,
   "headers": [
     {
       "source": "/(.*)",
@@ -78,6 +77,11 @@
     {
       "source": "/open-source-vs-source-available.md",
       "destination": "/index.md",
+      "permanent": true
+    },
+    {
+      "source": "/:page((?!google)[a-z0-9-]+).html",
+      "destination": "/:page",
       "permanent": true
     }
   ]

@@ -1,0 +1,21 @@
+/* Roobert and Roobert Mono, self-hosted (files from apps/web/public/fonts/roobert/).
+   Linked only when site.config.ts sets `fonts: 'roobert'`. The kit's D8a is OPEN: the licence for
+   redistributing Roobert is not confirmed, and the kit asks for the system stack on surfaces Kortix
+   does not own. See README, "Fonts". */
+@font-face {
+  font-family: 'Roobert';
+  src: url('/fonts/roobert/RoobertUprightsVF.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  font-feature-settings: 'ss10' on, 'ss09' on, 'ss03' on, 'ss04' on, 'ss14' on;
+}
+
+@font-face {
+  font-family: 'Roobert Mono';
+  src: url('/fonts/roobert/RoobertMonoUprightsVF.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  font-feature-settings: 'ss10' on, 'ss09' on, 'ss03' on, 'ss04' on, 'ss14' on;
+}

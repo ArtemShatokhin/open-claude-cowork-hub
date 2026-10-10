@@ -1,0 +1,268 @@
+/* opensourceclaudecowork.com — theme mapping for the site's tokens in public/tokens.css.
+   Holds NO colour literal: every colour is a var() into tokens.css. The self-hosted type pairing
+   (Familjen Grotesk / Mulish / Roboto Mono) is declared here; the config keeps fonts: 'system'. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import './preflight.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities) source(none);
+
+/* Class names live in components, app and the layout constants. */
+@source '../components';
+@source '../app';
+@source '../lib/layout.ts';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ── self-hosted fonts (latin subsets) ───────────────────────────────────── */
+@font-face {
+  font-family: 'Familjen Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/familjen-grotesk.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/mulish.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('/fonts/roboto-mono.woff2') format('woff2');
+}
+
+@theme {
+  --color-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --text-shadow-*: initial;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-pane: var(--pane);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-hover: var(--hover);
+  --color-active: var(--active);
+  --color-kortix-base: var(--kortix-base);
+  --color-kortix-base-ink: var(--kortix-base-ink);
+  --color-kortix-green: var(--kortix-green);
+  --color-kortix-red: var(--kortix-red);
+  --color-kortix-orange: var(--kortix-orange);
+  --color-kortix-yellow: var(--kortix-yellow);
+  --color-kortix-blue: var(--kortix-blue);
+  --color-terminal-surface: var(--terminal-surface);
+  --color-terminal-fg: var(--terminal-fg);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-sans: var(--site-font-sans);
+  --font-mono: var(--site-font-mono);
+
+  --spacing: 0.23rem;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: calc(1 / 0.8125);
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+  --text-base: 1rem;
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+
+  --transition-duration-fast: 100ms;
+  --transition-duration-normal: 150ms;
+  --transition-duration-moderate: 200ms;
+  --transition-duration-slow: 300ms;
+  --transition-duration-slower: 500ms;
+  --ease-default: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+/* Shadows read the tokens directly. */
+@utility kx-shadow-card {
+  box-shadow: var(--shadow-card);
+}
+@utility kx-shadow-frame {
+  box-shadow: var(--shadow-frame);
+}
+
+/* The handbook hairline: a 1px dotted rule for fold lines and plate seams. */
+@utility hx-dotted {
+  background-image: repeating-linear-gradient(to right, var(--border) 0 4px, var(--transparent) 4px 9px);
+}
+
+@layer base {
+  :root {
+    --site-font-sans: Mulish, var(--font-sans-system);
+    --site-font-mono: 'Roboto Mono', var(--font-mono-system);
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 72%, transparent);
+    color: var(--primary-foreground);
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  :is(a[href], button, summary, [role='button'], [role='tab']):not(:disabled):not(
+      [aria-disabled='true']
+    ) {
+    cursor: pointer;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--site-font-sans);
+    scroll-padding-top: 5rem;
+  }
+
+  /* The handbook's headings are the Familjen Grotesk voice. */
+  h1,
+  h2,
+  h3,
+  .font-heading {
+    font-family: var(--font-heading);
+    font-feature-settings: normal;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    min-height: 100dvh;
+  }
+
+  code,
+  pre,
+  kbd,
+  .font-mono {
+    font-family: var(--site-font-mono);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* ── Hero enter: the handbook cover rises (CSS only, settles without JS) ──── */
+@keyframes hx-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hx-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hx-plate {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hx-hero-line,
+.hx-hero-plate {
+  animation-delay: var(--hx-enter, 0ms);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hx-hero-line {
+  animation-name: hx-rise;
+  animation-duration: 560ms;
+}
+
+.hx-hero-plate {
+  animation-name: hx-plate;
+  animation-duration: 760ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-hero-line,
+  .hx-hero-plate {
+    animation-name: hx-fade;
+    animation-duration: 240ms;
+    animation-delay: 0ms;
+  }
+}
+
+/* ── Progressive enhancement: html.js is set before first paint ───────────── */
+html.js [data-reveal='pending'] {
+  opacity: 0;
+}

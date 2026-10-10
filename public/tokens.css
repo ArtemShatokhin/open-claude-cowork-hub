@@ -1,0 +1,238 @@
+/* opensourceclaudecowork.com — the site's own palette.
+   Structure copied from the Kortix starter tokens (skills/growth-loop/site-starter/public/tokens.css):
+   every token name is kept, only the values are retuned. Cool porcelain paper, near-black blue ink,
+   one deep-teal signal. Light is the default; dark follows prefers-color-scheme, or [data-theme="dark"].
+   This is the ONLY file with colour literals. */
+
+:root {
+  color-scheme: light;
+  --background: #eef1f4;
+  --pane: #ffffff;
+  --surface: #f7f9fa;
+  --foreground: #141a1e;
+  --foreground-strong: #0c1114;
+  --foreground-weak: #5a6a72;
+  --card: #e5eaee;
+  --card-foreground: #141a1e;
+  --popover: #ffffff;
+  --popover-foreground: #141a1e;
+  --primary: #141a1e;
+  --primary-foreground: #f4f7f8;
+  --secondary: #dfe5e9;
+  --secondary-foreground: #141a1e;
+  --muted: #e2e8ec;
+  --muted-foreground: #5a6a72;
+  --accent: #e5eaee;
+  --accent-foreground: #141a1e;
+  --destructive: #c0392b;
+  --destructive-foreground: #ffffff;
+  --border: #ccd5db;
+  --input: #dfe5e9;
+  --ring: #089f9f;
+  --hover: rgb(20 26 30 / 0.05);
+  --active: rgb(20 26 30 / 0.08);
+  --sidebar: #e5eaee;
+  --sidebar-foreground: #141a1e;
+  --sidebar-primary: #089f9f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #dfe5e9;
+  --sidebar-accent-foreground: #141a1e;
+  --sidebar-row: #e5eaee;
+  --sidebar-row-control: #dfe5e9;
+  --sidebar-border: #ccd5db;
+  --sidebar-ring: #089f9f;
+  --kortix-base: #089f9f;
+  --kortix-green: #199338;
+  --kortix-red: #f14b4c;
+  --kortix-orange: #d18b19;
+  --kortix-yellow: #cca300;
+  --kortix-blue: #2b91f7;
+  --kortix-purple: #ab80d6;
+  --chart-1: #089f9f;
+  --chart-2: #0b7f83;
+  --chart-3: #14666b;
+  --chart-4: #1d4f54;
+  --chart-5: #23383c;
+  --terminal-surface: #0c1418;
+  --terminal-fg: #dbe6ea;
+  --terminal-border: rgb(255 255 255 / 0.12);
+  --font-sans: Mulish, ui-sans-serif, -apple-system, 'Segoe UI', 'Helvetica Neue', 'Noto Sans', sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-heading: 'Familjen Grotesk', Mulish, ui-sans-serif, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans-system: ui-sans-serif, -apple-system, 'Segoe UI', 'Helvetica Neue', 'Noto Sans', sans-serif;
+  --font-mono-system: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --tracking-tight: -0.02em;
+  --leading-tight: 1.22;
+  --leading-snug: 1.375;
+  --leading-relaxed: 1.65;
+  --radius: 0.35rem;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --spacing: 0.23rem;
+  --text-xs: 0.8125rem;
+  --text-xs-line-height: calc(1 / 0.8125);
+  --text-sm: 0.875rem;
+  --text-sm-line-height: calc(1.25 / 0.875);
+  --text-md: 0.9rem;
+  --text-md-line-height: calc(1.375 / 0.9375);
+  --text-base: 1rem;
+  --text-base-line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem;
+  --text-lg-line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem;
+  --text-xl-line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl-line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl-line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem;
+  --text-4xl-line-height: calc(2.5 / 2.25);
+  --text-5xl: 3rem;
+  --text-5xl-line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl-line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl-line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl-line-height: 1;
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --duration-fast: 100ms;
+  --duration-normal: 150ms;
+  --duration-moderate: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+  --ease-default: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0a0f12;
+  --pane: #11181d;
+  --surface: #0e151a;
+  --foreground: #eef2f4;
+  --foreground-strong: #ffffff;
+  --foreground-weak: #93a2aa;
+  --card: #141c22;
+  --card-foreground: #eef2f4;
+  --popover: #11181d;
+  --popover-foreground: #eef2f4;
+  --primary: #eef2f4;
+  --primary-foreground: #0a0f12;
+  --secondary: #1a242b;
+  --secondary-foreground: #eef2f4;
+  --muted: #1a242b;
+  --muted-foreground: #93a2aa;
+  --accent: #141c22;
+  --accent-foreground: #eef2f4;
+  --destructive: #ff6467;
+  --destructive-foreground: #fafafa;
+  --border: #26333c;
+  --input: #1a242b;
+  --hover: rgb(255 255 255 / 0.06);
+  --active: rgb(255 255 255 / 0.1);
+  --sidebar: #141c22;
+  --sidebar-foreground: #eef2f4;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1a242b;
+  --sidebar-accent-foreground: #eef2f4;
+  --sidebar-row: #1a242b;
+  --sidebar-row-control: #26333c;
+  --sidebar-border: #1a242b;
+  --kortix-green: #199338;
+  --kortix-red: #f14b4c;
+  --kortix-orange: #d18b19;
+  --kortix-yellow: #cca300;
+  --kortix-blue: #2b91f7;
+  --kortix-purple: #ab80d6;
+  --chart-1: #089f9f;
+  --chart-2: #0b7f83;
+  --chart-3: #14666b;
+  --chart-4: #1d4f54;
+  --chart-5: #23383c;
+  --terminal-surface: #0c1418;
+  --terminal-fg: #dbe6ea;
+  --terminal-border: rgb(255 255 255 / 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --background: #0a0f12;
+    --pane: #11181d;
+    --surface: #0e151a;
+    --foreground: #eef2f4;
+    --foreground-strong: #ffffff;
+    --foreground-weak: #93a2aa;
+    --card: #141c22;
+    --card-foreground: #eef2f4;
+    --popover: #11181d;
+    --popover-foreground: #eef2f4;
+    --primary: #eef2f4;
+    --primary-foreground: #0a0f12;
+    --secondary: #1a242b;
+    --secondary-foreground: #eef2f4;
+    --muted: #1a242b;
+    --muted-foreground: #93a2aa;
+    --accent: #141c22;
+    --accent-foreground: #eef2f4;
+    --destructive: #ff6467;
+    --destructive-foreground: #fafafa;
+    --border: #26333c;
+    --input: #1a242b;
+    --hover: rgb(255 255 255 / 0.06);
+    --active: rgb(255 255 255 / 0.1);
+    --sidebar: #141c22;
+    --sidebar-foreground: #eef2f4;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #1a242b;
+    --sidebar-accent-foreground: #eef2f4;
+    --sidebar-row: #1a242b;
+    --sidebar-row-control: #26333c;
+    --sidebar-border: #1a242b;
+    --kortix-green: #199338;
+    --kortix-red: #f14b4c;
+    --kortix-orange: #d18b19;
+    --kortix-yellow: #cca300;
+    --kortix-blue: #2b91f7;
+    --kortix-purple: #ab80d6;
+    --chart-1: #089f9f;
+    --chart-2: #0b7f83;
+    --chart-3: #14666b;
+    --chart-4: #1d4f54;
+    --chart-5: #23383c;
+    --terminal-surface: #0c1418;
+    --terminal-fg: #dbe6ea;
+    --terminal-border: rgb(255 255 255 / 0.12);
+  }
+}
+
+/* Site starter additions (not in the kit). */
+:root {
+  --kortix-base-ink: var(--kortix-base);
+  --transparent: transparent;
+  --mask-solid: #000;
+  --shadow-frame: 0 25px 50px -12px rgb(0 0 0 / 0.18);
+  --shadow-card: 0 10px 30px -12px rgb(0 0 0 / 0.16);
+}
+:root[data-theme="dark"] {
+  --kortix-base-ink: color-mix(in oklab, var(--kortix-base) 48%, #ffffff);
+  --shadow-frame: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+  --shadow-card: 0 10px 30px -12px rgb(0 0 0 / 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --kortix-base-ink: color-mix(in oklab, var(--kortix-base) 48%, #ffffff);
+    --shadow-frame: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+    --shadow-card: 0 10px 30px -12px rgb(0 0 0 / 0.5);
+  }
+}

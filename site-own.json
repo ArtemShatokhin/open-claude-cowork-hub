@@ -1,0 +1,23 @@
+[
+  "public/fonts/familjen-grotesk.woff2",
+  "public/fonts/mulish.woff2",
+  "public/fonts/roboto-mono.woff2",
+  "public/tokens.css",
+  "src/app/globals.css",
+  "src/components/page-view.tsx",
+  "src/components/sections/comparison.tsx",
+  "src/components/sections/faq.tsx",
+  "src/components/sections/hero.tsx",
+  "src/components/sections/logo-strip.tsx",
+  "src/components/sections/open-source.tsx",
+  "src/components/sections/simple.tsx",
+  "src/components/sections/stack.tsx",
+  "src/components/sections/use-cases.tsx",
+  "src/components/shell/site-footer.tsx",
+  "src/components/shell/site-header.tsx",
+  "src/components/ui/button.tsx",
+  "src/components/ui/handbook.tsx",
+  "src/components/ui/plate.tsx",
+  "src/components/ui/reveal.tsx",
+  "src/components/ui/rich-text.tsx"
+]

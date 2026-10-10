@@ -1,0 +1,41 @@
+{
+  "name": "kortix-site-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "tsx scripts/prebuild.ts",
+    "build": "next build",
+    "postbuild": "tsx scripts/postbuild.ts",
+    "typecheck": "tsc --noEmit",
+    "validate": "tsx scripts/prebuild.ts --check",
+    "verify": "node scripts/verify.mjs",
+    "test": "tsx --test scripts/*.test.ts"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "2.1.10",
+    "@radix-ui/react-accordion": "^1.2.11",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tabs": "^1.1.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "motion": "^12.40.0",
+    "next": "16.3.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/node": "^20",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.0",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
