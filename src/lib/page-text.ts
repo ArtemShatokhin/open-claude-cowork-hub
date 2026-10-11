@@ -53,7 +53,10 @@ function section(s: Section, site: SiteConfig): string {
         .filter(Boolean)
         .join('\n\n');
     case 'logo-strip':
-      return s.rows.map((r) => `- ${r.label}: ${r.glyphs.join(', ')}`).join('\n');
+      // A site's own logo-strip may render `label` as a visible <h2> (the kit's
+      // "key strip"); the starter renders it as the section's accessible name.
+      // Emit it either way so the twin carries every string the HTML renders.
+      return [`## ${s.label}`, s.rows.map((r) => `- ${r.label}: ${r.glyphs.join(', ')}`).join('\n')].join('\n\n');
     case 'stack':
       return [
         heading(s.heading),
