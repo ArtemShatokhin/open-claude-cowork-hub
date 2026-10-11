@@ -1,21 +1,25 @@
 /**
  * The handbook bar: a slim top bar with the site mark in a filled ink tab beside the wordmark
  * (never truncated) and the boxed "Try Kortix" cell; below it, on wide screens, a full-width
- * numbered contents index of every page. On phones the nav and the CTA fold into a real <details>
- * menu, so the site name shows whole.
+ * numbered contents index of every page. The bar is full-bleed — the wordmark and the contents
+ * index share one left edge — and the index wraps to a second line rather than clipping an entry
+ * when the seven labels do not fit one line. On phones the nav and the CTA fold into a real
+ * <details> menu, so the site name shows whole.
  */
 import { ListIcon, XIcon } from '@phosphor-icons/react/dist/ssr';
 import type { SiteConfig } from '@/config/types';
 import { ButtonLink } from '@/components/ui/button';
 import { SiteMark } from '@/components/ui/glyph';
-import { HX } from '@/components/ui/handbook';
 import { cn, linkProps } from '@/lib/utils';
+
+/** The handbook bar is full-bleed, so the wordmark and the contents index share one left edge. */
+const BAR = 'w-full px-5 sm:px-8';
 
 export function SiteHeader({ site, currentPath }: { site: SiteConfig; currentPath: string }) {
   const isCurrent = (href: string) => href === currentPath;
   return (
     <header className="border-border bg-background/95 sticky top-0 z-40 border-b backdrop-blur">
-      <div className={cn(HX, 'flex h-16 items-center gap-3')}>
+      <div className={cn(BAR, 'flex h-16 items-center gap-3')}>
         <a href="/" className="text-foreground flex min-h-11 min-w-0 items-center gap-2.5" aria-label={`${site.siteName}, home`}>
           <span className="bg-foreground flex size-8 shrink-0 items-center justify-center rounded-sm">
             <SiteMark path={site.mark.path} className="text-kortix-base-ink size-5" />
@@ -55,7 +59,7 @@ export function SiteHeader({ site, currentPath }: { site: SiteConfig; currentPat
       </div>
 
       <nav aria-label="Primary" className="border-border hidden border-t md:block">
-        <div className={cn(HX, 'flex items-stretch overflow-x-auto')}>
+        <div className={cn(BAR, 'flex flex-wrap items-stretch')}>
           {site.nav.map((item, i) => (
             <a
               key={item.href}
