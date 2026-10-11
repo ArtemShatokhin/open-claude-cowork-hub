@@ -3,7 +3,7 @@
  * llms-full.txt. One serializer per section type, so every string the HTML renders is also in the
  * twin. Decorative-only content (glyph strips) is written as its accessible label.
  */
-import type { Artifact, ComparisonCell, Page, Section, SectionHeading, SiteConfig } from '../config/types';
+import type { Artifact, ComparisonCell, Page, Section, SectionHeading, SiteConfig, UseCaseArtifact } from '../config/types';
 import { GLYPHS } from './glyphs';
 import { inlineToPlain } from './markdown';
 import { pageUrl } from './site';
@@ -21,6 +21,23 @@ const cellText = (c: ComparisonCell) => (typeof c === 'string' ? c : c.text).rep
 
 const link = (l: { label: string; href: string }, site: SiteConfig) =>
   `[${l.label}](${l.href.startsWith('/') ? `https://${site.domain}${l.href}` : l.href.startsWith('#') ? `https://${site.domain}/${l.href}` : l.href})`;
+
+/** A use-case card's work-product plate as markdown: the sheet rows, the diff
+ *  or the checks the HTML renders, so the twin carries every string. */
+const useCaseArtifact = (a: UseCaseArtifact): string => {
+  if (a.kind === 'sheet') {
+    const head = `| ${a.columns.join(' | ')} |`;
+    const rule = `| ${a.columns.map(() => '---').join(' | ')} |`;
+    const rows = a.rows.map(
+      (r) => `| ${r.cells.map((c) => c.replace(/\|/g, '\\|')).join(' | ')} |`,
+    );
+    return [head, rule, ...rows].join('\n');
+  }
+  if (a.kind === 'diff') {
+    return `\`\`\`diff\n${a.lines.join('\n')}\n\`\`\`\n\n${a.stat}`;
+  }
+  return a.items.map((i) => `- ${i.label}: ${i.value}`).join('\n');
+};
 
 function section(s: Section, site: SiteConfig): string {
   switch (s.type) {
@@ -81,7 +98,10 @@ function section(s: Section, site: SiteConfig): string {
     case 'use-cases':
       return [
         heading(s.heading),
-        ...s.cards.map((c) => `### ${c.tag}: ${c.headline}\n\n${c.body}\n\n${s.artifactLabel}: \`${c.artifact.file}\` (${c.artifact.footer})`),
+        ...s.cards.map(
+          (c) =>
+            `### ${c.tag}: ${c.headline}\n\n${c.body}\n\n${s.artifactLabel}: \`${c.artifact.file}\`\n\n${useCaseArtifact(c.artifact)}\n\n${c.artifact.footer}`,
+        ),
       ].join('\n\n');
     case 'code-panels':
       return [heading(s.heading), ...s.panels.map((p) => `### ${p.tab}\n\n${fence(p)}`)].join('\n\n');
