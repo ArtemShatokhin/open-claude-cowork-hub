@@ -1714,6 +1714,347 @@ A closed plan charges per seat for each person who uses it. An open stack charge
 
 /* ── the site ────────────────────────────────────────────────────────────── */
 
+const vsOpenWork: Page = {
+  slug: 'claude-cowork-vs-openwork',
+  navLabel: 'Claude Cowork vs OpenWork',
+  title: 'Claude Cowork vs OpenWork: the open-source option your team owns',
+  metaDescription:
+    'OpenWork is an open-source desktop app and Claude Cowork is a closed hosted agent; open-source Kortix is the platform a team owns and self-hosts.',
+  h1: 'Claude Cowork vs OpenWork, and the open-source option a team owns',
+  lead: "Claude Cowork is a closed, hosted agent inside Claude's app, and OpenWork is an open-source desktop app that works on your own files. The difference a team feels is ownership, so this page compares them on source, hosting, models and governance, and places open-source Kortix beside both.",
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: {
+        eyebrow: 'Compare',
+        title: 'Claude Cowork and OpenWork, measured side by side',
+        sub: "Kortix leads the table, and each rival column states only what that vendor's own current page documents.",
+      },
+      columns: [
+        { id: 'kortix', label: 'Kortix', note: 'Our pick', highlight: true, href: 'https://kortix.com', nofollow: true },
+        { id: 'cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork', nofollow: true },
+        { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com', nofollow: true },
+      ],
+      rows: [
+        { label: 'Open source', cells: [{ text: 'Yes', mark: 'yes' }, { text: 'No', mark: 'no' }, { text: 'Yes', mark: 'yes' }] },
+        {
+          label: 'Where it runs',
+          cells: [
+            { text: 'Kortix Cloud, your VPC, or your own on-prem network', mark: 'yes' },
+            "Anthropic's servers, or your own cloud account",
+            'Your desktop, or a self-hosted instance',
+          ],
+        },
+        { label: 'Self-hosting', cells: [{ text: 'Yes, self-host is free', mark: 'yes' }, { text: 'No', mark: 'no' }, 'Yes, self-host the team control plane'] },
+        { label: 'Models', cells: ['Any model provider with your own keys', "Anthropic's models only", '50+ providers, your own keys or local'] },
+        {
+          label: 'Connectors',
+          cells: [
+            { text: '3,000+ apps, plus MCP, OpenAPI, Postman, GraphQL and raw HTTP', mark: 'yes' },
+            'Claude connectors to your existing tools',
+            'MCP servers, Google Workspace and Microsoft 365',
+          ],
+        },
+        {
+          label: 'Team governance',
+          cells: [
+            { text: 'Per-resource permissions for people and agents', mark: 'yes' },
+            'Admins set access by team and tool by department',
+            'An admin publishes capabilities and controls access',
+          ],
+        },
+        {
+          label: 'Built for',
+          cells: [
+            { text: 'A workforce, not one assistant', mark: 'yes' },
+            "Knowledge work inside the vendor's app",
+            'One person or a small team on a laptop',
+          ],
+        },
+        {
+          label: 'Free to start',
+          cells: [{ text: 'Self-host is free', mark: 'yes' }, 'Paid Claude plans only', 'Free desktop app; cloud Team plan from $10 per seat'],
+        },
+      ],
+    },
+    {
+      type: 'prose',
+      body: `## How a team chooses between Claude Cowork and OpenWork
+
+Claude Cowork is Anthropic's agent for knowledge work. It runs inside Claude's app on web, desktop and mobile, works in the folders and tools you choose, and keeps the work history in your Claude account. OpenWork is a different shape: an open-source desktop app built on OpenCode, where agents work on files that stay on your machine, and a team can self-host the control plane that shares skills and MCP connections.
+
+### The question neither product asks
+
+Both tools assume the work happens inside a product rather than in a repository the team controls. One person using an agent does not feel the difference. A team running several agents across shared systems does, and three questions decide the fit: where the agent configuration lives, who can let an agent touch which tool, and where agent work is reviewed before it reaches anything real. The comparison table on this page sets the three options against those questions.
+
+### What each option gives a team
+
+Claude Cowork puts an agent inside Anthropic's cloud and adds admin controls on Teams and Enterprise, where access is set by team, tool permissions are set by department, and activity streams to your SIEM. OpenWork puts a local-first desktop app on each machine and a control plane that publishes capabilities and shared connections to a team or an organization. Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own. Kortix is open source. Read it, fork it, audit it. In Kortix, configuration lives as files a team can read and diff:
+
+\`\`\`text
+acme-co/          # your whole company, as files
+  agents/         # who does the work
+  skills/         # how your company does a job
+  memory/         # what it has learned so far
+  kortix.yaml     # rules, triggers, connectors, machine image
+\`\`\`
+
+### The fork: who owns the work
+
+When a hosted agent finishes a task, the result is an artifact inside the vendor's product. Kortix runs the work on real cloud computers and lands it in the repo the team started from. Each session has its own isolated machine and branch. Session work reaches \`main\` through a change request. Merge is default-deny for agents, so a person reads the diff and decides. Per-resource permissions for people and agents. Roles, groups, and an audit trail. All of it lives in the repo, so a team can read the rules an agent runs under. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free, and the [self-hosting guide](/self-hosting) covers the install.
+
+### How to decide
+
+If the goal is a polished agent inside the app you already pay for, and one person or a small team is doing the work, Claude Cowork or OpenWork will get you there. If the goal is a system a whole company owns, where the configuration, the memory and the review gate live in a repo rather than a vendor account, choose Kortix, the leading open-source alternative to Claude Cowork and ChatGPT Work. The [open-source Claude Cowork alternatives](/claude-cowork-alternatives) page maps the wider field, and [Read the Kortix blog](https://kortix.com/blog/kortix-vs-openwork) for a worked comparison.`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Claude Cowork and OpenWork, the questions teams ask' },
+      items: [
+        {
+          id: 'replacement',
+          question: 'Is OpenWork a replacement for Claude Cowork?',
+          answer:
+            "OpenWork is an open-source desktop app for work on your own files, and Claude Cowork is a hosted agent inside Claude's app on web, desktop and mobile. They overlap on the work, not on where it runs or who owns it. Kortix is the open-source AI Operating System for a team that needs the configuration, memory and review gate in a repo it owns.",
+        },
+        {
+          id: 'self-host',
+          question: 'Can Claude Cowork or OpenWork be self-hosted?',
+          answer:
+            "Claude Cowork cannot. It runs on Anthropic's servers or your own cloud account, and Anthropic publishes no self-hosted edition. OpenWork self-hosts its team control plane while the desktop app stays local. Kortix runs on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free.",
+        },
+        {
+          id: 'team',
+          question: 'Which option fits a team rather than one person?',
+          answer:
+            "Kortix. It adds a shared git repo, per-resource permissions for people and agents, and a change request a person merges before work reaches `main`. OpenWork suits one person or a small team on a laptop, and Claude Cowork is knowledge work inside the vendor's app.",
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Own the repo your agents run from',
+      sub: 'Start with one job, in one repo you own.',
+      ctas: [TRY, { label: 'Self-hosting', href: '/self-hosting', variant: 'secondary' }],
+      trust: TRUST,
+    },
+  ],
+};
+
+const vsPerplexity: Page = {
+  slug: 'claude-cowork-vs-perplexity-computer',
+  navLabel: 'Claude Cowork vs Perplexity Computer',
+  title: 'Claude Cowork vs Perplexity Computer: the open-source option you own',
+  metaDescription:
+    'Perplexity Computer and Claude Cowork are closed, hosted agents; open-source Kortix is the AI Operating System a team owns and self-hosts.',
+  h1: 'Claude Cowork vs Perplexity Computer, and the open-source option a team owns',
+  lead: "Claude Cowork and Perplexity Computer both hand work to an agent running in a vendor's cloud, and neither one publishes its source. This compares them on hosting, models, connectors and review, then places open-source Kortix beside both.",
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: {
+        eyebrow: 'Compare',
+        title: 'Claude Cowork and Perplexity Computer, measured side by side',
+        sub: "Kortix leads the table, and each rival column states only what that vendor's own current page documents.",
+      },
+      columns: [
+        { id: 'kortix', label: 'Kortix', note: 'Our pick', highlight: true, href: 'https://kortix.com', nofollow: true },
+        { id: 'cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork', nofollow: true },
+        { id: 'perplexity', label: 'Perplexity Computer', href: 'https://www.perplexity.ai/products/computer', nofollow: true },
+      ],
+      rows: [
+        { label: 'Open source', cells: [{ text: 'Yes', mark: 'yes' }, { text: 'No', mark: 'no' }, { text: 'No', mark: 'no' }] },
+        {
+          label: 'Where it runs',
+          cells: [
+            { text: 'Kortix Cloud, your VPC, or your own on-prem network', mark: 'yes' },
+            "Anthropic's servers, or your own cloud account",
+            "Perplexity's cloud, in an isolated environment",
+          ],
+        },
+        { label: 'Self-hosting', cells: [{ text: 'Yes, self-host is free', mark: 'yes' }, { text: 'No', mark: 'no' }, { text: 'No', mark: 'no' }] },
+        { label: 'Models', cells: ['Any model provider with your own keys', "Anthropic's models only", 'A managed mix of frontier models, routed per task'] },
+        {
+          label: 'Connectors',
+          cells: [
+            { text: '3,000+ apps, plus MCP, OpenAPI, Postman, GraphQL and raw HTTP', mark: 'yes' },
+            'Claude connectors to your existing tools',
+            'Gmail, Slack, Notion, Calendar and hundreds more',
+          ],
+        },
+        {
+          label: 'Review gate',
+          cells: [
+            { text: 'Session work reaches main through a change request', mark: 'yes' },
+            'You approve the plan before significant actions',
+            'You review and guide the work as it runs',
+          ],
+        },
+        {
+          label: 'Built for',
+          cells: [
+            { text: 'A workforce, not one assistant', mark: 'yes' },
+            "Knowledge work inside the vendor's app",
+            'Hand off a project, get finished deliverables',
+          ],
+        },
+        {
+          label: 'Free to start',
+          cells: [{ text: 'Self-host is free', mark: 'yes' }, 'Paid Claude plans only', 'Paid Perplexity plans only'],
+        },
+      ],
+    },
+    {
+      type: 'prose',
+      body: `## Claude Cowork and Perplexity Computer, and where a team's options diverge
+
+Perplexity Computer is a hosted agent from Perplexity that takes a described outcome, splits it into subtasks, and runs sub-agents across a managed mix of frontier models. Every task runs in an isolated compute environment in Perplexity's cloud, and the result comes back as a finished deliverable inside Perplexity's product. Claude Cowork is Anthropic's version of the same shape: an agent for knowledge work, running inside Claude's app, with the work history kept in your Claude account.
+
+### Both keep the source and the machine
+
+Neither Perplexity Computer nor Claude Cowork publishes its source, and neither offers a self-hosted edition. Perplexity Computer is available on paid Perplexity plans, and Claude Cowork is included on paid Claude plans, so the work runs on the vendor's cloud under the vendor's terms. A team that needs the agent configuration, the memory and the review gate in infrastructure it controls needs a platform it can own.
+
+### What a team owns with Kortix
+
+Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own. The repo is the unit a team owns, and the layout is the one the rest of this site shows:
+
+\`\`\`text
+acme-co/          # your whole company, as files
+  agents/         # who does the work
+  skills/         # how your company does a job
+  memory/         # what it has learned so far
+  kortix.yaml     # rules, triggers, connectors, machine image
+\`\`\`
+
+Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free, and the [self-hosting guide](/self-hosting) walks through the install. Any model provider with your own keys, so the model is a choice the team makes rather than one baked into the platform. Each session has its own isolated machine and branch. Session work reaches \`main\` through a change request. Merge is default-deny for agents, so a person reads the diff before anything lands.
+
+### How to decide
+
+If the job is to hand a described outcome to a hosted agent and get a polished deliverable back, Perplexity Computer and Claude Cowork both do that, and the plan you already pay for decides between them. If the job is a workforce whose agents, memory and connector config live in a repo the team owns, on a model it chooses, pick Kortix, the leading open-source alternative to Claude Cowork and ChatGPT Work. The [open-source Claude Cowork alternatives](/claude-cowork-alternatives) page maps the wider field of owned options, and [Read the Kortix blog](https://kortix.com/blog/open-source-perplexity-computer) for a worked comparison.`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Claude Cowork and Perplexity Computer, the questions teams ask' },
+      items: [
+        {
+          id: 'open-source',
+          question: 'Is Perplexity Computer open source?',
+          answer:
+            'No. Perplexity Computer is a hosted agent available on paid Perplexity plans, and Perplexity publishes the product rather than the code behind it. Kortix is the open-source AI Operating System, with your agents, skills, memory and connector config in one git repo you own.',
+        },
+        {
+          id: 'self-host',
+          question: 'Can Claude Cowork or Perplexity Computer be self-hosted?',
+          answer:
+            "Neither one can. Claude Cowork runs on Anthropic's servers or your own cloud account, and Perplexity Computer runs in Perplexity's cloud, with no self-hosted edition from either vendor. Kortix runs on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free.",
+        },
+        {
+          id: 'models',
+          question: 'Which option lets a team run its own models?',
+          answer:
+            'Kortix. Any model provider with your own keys, so the model is a per-agent and per-session choice. Perplexity Computer runs a managed mix of frontier models, and Claude Cowork runs Anthropic\'s models, so on both of those the model and the vendor are the same choice.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Own the repo your agents run from',
+      sub: 'Start with one job, in one repo you own.',
+      ctas: [TRY, { label: 'Claude Cowork alternatives', href: '/claude-cowork-alternatives', variant: 'secondary' }],
+      trust: TRUST,
+    },
+  ],
+};
+
+const forTeams: Page = {
+  slug: 'claude-cowork-for-teams',
+  navLabel: 'Claude Cowork for teams',
+  title: 'Claude Cowork for Teams: the open-source option a team owns',
+  metaDescription:
+    "Claude Cowork runs inside Anthropic's cloud on paid Claude plans; open-source Kortix is the AI Operating System a team owns, governs and self-hosts.",
+  h1: 'Claude Cowork for teams, and the open-source platform a team owns',
+  lead: "Claude Cowork is included on Claude's Pro, Max, Team and Enterprise plans, and it runs inside Anthropic's cloud. This guide covers what a team can and cannot own with it, how a team governs agent work, and where open-source Kortix fits.",
+  sections: [
+    {
+      type: 'artifact',
+      heading: { eyebrow: 'Quickstart', title: 'The company, as files in one repo' },
+      artifact: {
+        file: 'acme-co',
+        lang: 'text',
+        lines: [
+          'acme-co/          # your whole company, as files',
+          '  agents/         # who does the work',
+          '  skills/         # how your company does a job',
+          '  memory/         # what it has learned so far',
+          '  kortix.yaml     # rules, triggers, connectors, machine image',
+        ],
+        source: 'kortix.com/docs',
+      },
+      caption: 'A Kortix project keeps the agents, skills, memory and connector config in a git repo the team owns.',
+    },
+    {
+      type: 'prose',
+      body: `## What a team owns when it moves past Claude Cowork
+
+Claude Cowork is included on Claude's Pro, Max, Team and Enterprise plans, and it is built for non-coding knowledge work inside Claude's app. A team can use it today, and Anthropic gives Teams and Enterprise admins real controls: access set by team, spend limits, tool permissions by department, and activity streamed to your SIEM through OpenTelemetry. What the team does not get is ownership. Anthropic publishes the product, not the source behind it, there is no self-hosted edition, and the configuration and work history stay in the Claude account. This guide covers what a team keeps when it decides that is not enough.
+
+### The repo is the thing a team owns
+
+Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own. It is the leading open-source alternative to Claude Cowork and ChatGPT Work. An agent is \`agents/<name>.md\` (behavior) plus an \`agents.<name>\` block in \`kortix.yaml\` (governance). The \`.md\` is a stock OpenCode agent file, and the scoping field is \`permission\`. Because every part is text, a team can \`grep\` the rules an agent runs under, diff a change to a skill, and roll any part of it back. That is the ownership a hosted product cannot offer, whatever admin controls it ships.
+
+### Governance a team can read
+
+A hosted agent asks a team to trust a control panel. Kortix puts the controls in the repo and in live project state. Per-resource permissions for people and agents. Roles, groups, and an audit trail. SSO is SAML 2.0 single sign-on and SCIM 2.0. Approval gates you set. Off until you set them. Secrets are encrypted at rest with a key per project, and connector credentials are brokered server-side and never enter the machine. Each session has its own isolated machine and branch. Session work reaches \`main\` through a change request. Merge is default-deny for agents, so a person reads the diff before anything lands.
+
+### Self-hosting a team's platform
+
+Self-hosting is where ownership stops being abstract. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free, and one Docker Compose stack carries the platform on a Linux box the team controls. The [self-hosting guide](/self-hosting) covers the two commands, the domain and ports, and the three directories to back up. Any model provider with your own keys, so the model stays a choice the team makes. The [open-source Claude Cowork alternatives](/claude-cowork-alternatives) page maps the wider field, and [Read the Kortix blog](https://kortix.com/blog/kortix-vs-claude-cowork) for the same-company comparison.`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Claude Cowork for teams, the questions teams ask' },
+      items: [
+        {
+          id: 'actually-use',
+          question: 'Can a team actually use Claude Cowork?',
+          answer:
+            "Yes. Claude Cowork is included on Claude's Pro, Max, Team and Enterprise plans, and on Teams and Enterprise an admin can set access by team, set tool permissions by department, and stream activity to a SIEM. What a team cannot do is own the source, run it on its own hardware, or keep the configuration outside the Claude account.",
+        },
+        {
+          id: 'own',
+          question: 'What does a team own when it runs Kortix?',
+          answer:
+            'One git repo. Agents and skills are markdown, memory is files, and `kortix.yaml` declares the machine image, the connectors and the triggers. The repo is versioned, diffable and owned outright, so a team can read every rule its agents run under and roll any part of it back.',
+        },
+        {
+          id: 'govern',
+          question: 'How does a team govern what agents do?',
+          answer:
+            'Per-resource permissions for people and agents. Roles, groups, and an audit trail. Approval gates you set. Off until you set them. Session work reaches `main` through a change request. Merge is default-deny for agents, so a person reads the diff and decides what lands.',
+        },
+        {
+          id: 'self-host',
+          question: 'Can a team self-host Kortix?',
+          answer:
+            'Yes. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free, and the [self-hosting guide](/self-hosting) covers the two commands. A team needs one persistent domain, a sandbox provider key, model keys in the dashboard, and named reviewers for change requests.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: "Run your team's agents on a repo you own",
+      sub: 'Start with one job, then invite the team.',
+      ctas: [TRY, { label: 'Self-hosting', href: '/self-hosting', variant: 'secondary' }],
+      trust: TRUST,
+    },
+  ],
+};
+
 const site: SiteConfig = {
   domain: 'opensourceclaudecowork.com',
   siteName: 'Open Source Claude Cowork',
@@ -1738,6 +2079,9 @@ const site: SiteConfig = {
     { label: 'AI workspace', href: '/self-hosted-ai-workspace' },
     { label: 'Orchestration', href: '/ai-agent-orchestration' },
     { label: 'Claude Cowork vs ChatGPT Work', href: '/claude-cowork-vs-chatgpt-work' },
+    { label: 'Claude Cowork vs OpenWork', href: '/claude-cowork-vs-openwork' },
+    { label: 'Claude Cowork vs Perplexity Computer', href: '/claude-cowork-vs-perplexity-computer' },
+    { label: 'Claude Cowork for teams', href: '/claude-cowork-for-teams' },
   ],
   footer: {
     blurb:
@@ -1757,6 +2101,9 @@ const site: SiteConfig = {
           { label: 'Self-hosted AI workspace', href: '/self-hosted-ai-workspace' },
           { label: 'AI agent orchestration', href: '/ai-agent-orchestration' },
           { label: 'Claude Cowork vs ChatGPT Work', href: '/claude-cowork-vs-chatgpt-work' },
+          { label: 'Claude Cowork vs OpenWork', href: '/claude-cowork-vs-openwork' },
+          { label: 'Claude Cowork vs Perplexity Computer', href: '/claude-cowork-vs-perplexity-computer' },
+          { label: 'Claude Cowork for teams', href: '/claude-cowork-for-teams' },
         ],
       },
       {
@@ -1779,7 +2126,7 @@ const site: SiteConfig = {
     legal:
       'Not affiliated with Anthropic or OpenAI. Claude Cowork and ChatGPT Work are products of their owners, named here only to compare.',
   },
-  pages: [home, selfHosting, platforms, hostedPlatform, workspace, orchestration, versus, alternatives, isOpenSource, migrate, pricing],
+  pages: [home, selfHosting, platforms, hostedPlatform, workspace, orchestration, versus, alternatives, isOpenSource, migrate, pricing, vsOpenWork, vsPerplexity, forTeams],
 };
 
 export default site;
