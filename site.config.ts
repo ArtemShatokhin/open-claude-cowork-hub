@@ -2295,12 +2295,511 @@ Claude Cowork is a finished hosted product, and a team that wants a single assis
   ],
 };
 
+const dataPrivacy: Page = {
+  slug: 'claude-cowork-data-privacy',
+  navLabel: 'Is Claude Cowork safe?',
+  title: 'Is Claude Cowork Safe? Data Privacy and the Open Source Answer',
+  metaDescription:
+    "Claude Cowork processes your work on Anthropic's servers; Kortix is the open-source system you can run on your own infrastructure.",
+  h1: "Is Claude Cowork safe? Where a session's data goes, and the open-source system you own",
+  lead: "Claude Cowork runs each session on Anthropic's servers; Kortix is the open-source system that runs the same agent work on infrastructure you own. Whether a session is safe comes down to two things: what it can read, and what it is allowed to do.",
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: {
+        eyebrow: 'Compare',
+        title: "Where a session's data goes, next to a system you own",
+        sub: "Cowork's cells come from Anthropic's own safe-use page; Kortix is the recommendation because you can run it yourself.",
+      },
+      columns: [
+        { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com', nofollow: true },
+        { id: 'cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork', nofollow: true },
+      ],
+      rows: [
+        {
+          label: 'Cloud session',
+          cells: ['your VPC, on-prem, or Kortix Cloud', "Anthropic's servers, in a per-session environment"],
+        },
+        {
+          label: 'Local files',
+          cells: ['files live in a git repo you own', "reached through the desktop app, processed on Anthropic's servers"],
+        },
+        {
+          label: 'Connected apps',
+          cells: ['credentials brokered server-side, never enter the machine', 'read through your Claude account'],
+        },
+        {
+          label: 'Scheduled work',
+          cells: ['a trigger starts a session that opens a change request', 'runs in the cloud with no device online'],
+        },
+        { label: 'Configuration', cells: ['files in a git repo you own', 'in your Claude account'] },
+        { label: 'Review', cells: ['a change request a person merges', 'approve the plan before significant actions'] },
+        { label: 'Open source', cells: [{ text: 'Yes', mark: 'yes' }, { text: 'No', mark: 'no' }] },
+      ],
+    },
+    {
+      type: 'artifact',
+      heading: { eyebrow: 'Quickstart', title: 'What you own on Kortix that a hosted session does not' },
+      artifact: {
+        file: 'project',
+        lang: 'text',
+        lines: [
+          'project/         a git repo you own',
+          '  agents/          who does the work',
+          '  skills/          how the company does a job',
+          '  memory/          what it has learned',
+          '  kortix.yaml      rules, connectors, triggers, machine image',
+          '  secrets          encrypted at rest, a key per project',
+          '  connectors       credentials brokered server-side, never enter the machine',
+        ],
+        source: 'https://kortix.com/docs',
+      },
+      caption: 'The project layout and its security lines, from the Kortix docs (checked October 2026).',
+    },
+    {
+      type: 'prose',
+      body: `## What Claude Cowork runs, and where it runs it
+Claude Cowork is Anthropic's agent for knowledge work. [Anthropic's safe-use page](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely) describes the shape of a session: the work runs in the cloud, in an isolated, temporary environment on Anthropic's servers, created for that one session, unable to reach your home or company network, and removed when the session ends (checked October 2026).
+
+That isolation bounds where Claude's code runs. It does not bound what Claude reads or does. When a task needs a local file or your browser, Claude reaches your computer through the Claude Desktop app, and only for the folders you have connected. If the app is offline, the session cannot reach your computer. Any file it opens through the app is processed on Anthropic's servers, so the data leaves your machine even when the work started on it.
+
+Connectors and scheduled tasks widen the same surface. A session reads your connected apps through your Claude account, and scheduled tasks keep working in the cloud with no device online.
+
+## The real risk surface
+Anthropic sorts the tools a session holds into read tools, which access content, and write tools, which act in your environment. Write tools carry more risk, and the safe-use page recommends human oversight in high-stakes work.
+
+The sharpest risk is prompt injection, malicious instructions embedded in content the session reads as part of a legitimate task. For the attack to succeed, two things must be true at the same time: the session can read outside your trusted sources, and it can take an action that matters. Anthropic's own mitigations include content classifiers, action screening in "Automatically approve" mode, and an explicit permission prompt before any permanent file deletion.
+
+Each connected app and MCP extension is another path in. Anthropic notes that desktop extensions and plugins run on your computer with the permissions of any other program, and that web and email content are primary prompt-injection vectors.
+
+The control that erodes fastest is the approval itself. Cowork offers "Manually approve", "Automatically approve", where the model screens each action, and "Skip all approvals", where nothing checks the run. Anthropic ties the mode to the stakes because a task can act on malicious content before anyone notices.
+
+## The governance controls a team needs
+A single person can govern a desktop assistant by habit. A team cannot. Four controls carry the weight:
+
+- A per-tool rule for every connector, so one tool always runs, another asks first, and another is blocked, down to the arguments of each call.
+- Credentials that stay outside the machine where the work runs.
+- An audit record of every action, who approved it, and what changed.
+- A choice of where the platform itself runs, so a security review is answered with your network rather than a vendor's.
+
+## What Kortix changes
+Kortix is the open-source AI Operating System, and it answers each control with something you can read. Secrets are encrypted at rest with a key per project. Connector credentials are brokered server-side and never enter the machine. Per-resource permissions for people and agents. Roles, groups, and an audit trail. Approval gates you set. Off until you set them. Session work reaches \`main\` through a change request. Merge is default-deny for agents.
+
+The other half is placement. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free. The whole system is one git repo you own. Open source. Read it, fork it, audit it. The code is on [Kortix on GitHub](https://github.com/kortix-ai/suna), or [Try Kortix](https://kortix.com) on the managed cloud.
+
+For the install on your own box, [self-hosting Kortix](/self-hosting) is the walkthrough, and [Kortix for teams](/claude-cowork-for-teams) covers roles and gates. Moving an existing setup is covered in [migrating from Claude Cowork](/migrate-from-claude-cowork), and [Read the comparison](https://kortix.com/blog/kortix-vs-claude-cowork) sets Kortix against the closed platforms.`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Data and privacy questions' },
+      items: [
+        {
+          id: 'private',
+          question: 'Is Claude Cowork private?',
+          answer:
+            "Your session and its files are saved to your Claude account, and local files a session opens through the desktop app are processed on Anthropic's servers. What you control is the access you grant, so the safer setting is the smallest set of folders and tools the task needs.",
+        },
+        {
+          id: 'self-host',
+          question: 'Can I self-host Claude Cowork?',
+          answer:
+            'No. Anthropic ships Cowork as a hosted product with no self-hosted edition. Kortix is the open-source system you can run on Kortix Cloud, in your VPC, or on your own on-prem network.',
+        },
+        {
+          id: 'credentials',
+          question: 'How does Kortix keep credentials out of a session?',
+          answer:
+            'Connector credentials are brokered server-side and never enter the machine, and secrets are encrypted at rest with a key per project. The agent works inside its own isolated sandbox and reaches tools through those brokered credentials.',
+        },
+        {
+          id: 'delete-files',
+          question: 'Does a Cowork session delete my files?',
+          answer:
+            'Cowork needs your explicit permission before permanently deleting any file, in any mode. Anthropic still advises connecting a dedicated working folder rather than broad access, and keeping backups of important files.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Run the same agent work on an open-source stack you own',
+      sub: 'One repo for agents, skills, memory, and connectors, with a change request between the agent and main.',
+      ctas: [TRY, { label: 'Self-host it', href: '/self-hosting', variant: 'secondary' }],
+    },
+  ],
+};
+
+const howToUse: Page = {
+  slug: 'how-to-use-claude-cowork',
+  navLabel: 'How to use Claude Cowork',
+  title: 'How to Use Claude Cowork: Steps, Pitfalls, and the Open Source Next Step',
+  metaDescription:
+    'Set up Claude Cowork step by step: the paid plan it needs, the desktop app, connected folders and tools, and the open-source system a team moves to next.',
+  h1: 'How to use Claude Cowork, step by step, and the open-source system a team moves to',
+  lead: 'Using Claude Cowork starts with a paid Claude plan and the desktop app; Kortix is the open-source system a team moves to when one desktop stops being enough. The prerequisites come first, then the exact steps, then the signals that you have outgrown a single desktop.',
+  sections: [
+    {
+      type: 'artifact',
+      heading: { eyebrow: 'Quickstart', title: 'Claude Cowork setup, five steps' },
+      artifact: {
+        file: 'cowork-setup',
+        lang: 'text',
+        lines: [
+          '1. Open the Claude desktop app (macOS or Windows)',
+          '2. Select "Cowork" in the message box',
+          '3. Describe the task and let Claude plan it',
+          '4. Connect the folder Claude may work in',
+          '5. Connect the tools, then review the plan before it runs',
+        ],
+        source: 'https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork',
+      },
+      caption: "The setup path, from Anthropic's get-started guide (checked October 2026).",
+    },
+    {
+      type: 'prose',
+      body: `## What you need before the first task
+Cowork is available on paid Claude plans (Pro, Max, Team, Enterprise), and the free Claude tier is chat only. For local files, browser use, and computer use, the Claude Desktop app for macOS or Windows must be open and connected, because those abilities reach things on your computer even though the session itself runs in the cloud. Both facts come from [Anthropic's get-started guide](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) (checked October 2026).
+
+## Step by step
+1. Open Claude and pick Cowork. On desktop, web, and mobile, chat and Cowork share one home. Find the message box and select "Cowork"; to return to a plain conversation, select "Chat".
+2. Describe the outcome you want. Claude analyzes the request, breaks complex work into subtasks, and creates a plan. Say what finished looks like, and let the plan carry the method.
+3. Connect a folder, not the whole machine. For local files, Claude reaches your computer through the desktop app, and only for the folders you have connected. If the app is offline, the session cannot reach your computer.
+4. Connect the tools. Cowork reads your connected apps and can use MCP extensions and plugins. Every extension widens what the session can reach, so add the ones you have checked and leave the rest out.
+5. Review the plan and set the approval mode before it runs. Cowork offers "Manually approve", "Automatically approve", and "Skip all approvals". Match the mode to the stakes, because a task can act on malicious content before you notice.
+
+## The pitfalls that cost the most
+- A routine approval stops being a check. "Skip all approvals" runs with nothing screening the actions, and "Automatically approve" screens each one itself. Switch to "Manually approve" when a task touches sensitive files, accounts, or sites, or when a mistake is hard to undo.
+- Wide folder access reaches wide file access. Anthropic advises a dedicated working folder, because a session can read, write, and permanently delete the files you connect, and any file it opens is processed on Anthropic's servers.
+- Scheduled tasks run unwatched. They run in the cloud with no device online, so start with low-risk jobs, keep sensitive data out, and review the run history from the "Scheduled" page.
+- Computer use acts on your screen. File operations pass through permission checks and code runs in an isolated environment, but computer use has no sandbox between Claude and your screen, and it takes screenshots to read it. Block the apps you would rather keep private.
+
+## Where a single desktop stops and a platform a team owns starts
+Cowork keeps its work in your Claude account, so the unit of work is one person. Three signals say the team has outgrown it:
+
+- More than one person needs the same agents and skills, and the setup should not be rebuilt for each desk.
+- The company's memory should be shared and owned rather than spread across personal accounts.
+- Someone must review what an agent changed before it lands, every time.
+
+At that point the question changes from how to use Cowork to where the work should live. Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own. Every session runs on its own cloud computer, and session work reaches \`main\` through a change request. Merge is default-deny for agents. It reaches 3,000+ apps in a click, plus MCP, OpenAPI, Postman, GraphQL and raw HTTP. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free. [Try Kortix](https://kortix.com) on the managed cloud to start, or [read the docs](https://kortix.com/docs) for the full model.
+
+[The Claude Cowork alternatives roundup](/claude-cowork-alternatives) compares the options, [Kortix vs OpenWork](/claude-cowork-vs-openwork) covers the desktop route, and [Kortix for teams](/claude-cowork-for-teams) covers roles and approval gates. To move an existing setup, [migrating from Claude Cowork](/migrate-from-claude-cowork) is the checklist.`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Claude Cowork setup questions' },
+      items: [
+        {
+          id: 'paid-plan',
+          question: 'Does Claude Cowork need a paid plan?',
+          answer:
+            'Yes. Cowork is available on Pro, Max, Team, and Enterprise plans, and the free Claude tier is chat only. Desktop access is on every paid plan, while some surfaces and admin controls vary by plan.',
+        },
+        {
+          id: 'local-files',
+          question: 'Can Claude Cowork work on my local files?',
+          answer:
+            "On desktop, yes, through the Claude Desktop app and only for the folders you have connected. Any file a session opens is processed on Anthropic's servers, so keep sensitive documents out of the folders you connect.",
+        },
+        {
+          id: 'laptop-closed',
+          question: 'Does Claude Cowork keep working when my laptop is closed?',
+          answer:
+            'Cloud sessions continue when you close your laptop, and scheduled tasks run in the cloud with no device online. Both keep acting without you watching, which is why Anthropic ties the approval mode to the stakes of the task.',
+        },
+        {
+          id: 'move-off',
+          question: 'When should a team move off Claude Cowork?',
+          answer:
+            "When more than one person needs the same agents and skills, when the company's memory has to be shared and owned, or when someone must review every change an agent makes before it lands. Kortix is the open-source platform for that stage.",
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Move the same work onto an open-source system you own',
+      sub: 'One git repo for agents, skills, memory, and connectors, with a change request between the agent and main.',
+      ctas: [TRY, { label: 'Migrate from Claude Cowork', href: '/migrate-from-claude-cowork', variant: 'secondary' }],
+    },
+  ],
+};
+
+const integrations: Page = {
+  slug: 'claude-cowork-integrations',
+  navLabel: 'Claude Cowork integrations',
+  title: 'Claude Cowork Integrations: The Open Source Governance Layer',
+  metaDescription:
+    'Claude Cowork connects to apps through MCP connectors; open-source Kortix reaches 3,000+ apps in a click, plus MCP and raw HTTP.',
+  h1: 'Claude Cowork integrations, and the open source layer that governs them',
+  lead: 'Claude Cowork connects to your apps through MCP connectors, and Kortix is open source: the AI Operating System where a team sets each tool to Allow, Ask or Block. This page covers what connects, how a connector is authorized, and the governance gap a team hits.',
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: {
+        eyebrow: 'Compare',
+        title: 'Connector governance, Kortix and Claude Cowork side by side',
+        sub: "Kortix leads the table; the Claude Cowork column states only what Anthropic's own help pages document.",
+      },
+      columns: [
+        { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com', nofollow: true },
+        {
+          id: 'cowork',
+          label: 'Claude Cowork',
+          href: 'https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities',
+          nofollow: true,
+        },
+      ],
+      rows: [
+        {
+          label: 'What connects',
+          cells: [
+            '3,000+ apps in a click, plus MCP, OpenAPI, GraphQL and raw HTTP.',
+            'The Connectors Directory and custom MCP servers.',
+          ],
+        },
+        {
+          label: 'Who can use it',
+          cells: [
+            'Per-resource permissions for people and agents. Roles, groups, and an audit trail.',
+            'An Owner enables it for the org; each person authenticates separately.',
+          ],
+        },
+        {
+          label: 'The rule on a call',
+          cells: ['Set each tool to Allow, Ask or Block.', 'Owners set Always allow, Needs approval, or Blocked.'],
+        },
+        {
+          label: 'Approvals',
+          cells: [
+            'Approval gates you set. Off until you set them.',
+            'Deletion needs explicit permission; computer use runs without permission checks.',
+          ],
+        },
+        {
+          label: 'Credentials and access',
+          cells: [
+            'Connector credentials are brokered server-side and never enter the machine.',
+            "Claude inherits each person's permissions from the connected service.",
+          ],
+        },
+      ],
+    },
+    {
+      type: 'artifact',
+      heading: { eyebrow: 'Quickstart', title: 'Connectors are files a team can review' },
+      artifact: {
+        file: 'kortix.yaml',
+        lang: 'yaml',
+        lines: [
+          '# kortix.yaml',
+          'agents:',
+          '  support-triage:',
+          '    file: agents/support-triage.md   # what it does',
+          '    connectors: all                  # what it may reach',
+        ],
+        source: 'https://kortix.com/docs',
+      },
+      caption: 'The connectors an agent may reach live in kortix.yaml, so a team reads and diffs them like any other code.',
+    },
+    {
+      type: 'prose',
+      body: `## What Claude Cowork connects to
+
+Claude Cowork is Anthropic's agent for knowledge work. You describe an outcome, and it runs multi-step tasks on your behalf inside Claude's app on desktop, web and mobile. It reaches your tools through connectors, which Anthropic documents as the way Claude accesses your apps and services, retrieves your data, and takes actions inside them ([Anthropic's connector guide](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)).
+
+The Connectors Directory holds the prebuilt connectors, and Anthropic's own examples include Google Drive to search your files, GitHub to work with repositories, Linear to create issues, and Slack to send messages. Beyond the directory, Claude supports custom connectors over a remote MCP server on free, Pro, Max, Team and Enterprise plans, with free accounts limited to one custom connector. Cowork also produces Excel spreadsheets and PowerPoint decks that you can keep editing in Claude for Excel and PowerPoint ([Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)).
+
+## How a connector is authorized and scoped
+
+Authorization is per person and per connector. Anthropic's guide says Claude inherits each person's permissions from the connected service: if someone cannot open a file in the source app, the connector cannot reach it either. On Team and Enterprise plans, an Owner or Primary Owner enables a connector for the organization first, but each member still authenticates on their own before they can use it. Enterprise-managed auth, in beta, authorizes a connector once for the whole organization.
+
+Owners can also restrict what a connector may do org-wide, allowing reads while blocking writes, and each person still needs the matching permission in the source system. That set of controls is documented and real. What it does not answer is the question a team with several agents has to answer.
+
+## The governance gap: which agent may touch which tool
+
+The controls Anthropic documents are set at the connector and the organization. A team that runs agents across shared systems needs a finer unit: which agent may touch which tool, with which arguments, and where the credential that reaches the tool actually sits. Cowork's model covers the plan you approve and the deletion step, and Anthropic's own safe-use guidance notes that computer use runs without the permission checks that gate other Cowork tools ([Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)). The per-agent question stays open. [Claude Cowork for teams](/claude-cowork-for-teams) covers the admin controls Cowork does provide.
+
+## How Kortix governs connector access
+
+Kortix is the open-source AI Operating System, and its connector layer is a file in a git repo you own. Connectors reach "3,000+ apps in a click, plus MCP, OpenAPI, Postman, GraphQL and raw HTTP." Connector credentials are brokered server-side and never enter the machine. The rule on a call is the team's to set: set each tool to Allow, Ask or Block, down to the arguments of each call. An Ask holds the call until a person approves it, then the agent resumes. Approval gates you set. Off until you set them.
+
+Permissions are per resource, for people and agents, with roles, groups, and an audit trail. The connector configuration travels with the project, so a reviewer reads the same file the agent runs from. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free ([the self-hosting guide](/self-hosting)). The source is public at [Kortix on GitHub](https://github.com/kortix-ai/suna).`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Claude Cowork integrations, the questions teams ask' },
+      items: [
+        {
+          id: 'plans',
+          question: 'Which Claude plans include connectors?',
+          answer:
+            'Connectors are available on free, Pro, Max, Team and Enterprise plans across Claude, Cowork and Claude Desktop, and free accounts are limited to one custom connector. On Team and Enterprise plans an Owner enables a connector for the organization, and each person still authenticates.',
+        },
+        {
+          id: 'no-connector',
+          question: 'Can Kortix reach an app that has no ready-made connector?',
+          answer:
+            'Yes. Kortix reaches 3,000+ apps in a click, plus MCP, OpenAPI, Postman, GraphQL and raw HTTP, so a team connects a custom service through MCP or a REST, GraphQL or OpenAPI definition.',
+        },
+        {
+          id: 'credentials',
+          question: 'Where do connector credentials live in Kortix?',
+          answer:
+            'Connector credentials are brokered server-side and never enter the machine. Secrets are encrypted at rest with a key per project.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Set the rule on every connector call',
+      sub: 'Start with one connected app, in one repo you own.',
+      ctas: [TRY, { label: 'Compare the tools', href: '/claude-cowork-alternatives', variant: 'secondary' }],
+    },
+  ],
+};
+
+const vsOpenClaw: Page = {
+  slug: 'claude-cowork-vs-openclaw',
+  navLabel: 'Claude Cowork vs OpenClaw',
+  title: 'Claude Cowork vs OpenClaw: The Open Source System a Team Owns',
+  metaDescription:
+    'Claude Cowork is closed and hosted; OpenClaw is open source and runs on your machine. Kortix is the open-source system a team owns.',
+  h1: 'Claude Cowork vs OpenClaw, and the open source system a team owns',
+  lead: 'OpenClaw is an open-source personal agent that runs on your own machine, and Claude Cowork is a closed, hosted assistant; Kortix is open source: the system a team runs. This page compares them on source, models, where they run, configuration and access, then shows when each one fits.',
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: {
+        eyebrow: 'Compare',
+        title: 'Kortix, Claude Cowork and OpenClaw, side by side',
+        sub: "Kortix leads the table, and each rival column states only what that project's own live pages document.",
+      },
+      columns: [
+        { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com', nofollow: true },
+        {
+          id: 'cowork',
+          label: 'Claude Cowork',
+          href: 'https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork',
+          nofollow: true,
+        },
+        { id: 'openclaw', label: 'OpenClaw', href: 'https://github.com/openclaw/openclaw', nofollow: true },
+      ],
+      rows: [
+        {
+          label: 'Source',
+          cells: [
+            { text: 'Open source. Read it, fork it, audit it.', mark: 'yes' },
+            { text: 'Closed', mark: 'no' },
+            { text: 'Open source', mark: 'yes' },
+          ],
+        },
+        {
+          label: 'Models',
+          cells: ['Any model provider with your own keys.', "Anthropic's models only", 'Hosted and local model providers as plugins'],
+        },
+        {
+          label: 'Where it runs',
+          cells: [
+            'Kortix Cloud, your VPC, or your own on-prem network',
+            "Anthropic's servers, or your own cloud account",
+            'On your own computer; one Gateway can serve a team',
+          ],
+        },
+        {
+          label: 'Your configuration',
+          cells: ['Files in a git repo you own', 'In your Claude account', 'The Gateway config; state and memory on your hardware'],
+        },
+        {
+          label: 'Access',
+          cells: ['Self-host is free', 'Paid Claude plans only', 'No paid tier, hosted service or token'],
+        },
+      ],
+    },
+    {
+      type: 'artifact',
+      heading: { eyebrow: 'Quickstart', title: 'One repo is the company' },
+      artifact: {
+        file: 'project',
+        lang: 'text',
+        lines: [
+          'project (git repo + kortix.yaml)',
+          '├─ agents/       # who does the work',
+          '├─ skills/       # how your company does a job',
+          '├─ memory/       # what it has learned',
+          '└─ kortix.yaml   # connectors, triggers, machine image',
+        ],
+        source: 'https://kortix.com/docs',
+      },
+      caption: 'Agents, skills, memory and connector configuration live in files a team reads and diffs.',
+    },
+    {
+      type: 'prose',
+      body: `## What Claude Cowork is
+
+Claude Cowork is Anthropic's agent for knowledge work. You describe an outcome, and it runs multi-step tasks inside Claude's app on desktop, web and mobile, with scheduled tasks and projects. Cowork is available on paid plans: Pro, Max, Team and Enterprise. Its sessions run in the cloud on Anthropic's servers in an isolated environment, and the sessions and files save to your Claude account, so the work follows you across surfaces. To touch a local file or a browser, Cowork reaches your machine through the Claude Desktop app ([Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)).
+
+Anthropic is direct about the risks. The safe-use guidance separates read tools from write tools, warns that prompt injection arrives through the content Claude reads, and notes that computer use runs without the permission checks that gate other tools ([Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)). Those are real controls to plan around. They also live inside Anthropic's product, on Anthropic's models, in Anthropic's cloud.
+
+## What OpenClaw is
+
+OpenClaw is an open-source AI assistant that runs on your own computer and meets you in the channels you already use. Its own repository describes Discord, iMessage, Slack, Teams, Telegram, WhatsApp and more than twenty more, plus native apps for macOS, iOS, Android, Windows and Linux. One Gateway runs it as a personal assistant on a laptop or as a shared team deployment, and configuration is the only difference between the two ([OpenClaw on GitHub](https://github.com/openclaw/openclaw)).
+
+State, memory and credentials live on your hardware, and the models and agent harnesses are plugins you swap without changing anything else. The project's own site states that there is no paid tier, hosted service or token, and that it is stewarded by an independent foundation ([openclaw.ai](https://openclaw.ai)). So OpenClaw and Claude Cowork answer the ownership question in opposite ways, and both keep the work at the scale of one person or one machine.
+
+## When to choose which
+
+Choose OpenClaw if you want a personal assistant on your own hardware, reachable from the chat apps you already keep open, with your own models. Choose Claude Cowork if you want an agent inside the Claude app you already pay for, on Anthropic's models, with the managed admin controls that come with Team and Enterprise plans.
+
+Choose Kortix if the unit of work is a team or a whole company. Kortix is the open-source AI Operating System: your agents, skills, company memory, and connectors in one git repo you own, with the agents working on real cloud computers. That is the difference the other two do not cover. A team needs shared configuration it can read, a rule on which agent may touch which tool, and a review step before an agent's work reaches anything real. The [open-source Claude Cowork alternatives](/claude-cowork-alternatives) page maps the wider field, and [Claude Cowork vs OpenWork](/claude-cowork-vs-openwork) covers one of the open-source desktops.
+
+## Why a team picks Kortix
+
+In Kortix, configuration is files a team can diff and review. An agent is \`agents/<name>.md\` (behavior) plus an \`agents.<name>\` block in \`kortix.yaml\` (governance). Each session has its own isolated machine and branch. Session work reaches \`main\` through a change request. Merge is default-deny for agents. Per-resource permissions cover people and agents, with roles, groups, and an audit trail. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free. The source is public at [Kortix on GitHub](https://github.com/kortix-ai/suna), and if you already run Claude Cowork, [migrating to Kortix](/migrate-from-claude-cowork) starts with one job in one repo. For a worked comparison against the closed incumbent, [Read the Kortix blog](https://kortix.com/blog/kortix-vs-claude-cowork).`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Claude Cowork and OpenClaw, the questions teams ask' },
+      items: [
+        {
+          id: 'same-work',
+          question: 'Is OpenClaw built for the same work as Claude Cowork?',
+          answer:
+            "OpenClaw is a personal agent that runs on your own computer and meets you in the chat apps you already use, and Claude Cowork is Anthropic's hosted agent for knowledge work inside Claude's app. Kortix is the open-source AI Operating System a team runs: one git repo for the agents, skills, memory and connectors, with session work landing through a change request.",
+        },
+        {
+          id: 'repo-owns',
+          question: 'Which one keeps the configuration in a repo the team owns?',
+          answer:
+            'Kortix does. Your agents, skills, company memory, and connectors live in one git repo you own, so a team can read, diff and review what an agent runs from. Claude Cowork keeps the configuration in your Claude account, and OpenClaw keeps its config and memory on the machine it runs on.',
+        },
+        {
+          id: 'own-infrastructure',
+          question: 'Can a team run Kortix on its own infrastructure?',
+          answer:
+            'Yes. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free, and the self-hosting guide covers the install.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Own the system your agents run on',
+      sub: 'Start with one job, in one repo you own.',
+      ctas: [TRY, { label: 'Explore the alternatives', href: '/claude-cowork-alternatives', variant: 'secondary' }],
+    },
+  ],
+};
+
 const site: SiteConfig = {
   domain: 'opensourceclaudecowork.com',
   siteName: 'Open Source Claude Cowork',
   description:
     'A self-hosting handbook for the open-source alternative to Claude Cowork: self-hosted AI agent platforms, the AI workspace, and orchestration, with Kortix.',
-  updated: '2026-10-12',
+  updated: '2026-10-14',
   lang: 'en',
   accent: '#089f9f',
   fonts: 'system',
@@ -2313,6 +2812,8 @@ const site: SiteConfig = {
     { label: 'Is Claude Cowork open source?', href: '/is-claude-cowork-open-source' },
     { label: 'Pricing', href: '/claude-cowork-pricing' },
     { label: 'Migrate', href: '/migrate-from-claude-cowork' },
+    { label: 'How to use Claude Cowork', href: '/how-to-use-claude-cowork' },
+    { label: 'Claude Cowork integrations', href: '/claude-cowork-integrations' },
     { label: 'Self-hosting', href: '/self-hosting' },
     { label: 'Platforms', href: '/open-source-ai-agent-platforms' },
     { label: 'Self-hosted platform', href: '/self-hosted-ai-agent-platform' },
@@ -2338,6 +2839,10 @@ const site: SiteConfig = {
           { label: 'Is Claude Cowork open source?', href: '/is-claude-cowork-open-source' },
           { label: 'Claude Cowork pricing', href: '/claude-cowork-pricing' },
           { label: 'Migrate from Claude Cowork', href: '/migrate-from-claude-cowork' },
+          { label: 'How to use Claude Cowork', href: '/how-to-use-claude-cowork' },
+          { label: 'Claude Cowork integrations', href: '/claude-cowork-integrations' },
+          { label: 'Is Claude Cowork safe?', href: '/claude-cowork-data-privacy' },
+          { label: 'Claude Cowork vs OpenClaw', href: '/claude-cowork-vs-openclaw' },
           { label: 'Self-hosting', href: '/self-hosting' },
           { label: 'Open-source AI agent platforms', href: '/open-source-ai-agent-platforms' },
           { label: 'Self-hosted AI agent platform', href: '/self-hosted-ai-agent-platform' },
@@ -2372,7 +2877,7 @@ const site: SiteConfig = {
     legal:
       'Not affiliated with Anthropic or OpenAI. Claude Cowork and ChatGPT Work are products of their owners, named here only to compare.',
   },
-  pages: [home, selfHosting, platforms, hostedPlatform, workspace, orchestration, versus, alternatives, isOpenSource, migrate, pricing, vsOpenWork, vsPerplexity, forTeams, vsMicrosoftCopilot, localLlm, forWindows],
+  pages: [home, selfHosting, platforms, hostedPlatform, workspace, orchestration, versus, alternatives, isOpenSource, migrate, pricing, vsOpenWork, vsPerplexity, forTeams, vsMicrosoftCopilot, localLlm, forWindows, dataPrivacy, howToUse, integrations, vsOpenClaw],
 };
 
 export default site;
