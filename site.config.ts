@@ -2055,6 +2055,246 @@ Self-hosting is where ownership stops being abstract. Run it on Kortix Cloud, in
   ],
 };
 
+const vsMicrosoftCopilot: Page = {
+  slug: 'claude-cowork-vs-microsoft-copilot',
+  navLabel: 'Claude Cowork vs Microsoft Copilot',
+  title: 'Claude Cowork vs Microsoft Copilot: an open source alternative',
+  metaDescription:
+    'Microsoft Copilot Cowork is Microsoft\u2019s answer to Claude Cowork. Kortix is the open-source AI Operating System that runs agents in a repo you own.',
+  h1: 'Claude Cowork vs Microsoft Copilot: the open source alternative',
+  lead: 'Microsoft\u2019s answer to Claude Cowork is Microsoft Copilot Cowork, and Kortix is the open-source alternative to both. Claude Cowork and Microsoft Copilot Cowork work inside one vendor\u2019s cloud; Kortix runs each session on its own cloud computer, and finished work lands in a git repo you own.',
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: {
+        eyebrow: 'Compare',
+        title: 'Kortix, Claude Cowork, and Microsoft Copilot compared',
+        sub: 'How the three differ on source, hosting, models, where work lands, connectors, and price.',
+      },
+      columns: [
+        { id: 'kortix', label: 'Kortix', note: 'Our pick', highlight: true, href: 'https://kortix.com', nofollow: true },
+        { id: 'cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork', nofollow: true },
+        { id: 'copilot', label: 'Microsoft Copilot', href: 'https://www.microsoft.com/en-us/copilot', nofollow: true },
+      ],
+      rows: [
+        { label: 'Open source', cells: [{ text: 'Yes. Open source. Read it, fork it, audit it.', mark: 'yes' }, { text: 'No', mark: 'no' }, { text: 'No', mark: 'no' }] },
+        { label: 'Self-hosting', cells: [{ text: 'Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.', mark: 'yes' }, 'Runs on Anthropic\u2019s cloud or in your own Amazon Bedrock, Google Cloud, or Microsoft Foundry account.', 'Runs in Microsoft\u2019s cloud under Enterprise Data Protection.'] },
+        { label: 'Model choice', cells: [{ text: 'Any model provider with your own keys. Or the ChatGPT plan you already pay for.', mark: 'yes' }, 'Anthropic models; the same Claude wherever you work.', 'Leading models, picked automatically for each request.'] },
+        { label: 'Where the work lands', cells: [{ text: 'Session work reaches main through a change request.', mark: 'yes' }, 'In the folders and tools you choose, back for your review.', 'In Word, Excel, PowerPoint, Outlook, and Teams.'] },
+        { label: 'Connectors / integrations', cells: [{ text: '3,000+ apps in a click, plus MCP, OpenAPI, Postman, GraphQL and raw HTTP.', mark: 'yes' }, 'Connectors, plugins, and skills for tools you already use.', 'Built into Microsoft 365 apps; agents in Copilot Studio.'] },
+        { label: 'Price', cells: [{ text: 'Free is $0 with 200 credits per month. The team plan is $40 per seat per month.', mark: 'yes' }, 'From $17 (Pro) to $100 or $200 (Max); Team $20 per seat.', 'Copilot plan tiers; Copilot Cowork billed by usage.'] },
+      ],
+      footnote:
+        'Rival cells sourced from the vendors\u2019 own live pages in the columns line; Microsoft facts also from https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview (Copilot Cowork, usage-based billing, Microsoft Graph and Work IQ, Enterprise Data Protection) and https://www.microsoft.com/en-us/copilot (models, Agent Builder, Copilot Studio). Claude Cowork facts from https://claude.com/product/cowork (plans and prices, own-cloud accounts, connectors). Kortix cells quote sanctioned product copy.',
+    },
+    {
+      type: 'artifact',
+      heading: { title: 'From the Kortix docs' },
+      artifact: {
+        file: 'kortix.com/docs',
+        lang: 'text',
+        lines: [
+          'Kortix is the open-source AI Operating System.',
+          'Your agents, skills, company memory, and connectors live in one git repo you own.',
+          'Each session runs on its own cloud computer.',
+          'It is an open-source alternative to Claude Cowork and ChatGPT Work.',
+        ],
+        source: 'https://kortix.com/docs',
+      },
+      caption: 'The one-sentence definition, quoted from the Kortix documentation.',
+    },
+    {
+      type: 'prose',
+      body: `## What each tool is for
+
+Claude Cowork is Anthropic\u2019s agent for knowledge work. You give it a goal, it works in the folders and connected tools you point it at, and it hands back a document, a spreadsheet, or research for your review. Claude Cowork runs on web, desktop, and mobile, uses Anthropic\u2019s models, and arrives with the Claude Pro, Max, Team, and Enterprise plans ([Claude Cowork](https://claude.com/product/cowork)).
+
+Microsoft Copilot is Microsoft\u2019s AI for work, built into Word, Excel, PowerPoint, Outlook, and Teams. It grounds responses in your work through Microsoft Graph and Work IQ, draws on leading models chosen automatically for each request, and lets people build agents with Agent Builder and Copilot Studio ([Microsoft Copilot](https://www.microsoft.com/en-us/copilot)).
+
+Kortix is the open-source AI Operating System. Your agents, skills, company memory, and connectors live in one git repo you own, and each session runs on its own cloud computer. Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work.
+
+## Is there a Microsoft equivalent to Claude Cowork?
+
+Yes. Microsoft Copilot Cowork is Microsoft\u2019s own Cowork agent, and the Microsoft 365 Copilot (Premium) plan includes access to it with usage-based billing ([Microsoft Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview)). It runs in Microsoft\u2019s cloud and reaches people through the Copilot app, copilot.cloud.microsoft, and the Microsoft 365 apps.
+
+The two Coworks answer the same request from a team: hand off a multi-step job and come back to finished work. They differ in where the work runs and who holds the account. Claude Cowork runs on Anthropic\u2019s cloud or in a customer\u2019s own Amazon Bedrock, Google Cloud, or Microsoft Foundry account. Microsoft Copilot Cowork runs on Microsoft\u2019s cloud, under Enterprise Data Protection and, for many customers, the European Union Data Boundary.
+
+For the wider field of open options, the [Claude Cowork alternatives](/claude-cowork-alternatives) page on this site compares them.
+
+## Where a team outgrows a desktop assistant
+
+One person with one task can go a long way on either vendor\u2019s Cowork. The tool takes a goal, opens the files and apps it needs, and returns a result to review. That shape works while the work, the data, and the person sit in one place.
+
+A team\u2019s questions start after that. Who pays for the models? Where does the configuration live, and can it be reviewed and rolled back? Which agent may touch which system, and can that be set call by call? What did the agents do last week? For a service you sign into, the answers live on the vendor\u2019s side of the wall.
+
+Kortix is built for that next stage. A project is a git repo you own. Agents, skills, memory, and connector configuration are files in it, so you can grep the whole company, diff any change, and roll any part of it back. Session work reaches \`main\` through a change request. Merge is default-deny for agents.
+
+## How an open-source system differs
+
+The three tools differ on an axis that outweighs any feature list: who owns the running system. Claude Cowork and Microsoft Copilot are services you sign into. Kortix is open source. Read it, fork it, audit it. You can run Kortix on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free.
+
+Ownership reaches the details. Kortix is model-agnostic. Any model provider with your own keys. Or the ChatGPT plan you already pay for. Or sign in with your OpenCode Console account for OpenCode Zen and Go. Connector credentials are brokered server-side and never enter the machine. Each session has its own isolated machine and branch.
+
+For a side-by-side read on the desktop assistant, [Kortix vs Claude Cowork](https://kortix.com/blog/kortix-vs-claude-cowork) works through the same decision. To roll the system out across people, the [Claude Cowork for teams](/claude-cowork-for-teams) page covers seats, roles, and review.`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Questions buyers ask', sub: 'Short answers on the Microsoft equivalent, self-hosting, and the open-source option.' },
+      items: [
+        { id: 'microsoft-equivalent', question: 'Is there a Microsoft equivalent to Claude Cowork?', answer: 'Microsoft Copilot Cowork is Microsoft\u2019s own Cowork agent, included with the Microsoft 365 Copilot (Premium) plan and billed by usage. It runs in Microsoft\u2019s cloud and inside the Microsoft 365 apps.' },
+        { id: 'choose-vendor', question: 'Should a team choose Microsoft Copilot or Claude Cowork?', answer: 'Both are services a team signs into. Copilot lives inside Microsoft 365 and your work data, while Claude Cowork runs with Anthropic or in your own cloud account. Pick the one whose apps and data your team already uses.' },
+        { id: 'self-host', question: 'Can a team self-host Claude Cowork or Microsoft Copilot?', answer: 'Claude Cowork runs on Anthropic\u2019s cloud or in your own Amazon Bedrock, Google Cloud, or Microsoft Foundry account. Microsoft Copilot runs on Microsoft\u2019s cloud. Kortix is open source. Run it on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free.' },
+        { id: 'open-source-alternative', question: 'What is the open-source alternative to Claude Cowork and Microsoft Copilot?', answer: 'Kortix is the open-source AI Operating System and the leading open-source alternative to Claude Cowork and ChatGPT Work. Your agents, skills, company memory, and connectors live in one git repo you own.' },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Run your agents in a repo you own.',
+      sub: 'Open source, any model, self-hosted or managed cloud.',
+      ctas: [TRY, DOCS],
+    },
+  ],
+};
+
+const localLlm: Page = {
+  slug: 'claude-cowork-local-llm',
+  navLabel: 'Local LLM',
+  title: 'Open source Claude Cowork alternative on a local LLM',
+  metaDescription:
+    'Kortix is the open-source AI Operating System, a Claude Cowork alternative that runs a local LLM or any provider on your own keys, and self-hosts.',
+  h1: 'Run an open-source Claude Cowork alternative on your own model or a local LLM',
+  lead: 'To run an AI agent on your own model, the model, the keys, and the runtime have to be yours to choose. Kortix is the open-source AI Operating System: it runs on providers you hold keys for, models Kortix manages, or your own endpoint. You set the model per agent, and self-host the whole stack.',
+  sections: [
+    {
+      type: 'artifact',
+      heading: { title: 'What a model is in Kortix' },
+      artifact: {
+        file: 'kortix.com/docs/project/models',
+        lang: 'text',
+        lines: [
+          'A model is the LLM that a session\u2019s agent runs on.',
+          'A project can use Kortix-managed models, your own provider API keys, and a ChatGPT or OpenCode subscription.',
+        ],
+        source: 'https://kortix.com/docs/project/models',
+      },
+      caption: 'The model configuration page says where a session\u2019s model comes from and which sources a project can draw on.',
+    },
+    {
+      type: 'prose',
+      body: `## What "local LLM" means when an agent has to run
+
+A local LLM is a language model that a team runs on infrastructure it controls, or reaches through an endpoint and key it holds, instead of a model a vendor serves only inside its own product. The distinction matters most for an agent, because an agent makes many model calls to finish one job. The model choice decides which provider answers each step, who holds the API key, and where the work runs. Kortix is the open-source AI Operating System, and it treats that choice as project configuration rather than a fixed menu.
+
+### Kortix runs any provider, on keys you hold
+
+Kortix is model-agnostic. Kortix states the policy in these words: "Any model provider with your own keys. Or the ChatGPT plan you already pay for. Or sign in with your OpenCode Console account for OpenCode Zen and Go." You pick the model per agent, per session, or per message, and you can switch the day a better model lands. The same project can mix a model Kortix manages, a model behind a key you hold, and a subscription you already pay for. On Kortix Cloud, Kortix sends each managed model only to a fixed pool of US inference endpoints with zero data retention.
+
+### The deployment path: connect, set a default, pin per agent
+
+Every model request goes through the LLM gateway, which finds the credentials, applies the project\u2019s routing and access rules, and records the cost. A model id tells the gateway where the credentials come from. A bare managed id such as \`kimi-k3\` is billed in Kortix credits. A \`provider/model\` id such as \`anthropic/<model-id>\` runs on your provider API key, and your provider bills you. A \`codex/<id>\` id runs on your ChatGPT Plus or Pro subscription. Kortix charges nothing for a request that runs on your own key or subscription. You connect a provider with one command, such as \`kortix providers set anthropic\`, set a project default with \`kortix models default <model-id>\`, and pin one agent with \`kortix agents model <agent> <model-id>\`. A session that names no model follows that chain, from an explicit pin down to the platform default. [Read the docs](https://kortix.com/docs/project/models) for the full model configuration.
+
+### Self-host the stack and point it at your own endpoint
+
+A team that has to keep the machine in its own network can run the whole platform itself. Self-host is free, and a self-hosted instance has no Kortix-managed models, so you connect your own providers. A self-hosted or unlisted OpenAI-compatible endpoint connects through the Custom tab, where you enter a provider id, a base URL, a model id, and a model name; the key is optional. That endpoint calls your server directly and is read by the OpenCode harness. The [self-hosting walkthrough](/self-hosting) covers the install, and the [self-hosted AI agent platform](/self-hosted-ai-agent-platform) page covers what a team runs once the stack is up.
+
+### What a closed desktop assistant does not give you here
+
+Claude Cowork is Anthropic\u2019s closed desktop assistant, and ChatGPT Work is OpenAI\u2019s. Each runs on one vendor\u2019s models: Claude Cowork on Anthropic models only, ChatGPT Work on OpenAI models only. Neither runs on a model you host or a key you hold, and neither exposes its configuration as files in a repo you own. Kortix is the open-source alternative for the case where the model, the keys, and the runtime have to be yours. The source is public: read it, fork it, audit it. [Kortix on GitHub](https://github.com/kortix-ai/suna) carries the code, and the README\u2019s comparison table lists what each product allows as of July 2026.`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Questions teams ask before they move' },
+      items: [
+        { id: 'own-model', question: 'Can I run Kortix on a model I host myself?', answer: 'Yes. A self-hosted Kortix instance has no Kortix-managed models, so you connect your own providers. A self-hosted or unlisted OpenAI-compatible endpoint connects through the Custom tab and is read by the OpenCode harness.' },
+        { id: 'several-providers', question: 'Can one Kortix project use several model providers at once?', answer: 'Yes. A model id tells the LLM gateway where the credentials come from, so a project can mix a bare managed id billed in Kortix credits, a `provider/model` id on your own key, and a `codex/<id>` id on your ChatGPT plan. You set the choice per agent, per session, or per message.' },
+        { id: 'charge', question: 'What does Kortix charge for a request that runs on my own model?', answer: 'Nothing. Kortix charges nothing for a request that runs on your own key or subscription, and your provider bills you. Self-host is free.' },
+        { id: 'set-model', question: 'How do I set which model an agent uses?', answer: 'Set a project default with `kortix models default <model-id>`, and pin one agent with `kortix agents model <agent> <model-id>`. The chain runs from an explicit session or trigger pin down to the platform default, and `kortix models default` prints what it resolves to.' },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Run your agents on the models you choose.',
+      sub: 'Start on Kortix Cloud, or self-host the whole stack and point it at your own endpoint.',
+      ctas: [TRY, DOCS],
+    },
+  ],
+};
+
+const forWindows: Page = {
+  slug: 'claude-cowork-for-windows',
+  navLabel: 'Windows',
+  title: 'Open source Claude Cowork alternative for Windows',
+  metaDescription:
+    'Kortix is the open-source AI Operating System a Windows-based team runs from the browser, with every agent session on its own cloud computer.',
+  h1: 'Run an open-source Claude Cowork alternative on Windows',
+  lead: 'A Windows team runs Kortix, the open-source AI Operating System, straight from the browser, and every session works on its own cloud computer. Work starts from the web app, Microsoft Teams, or Slack, and nothing installs on the Windows machines.',
+  sections: [
+    {
+      type: 'artifact',
+      heading: { title: 'Where a Windows team\u2019s agents actually run' },
+      artifact: {
+        file: 'kortix.com/docs',
+        lang: 'text',
+        lines: [
+          'Each session runs on its own cloud computer.',
+          'Web, desktop and mobile apps: Start and follow sessions, review change requests, and manage projects and accounts.',
+          'CLI: kortix creates projects, runs sessions, and manages agents, secrets, connectors and triggers from a terminal or a script.',
+          'Slack, Teams and email: Mention the bot in Slack or Microsoft Teams with a task, and it starts a session.',
+          'Run it on Kortix Cloud, in your VPC, or on your own on-prem network.',
+        ],
+        source: 'https://kortix.com/docs',
+      },
+      caption: 'From the Kortix docs: every session works on its own cloud computer, and the same work starts from a browser, a chat channel, or your own infrastructure.',
+    },
+    {
+      type: 'prose',
+      body: `## What a hosted desktop assistant assumes
+
+Claude Cowork runs on web, desktop, and mobile, and its work happens in Anthropic\u2019s cloud or in a cloud provider account you already hold on Amazon Bedrock, Google Cloud, or Microsoft Foundry. You steer it from one of those surfaces, and it keeps running when your laptop is closed ([Claude Cowork](https://claude.com/product/cowork)). It is a hosted product with no self-host path, so the question for a Windows-based team is where the agent\u2019s work runs and how the team reaches it.
+
+## What a Windows-based team actually runs
+
+Kortix is the open-source AI Operating System: your agents, skills, company memory, and connectors live in one git repo you own, and every session runs on its own cloud computer. That architecture removes the operating-system question. A person on Windows opens the web app in a browser to start and follow sessions, review change requests, and manage projects and accounts. The agent then does its work on its own cloud computer with the repo and its tools already on it, so nothing installs on the Windows laptops themselves.
+
+## Where the work starts from a Windows desk
+
+The surfaces that start a session do not depend on what the team\u2019s machines run. The web app is the default: start a session, watch it, and read the change request it opens. Microsoft Teams is a live channel, so a team that lives in Teams mentions the bot with a task and a session starts from that chat. Slack works the same way. Kortix also ships a CLI for teams that script their sessions, plus a REST API and an MCP server for anything else. The session is the same object on every surface, with one session ID, one sandbox, and one branch.
+
+## When the work has to stay on your own network
+
+A Windows-based team that cannot send work to a vendor cloud can run Kortix itself. Kortix runs on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free. That path installs the full stack on infrastructure you control, and the same browser access works from Windows. The [self-hosting guide](/self-hosting) covers the commands and the questions the first run asks.
+
+## How the work lands
+
+An agent session does not reach \`main\` on its own. It commits to its session branch, opens a change request, and a person reviews the diff and merges it. Across a Windows fleet, that review gate applies to every agent the same way, whatever the machines run.
+
+## Which one fits
+
+Claude Cowork is a finished hosted product, and a team that wants a single assistant inside Anthropic\u2019s environment may choose it. Kortix fits a team that wants the agent layer to be open source, in a repo it owns, reachable from Windows with no platform-specific install, and able to run on its own infrastructure when a review asks for it. The [Claude Cowork for teams](/claude-cowork-for-teams) page covers the team setup, including roles and approval gates.`,
+    },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Questions Windows teams ask', sub: 'Short answers on the desktop build, Microsoft Teams, self-hosting, and where the agent\u2019s work runs.' },
+      items: [
+        { id: 'windows-app', question: 'Is there a Windows app for Kortix?', answer: 'You do not need one. Kortix is used from the web app in a browser on Windows, and each session runs on its own cloud computer, so nothing is installed on the Windows machine.' },
+        { id: 'teams', question: 'Can a Windows team run agents from Microsoft Teams?', answer: 'Yes. Microsoft Teams is a live Kortix channel. Mention the bot with a task in a Teams chat and it starts a session, and Slack works the same way. No install is needed on the team\u2019s machines.' },
+        { id: 'self-host', question: 'How does a Windows-based team self-host Kortix?', answer: 'Run the full stack on infrastructure you control. Kortix runs on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free. The [self-hosting guide](/self-hosting) covers the commands and the first-run questions.' },
+        { id: 'where-runs', question: 'Where does the agent\u2019s work actually run?', answer: 'Each session runs on its own cloud computer, not on the team\u2019s Windows machines. The web app, Microsoft Teams, and Slack all start the same kind of session, so the team\u2019s operating system does not change how the agent works.' },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Run an agent company from Windows.',
+      sub: 'Open source, browser-first, and yours to self-host.',
+      ctas: [TRY],
+    },
+  ],
+};
+
 const site: SiteConfig = {
   domain: 'opensourceclaudecowork.com',
   siteName: 'Open Source Claude Cowork',
@@ -2082,6 +2322,9 @@ const site: SiteConfig = {
     { label: 'Claude Cowork vs OpenWork', href: '/claude-cowork-vs-openwork' },
     { label: 'Claude Cowork vs Perplexity Computer', href: '/claude-cowork-vs-perplexity-computer' },
     { label: 'Claude Cowork for teams', href: '/claude-cowork-for-teams' },
+    { label: 'Claude Cowork vs Microsoft Copilot', href: '/claude-cowork-vs-microsoft-copilot' },
+    { label: 'Local LLM', href: '/claude-cowork-local-llm' },
+    { label: 'Windows', href: '/claude-cowork-for-windows' },
   ],
   footer: {
     blurb:
@@ -2104,6 +2347,9 @@ const site: SiteConfig = {
           { label: 'Claude Cowork vs OpenWork', href: '/claude-cowork-vs-openwork' },
           { label: 'Claude Cowork vs Perplexity Computer', href: '/claude-cowork-vs-perplexity-computer' },
           { label: 'Claude Cowork for teams', href: '/claude-cowork-for-teams' },
+          { label: 'Claude Cowork vs Microsoft Copilot', href: '/claude-cowork-vs-microsoft-copilot' },
+          { label: 'Claude Cowork on a local LLM', href: '/claude-cowork-local-llm' },
+          { label: 'Claude Cowork for Windows', href: '/claude-cowork-for-windows' },
         ],
       },
       {
@@ -2126,7 +2372,7 @@ const site: SiteConfig = {
     legal:
       'Not affiliated with Anthropic or OpenAI. Claude Cowork and ChatGPT Work are products of their owners, named here only to compare.',
   },
-  pages: [home, selfHosting, platforms, hostedPlatform, workspace, orchestration, versus, alternatives, isOpenSource, migrate, pricing, vsOpenWork, vsPerplexity, forTeams],
+  pages: [home, selfHosting, platforms, hostedPlatform, workspace, orchestration, versus, alternatives, isOpenSource, migrate, pricing, vsOpenWork, vsPerplexity, forTeams, vsMicrosoftCopilot, localLlm, forWindows],
 };
 
 export default site;
