@@ -3143,13 +3143,13 @@ A free alternative can mean two things: the software costs nothing, or the whole
 
 OpenWork answers differently. Its [own site](https://openworklabs.com) says the desktop app for macOS, Windows, and Linux is free and open source, needs no account, and works with your own provider keys, while your files stay on your machine. Its cloud Team plan is free for the first five seats, then per seat after that. Its [GitHub repository](https://github.com/different-ai/openwork) confirms the desktop app and core platform are open source and free to use.
 
-Kortix is the open-source AI Operating System, and it is free to self-host. The platform is one Docker Compose stack on a Linux box you control, so the platform bill is zero and the only new cost is the hardware. On managed cloud instead, [Kortix](https://kortix.com/pricing) lists a free tier at $0 with 200 credits per month and 1 project, and a team plan at $40 per seat per month with 2,500 pooled credits per seat (checked October 2026). Self-host stays free either way.
+Kortix is the open-source AI Operating System, and it is free to self-host. The platform is one Docker Compose stack on a Linux box you control, so the platform bill is zero and the only new cost is the hardware. On managed cloud instead, [Kortix](https://kortix.com/pricing) lists a free tier at $0 with 200 credits per month and 1 project, and the team plan is $40 per seat per month with 2,500 credits per month per seat, pooled (checked October 2026). Self-host stays free either way.
 
 ## The two bills an open-source stack splits
 
 A closed plan is one bill: a subscription per person or per seat, renewed monthly. Cowork is included in the Claude plan a person already holds, and heavy use can push a team up the tiers.
 
-An open-source stack splits that into two. The platform is free when you self-host, and you pay your model provider directly. Kortix is bring-your-own-key: any model provider with your own keys, or the ChatGPT plan you already pay for, or sign in with your OpenCode Console account for OpenCode Zen and Go. You pay your provider at its published rate, and you can route cheap work to a cheaper model. If you run a local model, that bill is zero too. The third cost on Kortix is agent compute: each session runs on its own cloud computer, billed per second and per resource, about $0.20 per hour for the default machine and $0 while stopped.
+An open-source stack splits that into two. The platform is free when you self-host, and you pay your model provider directly. Kortix is bring-your-own-key: any model provider with your own keys, or the ChatGPT plan you already pay for, or sign in with your OpenCode Console account for OpenCode Zen and Go. You pay your provider at its published rate, and you can route cheap work to a cheaper model. If you run a local model, that bill is zero too. The third cost on Kortix is agent compute: each session runs on its own cloud computer.
 
 The free path is three commands on a box you own:
 
@@ -3191,7 +3191,7 @@ One person working on local files with no setup: OpenWork's desktop app. A team 
         {
           id: 'q3',
           question: 'Is Kortix free?',
-          answer: 'The platform is free to self-host, and the managed cloud has a free tier at $0 with 200 credits per month and 1 project (checked October 2026). The team plan is $40 per seat per month with 2,500 pooled credits per seat.',
+          answer: 'The platform is free to self-host, and the managed cloud has a free tier at $0 with 200 credits per month and 1 project (checked October 2026). The team plan is $40 per seat per month with 2,500 credits per month per seat, pooled.',
         },
       ],
     },
