@@ -612,7 +612,7 @@ const hostedPlatform: Page = {
   navLabel: 'Self-hosted platform',
   title: 'Open Source Self-Hosted AI Agent Platform: What You Own',
   metaDescription:
-    'Kortix is an open-source AI agent platform you self-host as one Docker Compose stack, with any model on your keys and work landing as a change request.',
+    'Kortix is the open-source AI Operating System you self-host as one Docker Compose stack, with any model on your keys and work landing as a change request.',
   h1: 'The open-source self-hosted AI agent platform you run yourself',
   lead: 'A self-hosted AI agent platform runs agent sessions, memory and configuration on machines you control. Kortix is the open-source AI Operating System you can run as one Docker Compose stack, on a laptop, a VPS, a VPC or on-prem.',
   sections: [
@@ -1664,7 +1664,7 @@ Anthropic lists the plans that include Cowork on the Cowork page as Pro ($17), M
 
 ## What self-hosting an open source stack costs
 
-An open source stack splits the bill in two: the platform and the model. Kortix is the open-source AI Operating System, and it costs nothing to self-host. The platform is one Docker Compose stack on a Linux box you control, so the only new platform cost is the hardware. On managed cloud instead, Kortix pricing is Free at $0 with 200 credits per month and 1 project, and the team plan at $40 per seat per month with 2,500 pooled credits per month per seat ([Kortix pricing](https://kortix.com/pricing)). Agent Computer compute is billed per second, per resource, and runs about $0.20 per hour for the default machine and $0 while stopped.
+An open source stack splits the bill in two: the platform and the model. Kortix is the open-source AI Operating System, and it costs nothing to self-host. The platform is one Docker Compose stack on a Linux box you control, so the only new platform cost is the hardware. On managed cloud instead: Free is $0 with 200 credits per month and 1 project. The team plan is $40 per seat per month with 2,500 credits per month per seat, pooled ([Kortix pricing](https://kortix.com/pricing)).
 
 The second bill is model inference. Kortix is bring-your-own-key: any model provider with your own keys, or the ChatGPT plan you already pay for. You pay your model provider at its published rate, and you can route cheap work to a cheaper model. The open source desktop option follows the same shape: OpenWork\u2019s desktop app is free and brings your own provider keys, and its cloud adds a per-seat plan after the first five seats ([OpenWork](https://openworklabs.com)). Eigent lists a free tier with your own keys or local models, then paid plans from $19.99 per month ([Eigent pricing](https://www.eigent.ai/pricing)).
 
@@ -3143,7 +3143,7 @@ A free alternative can mean two things: the software costs nothing, or the whole
 
 OpenWork answers differently. Its [own site](https://openworklabs.com) says the desktop app for macOS, Windows, and Linux is free and open source, needs no account, and works with your own provider keys, while your files stay on your machine. Its cloud Team plan is free for the first five seats, then per seat after that. Its [GitHub repository](https://github.com/different-ai/openwork) confirms the desktop app and core platform are open source and free to use.
 
-Kortix is the open-source AI Operating System, and it is free to self-host. The platform is one Docker Compose stack on a Linux box you control, so the platform bill is zero and the only new cost is the hardware. On managed cloud instead, [Kortix](https://kortix.com/pricing) lists a free tier at $0 with 200 credits per month and 1 project, and the team plan is $40 per seat per month with 2,500 credits per month per seat, pooled (checked October 2026). Self-host stays free either way.
+Kortix is the open-source AI Operating System, and it is free to self-host. The platform is one Docker Compose stack on a Linux box you control, so the platform bill is zero and the only new cost is the hardware. On managed cloud instead: Free is $0 with 200 credits per month and 1 project. The team plan is $40 per seat per month with 2,500 credits per month per seat, pooled ([Kortix](https://kortix.com/pricing), checked October 2026). Self-host stays free either way.
 
 ## The two bills an open-source stack splits
 
@@ -3191,7 +3191,7 @@ One person working on local files with no setup: OpenWork's desktop app. A team 
         {
           id: 'q3',
           question: 'Is Kortix free?',
-          answer: 'The platform is free to self-host, and the managed cloud has a free tier at $0 with 200 credits per month and 1 project (checked October 2026). The team plan is $40 per seat per month with 2,500 credits per month per seat, pooled.',
+          answer: 'The platform is free to self-host. On the managed cloud: Free is $0 with 200 credits per month and 1 project. The team plan is $40 per seat per month with 2,500 credits per month per seat, pooled (checked October 2026).',
         },
       ],
     },
