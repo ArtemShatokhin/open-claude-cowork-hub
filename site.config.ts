@@ -2794,12 +2794,423 @@ In Kortix, configuration is files a team can diff and review. An agent is \`agen
   ],
 };
 
+const vsClaudeCode: Page = {
+  slug: 'claude-cowork-vs-claude-code',
+  navLabel: 'Claude Cowork vs Claude Code',
+  title: 'Claude Cowork vs Claude Code: the open-source AI Operating System a team owns',
+  metaDescription: 'Claude Cowork and Claude Code are two Anthropic agents with different jobs, and Kortix is the open-source AI Operating System a team owns and can self-host.',
+  h1: 'Claude Cowork vs Claude Code: Kortix, the open-source AI Operating System',
+  lead: 'Claude Cowork and Claude Code are two Anthropic products with different jobs: Cowork is the agent for knowledge work, and Claude Code is the coding agent for the terminal and the IDE. Neither is open source or self-hostable, and Kortix is the open-source AI Operating System a team owns, self-hosted or managed, with each session on its own cloud computer.',
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: { eyebrow: 'Compare', title: 'Claude Cowork and Claude Code, side by side', sub: 'Kortix is the open-source third option; the two Anthropic columns come from Anthropic\'s own pages, checked October 2026.' },
+      columns: [
+        { id: 'kortix', label: 'Kortix', note: 'Recommended', highlight: true, href: 'https://kortix.com', nofollow: true },
+        { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork', nofollow: true },
+        { id: 'claude-code', label: 'Claude Code', href: 'https://docs.claude.com/en/docs/claude-code/overview', nofollow: true },
+      ],
+      rows: [
+        {
+          label: 'Built for',
+          cells: ['a team\'s agents, skills, memory and connectors in one governed system', 'non-coding knowledge work, with no terminal', 'software engineering in the terminal, IDE, desktop or web'],
+        },
+        {
+          label: 'Open source',
+          cells: [{ text: 'Yes. Read it, fork it, audit it.', mark: 'yes' }, { text: 'No', mark: 'no' }, { text: 'No', mark: 'no' }],
+        },
+        {
+          label: 'Where a session runs',
+          cells: ['its own cloud computer, on Kortix Cloud, your VPC, or on-prem', 'Anthropic\'s cloud, or your Bedrock, Google Cloud or Microsoft Foundry account', 'your terminal and IDE, or Claude\'s cloud for scheduled work'],
+        },
+        {
+          label: 'Model choice',
+          cells: ['any model provider with your own keys', 'Anthropic\'s models only', 'Anthropic\'s models, with third-party providers on some surfaces'],
+        },
+        {
+          label: 'Where your rules live',
+          cells: ['files in a git repo you own', 'your Claude account; no self-host', 'CLAUDE.md in your repo; settings in the vendor\'s account'],
+        },
+      ],
+    },
+    { type: 'prose', body: `## Two Anthropic products, two different jobs
+
+The "Claude Cowork vs Claude Code" question usually hides a naming mix-up. They are two products from one vendor with different jobs. [Claude Cowork](https://claude.com/product/cowork) is built for non-coding knowledge work: research, analysis, document creation, and other multi-step tasks. [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) is built for software engineering: writing, debugging, and shipping code. Both use the same agentic approach, and a team choosing between them should also weigh a third option. Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own.
+
+## What each product actually runs
+
+Anthropic's own pages split the two products by surface. Claude Code reads your codebase, edits files across it, runs commands, and works with git. It stages changes, writes commit messages, creates branches, and opens pull requests. It runs in the terminal, in VS Code and JetBrains extensions, in a desktop app, and in the browser, and most surfaces need a Claude subscription or an Anthropic Console account.
+
+Claude Cowork takes a goal and works across your files and tools, then returns a deck, a document, or a spreadsheet for review. [Anthropic's get-started guide](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) says a Cowork session runs in the cloud on Anthropic's servers, in an isolated environment, and that your sessions and files are saved to your Claude account. On desktop, web, and mobile it shares one home with chat, and it reaches local files, your browser, or your screen through the Claude Desktop app on that computer.
+
+## The ownership question neither product answers
+
+Here the two products agree, and it is the part a team should weigh first. Neither Claude Cowork nor Claude Code is open source, and neither has a self-hosted edition. Anthropic publishes the product and the help center, not the code behind them. Cowork runs in Anthropic's cloud, or in a cloud provider account you already hold on Amazon Bedrock, Google Cloud, or Microsoft Foundry. Claude Code runs on your machine, or in Claude's cloud for scheduled work. In both, the product and its roadmap stay with the vendor.
+
+Kortix answers the ownership question directly. Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own. Open source. Read it, fork it, audit it. One isolated sandbox per session, and its own branch. Session work reaches \`main\` through a change request. Merge is default-deny for agents, so a person reviews what lands. Connector credentials are brokered server-side and never enter the machine, and it reaches 3,000+ apps in a click, plus MCP, OpenAPI, Postman, GraphQL and raw HTTP. It takes any model provider with your own keys. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free, and the [self-hosting guide](/self-hosting) covers the install.
+
+These three commands from the Kortix quickstart show how a session's work lands in the repo you own:
+
+\`\`\`sh
+kortix sessions new --prompt "Draft the Q3 board deck from the finance export"
+kortix cr ls      # the change request the agent opened
+kortix cr merge 1 # a person merges it into main
+\`\`\`
+
+## What each one costs
+
+Cost is where the two Anthropic products also converge. Anthropic's [pricing page](https://claude.com/pricing) lists Claude Cowork on Pro, Max, Team, and Enterprise plans, and notes that Cowork consumes limits faster than chat, so heavy use pushes a team up the tiers (checked October 2026). There is no free tier for it. Kortix separates the platform from the model. Free is $0 with 200 credits per month and 1 project. The team plan is $40 per seat per month with 2,500 credits per month per seat, pooled. Self-host is free, and the [Claude Cowork pricing](/claude-cowork-pricing) page has the full shape.
+
+## When each of the three fits
+
+- Pick Claude Code if your job is code, you live in a terminal or an IDE, and you want an agent that reads your repository and opens pull requests.
+- Pick Claude Cowork if your job is documents, files, and research, you want to steer it from a phone or a browser, and Anthropic's cloud is an acceptable home for the work.
+- Pick Kortix if the agent layer itself has to be open source and in a repo the team owns, on a model you choose, and able to run on your own infrastructure. It is the leading open-source alternative to Claude Cowork and ChatGPT Work.
+
+For a wider set of open-source options, the [Claude Cowork alternatives](/claude-cowork-alternatives) roundup maps the field, and [migrating from Claude Cowork](/migrate-from-claude-cowork) is the checklist for moving an existing setup.
+` },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Claude Cowork and Claude Code, the questions people ask' },
+      items: [
+        {
+          id: 'q1',
+          question: 'Which models do Claude Cowork and Claude Code run?',
+          answer: 'Both run Anthropic\'s models. Claude Code\'s terminal, VS Code, and JetBrains surfaces also support third-party providers. Kortix separates the model from the platform: any model provider with your own keys, the ChatGPT plan you already pay for, or sign in with your OpenCode Console account for OpenCode Zen and Go.',
+        },
+        {
+          id: 'q2',
+          question: 'Is Claude Code included in a paid Claude plan?',
+          answer: 'Yes. Anthropic\'s pricing page says Claude Code is included in all paid plans, and that its work shares one usage pool with chat, so a heavy session moves you toward a higher tier (checked October 2026).',
+        },
+        {
+          id: 'q3',
+          question: 'Does Kortix replace Claude Code?',
+          answer: 'No. OpenCode is the harness, and Kortix is the place the agent system lives: agents, skills, memory, and connectors in one repo you own, with each session on its own cloud computer. A team can keep the coding agent it already uses.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Own the repo your agents run from.',
+      sub: 'Start with one job, in one git repo you own.',
+      ctas: [TRY, { label: 'Read the self-hosting guide', href: '/self-hosting', variant: 'secondary' }],
+    },
+  ],
+};
+
+const forMac: Page = {
+  slug: 'claude-cowork-for-mac',
+  navLabel: 'Claude Cowork for Mac',
+  title: 'Claude Cowork for Mac, and the open-source AI Operating System a team can run',
+  metaDescription: 'Claude Cowork on a Mac needs a paid plan and the Claude Desktop app for local files; Kortix is the open-source AI Operating System a team runs in a browser.',
+  h1: 'Claude Cowork on a Mac, and the open-source AI Operating System a team can run instead',
+  lead: 'Claude Cowork on a Mac needs a paid Claude plan and, for local files, the Claude Desktop app open and connected, while the session runs in Anthropic\'s cloud. When a Mac team wants the agent layer in its own repo, Kortix is the open-source AI Operating System it can run from a browser, self-hosted or managed, with no desktop install.',
+  sections: [
+    {
+      type: 'artifact',
+      heading: { eyebrow: 'Quickstart', title: 'Install Kortix from a Mac terminal' },
+      artifact: {
+        file: 'terminal',
+        lang: 'sh',
+        lines: [
+            'kortix login',
+            'kortix init my-agent',
+            'kortix ship',
+            'kortix sessions new --prompt "Add a skill that drafts the weekly status report"',
+            'kortix doctor',
+        ],
+        source: 'https://kortix.com/docs/quickstart',
+      },
+      caption: 'Five commands from the Kortix quickstart; the install script supports macOS on x86_64 and arm64.',
+    },
+    { type: 'prose', body: `## Claude Cowork on a Mac, in one line
+
+Claude Cowork on a Mac needs a paid Claude plan and the Claude Desktop app, and its sessions run in Anthropic's cloud. A person on a Mac who wants the agent layer in a repo the team owns can run Kortix instead, the open-source AI Operating System: agents, skills, memory, and connectors in one git repo you own, used from a browser or a terminal.
+
+## What Claude Cowork needs on a Mac
+
+Cowork is Anthropic's agent for non-coding knowledge work, and on a Mac it starts with the Claude Desktop app ([Claude Cowork](https://claude.com/product/cowork)). [Anthropic's get-started guide](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) says Cowork is available on paid plans only, on Pro, Max, Team, and Enterprise, and is used from the Claude Desktop app for macOS, from the web at claude.ai, or from the Claude mobile app. The free Claude tier is chat only, so a paid plan comes first. [Anthropic's install guide](https://support.claude.com/en/articles/10065433-install-claude-desktop) lists macOS 13 (Ventura) or higher as the requirement: download from the Claude downloads page, open the file, launch Claude from the Applications folder, and sign in.
+
+Two more requirements shape the experience. The get-started guide says a Cowork session runs in the cloud on Anthropic's servers, in an isolated environment, and that your sessions and files are saved to your Claude account, so the session is not tied to the local machine. For local file access, browser use, or computer use, it says the Claude Desktop app must be open and connected, because those abilities reach things on your Mac even though the session runs in the cloud, and an active internet connection is required throughout.
+
+Anthropic is also folding Cowork and chat into one assistant. The get-started guide says Cowork is now just Claude, rolling out gradually, so the message box may no longer show separate Chat and Cowork options. The Mac requirements do not change with that rollout.
+
+## Why a Mac desktop app is a ceiling for a team
+
+The unit of work is one person. A Cowork session, its files, and its memory live with your Claude account, and the get-started guide's current limitations note that sessions can't be shared with others, though you can share individual artifacts. The configuration and the model come from Anthropic, and there is no self-hosted edition. For one person on one Mac, that is a complete product. For a team that wants shared agents, a shared memory, and a review gate on every change, it is a ceiling.
+
+## The open-source path a Mac team can run instead
+
+Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own. A person on a Mac does not install a desktop app to use it. Kortix is used from the web app in a browser to start and follow sessions, review change requests, and manage projects and accounts, and from the CLI, which installs on macOS on x86_64 and arm64. The install is one command:
+
+\`\`\`sh
+curl -fsSL https://kortix.com/install | bash
+\`\`\`
+
+From a Mac terminal, the first run is \`kortix init\`, which creates the project repo and asks which local coding tools to wire up. Then \`kortix ship\` validates \`kortix.yaml\`, commits, and pushes. Every session runs on its own cloud computer, not on the Mac, with its own isolated sandbox and branch, so the heavy work does not run on the local machine. Session work reaches \`main\` through a change request. Merge is default-deny for agents, so a person reviews the diff and merges it.
+
+For a team that cannot send work to a vendor cloud, Kortix runs on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free. The [self-hosting guide](/self-hosting) covers the commands, and the same browser access works from any Mac.
+
+## Which one fits a Mac team
+
+If one person on a Mac wants a finished document from a vendor cloud, Claude Cowork does that on Anthropic's terms, on Anthropic's models. If the agent layer itself has to be open source and in a repo the team owns, on a model the team chooses, and able to run on its own infrastructure, Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work. [Claude Cowork for teams](/claude-cowork-for-teams) covers the team setup, and [migrating from Claude Cowork](/migrate-from-claude-cowork) is the move checklist.
+` },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Claude Cowork on a Mac, the questions people ask' },
+      items: [
+        {
+          id: 'q1',
+          question: 'Does Claude Cowork keep working when a Mac is asleep?',
+          answer: 'A cloud session keeps running when the laptop closes, and the get-started guide\'s scheduled tasks run in the cloud with no device online. Local file access, browser use, and computer use need the Claude Desktop app open and connected.',
+        },
+        {
+          id: 'q2',
+          question: 'What runs the agents inside Kortix?',
+          answer: 'OpenCode is the harness. An agent is `agents/<name>.md` (behavior) plus an `agents.<name>` block in `kortix.yaml` (governance), and each session runs on its own cloud computer.',
+        },
+        {
+          id: 'q3',
+          question: 'Can a Kortix session merge its own work?',
+          answer: 'Merge is default-deny for agents. Work reaches `main` through a change request a person approves, unless an admin granted the merge capability.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Run an agent team from a Mac, in a repo you own.',
+      sub: 'Open source, any model on your own keys, self-hosted or managed cloud.',
+      ctas: [TRY, { label: 'Read the self-hosting guide', href: '/self-hosting', variant: 'secondary' }],
+    },
+  ],
+};
+
+const alternativeGoogle: Page = {
+  slug: 'claude-cowork-alternative-google',
+  navLabel: 'Google alternative',
+  title: 'Claude Cowork alternative from Google: the open source option',
+  metaDescription: 'Google answers the Claude Cowork job with Gemini Enterprise and Antigravity, but neither is open source you can self-host. Kortix is open source.',
+  h1: 'The Google answer to Claude Cowork, and the open source option you can own',
+  lead: 'Google answers the Claude Cowork job with Gemini Enterprise and Google Antigravity, each built for a different worker. Neither is open source you can read and self-host. Kortix is the open-source AI Operating System, and it is the option a team owns.',
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: { eyebrow: 'Compare', title: 'Kortix, Claude Cowork, and Google\'s answer, side by side', sub: 'Each rival cell comes from that vendor\'s own page, checked October 2026.' },
+      columns: [
+        { id: 'kortix', label: 'Kortix', note: 'Recommended', highlight: true, href: 'https://kortix.com', nofollow: true },
+        { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork', nofollow: true },
+        { id: 'google-gemini-enterprise', label: 'Google Gemini Enterprise', href: 'https://cloud.google.com/gemini-enterprise', nofollow: true },
+      ],
+      rows: [
+        {
+          label: 'Open source',
+          cells: [{ text: 'Yes. Read it, fork it, audit it.', mark: 'yes' }, { text: 'No', mark: 'no' }, { text: 'No', mark: 'no' }],
+        },
+        {
+          label: 'Where it runs',
+          cells: ['Kortix Cloud, your VPC, or your own on-prem network', 'Anthropic\'s cloud, or your own cloud account', 'Google Cloud, under your organization\'s permissions'],
+        },
+        {
+          label: 'Model choice',
+          cells: ['Any model provider with your own keys', 'Anthropic models; the same Claude everywhere', 'Gemini models; third-party model choice in early access'],
+        },
+        {
+          label: 'Where your setup lives',
+          cells: ['Files in a git repo you own', 'In your Claude account', 'In your Google Cloud environment'],
+        },
+        {
+          label: 'Free to start',
+          cells: ['Free tier to start, and self-host is free', 'Paid Claude plans only', 'A free trial, then contact sales'],
+        },
+      ],
+    },
+    { type: 'prose', body: `## What people mean by a Google Claude Cowork alternative
+
+Claude Cowork is Anthropic's agent for knowledge work: you give it a goal, it works across the files and connected tools you point it at, and it returns a document, a spreadsheet, or research for review ([Claude Cowork](https://claude.com/product/cowork)). When a team asks for Google's version, it wants the same shape from Google. Google has two products that answer it, built for two different workers. Neither one is open source you can read and self-host. Kortix is the open-source AI Operating System, and it is the option a team owns.
+
+## Gemini Enterprise is Google's knowledge-work answer
+
+Gemini Enterprise is Google's agent for the way work happens across a company. [Its page](https://cloud.google.com/gemini-enterprise) describes one agent across email, docs, code, data, and business apps, from one prompt box, running under each person's existing permissions and leaving a complete audit trail. Lengthy jobs run on their own secure machine in Google Cloud, so the work continues after a person logs off. The page lists more than a hundred integrations, including Google Workspace, Microsoft 365, Slack, Jira, Salesforce, and BigQuery, and it routes each job to the model that fits. For a team already on Google Cloud, that is Google's direct answer to the Cowork question.
+
+One detail matters before a team buys. Google's own page says not every capability shown is available today: delegating multi-step background tasks to Gemini, Gemini on mobile and desktop, and third-party model choice are in early access, to reach all customers later (checked October 2026). The page also names Google's own Gemini models, not a choice of any provider you like. The Cowork-shaped part of Gemini Enterprise is real, and it is still landing.
+
+## Antigravity is Google's developer answer
+
+Google Antigravity answers a different worker. [Its page](https://antigravity.google) calls it built for developers in the agent-first era, with an agent manager to run several agents in parallel, a terminal-first surface, an agentic IDE, and a Python SDK on its harness. [Its docs](https://antigravity.google/docs/getting-started) show that agents work inside projects which define the folders and repositories they can reach, in a local mode or an isolated git worktree, and that a person signs in with a Google account or with Gemini Enterprise.
+
+That is a strong tool for a software team. It is not a Claude Cowork replacement for knowledge work, and it is not a system a company configures as code. Antigravity is a product a person installs and signs into.
+
+## What none of the three hands you
+
+Here is the axis that decides the choice. Claude Cowork runs on Anthropic's cloud or in your own Amazon Bedrock, Google Cloud, or Microsoft Foundry account, and it is closed: no source to read and no self-hosted edition. Gemini Enterprise and Antigravity are Google services, closed in the same way. The configuration, the company memory, and the logs sit on the vendor's side.
+
+Kortix takes the other position. It is the open-source AI Operating System: your agents, their skills, your company memory, and every connector live in one git repo you own, and each session runs on its own cloud computer. Work reaches \`main\` through a change request a person merges. Any model provider with your own keys, or the ChatGPT plan you already pay for. Run it on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free.
+
+Where the Google products keep the setup on their side, Kortix keeps it as files you can read:
+
+\`\`\`yaml
+# kortix.yaml, at the root of the repo you own
+agents:
+  kortix:
+    file: agents/kortix.md
+\`\`\`
+
+That file, and the agents, skills, and connectors beside it, are things you can read, diff, and roll back. The [Claude Cowork alternatives](/claude-cowork-alternatives) page sets the open options side by side, and [self-hosting Kortix](/self-hosting) walks through the install.
+
+## How to decide
+
+If your team works inside Google Workspace and Microsoft 365, and you accept Google Cloud, Gemini Enterprise is Google's answer to Claude Cowork, with the early-access detail in view. If you are a developer who wants agents on your own machine and repositories, Antigravity is the Google tool. If you want the system itself to be code you own and can run where you choose, Kortix is the open-source option, and the one you can self-host.
+` },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Google and Claude Cowork, the questions people ask' },
+      items: [
+        {
+          id: 'q1',
+          question: 'Does Google have a Claude Cowork alternative?',
+          answer: 'Yes. Gemini Enterprise is Google\'s agent for knowledge work across email, docs, data, and business apps, and it is the closest match to Claude Cowork. Google Antigravity is Google\'s developer answer, built for agents on a person\'s own machine and repositories.',
+        },
+        {
+          id: 'q2',
+          question: 'Is Google\'s Claude Cowork alternative open source?',
+          answer: 'No. Gemini Enterprise and Antigravity are Google services, closed and run on Google\'s side. Kortix is the open-source AI Operating System, with the agents, skills, memory, and connectors in one git repo you own.',
+        },
+        {
+          id: 'q3',
+          question: 'Can a team self-host a Google Claude Cowork alternative?',
+          answer: 'Not on Google\'s products. Kortix runs on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Run your agents in a repo you own.',
+      sub: 'Open source, any model, self-hosted or managed cloud.',
+      ctas: [TRY, { label: 'Compare the open-source options', href: '/claude-cowork-alternatives', variant: 'secondary' }],
+    },
+  ],
+};
+
+const alternativeFree: Page = {
+  slug: 'claude-cowork-alternative-free',
+  navLabel: 'Free alternative',
+  title: 'Free Claude Cowork alternative: the open source options and their real cost',
+  metaDescription: 'Claude Cowork needs a paid plan. Kortix is open source and free to self-host, and OpenWork is a free desktop app. Here is what each option really costs.',
+  h1: 'Is there a free Claude Cowork alternative? The open source options',
+  lead: 'Claude Cowork sits inside paid Claude plans, so people look for a free alternative. Two open-source options answer. Kortix is the open-source AI Operating System, free to self-host with any model on your own keys, and OpenWork is a free desktop app. What changes is the model bill.',
+  sections: [
+    {
+      type: 'comparison',
+      id: 'compare',
+      heading: { eyebrow: 'Compare', title: 'Kortix, Claude Cowork, and OpenWork, on cost and terms', sub: 'Free-forever and free-tier are different things, and each rival cell comes from that project\'s own page, checked October 2026.' },
+      columns: [
+        { id: 'kortix', label: 'Kortix', note: 'Recommended', highlight: true, href: 'https://kortix.com', nofollow: true },
+        { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork', nofollow: true },
+        { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com', nofollow: true },
+      ],
+      rows: [
+        {
+          label: 'Open source',
+          cells: [{ text: 'Yes', mark: 'yes' }, { text: 'No', mark: 'no' }, { text: 'Yes', mark: 'yes' }],
+        },
+        {
+          label: 'Free to start',
+          cells: ['A free cloud tier, and free to self-host forever', 'None; paid Claude plans only', 'Free desktop app, no account needed'],
+        },
+        {
+          label: 'Self-hosting',
+          cells: ['Free on your own Linux box', 'Not offered', 'Self-host the control plane, or a private instance'],
+        },
+        {
+          label: 'The paid upgrade',
+          cells: ['Managed cloud adds a per-seat team plan', 'A paid Claude plan per person', 'Cloud adds per-seat plans after five free seats'],
+        },
+        {
+          label: 'Who bills the model',
+          cells: ['Your own provider key, or connect ChatGPT', 'Bundled into the paid plan', 'Your own provider keys, or local models'],
+        },
+      ],
+    },
+    { type: 'prose', body: `## What free actually means for each option
+
+A free alternative can mean two things: the software costs nothing, or the whole thing runs at no new cost. Claude Cowork fails the first test. Anthropic lists Cowork inside paid plans only, on Pro, Max, Team, and Enterprise, with Enterprise admins opting in, and the Free plan does not include it ([Claude Cowork](https://claude.com/product/cowork), [Claude pricing](https://claude.com/pricing); checked October 2026). There is no free tier for Cowork.
+
+OpenWork answers differently. Its [own site](https://openworklabs.com) says the desktop app for macOS, Windows, and Linux is free and open source, needs no account, and works with your own provider keys, while your files stay on your machine. Its cloud Team plan is free for the first five seats, then per seat after that. Its [GitHub repository](https://github.com/different-ai/openwork) confirms the desktop app and core platform are open source and free to use.
+
+Kortix is the open-source AI Operating System, and it is free to self-host. The platform is one Docker Compose stack on a Linux box you control, so the platform bill is zero and the only new cost is the hardware. On managed cloud instead, [Kortix](https://kortix.com/pricing) lists a free tier at $0 with 200 credits per month and 1 project, and a team plan at $40 per seat per month with 2,500 pooled credits per seat (checked October 2026). Self-host stays free either way.
+
+## The two bills an open-source stack splits
+
+A closed plan is one bill: a subscription per person or per seat, renewed monthly. Cowork is included in the Claude plan a person already holds, and heavy use can push a team up the tiers.
+
+An open-source stack splits that into two. The platform is free when you self-host, and you pay your model provider directly. Kortix is bring-your-own-key: any model provider with your own keys, or the ChatGPT plan you already pay for, or sign in with your OpenCode Console account for OpenCode Zen and Go. You pay your provider at its published rate, and you can route cheap work to a cheaper model. If you run a local model, that bill is zero too. The third cost on Kortix is agent compute: each session runs on its own cloud computer, billed per second and per resource, about $0.20 per hour for the default machine and $0 while stopped.
+
+The free path is three commands on a box you own:
+
+\`\`\`sh
+$ curl -fsSL https://kortix.com/install | bash
+$ kortix self-host init --domain kortix.example.com
+$ kortix self-host start
+\`\`\`
+
+## What you give up at each price
+
+Self-hosting Kortix for free means you run the box, you hold the backup copies, and you own the update policy. In exchange, nothing leaves your infrastructure except the model calls you choose. The [self-hosting guide](/self-hosting) covers the host, the domain, and the keys.
+
+The Kortix free cloud tier is a place to start rather than to run a company: 200 credits per month and 1 project, with free credits limited to sandbox compute. A team that wants pooled credits, more projects, and managed models moves to the team plan. That upgrade buys seats and pooled credits, not the software, which stays open source.
+
+OpenWork's free desktop is free for one person or a small team on their own files, and you manage the model keys yourself. Its cloud adds per-seat pricing after the first five seats, plus single sign-on and an extension marketplace. A team that needs one shared repo, roles, and a change-request gate is past the desktop shape, which is where Kortix fits.
+
+Claude Cowork buys convenience and nothing to run. What you give up is the source, the self-host option, and model choice: it runs on Anthropic's models inside Anthropic's cloud or your own cloud account.
+
+## How to pick
+
+One person working on local files with no setup: OpenWork's desktop app. A team that wants the platform, the memory, and the connectors in one git repo it owns, with a change-request gate and a self-host option: Kortix. Staying inside Anthropic's cloud on Anthropic's models: Claude Cowork, on a paid plan. The [Claude Cowork pricing](/claude-cowork-pricing) page lays out the closed product's own numbers, and the [alternatives list](/claude-cowork-alternatives) covers the fuller field.
+` },
+    {
+      type: 'faq',
+      id: 'faq',
+      heading: { eyebrow: 'FAQ', title: 'Free Claude Cowork alternatives, the questions people ask' },
+      items: [
+        {
+          id: 'q1',
+          question: 'Can I use Claude Cowork for free?',
+          answer: 'No. Claude Cowork is included only with paid Claude plans, on Pro, Max, Team, and Enterprise, and Enterprise admins opt in. The Free plan does not include it.',
+        },
+        {
+          id: 'q2',
+          question: 'What are some free alternatives to Claude Cowork?',
+          answer: 'OpenWork\'s desktop app is free and open source, and Kortix is open source and free to self-host with a free cloud tier. In both cases the model provider still bills unless you run a local model.',
+        },
+        {
+          id: 'q3',
+          question: 'Is Kortix free?',
+          answer: 'The platform is free to self-host, and the managed cloud has a free tier at $0 with 200 credits per month and 1 project (checked October 2026). The team plan is $40 per seat per month with 2,500 pooled credits per seat.',
+        },
+      ],
+    },
+    {
+      type: 'cta',
+      title: 'Start free on an open stack you own.',
+      sub: 'Free to start, free to self-host, any model on your own keys.',
+      ctas: [TRY, { label: 'See the self-hosting guide', href: '/self-hosting', variant: 'secondary' }],
+    },
+  ],
+};
+
+
 const site: SiteConfig = {
   domain: 'opensourceclaudecowork.com',
   siteName: 'Open Source Claude Cowork',
   description:
     'A self-hosting handbook for the open-source alternative to Claude Cowork: self-hosted AI agent platforms, the AI workspace, and orchestration, with Kortix.',
-  updated: '2026-10-14',
+  updated: '2026-10-15',
   lang: 'en',
   accent: '#089f9f',
   fonts: 'system',
@@ -2826,6 +3237,10 @@ const site: SiteConfig = {
     { label: 'Claude Cowork vs Microsoft Copilot', href: '/claude-cowork-vs-microsoft-copilot' },
     { label: 'Local LLM', href: '/claude-cowork-local-llm' },
     { label: 'Windows', href: '/claude-cowork-for-windows' },
+    { label: 'Claude Cowork vs Claude Code', href: '/claude-cowork-vs-claude-code' },
+    { label: 'Claude Cowork for Mac', href: '/claude-cowork-for-mac' },
+    { label: 'Google alternative', href: '/claude-cowork-alternative-google' },
+    { label: 'Free alternative', href: '/claude-cowork-alternative-free' },
   ],
   footer: {
     blurb:
@@ -2855,6 +3270,10 @@ const site: SiteConfig = {
           { label: 'Claude Cowork vs Microsoft Copilot', href: '/claude-cowork-vs-microsoft-copilot' },
           { label: 'Claude Cowork on a local LLM', href: '/claude-cowork-local-llm' },
           { label: 'Claude Cowork for Windows', href: '/claude-cowork-for-windows' },
+          { label: 'Claude Cowork vs Claude Code', href: '/claude-cowork-vs-claude-code' },
+          { label: 'Claude Cowork for Mac', href: '/claude-cowork-for-mac' },
+          { label: 'Claude Cowork alternative from Google', href: '/claude-cowork-alternative-google' },
+          { label: 'Free Claude Cowork alternative', href: '/claude-cowork-alternative-free' },
         ],
       },
       {
@@ -2877,7 +3296,7 @@ const site: SiteConfig = {
     legal:
       'Not affiliated with Anthropic or OpenAI. Claude Cowork and ChatGPT Work are products of their owners, named here only to compare.',
   },
-  pages: [home, selfHosting, platforms, hostedPlatform, workspace, orchestration, versus, alternatives, isOpenSource, migrate, pricing, vsOpenWork, vsPerplexity, forTeams, vsMicrosoftCopilot, localLlm, forWindows, dataPrivacy, howToUse, integrations, vsOpenClaw],
+  pages: [home, selfHosting, platforms, hostedPlatform, workspace, orchestration, versus, alternatives, isOpenSource, migrate, pricing, vsOpenWork, vsPerplexity, forTeams, vsMicrosoftCopilot, localLlm, forWindows, dataPrivacy, howToUse, integrations, vsOpenClaw, vsClaudeCode, forMac, alternativeGoogle, alternativeFree],
 };
 
 export default site;
