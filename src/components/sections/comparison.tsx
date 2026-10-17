@@ -1,111 +1,133 @@
 /**
- * The comparison as a specification datasheet: a table with a sticky criteria column, the
- * highlighted Kortix column pinned first and tinted with the accent top rule, criteria rows
- * numbered with mono codes. Horizontal scroll lives in the table's own box on phones.
+ * The comparison drawn as criterion bands: a head strip of product labels (the recommended
+ * product first, on an accent chip), then one ruled band per criterion. In each band the
+ * criterion reads in the heading face at the left; the recommended cell is the prominent ink
+ * line with filled/hollow check squares, rivals are smaller muted lines with hairline
+ * separators. At 390px each band stacks as rows (criterion, recommended line, rival lines
+ * prefixed with their product label) — no sideways scroller, no min-w table.
  */
-import { CheckIcon, MinusIcon, XIcon } from '@phosphor-icons/react/dist/ssr';
+import { CheckIcon, XIcon } from '@phosphor-icons/react/dist/ssr';
 import type { ComparisonCell, ComparisonSection as ComparisonConfig } from '@/config/types';
-import { ChapterHeader, HX, RHYTHM } from '@/components/ui/handbook';
-import { Reveal } from '@/components/ui/reveal';
 import { Inline } from '@/components/ui/rich-text';
+import { Reveal } from '@/components/ui/reveal';
+import { SectionHeader } from '@/components/ui/section-header';
 import { cn, linkProps } from '@/lib/utils';
+import { HB, HB_Y } from '@/components/hb';
 
 const MARK = {
   yes: { Icon: CheckIcon, label: 'Yes' },
   no: { Icon: XIcon, label: 'No' },
-  partial: { Icon: MinusIcon, label: 'Partly' },
+  partial: { Icon: XIcon, label: 'Partly' },
 } as const;
 
-function Cell({ cell, highlight }: { cell: ComparisonCell; highlight: boolean }) {
-  const { text, mark } = typeof cell === 'string' ? { text: cell, mark: undefined } : cell;
-  const m = mark ? MARK[mark] : null;
+function MarkIcon({ mark }: { mark?: 'yes' | 'no' | 'partial' }) {
+  if (!mark) return null;
+  const { Icon, label } = MARK[mark];
   return (
-    <span className="flex items-start gap-2">
-      {m ? (
-        <m.Icon
-          weight="bold"
-          aria-hidden
-          className={cn('mt-0.5 size-4 shrink-0', highlight && mark === 'yes' ? 'text-kortix-base-ink' : 'text-muted-foreground')}
-        />
-      ) : null}
-      <span className={cn(highlight ? 'text-foreground' : 'text-muted-foreground')}>
+    <span className="inline-flex shrink-0 items-center">
+      <span
+        aria-hidden
+        className={cn(
+          'inline-flex size-3 items-center justify-center rounded-[2px]',
+          mark === 'yes' ? 'bg-tab-bg text-tab-ink' : 'border-border text-muted-foreground border',
+        )}
+      >
+        <Icon weight="bold" className="size-2" />
+      </span>
+      <span className="sr-only">{label}</span>
+    </span>
+  );
+}
+
+function CellText({ cell, prominent }: { cell: ComparisonCell; prominent?: boolean }) {
+  const { text, mark } = typeof cell === 'string' ? { text: cell, mark: undefined } : cell;
+  return (
+    <span className={cn('flex items-start gap-2', prominent ? 'text-foreground-strong' : 'text-muted-foreground')}>
+      <MarkIcon mark={mark} />
+      <span className={cn('min-w-0 leading-relaxed', prominent ? 'text-base' : 'text-sm')}>
         <Inline text={text} />
       </span>
     </span>
   );
 }
 
-export function ComparisonSection({ section, folio }: { section: ComparisonConfig; folio?: string }) {
+export function ComparisonSection({ section }: { section: ComparisonConfig }) {
   const headingId = `${section.id ?? 'comparison'}-title`;
+  const highlight = section.columns.find((c) => c.highlight);
+  const rivals = section.columns.filter((c) => !c.highlight);
+
   return (
-    <section id={section.id} aria-labelledby={headingId} className={cn(HX, RHYTHM)}>
-      <ChapterHeader heading={section.heading} id={headingId} folio={folio} />
-      <Reveal className="mt-8">
-        <div className="border-border overflow-x-auto rounded-sm border" tabIndex={0} role="region" aria-labelledby={headingId}>
-          <table className="w-full min-w-[44rem] border-collapse text-left text-sm">
-            <thead>
-              <tr>
-                <th scope="col" className="border-border bg-background sticky left-0 z-10 w-32 border-r border-b p-3 align-bottom sm:w-44 sm:p-4">
-                  <span className="text-muted-foreground font-mono text-xs uppercase tracking-[0.16em]">Criteria</span>
-                </th>
-                {section.columns.map((c) => (
-                  <th
-                    key={c.id}
-                    scope="col"
-                    className={cn(
-                      'border-border border-b p-3 align-bottom font-medium sm:p-4',
-                      c.highlight ? 'bg-card border-t-kortix-base border-t-2' : 'bg-background',
-                    )}
-                  >
-                    {c.note ? (
-                      <span className={cn('mb-1 block font-mono text-xs uppercase', c.highlight ? 'text-kortix-base-ink' : 'text-muted-foreground')}>
-                        {c.note}
-                      </span>
-                    ) : null}
-                    {c.href ? (
-                      <a
-                        {...linkProps({ href: c.href, nofollow: c.nofollow })}
-                        className="text-foreground decoration-border hover:decoration-foreground inline-flex min-h-11 items-center px-1.5 underline decoration-1 underline-offset-4"
-                      >
-                        {c.label}
-                      </a>
-                    ) : (
-                      <span className="text-foreground inline-flex min-h-11 items-center">{c.label}</span>
-                    )}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {section.rows.map((row, ri) => (
-                <tr key={row.label} className="group">
-                  <th
-                    scope="row"
-                    className="border-border bg-background sticky left-0 z-10 border-r border-b p-3 align-top group-last:border-b-0 sm:p-4"
-                  >
-                    <span className="text-muted-foreground font-mono text-xs tabular-nums">{String(ri + 1).padStart(2, '0')}</span>
-                    <span className="text-foreground mt-1 block font-medium">{row.label}</span>
-                  </th>
-                  {section.columns.map((c, i) => (
-                    <td
-                      key={c.id}
-                      className={cn(
-                        'border-border border-b p-3 align-top leading-relaxed group-last:border-b-0 sm:p-4',
-                        c.highlight && 'bg-card',
-                      )}
+    <section id={section.id} aria-labelledby={headingId} className={HB_Y}>
+      <div className={HB}>
+        <SectionHeader heading={section.heading} id={headingId} />
+
+        <Reveal className="mt-8">
+          <div className="border-border overflow-hidden rounded-lg border">
+            {/* product head strip */}
+            <div className="border-border bg-surface flex flex-wrap items-center gap-x-5 gap-y-2 border-b px-4 py-3 sm:px-5">
+              {highlight ? (
+                <span className="bg-tab-bg text-tab-ink inline-flex min-h-11 items-center rounded-[3px] px-3 text-sm font-medium">
+                  {highlight.href ? (
+                    <a {...linkProps({ href: highlight.href, nofollow: highlight.nofollow })} className="inline-flex items-center">
+                      {highlight.label}
+                    </a>
+                  ) : (
+                    highlight.label
+                  )}
+                </span>
+              ) : null}
+              {rivals.map((c) => (
+                <span key={c.id} className="inline-flex flex-wrap items-center gap-2">
+                  <span className="border-border hidden h-3 w-px sm:block" aria-hidden />
+                  {c.href ? (
+                    <a
+                      {...linkProps({ href: c.href, nofollow: c.nofollow })}
+                      className="text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center text-sm underline decoration-border underline-offset-4"
                     >
-                      <Cell cell={row.cells[i] ?? ''} highlight={!!c.highlight} />
-                    </td>
-                  ))}
-                </tr>
+                      {c.label}
+                    </a>
+                  ) : (
+                    <span className="text-muted-foreground inline-flex min-h-11 items-center text-sm">{c.label}</span>
+                  )}
+                  {c.note ? <span className="text-muted-foreground text-xs">{c.note}</span> : null}
+                </span>
               ))}
-            </tbody>
-          </table>
-        </div>
-        {section.footnote ? (
-          <p className="text-muted-foreground mt-4 max-w-2xl text-xs leading-relaxed">{section.footnote}</p>
-        ) : null}
-      </Reveal>
+            </div>
+
+            {/* criterion bands */}
+            <ol className="divide-border divide-y">
+              {section.rows.map((row) => {
+                const recommended = highlight ? row.cells[section.columns.indexOf(highlight)] ?? '' : '';
+                const rivalCells = section.columns
+                  .map((c, i) => ({ col: c, cell: row.cells[i] ?? '' }))
+                  .filter((x) => !x.col.highlight);
+                return (
+                  <li key={row.label} className="grid gap-3 px-4 py-5 sm:grid-cols-12 sm:gap-5 sm:px-5">
+                    <p className="hb-heading text-foreground-strong text-base sm:col-span-4 lg:col-span-3">{row.label}</p>
+                    <div className="sm:col-span-8 lg:col-span-4">
+                      <CellText cell={recommended} prominent />
+                      <span className="text-cap mt-1 block font-mono text-xs lg:hidden">{highlight?.label}</span>
+                    </div>
+                    <ul className="border-border divide-border divide-y border-t pt-1 sm:col-span-12 lg:col-span-5 lg:border-t-0 lg:pt-0">
+                      {rivalCells.map((x) => (
+                        <li key={x.col.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-2 lg:py-1.5 lg:first:pt-0 lg:last:pb-0">
+                          <span className="text-cap w-full shrink-0 font-mono text-xs lg:hidden">{x.col.label}</span>
+                          <span className="min-w-0 flex-1">
+                            <CellText cell={x.cell} />
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+          {section.footnote ? (
+            <p className="text-muted-foreground mt-4 max-w-2xl text-xs leading-relaxed">{section.footnote}</p>
+          ) : null}
+        </Reveal>
+      </div>
     </section>
   );
 }

@@ -1,79 +1,111 @@
 /**
- * The homepage hero, `field` state (kortix-brand magic_trick.md): copy in a narrow left column over
- * a ruled specification strip, the artifact a dark plate with a title block that bleeds off the right
- * edge under a dotted fold line. The copy keeps the h1 / lead / trust rhythm; eyebrow, tagline and
- * proof are label rows (divs), so the hero window stays short. CSS-only staged enter.
+ * The homepage hero, in the registered `subject` state: copy in a left measure, the exhibit
+ * column beside it. The exhibit is a real Kortix screenshot — a merged change request with its
+ * diff, captured this session at 2x — inside a `<figure>` whose caption bar and source link come
+ * from the config artifact (`file` / `source`), with the artifact's own lines kept as a mono
+ * excerpt card under it, the approved line as an accent-ruled aside, and the proof line muted.
+ * Enter is the site's own staged CSS moment (hb-hero), so the fold renders without JavaScript.
  */
 import type { HeroSection, Page } from '@/config/types';
+import { ExcerptCard } from '@/components/ui/code-block';
 import { ButtonLink } from '@/components/ui/button';
-import { Glyph } from '@/components/ui/glyph';
-import { HX } from '@/components/ui/handbook';
-import { Plate } from '@/components/ui/plate';
 import { Inline } from '@/components/ui/rich-text';
+import { Tab } from '@/components/ui/section-header';
 import { cn } from '@/lib/utils';
+import { HB } from '@/components/hb';
 
-const BLEED = 'lg:-mr-[max(2rem,calc((100vw-72rem)/2+2rem))]';
+const HERO_SHOT = '/hero/merged-change-request.webp';
+
+function Copy({ section, page }: { section: HeroSection; page: Page }) {
+  return (
+    <div className="min-w-0">
+      {section.eyebrow ? (
+        <p className="hb-hero-copy text-muted-foreground flex items-center gap-3 font-mono text-xs uppercase [--hb-enter:0ms]">
+          <Tab />
+          {section.eyebrow.lead}
+        </p>
+      ) : null}
+
+      <h1
+        className="hb-hero-copy text-foreground-strong mt-4 text-4xl tracking-tight text-balance [--hb-enter:90ms] sm:text-5xl sm:leading-[1.05]"
+      >
+        {page.h1}
+      </h1>
+
+      <p
+        data-lead
+        className="hb-hero-copy text-muted-foreground mt-5 text-base leading-relaxed text-pretty [--hb-enter:160ms] sm:text-lg"
+      >
+        <Inline text={page.lead} />
+      </p>
+
+      <div className="hb-hero-copy mt-7 flex flex-wrap items-center gap-2 [--hb-enter:230ms]">
+        {section.ctas.map((cta) => (
+          <ButtonLink key={cta.href} cta={cta} size="lg" />
+        ))}
+      </div>
+
+      {section.trust ? (
+        <p className="hb-hero-copy text-muted-foreground mt-6 font-mono text-xs [--hb-enter:320ms]">{section.trust}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function Exhibit({ section }: { section: HeroSection }) {
+  const artifact = section.artifacts[0];
+  if (!artifact) return null;
+  return (
+    <div className="hb-hero-exhibit min-w-0 [--hb-enter:320ms]">
+      <figure className="border-terminal-row kx-shadow-frame bg-terminal-surface overflow-hidden rounded-lg border">
+        <img
+          src={HERO_SHOT}
+          alt={artifact.file}
+          className="text-muted block w-full bg-terminal-surface"
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption className="border-terminal-row bg-terminal-caption flex min-h-11 flex-wrap items-center justify-between gap-2 border-t px-4 text-xs">
+          <span className="text-cap min-w-0 truncate font-mono">{artifact.file}</span>
+          {artifact.source ? (
+            <a
+              href={artifact.source}
+              rel="nofollow noopener"
+              className="text-cap hover:text-ink underline decoration-terminal-row underline-offset-4 min-h-11 py-3 font-mono"
+            >
+              {artifact.source}
+            </a>
+          ) : null}
+        </figcaption>
+      </figure>
+
+      {section.tagline ? (
+        <p className="text-foreground-strong mt-5 flex items-start gap-3 border-l-2 border-rule-accent py-1 pl-3 text-sm leading-snug">
+          {section.tagline}
+        </p>
+      ) : null}
+
+      <ExcerptCard artifact={artifact} className="mt-4" />
+
+      {section.proof ? (
+        <p className="text-muted-foreground mt-4 text-sm leading-relaxed text-pretty">
+          <Inline text={section.proof} />
+        </p>
+      ) : null}
+    </div>
+  );
+}
 
 export function Hero({ section, page }: { section: HeroSection; page: Page }) {
   const id = section.id ?? 'hero';
-  const eyebrow = section.eyebrow;
-  const rivals = eyebrow?.rivals ?? [];
-  const artifact = section.artifacts[0];
-
   return (
-    <section id={id} className="relative overflow-hidden pt-10 pb-12 sm:pt-14 lg:pt-16 lg:pb-16">
-      <div className={cn(HX, 'grid items-center gap-10 lg:grid-cols-12 lg:gap-12')}>
-        <div className="min-w-0 lg:col-span-5">
-          {eyebrow ? (
-            <div className="hx-hero-line border-border flex flex-wrap items-center gap-x-2 gap-y-1.5 border-b pb-3 text-sm [--hx-enter:0ms]">
-              <span className="text-muted-foreground">{eyebrow.lead}</span>
-              {rivals.map((r, i) => (
-                <span key={r.label} className="inline-flex items-center gap-1.5">
-                  {i > 0 ? <span className="text-muted-foreground">and</span> : null}
-                  {r.glyph ? <Glyph id={r.glyph} className="size-4" /> : null}
-                  <span className="text-foreground font-medium">{r.label}</span>
-                </span>
-              ))}
-            </div>
-          ) : null}
-
-          <h1 className="hx-hero-line text-foreground mt-6 text-4xl font-medium tracking-tight text-balance [--hx-enter:60ms] sm:text-5xl">
-            {page.h1}
-          </h1>
-
-          <p
-            data-lead
-            className="hx-hero-line text-muted-foreground mt-6 max-w-xl text-base leading-relaxed text-pretty [--hx-enter:130ms] sm:text-lg"
-          >
-            <Inline text={page.lead} />
-          </p>
-
-          <div className="hx-hero-line mt-7 flex flex-wrap items-center gap-2.5 [--hx-enter:200ms]">
-            {section.ctas.map((cta) => (
-              <ButtonLink key={cta.href} cta={cta} size="lg" />
-            ))}
-          </div>
-
-          {section.trust ? (
-            <p className="hx-hero-line text-muted-foreground mt-7 font-mono text-xs [--hx-enter:420ms]">{section.trust}</p>
-          ) : null}
+    <section id={id} className={cn(HB, 'relative pt-14 pb-16 sm:pt-20 lg:pt-24 lg:pb-24')}>
+      <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
+        <div className="min-w-0 lg:col-span-6">
+          <Copy section={section} page={page} />
         </div>
-
-        <div className={cn('hx-hero-plate min-w-0 lg:col-span-7 [--hx-enter:260ms]')}>
-          <div className={cn('relative', BLEED)}>
-            {section.tagline ? (
-              <div className="text-foreground mb-3 flex items-center gap-2 text-sm font-medium">
-                <span aria-hidden className="bg-kortix-base-ink size-1.5 rounded-[1px]" />
-                {section.tagline}
-              </div>
-            ) : null}
-            {artifact ? <Plate artifact={artifact} size="hero" fig="FIG 1" /> : null}
-            {section.proof ? (
-              <p className="text-muted-foreground mt-4 max-w-lg text-sm leading-relaxed text-pretty">
-                <Inline text={section.proof} />
-              </p>
-            ) : null}
-          </div>
+        <div className="min-w-0 lg:col-span-6">
+          <Exhibit section={section} />
         </div>
       </div>
     </section>

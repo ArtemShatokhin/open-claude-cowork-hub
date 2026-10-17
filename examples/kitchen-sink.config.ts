@@ -166,10 +166,10 @@ const site: SiteConfig = {
             periodLabel: '/mo',
             options: [
               { id: 'current', label: 'Your current tool', perSeat: 30, editable: true },
-              { id: 'kortix-team', label: 'Kortix team plan', perSeat: 40, note: '2,500 credits per month per seat, pooled', highlight: true },
+              { id: 'kortix-credits', label: 'Kortix Cloud', perSeat: 0, flat: 50, note: 'Members are free; paid plans start at $50 a month for 5,000 credits in one shared pool', highlight: true },
               { id: 'kortix-self', label: 'Kortix self-hosted', perSeat: 0, note: 'Self-host is free. You pay your own model and compute bills.' },
             ],
-            footnote: 'Kortix prices from its pricing page. Usage beyond the pooled credits is extra.',
+            footnote: 'Kortix prices from its pricing page. Usage beyond the plan\'s credits is extra.',
           },
         },
         {

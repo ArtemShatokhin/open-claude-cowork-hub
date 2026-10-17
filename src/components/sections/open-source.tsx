@@ -1,36 +1,42 @@
 'use client';
 
 /**
- * Open source as a ruled ledger line: a large tabular mono count that counts up once on reveal,
- * the caption beside it, the title and the links. A plain ledger band, no curve — distinct from
- * the starter's star chart.
+ * The holdings strip: a hairline-framed band with an accent top rule. The numeral counts up once
+ * when seen (easeOutQuart, 1600ms), its mono caption under it; the section title and the two
+ * links (underlined, inline) sit at the right. No growth curve, no seal, no signal meter — none
+ * of the siblings' star treatments. The server HTML carries the final number.
  */
-import { GithubLogoIcon } from '@phosphor-icons/react/dist/ssr';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import type { OpenSourceSection as OpenSourceConfig } from '@/config/types';
-import { HX, RHYTHM, Rule } from '@/components/ui/handbook';
+import { GithubLogoIcon } from '@phosphor-icons/react/dist/ssr';
 import { Reveal } from '@/components/ui/reveal';
 import { cn, linkProps } from '@/lib/utils';
+import { HB } from '@/components/hb';
 
-const DURATION_MS = 1400;
+const DURATION_MS = 1600;
+const EASE_OUT_QUART = 'cubic-bezier(0.165, 0.84, 0.44, 1)';
 const FORMAT = new Intl.NumberFormat('en-US');
+
+/** 'final' = server and no-JS state; 'armed' = waiting below the fold; 'run' = counting. */
+type Phase = 'final' | 'armed' | 'run';
 
 function useCountUp(target: number) {
   const ref = useRef<HTMLDivElement>(null);
+  const [phase, setPhase] = useState<Phase>('final');
   const [value, setValue] = useState(target);
-  const [armed, setArmed] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof IntersectionObserver === 'undefined') return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (el.getBoundingClientRect().top < window.innerHeight) return;
-    setArmed(true);
+    setPhase('armed');
     setValue(0);
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         obs.disconnect();
+        setPhase('run');
         const start = performance.now();
         const tick = (now: number) => {
           const p = Math.min(1, (now - start) / DURATION_MS);
@@ -45,56 +51,58 @@ function useCountUp(target: number) {
     return () => obs.disconnect();
   }, [target]);
 
-  return { ref, value, armed };
+  return { ref, phase, value };
 }
 
-export function OpenSourceSection({ section, folio }: { section: OpenSourceConfig; folio?: string }) {
-  const { ref, value, armed } = useCountUp(section.stars.value);
-  const settled = !armed || value === section.stars.value;
+export function OpenSourceSection({ section }: { section: OpenSourceConfig }) {
+  const { ref, phase, value } = useCountUp(section.stars.value);
+  const uid = useId();
+  void uid;
+  const settled = value === section.stars.value;
   const label = `${FORMAT.format(section.stars.value)}${section.stars.suffix ?? ''} ${section.stars.caption}`;
 
   return (
-    <section id={section.id ?? 'open-source'} className={cn(HX, RHYTHM)}>
-      <Reveal>
-        <div className="border-border flex items-center gap-3 border-t pt-3">
-          {folio ? <span className="text-kortix-base-ink font-mono text-xs tabular-nums">§ {folio}</span> : null}
-          <Rule className="min-w-4 flex-1" />
-          <span className="text-muted-foreground font-mono text-xs uppercase tracking-[0.16em]">Open source</span>
-        </div>
-        <div className="border-border mt-8 grid gap-8 border-y py-10 sm:grid-cols-[minmax(0,auto)_minmax(0,1fr)] sm:items-end sm:gap-14">
-          <div ref={ref}>
-            <div
-              role="img"
-              aria-label={label}
-              className="text-foreground text-5xl font-medium tracking-tight tabular-nums sm:text-6xl"
-            >
-              {FORMAT.format(value)}
-              {settled ? section.stars.suffix : null}
-            </div>
-            <p className="text-muted-foreground mt-3 font-mono text-xs uppercase tracking-[0.16em]">{section.stars.caption}</p>
-          </div>
-          <div className="min-w-0">
-            <h2 className="text-foreground max-w-xl text-2xl font-medium tracking-tight text-balance sm:text-3xl">{section.title}</h2>
-            <nav aria-label="Source" className="mt-5 flex flex-col items-start gap-1">
-              {section.links.map((l, i) => (
-                <a
-                  key={l.href}
-                  {...linkProps(l)}
-                  className={cn(
-                    'inline-flex min-h-11 items-center gap-2 font-mono text-sm transition-colors duration-fast',
-                    i === 0
-                      ? 'text-foreground decoration-kortix-base-ink hover:decoration-foreground underline decoration-1 underline-offset-4'
-                      : 'text-muted-foreground hover:text-foreground',
-                  )}
+    <section id={section.id ?? 'open-source'} className="py-16 sm:py-20">
+      <div className={HB}>
+        <Reveal>
+          <div className="border-border relative overflow-hidden rounded-lg border">
+            <span aria-hidden className="bg-rule-accent absolute inset-x-0 top-0 h-0.5" />
+            <div className="grid gap-8 px-4 py-8 sm:grid-cols-12 sm:gap-10 sm:px-6 sm:py-10">
+              <div ref={ref} className="min-w-0 sm:col-span-5">
+                <div
+                  aria-label={label}
+                  role="img"
+                  className="text-foreground-strong text-5xl tracking-tight tabular-nums sm:text-6xl"
                 >
-                  {l.href.includes('github.com') ? <GithubLogoIcon className="size-4" /> : null}
-                  {l.label}
-                </a>
-              ))}
-            </nav>
+                  {FORMAT.format(value)}
+                  {settled ? section.stars.suffix : null}
+                </div>
+                <p className="text-cap mt-3 font-mono text-xs">{section.stars.caption}</p>
+              </div>
+              <div className="min-w-0 sm:col-span-7">
+                <h2 className="text-foreground-strong max-w-lg text-xl tracking-tight text-pretty sm:text-2xl">{section.title}</h2>
+                <nav aria-label="Source" className="mt-5 flex flex-col items-start gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+                  {section.links.map((l, i) => (
+                    <a
+                      key={l.href}
+                      {...linkProps(l)}
+                      className={cn(
+                        'inline-flex min-h-11 items-center gap-1.5 text-sm transition-colors duration-fast',
+                        i === 0
+                          ? 'text-foreground-strong decoration-kortix-base-ink hover:decoration-foreground underline decoration-1 underline-offset-4'
+                          : 'text-muted-foreground hover:text-foreground underline decoration-border underline-offset-4',
+                      )}
+                    >
+                      {l.href.includes('github.com') ? <GithubLogoIcon className="size-4" /> : null}
+                      {l.label}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }

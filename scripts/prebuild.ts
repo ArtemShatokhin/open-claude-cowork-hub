@@ -15,12 +15,15 @@ import { copyFileSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'nod
 import path from 'node:path';
 import type { Page, SiteConfig } from '../src/config/types';
 import { inlineToPlain } from '../src/lib/markdown';
+import { pageLastmod } from '../src/lib/page-dates';
 import { pageMarkdown } from '../src/lib/page-text';
-import { markdownPath, originOf, pageLabel, pageUpdated, pageUrl } from '../src/lib/site';
+import { markdownPath, originOf, pageLabel, pageUrl } from '../src/lib/site';
 import { loadSite, ROOT } from './load-config';
 import { validate } from './validate';
 
 const PUBLIC = path.join(ROOT, 'public');
+
+const lastmod = pageLastmod;
 
 /** Crawlers named in robots.txt. All are allowed; the Content-Signal line states the AI uses. */
 const AI_CRAWLERS = [
@@ -57,7 +60,7 @@ function sitemap(site: SiteConfig): string {
     .map(
       (p) => `  <url>
     <loc>${xml(pageUrl(site, p))}</loc>
-    <lastmod>${pageUpdated(site, p)}</lastmod>
+    <lastmod>${lastmod(site, p)}</lastmod>
     <priority>${p.slug === '' ? '1.0' : '0.8'}</priority>
   </url>`,
     )
@@ -97,7 +100,7 @@ function llmsFull(site: SiteConfig): string {
 }
 
 function feed(site: SiteConfig): string {
-  const latest = site.pages.map((p) => pageUpdated(site, p)).sort().at(-1) ?? site.updated;
+  const latest = site.pages.map((p) => lastmod(site, p)).sort().at(-1) ?? site.updated;
   const entries = site.pages
     .map(
       (p: Page) => `  <entry>
@@ -105,7 +108,7 @@ function feed(site: SiteConfig): string {
     <link rel="alternate" type="text/html" href="${xml(pageUrl(site, p))}"/>
     <link rel="alternate" type="text/markdown" href="${xml(originOf(site) + markdownPath(p))}"/>
     <id>${xml(pageUrl(site, p))}</id>
-    <updated>${pageUpdated(site, p)}T00:00:00Z</updated>
+    <updated>${lastmod(site, p)}T00:00:00Z</updated>
     <summary>${xml(p.metaDescription)}</summary>
     <content type="text">${xml(inlineToPlain(p.lead))}</content>
   </entry>`,

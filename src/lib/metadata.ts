@@ -7,6 +7,7 @@
 import type { Metadata } from 'next';
 import type { Page, SiteConfig } from '@/config/types';
 import { inlineToPlain } from './markdown';
+import { pageLastmod } from './page-dates';
 import { markdownPath, pageTitle, pageUrl, originOf } from './site';
 
 export const CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=yes';
@@ -46,7 +47,7 @@ export function pageJsonLd(site: SiteConfig, page: Page) {
         url: pageUrl(site, page),
         description: page.metaDescription,
         abstract: inlineToPlain(page.lead),
-        dateModified: page.updated ?? site.updated,
+        dateModified: pageLastmod(site, page),
       },
       {
         '@type': 'SoftwareApplication',

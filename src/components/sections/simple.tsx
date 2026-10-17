@@ -1,43 +1,34 @@
 /**
- * Three small sections:
- *  - CtaBand: the closing colophon band — a full-bleed horizontally-ruled band on the page ground
- *    (not a rounded card), an accent top rule, the actions right, the colophon trust line under a rule.
- *  - ProseSection: long-form copy.
- *  - ArtifactSection: one real artifact with a chapter heading and a caption.
+ * Three handbook sections: the exhibit plate (artifact), the long-form chapter (prose) and the
+ * closing sign-off slip (cta).
+ *  - ArtifactSection: heading with the thumb-tab, the exhibit plate, the caption muted.
+ *  - ProseSection: the chapter copy on the centered reading measure inside HB.
+ *  - CtaBand: a framed card with a mono dateline strip from the config (domain + updated), the
+ *    accent top rule, copy left and CTAs stacked full-width right, the mono trust line under a
+ *    hairline.
  */
 import type { ArtifactSection as ArtifactConfig, CtaSection, ProseSection as ProseConfig } from '@/config/types';
 import { ButtonLink } from '@/components/ui/button';
-import { ChapterHeader, HX, RHYTHM } from '@/components/ui/handbook';
-import { Plate } from '@/components/ui/plate';
-import { Reveal } from '@/components/ui/reveal';
+import { CodeBlock } from '@/components/ui/code-block';
 import { Inline, Prose } from '@/components/ui/rich-text';
+import { Reveal } from '@/components/ui/reveal';
+import { SectionHeader, Tab } from '@/components/ui/section-header';
 import { cn } from '@/lib/utils';
+import { HB, HB_MEASURE } from '@/components/hb';
+import { site } from '@/lib/config';
 
-export function CtaBand({ section }: { section: CtaSection }) {
+export function ArtifactSection({ section }: { section: ArtifactConfig }) {
+  const headingId = `${section.id ?? 'artifact'}-title`;
   return (
-    <section id={section.id ?? 'get-started'} className="border-border mt-4 border-t">
-      <div className={cn(HX, 'py-14 md:py-20')}>
-        <Reveal>
-          <span aria-hidden className="bg-kortix-base block h-0.5 w-24 rounded-[1px]" />
-          <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
-              <h2 className="text-foreground max-w-2xl text-3xl font-medium tracking-tight text-balance sm:text-4xl">
-                {section.title}
-              </h2>
-              {section.sub ? (
-                <p className="text-muted-foreground mt-4 max-w-xl text-base leading-relaxed text-pretty sm:text-lg">
-                  <Inline text={section.sub} />
-                </p>
-              ) : null}
-            </div>
-            <div className="flex flex-wrap gap-2.5 lg:col-span-4 lg:justify-end">
-              {section.ctas.map((cta) => (
-                <ButtonLink key={cta.href} cta={cta} size="lg" />
-              ))}
-            </div>
-          </div>
-          {section.trust ? (
-            <p className="text-muted-foreground border-border mt-10 border-t pt-5 font-mono text-xs">{section.trust}</p>
+    <section id={section.id} aria-labelledby={headingId} className="border-border border-b py-10 md:py-14">
+      <div className={HB}>
+        <SectionHeader heading={section.heading} id={headingId} />
+        <Reveal className="mt-6 w-full max-w-3xl">
+          <CodeBlock artifact={section.artifact} className="kx-shadow-card" />
+          {section.caption ? (
+            <p className="text-muted-foreground mt-4 max-w-2xl text-sm leading-relaxed text-pretty">
+              <Inline text={section.caption} />
+            </p>
           ) : null}
         </Reveal>
       </div>
@@ -47,27 +38,56 @@ export function CtaBand({ section }: { section: CtaSection }) {
 
 export function ProseSection({ section }: { section: ProseConfig }) {
   return (
-    <section id={section.id} className={cn(HX, 'py-12 md:py-16')}>
-      <Prose body={section.body} />
+    <section id={section.id} className="py-10 md:py-14">
+      <div className={HB}>
+        <div className={HB_MEASURE}>
+          <Prose body={section.body} />
+        </div>
+      </div>
     </section>
   );
 }
 
-export function ArtifactSection({ section, folio }: { section: ArtifactConfig; folio?: string }) {
-  const headingId = `${section.id ?? 'artifact'}-title`;
+export function CtaBand({ section }: { section: CtaSection }) {
+  const year = site.updated.slice(0, 4);
   return (
-    <section id={section.id} aria-labelledby={headingId} className={cn(HX, RHYTHM)}>
-      <ChapterHeader heading={section.heading} id={headingId} folio={folio} />
-      <Reveal className="mt-8">
-        <div className="max-w-3xl">
-          <Plate artifact={section.artifact} size="hero" fig="FIG 1" />
-        </div>
-        {section.caption ? (
-          <p className="text-muted-foreground mt-4 max-w-2xl text-sm leading-relaxed text-pretty">
-            <Inline text={section.caption} />
-          </p>
-        ) : null}
-      </Reveal>
+    <section id={section.id ?? 'get-started'} className="py-10 md:py-16">
+      <div className={HB}>
+        <Reveal>
+          <div className="border-border relative overflow-hidden rounded-lg border">
+            <span aria-hidden className="bg-rule-accent absolute inset-x-0 top-0 h-0.5" />
+            <div className="border-border bg-surface flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3 sm:px-6">
+              <p className="text-cap font-mono text-xs">
+                {site.domain} · <span className="hb-date">updated {site.updated}</span>
+              </p>
+              <p className="text-cap hb-date font-mono text-xs">© {year}</p>
+            </div>
+            <div className="grid gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-12 lg:items-end lg:gap-8">
+              <div className="min-w-0 lg:col-span-7">
+                <h2 className="text-foreground-strong flex items-start gap-3 text-2xl tracking-tight text-balance sm:text-3xl">
+                  <Tab />
+                  {section.title}
+                </h2>
+                {section.sub ? (
+                  <p className="text-muted-foreground mt-3 max-w-xl text-base leading-relaxed text-pretty sm:text-lg">
+                    <Inline text={section.sub} />
+                  </p>
+                ) : null}
+              </div>
+              <div className="flex flex-col gap-2 lg:col-span-5 lg:items-stretch">
+                {section.ctas.map((cta) => (
+                  <ButtonLink key={cta.href} cta={cta} size="lg" className="w-full" />
+                ))}
+              </div>
+            </div>
+            {section.trust ? (
+              <p className="border-border text-muted-foreground hb-date border-t px-4 py-3 font-mono text-xs sm:px-6">
+                {section.trust}
+              </p>
+            ) : null}
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

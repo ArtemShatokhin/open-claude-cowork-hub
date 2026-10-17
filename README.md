@@ -138,7 +138,7 @@ The three `layout` values are the three artifact states of kortix-brand `magic_t
   widget: { variant: 'calculator', currency: '$', periodLabel: '/mo',
     seats: { label: 'Seats', min: 1, max: 200, default: 25 },
     options: [{ id: 'current', label: 'Your current tool', perSeat: 30, editable: true },
-              { id: 'kortix', label: 'Kortix team plan', perSeat: 40, highlight: true }],
+              { id: 'kortix', label: 'Kortix Cloud', perSeat: 0, flat: 50, highlight: true }],
     footnote: '…' } }
 ```
 

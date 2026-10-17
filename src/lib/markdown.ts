@@ -17,7 +17,7 @@ export type Block =
   | { kind: 'h3'; text: string }
   | { kind: 'p'; text: string }
   | { kind: 'ul'; items: string[] }
-  | { kind: 'ol'; items: string[] }
+  | { kind: 'ol'; items: string[]; start?: number }
   | { kind: 'code'; lang: string; lines: string[] };
 
 const INLINE = /(\*\*[^*]+\*\*)|(`[^`]+`)|(\[[^\]]+\]\([^)\s]+\))/g;
@@ -52,7 +52,7 @@ export function parseBlocks(body: string): Block[] {
   const lines = body.replace(/\r\n/g, '\n').split('\n');
   const blocks: Block[] = [];
   let para: string[] = [];
-  let list: { kind: 'ul' | 'ol'; items: string[] } | null = null;
+  let list: { kind: 'ul' | 'ol'; items: string[]; start?: number } | null = null;
 
   const flush = () => {
     if (para.length) blocks.push({ kind: 'p', text: para.join(' ') });
@@ -73,7 +73,10 @@ export function parseBlocks(body: string): Block[] {
       continue;
     }
     if (/^\s*$/.test(line)) {
-      flush();
+      // A blank line between items keeps a loose list one list: it ends at the next line
+      // that isn't an item.
+      if (para.length) blocks.push({ kind: 'p', text: para.join(' ') });
+      para = [];
       continue;
     }
     const h = /^(#{2,3})\s+(.*)$/.exec(line);
@@ -83,7 +86,7 @@ export function parseBlocks(body: string): Block[] {
       continue;
     }
     const ul = /^\s*[-*]\s+(.*)$/.exec(line);
-    const ol = /^\s*\d+\.\s+(.*)$/.exec(line);
+    const ol = /^\s*(\d+)\.\s+(.*)$/.exec(line);
     if (ul || ol) {
       const kind = ul ? 'ul' : 'ol';
       if (para.length) {
@@ -92,9 +95,10 @@ export function parseBlocks(body: string): Block[] {
       }
       if (!list || list.kind !== kind) {
         if (list) blocks.push(list);
-        list = { kind, items: [] };
+        const start = ol ? Number(ol[1]) : 1;
+        list = start === 1 ? { kind, items: [] } : { kind, items: [], start };
       }
-      list.items.push((ul ?? ol)![1]!.trim());
+      list.items.push((ul ? ul[1] : ol![2])!.trim());
       continue;
     }
     if (list) {

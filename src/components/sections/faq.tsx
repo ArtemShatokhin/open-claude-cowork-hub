@@ -1,16 +1,18 @@
 /**
- * The FAQ as a numbered, always-open dialogue: each item a ruled row, a mono Q-id and the question
- * left, the answer right. No accordion, so there are no buttons to mis-target on a phone. Adds the
- * FAQPage JSON-LD for search and answer engines.
+ * The FAQ as an open chapter list: single column, each item a filled thumb-tab square, the
+ * question in the heading face, the answer on the reading measure, a hairline between items.
+ * Always open — no accordion, no numbering, no two columns — so every answer is in the static
+ * HTML for answer engines. FAQPage JSON-LD is emitted as the starter did.
  */
 import type { FaqSection as FaqConfig } from '@/config/types';
-import { ChapterHeader, HX, RHYTHM } from '@/components/ui/handbook';
-import { Reveal } from '@/components/ui/reveal';
 import { Inline } from '@/components/ui/rich-text';
+import { Reveal } from '@/components/ui/reveal';
+import { SectionHeader } from '@/components/ui/section-header';
 import { inlineToPlain } from '@/lib/markdown';
 import { cn } from '@/lib/utils';
+import { HB, HB_Y } from '@/components/hb';
 
-export function FaqSection({ section, folio }: { section: FaqConfig; folio?: string }) {
+export function FaqSection({ section }: { section: FaqConfig }) {
   const headingId = `${section.id ?? 'faq'}-title`;
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -22,27 +24,27 @@ export function FaqSection({ section, folio }: { section: FaqConfig; folio?: str
     })),
   };
   return (
-    <section id={section.id} aria-labelledby={headingId} className={cn(HX, RHYTHM)}>
-      <ChapterHeader heading={section.heading} id={headingId} folio={folio} />
+    <section id={section.id} aria-labelledby={headingId} className={cn(HB, HB_Y)}>
+      <SectionHeader heading={section.heading} id={headingId} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <dl className="border-border mt-10 border-t">
+      <ul className="divide-border mt-6 divide-y">
         {section.items.map((item, i) => (
-          <Reveal key={item.id} delay={i * 0.03}>
-            <div className="border-border grid gap-3 border-b py-6 sm:grid-cols-12 sm:gap-8">
-              <dt className="min-w-0 sm:col-span-5">
-                <span className="text-kortix-base-ink font-mono text-xs tabular-nums">Q{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="text-foreground mt-2 text-base font-medium tracking-tight text-balance">{item.question}</h3>
-              </dt>
-              <dd className="text-muted-foreground min-w-0 text-base leading-relaxed text-pretty sm:col-span-7">
+          <li key={item.id} id={item.id} className="py-6">
+            <Reveal delay={Math.min(i * 0.04, 0.2)}>
+              <h3 className="text-foreground-strong flex items-start gap-3 text-base leading-snug text-balance sm:text-lg">
+                <span aria-hidden className="bg-tab-bg mt-[0.45rem] inline-block size-2.5 shrink-0 rounded-[2px]" />
+                {item.question}
+              </h3>
+              <p className="text-muted-foreground mt-3 ml-[1.375rem] max-w-2xl text-base leading-relaxed text-pretty">
                 <Inline text={item.answer} />
-              </dd>
-            </div>
-          </Reveal>
+              </p>
+            </Reveal>
+          </li>
         ))}
-      </dl>
+      </ul>
     </section>
   );
 }

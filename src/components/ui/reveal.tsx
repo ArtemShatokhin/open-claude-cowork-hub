@@ -1,52 +1,53 @@
 'use client';
 
 /**
- * Reveal-on-scroll, the site's own. The server HTML is the visible final state; after mount a block
- * that is still below the fold is hidden (opacity + a small rise) and revealed once it scrolls in.
- * Reduced motion is a plain fade. No horizontal movement, so measured left edges never shift.
+ * Progressive reveal: the server HTML is the final, visible state. After mount, a block still
+ * below the fold is hidden and then faded in once it scrolls in; anything already on screen is
+ * left alone. Opacity only, 500ms, ease-out, no transform — so a block's measured box never
+ * moves (the layout gate measures edges before it scrolls) and reduced motion needs no variant.
  */
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+
+type State = 'shown' | 'pending' | 'in';
 
 export function Reveal({
   children,
   className,
   delay = 0,
-  rise = 10,
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
-  rise?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [hidden, setHidden] = useState(false);
+  const [state, setState] = useState<State>('shown');
 
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof IntersectionObserver === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (el.getBoundingClientRect().top < window.innerHeight) return;
-    setHidden(true);
+    setState('pending');
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          setHidden(false);
+          setState('in');
           obs.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
+  const hidden = state === 'pending';
   return (
     <motion.div
       ref={ref}
       initial={false}
-      animate={{ opacity: hidden ? 0 : 1, y: hidden ? rise : 0 }}
-      transition={hidden ? { duration: 0 } : { duration: 0.52, delay, ease: [0, 0, 0.2, 1] }}
+      animate={{ opacity: hidden ? 0 : 1 }}
+      transition={hidden ? { duration: 0 } : { duration: 0.5, delay, ease: [0, 0, 0.2, 1] }}
       className={className}
     >
       {children}

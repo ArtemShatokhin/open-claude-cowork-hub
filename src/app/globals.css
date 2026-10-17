@@ -1,40 +1,16 @@
-/* opensourceclaudecowork.com — theme mapping for the site's tokens in public/tokens.css.
-   Holds NO colour literal: every colour is a var() into tokens.css. The self-hosted type pairing
-   (Familjen Grotesk / Mulish / Roboto Mono) is declared here; the config keeps fonts: 'system'. */
+/* Tailwind mapping for the tokens in public/tokens.css plus this site's own base rules.
+   This file holds NO colour literal: every colour is a var() into tokens.css, and the per-site
+   accent is the inline :root override in the page head (src/app/layout.tsx). */
 @layer theme, base, components, utilities;
 @import 'tailwindcss/theme.css' layer(theme);
 @import './preflight.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities) source(none);
 
-/* Class names live in components, app and the layout constants. */
 @source '../components';
 @source '../app';
 @source '../lib/layout.ts';
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
-
-/* ── self-hosted fonts (latin subsets) ───────────────────────────────────── */
-@font-face {
-  font-family: 'Familjen Grotesk';
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url('/fonts/familjen-grotesk.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url('/fonts/mulish.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Roboto Mono';
-  font-style: normal;
-  font-weight: 400 500;
-  font-display: swap;
-  src: url('/fonts/roboto-mono.woff2') format('woff2');
-}
 
 @theme {
   --color-*: initial;
@@ -49,6 +25,8 @@
   --color-pane: var(--pane);
   --color-surface: var(--surface);
   --color-foreground: var(--foreground);
+  --color-foreground-strong: var(--foreground-strong);
+  --color-foreground-weak: var(--foreground-weak);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -73,8 +51,22 @@
   --color-kortix-orange: var(--kortix-orange);
   --color-kortix-yellow: var(--kortix-yellow);
   --color-kortix-blue: var(--kortix-blue);
+  --color-tab-bg: var(--tab-bg);
+  --color-tab-ink: var(--tab-ink);
+  --color-cta-bg: var(--cta-bg);
+  --color-cta-ink: var(--cta-ink);
+  --color-rule-accent: var(--rule-accent);
+  --color-terminal-fg: var(--terminal-ink);
   --color-terminal-surface: var(--terminal-surface);
-  --color-terminal-fg: var(--terminal-fg);
+  --color-terminal-caption: var(--terminal-caption);
+  --color-terminal-row: var(--terminal-row);
+  --color-terminal-cap: var(--terminal-cap);
+  --color-cap: var(--terminal-cap);
+  --color-ink: var(--terminal-ink);
+  --color-strong: var(--terminal-strong);
+  --color-flag: var(--terminal-flag);
+  --color-ok-row: var(--ok-row);
+  --color-no-row: var(--no-row);
   --color-transparent: transparent;
   --color-current: currentColor;
 
@@ -101,10 +93,6 @@
   --text-4xl--line-height: calc(2.5 / 2.25);
   --text-5xl: 3rem;
   --text-5xl--line-height: 1;
-  --text-6xl: 3.75rem;
-  --text-6xl--line-height: 1;
-  --text-7xl: 4.5rem;
-  --text-7xl--line-height: 1;
 
   --transition-duration-fast: 100ms;
   --transition-duration-normal: 150ms;
@@ -115,11 +103,28 @@
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --radius-sm: calc(var(--radius) - 2px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-2xl: 1rem;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
 }
 
 /* Shadows read the tokens directly. */
@@ -130,20 +135,47 @@
   box-shadow: var(--shadow-frame);
 }
 
-/* The handbook hairline: a 1px dotted rule for fold lines and plate seams. */
-@utility hx-dotted {
-  background-image: repeating-linear-gradient(to right, var(--border) 0 4px, var(--transparent) 4px 9px);
-}
-
 @layer base {
   :root {
-    --site-font-sans: Mulish, var(--font-sans-system);
-    --site-font-mono: 'Roboto Mono', var(--font-mono-system);
+    /* The site's own pairing: Golos Text body, Kode Mono captions. Headings below. */
+    --site-font-sans: 'Golos Text', var(--font-sans-system);
+    --site-font-mono: 'Kode Mono', var(--font-mono-system);
+  }
+
+  @font-face {
+    font-family: 'Golos Text';
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+    src: url('/fonts/GolosText.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Kode Mono';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/fonts/KodeMono.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Familjen Grotesk';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/fonts/FamiljenGrotesk.woff2') format('woff2');
+  }
+
+  /* The heading face: Familjen Grotesk. One rule of the site's own. */
+  h1,
+  h2,
+  h3,
+  .hb-heading {
+    font-family: 'Familjen Grotesk', var(--site-font-sans);
+    font-weight: 500;
   }
 
   ::selection {
-    background: color-mix(in oklch, var(--primary) 72%, transparent);
-    color: var(--primary-foreground);
+    background: color-mix(in oklch, var(--kortix-base-ink) 20%, transparent);
+    color: var(--foreground-strong);
   }
 
   *,
@@ -167,15 +199,6 @@
     scroll-padding-top: 5rem;
   }
 
-  /* The handbook's headings are the Familjen Grotesk voice. */
-  h1,
-  h2,
-  h3,
-  .font-heading {
-    font-family: var(--font-heading);
-    font-feature-settings: normal;
-  }
-
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -187,12 +210,16 @@
   kbd,
   .font-mono {
     font-family: var(--site-font-mono);
-    letter-spacing: var(--tracking-tight);
   }
 
   :focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 2px;
+  }
+
+  /* Dated small print never wraps. */
+  .hb-date {
+    white-space: nowrap;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -202,8 +229,10 @@
   }
 }
 
-/* ── Hero enter: the handbook cover rises (CSS only, settles without JS) ──── */
-@keyframes hx-fade {
+/* ── Hero enter — the site's own staged moment ───────────────────────────
+   CSS only, so the fold renders and settles without JavaScript. The delay
+   arrives as a class ([--hb-enter:150ms]) so reduced motion wins. */
+@keyframes hb-fade {
   from {
     opacity: 0;
   }
@@ -212,11 +241,11 @@
   }
 }
 
-@keyframes hx-rise {
+@keyframes hb-hero-copy {
   from {
     opacity: 0;
     transform: translateY(12px);
-    filter: blur(5px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
@@ -225,44 +254,60 @@
   }
 }
 
-@keyframes hx-plate {
+@keyframes hb-hero-exhibit {
   from {
     opacity: 0;
-    transform: translateY(18px) scale(0.995);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
-.hx-hero-line,
-.hx-hero-plate {
-  animation-delay: var(--hx-enter, 0ms);
+.hb-hero-copy,
+.hb-hero-exhibit {
+  animation-delay: var(--hb-enter, 0ms);
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.hx-hero-line {
-  animation-name: hx-rise;
-  animation-duration: 560ms;
+.hb-hero-copy {
+  animation-name: hb-hero-copy;
+  animation-duration: 520ms;
 }
 
-.hx-hero-plate {
-  animation-name: hx-plate;
-  animation-duration: 760ms;
+.hb-hero-exhibit {
+  animation-name: hb-hero-exhibit;
+  animation-duration: 640ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hx-hero-line,
-  .hx-hero-plate {
-    animation-name: hx-fade;
-    animation-duration: 240ms;
+  .hb-hero-copy,
+  .hb-hero-exhibit {
+    animation-name: hb-fade;
+    animation-duration: 260ms;
     animation-delay: 0ms;
   }
 }
 
-/* ── Progressive enhancement: html.js is set before first paint ───────────── */
+/* ── Progressive enhancement ─────────────────────────────────────────────
+   html.js is set by an inline script before first paint. Without it every
+   panel and revealed block stays visible: the static HTML is the final
+   state, and scripts only add motion and interaction. */
 html.js [data-reveal='pending'] {
   opacity: 0;
+}
+
+html:not(.js) [data-js-only] {
+  display: none !important;
+}
+
+/* Force-mounted Radix panels (procedure figures, calculator rows) are in the HTML.
+   Inactive ones hide only once scripts run; with no JS every one is open. */
+html.js [data-kx-panel][data-state='inactive'] {
+  display: none;
+}
+html:not(.js) [data-kx-panel] {
+  display: block !important;
 }
