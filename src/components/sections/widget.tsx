@@ -169,7 +169,7 @@ function Calculator({ calc }: { calc: CalculatorWidget }) {
         {costs.map((c) => (
           <li key={c.id} className={cn('border-border relative overflow-hidden rounded-md border p-4', c.highlight && 'bg-card')}>
             {c.highlight ? <span aria-hidden className="bg-rule-accent absolute inset-x-0 top-0 h-0.5" /> : null}
-            <p className="text-foreground-strong text-sm font-medium">{c.label}</p>
+            <h3 className="text-foreground-strong text-sm font-medium">{c.label}</h3>
             {c.note ? <p className="text-muted-foreground mt-1 text-xs leading-relaxed">{c.note}</p> : null}
             <div className="mt-3 flex items-center gap-3">
               <span className="bg-muted h-2 min-w-0 flex-1 overflow-hidden rounded-full">

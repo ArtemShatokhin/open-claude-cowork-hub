@@ -57,13 +57,17 @@ function SheetFigure({ artifact }: { artifact: UseCaseArtifact & { kind: 'sheet'
                     className={cn(
                       'border-border border-b py-2 pr-3 leading-relaxed',
                       i === 0 ? 'text-foreground-strong' : 'text-muted-foreground',
-                      toned && row.tone === 'up' && 'text-kortix-green',
-                      toned && row.tone === 'down' && 'text-kortix-red',
-                      toned && row.tone === 'warn' && 'text-kortix-orange',
                       row.total && 'text-foreground-strong font-medium',
                     )}
                   >
-                    {cell}
+                    {toned ? (
+                      <span className="flex items-center gap-2">
+                        <span aria-hidden className={cn('inline-block size-1.5 shrink-0 rounded-full', TONE_DOT[row.tone!])} />
+                        {cell}
+                      </span>
+                    ) : (
+                      cell
+                    )}
                   </td>
                 );
               })}

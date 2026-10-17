@@ -104,7 +104,7 @@ export function Hero({ section, page }: { section: HeroSection; page: Page }) {
         <div className="min-w-0 lg:col-span-6">
           <Copy section={section} page={page} />
         </div>
-        <div className="min-w-0 lg:col-span-6">
+        <div className="min-w-0 lg:col-span-6 lg:pt-16">
           <Exhibit section={section} />
         </div>
       </div>

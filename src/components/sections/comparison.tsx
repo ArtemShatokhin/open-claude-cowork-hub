@@ -68,7 +68,7 @@ export function ComparisonSection({ section }: { section: ComparisonConfig }) {
               {highlight ? (
                 <span className="bg-tab-bg text-tab-ink inline-flex min-h-11 items-center rounded-[3px] px-3 text-sm font-medium">
                   {highlight.href ? (
-                    <a {...linkProps({ href: highlight.href, nofollow: highlight.nofollow })} className="inline-flex items-center">
+                    <a {...linkProps({ href: highlight.href, nofollow: highlight.nofollow })} className="inline-flex min-h-11 min-w-11 items-center justify-center">
                       {highlight.label}
                     </a>
                   ) : (
@@ -82,7 +82,7 @@ export function ComparisonSection({ section }: { section: ComparisonConfig }) {
                   {c.href ? (
                     <a
                       {...linkProps({ href: c.href, nofollow: c.nofollow })}
-                      className="text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center text-sm underline decoration-border underline-offset-4"
+                      className="text-muted-foreground hover:text-foreground inline-flex min-h-11 min-w-11 items-center justify-center text-sm underline decoration-border underline-offset-4"
                     >
                       {c.label}
                     </a>

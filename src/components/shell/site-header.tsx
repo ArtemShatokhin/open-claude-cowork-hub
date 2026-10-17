@@ -23,7 +23,7 @@ export function SiteHeader({ site, currentPath }: { site: SiteConfig; currentPat
     <header className="border-border bg-background/95 sticky top-0 z-40 border-b backdrop-blur">
       <span aria-hidden className="bg-rule-accent absolute inset-y-0 left-0 w-[3px]" />
       <div className={cn(HB, 'relative flex h-16 items-center gap-5')}>
-        <a href="/" className="flex min-w-0 items-center gap-3" aria-label={`${site.siteName}, home`}>
+        <a href="/" className="inline-flex min-h-11 items-center gap-3" aria-label={`${site.siteName}, home`}>
           <span className="border-border inline-flex size-9 shrink-0 items-center justify-center rounded-[3px] border">
             <SiteMark path={site.mark.path} className="text-kortix-base-ink size-5" />
           </span>
@@ -46,7 +46,7 @@ export function SiteHeader({ site, currentPath }: { site: SiteConfig; currentPat
               <summary className="text-muted-foreground hover:text-foreground flex min-h-11 cursor-pointer list-none items-center rounded-md px-2.5 text-sm transition-colors duration-fast [&::-webkit-details-marker]:hidden">
                 More
               </summary>
-              <div className="border-border bg-popover kx-shadow-card absolute top-11 right-0 z-50 flex max-h-[70vh] w-64 flex-col overflow-y-auto rounded-md border p-1.5">
+              <div className="border-border bg-popover kx-shadow-card absolute top-11 right-0 z-50 hidden max-h-[70vh] w-64 flex-col overflow-y-auto rounded-md border p-1.5 group-open:flex">
                 {more.map((item) => (
                   <a
                     key={item.href}
@@ -75,7 +75,7 @@ export function SiteHeader({ site, currentPath }: { site: SiteConfig; currentPat
             </summary>
             <nav
               aria-label="Primary"
-              className="border-border bg-popover kx-shadow-card absolute right-0 top-16 z-50 flex max-h-[76vh] w-72 flex-col overflow-y-auto rounded-md border p-2"
+              className="border-border bg-popover kx-shadow-card absolute right-0 top-16 z-50 hidden max-h-[76vh] w-72 flex-col overflow-y-auto rounded-md border p-2 group-open:flex"
             >
               <ButtonLink cta={site.headerCta} size="sm" className="mb-1 w-full sm:hidden" />
               {site.nav.map((item) => (
