@@ -274,12 +274,12 @@
 
 .hb-hero-copy {
   animation-name: hb-hero-copy;
-  animation-duration: 520ms;
+  animation-duration: 480ms;
 }
 
 .hb-hero-exhibit {
   animation-name: hb-hero-exhibit;
-  animation-duration: 640ms;
+  animation-duration: 480ms;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,7 +1,7 @@
 {
   "": {
-    "hash": "d049951e2bbe5d29",
-    "updated": "2026-10-17"
+    "hash": "4c4cf9f876705c5b",
+    "updated": "2026-10-18"
   },
   "ai-agent-orchestration": {
     "hash": "93e045c07f1c9017",
@@ -56,16 +56,16 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-vs-microsoft-copilot": {
-    "hash": "5bca139438482af8",
-    "updated": "2026-10-17"
+    "hash": "488f9a71d6d2f11f",
+    "updated": "2026-10-18"
   },
   "claude-cowork-vs-openclaw": {
     "hash": "aded19ecaecd8a9c",
     "updated": "2026-10-17"
   },
   "claude-cowork-vs-openwork": {
-    "hash": "905a69cd592be6be",
-    "updated": "2026-10-17"
+    "hash": "02600ba0a88227eb",
+    "updated": "2026-10-18"
   },
   "claude-cowork-vs-perplexity-computer": {
     "hash": "826d3d67ebb9ac72",
@@ -76,16 +76,16 @@
     "updated": "2026-10-17"
   },
   "is-claude-cowork-open-source": {
-    "hash": "50a731e539bc5327",
-    "updated": "2026-10-17"
+    "hash": "b36f7f4539a263b7",
+    "updated": "2026-10-18"
   },
   "migrate-from-claude-cowork": {
     "hash": "ee2d675fe4ebc141",
     "updated": "2026-10-17"
   },
   "open-source-ai-agent-platforms": {
-    "hash": "da2b23f03b7997bf",
-    "updated": "2026-10-17"
+    "hash": "2193ba9091f3b85e",
+    "updated": "2026-10-18"
   },
   "self-hosted-ai-agent-platform": {
     "hash": "f092af690710df04",

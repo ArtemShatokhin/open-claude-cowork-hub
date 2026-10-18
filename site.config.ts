@@ -344,7 +344,7 @@ Self-hosting Kortix is one Docker Compose stack on a Linux box you control. The 
 
 ## What you can review
 
-The five lines in the hero artifact are the whole gate, read top to bottom. A session works in its own sandbox on a branch of its own, and the agent commits there before opening a change request against the default branch. A person with the merge permission reads it and merges it. The docs are precise about the one exception: a session can merge its own change request only when its agent's kortix_permissions grant in kortix.yaml includes project.gitops.merge. Without that grant, the merge waits for a person. Anthropic's Cowork asks before actions by default, and you keep the final say there too. The difference is where the gate sits: here it is the repo's own merge path, on hardware you hold.
+The five lines in the hero artifact are the whole gate, read top to bottom. A session works in its own sandbox on a branch of its own, and the agent commits there before opening a change request against the default branch. A person with the merge permission reads it and merges it. Nothing merges itself: work reaches \`main\` through a change request a person approves, unless an admin granted the merge capability. That capability is the \`project.gitops.merge\` grant, and an admin is the one who grants it. Without that grant, the merge waits for a person. Anthropic's Cowork asks before actions by default, and you keep the final say there too. The difference is where the gate sits: here it is the repo's own merge path, on hardware you hold.
 
 ## Where the choice stands
 
@@ -382,7 +382,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
               id: 'who-reviews',
               question: "Who reviews an agent's work?",
               answer:
-                'You do, by default. The agent works on its own branch and opens a change request, and a person with the merge permission reads the diff and merges it into the default branch. A session can merge its own change request only when its kortix.yaml grants it the merge permission.',
+                'You do, by default. The agent works on its own branch and opens a change request, and a person with the merge permission reads the diff and merges it into the default branch. Nothing merges itself: work reaches \`main\` through a change request a person approves, unless an admin granted the merge capability.',
             },
           ],
         },
@@ -542,7 +542,7 @@ With the reviewers named and the copies off the box, a self-hosted instance beha
     {
       slug: 'open-source-ai-agent-platforms',
       navLabel: 'Platforms',
-      title: 'Open Source AI Agent Platforms: Three Kinds, One You Can Own',
+      title: 'Open source AI agent platforms: three kinds, one you can own',
       metaDescription:
         'An open-source AI agent platform means a company platform, a framework, or an autonomous agent, and Kortix is the open-source one a team can own.',
       h1: 'Three kinds of open-source AI agent platform, one to own',
@@ -1553,7 +1553,7 @@ A company that wants the system owned wants Kortix, with configuration, memory, 
     {
       slug: 'is-claude-cowork-open-source',
       navLabel: 'Open source?',
-      title: 'There Is No Open-Source Claude Cowork to Self-Host',
+      title: 'There is no open-source Claude Cowork to self-host',
       metaDescription:
         'Claude Cowork is not open source: since the September 2026 merge the capability lives inside the closed Claude app, with no repo to read or host.',
       h1: 'There is no open-source Claude Cowork to self-host',
@@ -2030,10 +2030,9 @@ Self-hosting moves the question off the invoice. "Run it on Kortix Cloud, in you
               "request against the project's default branch.",
               '',
               'A person merges it',
-              'A person with the project.gitops.merge permission reviews the',
-              'change request and merges it into the default branch. A session',
-              "can merge its own change request only when its agent's",
-              'kortix_permissions grant in kortix.yaml includes project.gitops.merge.',
+              'Nothing merges itself: work reaches \`main\` through a change request',
+              'a person approves, unless an admin granted the merge capability',
+              '(`project.gitops.merge`).',
             ],
           },
           caption: 'How agent work lands in a Kortix project: its own branch, a change request, and a person who merges.',
@@ -2496,13 +2495,13 @@ The merge made Cowork easier to reach. It changed nothing about who holds the ga
             lines: [
               "The agent commits, pushes the session branch, and opens a change request against the project's default branch.",
               'A person with the project.gitops.merge permission reviews the change request and merges it into the default branch.',
-              "A session can merge its own change request only when its agent's kortix_permissions grant in kortix.yaml includes project.gitops.merge.",
+              'Default-deny: a person approves; an admin can grant project.gitops.merge.',
               'To require a person, give the agent a kortix_permissions list without project.gitops.merge.',
               'Every action is recorded in the audit log.',
               'The log keeps 90 days of events live, and the archive keeps them up to 365 days.',
             ],
           },
-          caption: 'From the Kortix docs: the gate an admin configures, and the record kept behind it.',
+          caption: "Lines from the Kortix docs on the gate an admin configures and the record kept behind it, plus Kortix's default-deny rule.",
         },
         {
           type: 'prose',
@@ -2516,7 +2515,7 @@ Claude Cowork changed shape the same season. On September 16, 2026, Anthropic me
 
 Both vendors give admins real controls, and both attach them to the same condition: the controls are settings in a console the vendor operates. Microsoft's Cowork ships off by default. An admin decides when to enable it and who gets access, and sets spending limits at the tenant, group, and user levels ([Microsoft's GA announcement](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available)). Usage reports break down the same way. Anthropic concentrates its controls on the Team and Enterprise tiers: admins set access by team, manage spend limits, and control tool permissions by department, and Enterprise activity streams to a SIEM through OpenTelemetry ([Claude Cowork](https://claude.com/product/cowork)).
 
-Kortix keeps its levers in the repo instead of a console. The gate in the artifact on this page comes straight from the docs: a session can merge its own work only when its agent's grant includes the merge permission ([the Kortix docs](https://kortix.com/docs)). That rule lives in the project's files, so a person can read it, edit it, and roll it back. The console versions are thorough, and they change when the vendor changes them. A grant written in the repo changes when you change it, and the diff is the receipt.
+Kortix keeps its levers in the repo instead of a console. Nothing merges itself: work reaches \`main\` through a change request a person approves, unless an admin granted the merge capability ([the Kortix docs](https://kortix.com/docs)). That rule lives in the project's files, so a person can read it, edit it, and roll it back. The console versions are thorough, and they change when the vendor changes them. A grant written in the repo changes when you change it, and the diff is the receipt.
 
 ## What the record shows
 
