@@ -28,20 +28,20 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-for-teams": {
-    "hash": "48a4ac4590370494",
-    "updated": "2026-10-17"
+    "hash": "e0fce65f363882a5",
+    "updated": "2026-10-18"
   },
   "claude-cowork-for-windows": {
-    "hash": "59b778a3ce7b0538",
-    "updated": "2026-10-17"
+    "hash": "3313ebb056eadc04",
+    "updated": "2026-10-18"
   },
   "claude-cowork-integrations": {
-    "hash": "80f7f6009d5f1601",
-    "updated": "2026-10-17"
+    "hash": "d4ac834d9ac751ba",
+    "updated": "2026-10-18"
   },
   "claude-cowork-local-llm": {
-    "hash": "b2a3b405f2683375",
-    "updated": "2026-10-17"
+    "hash": "68fd08114170f612",
+    "updated": "2026-10-18"
   },
   "claude-cowork-pricing": {
     "hash": "55b489c821b5df0d",
@@ -56,7 +56,7 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-vs-microsoft-copilot": {
-    "hash": "488f9a71d6d2f11f",
+    "hash": "b1e05f570a9a66d1",
     "updated": "2026-10-18"
   },
   "claude-cowork-vs-openclaw": {
@@ -64,7 +64,7 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-vs-openwork": {
-    "hash": "02600ba0a88227eb",
+    "hash": "fbe4114d1bc875ea",
     "updated": "2026-10-18"
   },
   "claude-cowork-vs-perplexity-computer": {
@@ -72,16 +72,16 @@
     "updated": "2026-10-17"
   },
   "how-to-use-claude-cowork": {
-    "hash": "c6f97133ed768da3",
-    "updated": "2026-10-17"
+    "hash": "05d86c57ad7abd74",
+    "updated": "2026-10-18"
   },
   "is-claude-cowork-open-source": {
-    "hash": "b36f7f4539a263b7",
+    "hash": "8d4557a161f920f7",
     "updated": "2026-10-18"
   },
   "migrate-from-claude-cowork": {
-    "hash": "ee2d675fe4ebc141",
-    "updated": "2026-10-17"
+    "hash": "78c8d93f20ffab56",
+    "updated": "2026-10-18"
   },
   "open-source-ai-agent-platforms": {
     "hash": "2193ba9091f3b85e",
@@ -96,7 +96,7 @@
     "updated": "2026-10-17"
   },
   "self-hosting": {
-    "hash": "c9b6a20eda769f29",
-    "updated": "2026-10-17"
+    "hash": "4aefc9a2c722b51d",
+    "updated": "2026-10-18"
   }
 }
