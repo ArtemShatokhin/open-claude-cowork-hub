@@ -28,7 +28,7 @@ export function SiteFooter({ site }: { site: SiteConfig }) {
                   <li key={l.href}>
                     <a
                       {...linkProps(l)}
-                      className="text-muted-foreground hover:text-foreground inline-flex min-h-11 flex-wrap items-center text-sm transition-colors duration-fast"
+                      className="text-muted-foreground hover:text-foreground -mx-1 inline-flex min-h-11 flex-wrap items-center px-1 text-sm transition-colors duration-fast"
                     >
                       {l.label}
                     </a>

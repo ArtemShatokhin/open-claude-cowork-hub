@@ -311,3 +311,18 @@ html.js [data-kx-panel][data-state='inactive'] {
 html:not(.js) [data-kx-panel] {
   display: block !important;
 }
+
+/* ── Narrow screens: code wraps, never clips ─────────────────────────────
+   Design-review round 2 (mobile): below the sm breakpoint the per-line
+   whitespace-pre spans made every code panel run past its own width and
+   clip mid-token. Unlayered, so the rule outranks the whitespace-pre
+   utility on those spans; colours and type sizes are untouched. */
+@media (max-width: 639.98px) {
+  pre,
+  pre code,
+  pre code span,
+  code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
