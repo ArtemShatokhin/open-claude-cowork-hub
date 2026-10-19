@@ -3961,7 +3961,7 @@ Among the three, the free that lasts is the one that lives in software you hold.
     {
       slug: 'self-hosted-claude-code',
       navLabel: 'Self-hosted Claude Code',
-      title: 'What Self-Hosted Claude Code Leaves You to Own, and What Open Source Changes',
+      title: 'What self-hosted Claude Code leaves you to own, and what open source changes',
       metaDescription:
         "Anthropic's self-hosted Claude Code keeps the control plane and transcript; an open-source harness puts the repo and review on your side.",
       h1: 'Self-hosted Claude Code: where an open-source harness draws the line',
@@ -4121,13 +4121,8 @@ The mistake to avoid is treating self-hosting as one decision. It is four: where
             },
             {
               id: 'shcc-3',
-              question: "Can I host a Claude code locally for free?",
-              answer: "The client, yes. Claude Code in a terminal or IDE runs on the developer's own machine at no hosting cost. A self-hosted server environment needs a Team or Enterprise plan.",
-            },
-            {
-              id: 'shcc-4',
-              question: "Can I run a claude code locally?",
-              answer: "Yes. In a terminal or IDE, Claude Code runs on the developer's machine with no server. The self-hosted beta is for cloud sessions a team dispatches to its own network.",
+              question: "Can I run Claude Code locally for free?",
+              answer: "Yes. In a terminal or IDE, Claude Code runs on the developer's own machine at no hosting cost. The self-hosted beta is for cloud sessions a team dispatches to its own network, and it needs a Team or Enterprise plan.",
             },
           ],
         },
