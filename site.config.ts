@@ -386,7 +386,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
               id: 'free-alternative',
               question: 'Is there a free alternative to Claude Cowork?',
               answer:
-                'Claude Cowork works with a paid plan today: Pro starts at $17 a month, and usage limits apply ([the product page](https://claude.com/product/cowork), checked October 2026). Free is $0 with 200 credits per month and 1 project. Self-host is free too, so the open-source route adds no subscription beyond the hardware.',
+                'Claude Cowork works with a paid plan today: Pro starts at $17 a month, and usage limits apply ([the product page](https://claude.com/product/cowork), checked October 2026). Free is $0 with 500 credits per month, managed models, every feature and 1 project. Self-host is free too, so the open-source route adds no subscription beyond the hardware.',
             },
             {
               id: 'who-reviews',
@@ -867,7 +867,7 @@ A first trial needs no DNS at all. The docs' tunnel mode runs the stack on your 
               id: 'cost',
               question: 'What does a self-hosted AI agent platform cost to run?',
               answer:
-                'Two bills: the hardware and the tokens. The managed option bills credits: "Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool" (Kortix pricing, checked October 2026). OpenWork\u0027s desktop app is free with your own keys; its cloud plan includes five seats before charging $10 a seat a month ([openworklabs.com](https://openworklabs.com), checked October 2026).',
+                'Two bills: the hardware and the tokens. The managed option bills credits: Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. ([Kortix pricing](https://kortix.com/pricing), checked October 2026). OpenWork\u0027s desktop app is free with your own keys; its cloud plan includes five seats before charging $10 a seat a month ([openworklabs.com](https://openworklabs.com), checked October 2026).',
             },
             {
               id: 'why-self-host',
@@ -1536,7 +1536,7 @@ A company that wants the system owned wants Kortix, with configuration, memory, 
               id: 'cost',
               question: 'What does it cost to run an alternative?',
               answer:
-                'The software is free on all three open options, and the model provider still bills unless you run a local model. Kortix runs on credits: Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
+                'The software is free on all three open options, and the model provider still bills unless you run a local model. Kortix runs on credits: Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
             },
           ],
         },
@@ -1851,7 +1851,7 @@ After the first job merges, the rest of the setup follows the same path, one pro
             },
             {
               label: 'Entry price',
-              cells: ['Free is $0 with 200 credits per month and 1 project', 'Pro, $17 a month billed annually', '$0 on desktop with your own keys'],
+              cells: ['Free is $0 with 500 credits per month and 1 project', 'Pro, $17 a month billed annually', '$0 on desktop with your own keys'],
             },
             {
               label: 'Next tier up',
@@ -1899,7 +1899,7 @@ The second input is usage, and the Pro card on Anthropic's Cowork page says why 
 
 ## The open source route prices credits
 
-Kortix repriced in October 2026 and retired its seats. Its price page now reads: "Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool." A credit pays for the agent computer, the cloud machine where an agent runs code, browses and edits files. That machine bills per second while it runs and costs nothing while it is stopped ([Kortix pricing](https://kortix.com/pricing)). Add a person and the bill holds; route more work and the credits move.
+Kortix repriced in October 2026 and retired its seats. Its price page now lists 500 credits a month on the free plan, 1 project, and paid plans from $50 a month for 5,000 credits. A credit pays for the agent computer, the cloud machine where an agent runs code, browses and edits files. That machine bills per second while it runs and costs nothing while it is stopped ([Kortix pricing](https://kortix.com/pricing)). Add a person and the bill holds; route more work and the credits move.
 
 Self-hosting moves the question off the invoice. "Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free." On hardware you own, the recurring bills are ones you already had: the box and the models. Models stay bring-your-own: "Any model provider with your own keys. Or the ChatGPT plan you already pay for." The [self-hosting guide](https://opensourceclaudecowork.com/self-hosting) on this site takes the setup step by step, and the Kortix blog asks [Is Kortix free?](https://kortix.com/blog/is-kortix-ai-free) at more length.`,
         },
@@ -1935,7 +1935,7 @@ Self-hosting moves the question off the invoice. "Run it on Kortix Cloud, in you
               id: 'open-source-cost',
               question: 'What does the open source alternative cost?',
               answer:
-                'Kortix prices credits: "Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool." Self-host is free ([Kortix pricing](https://kortix.com/pricing)).',
+                'Kortix prices credits: Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Self-host is free ([Kortix pricing](https://kortix.com/pricing)).',
             },
           ],
         },
@@ -2163,7 +2163,7 @@ The [self-hosting guide](/self-hosting) on this site walks the install, and the 
             },
             {
               label: 'Entry cost',
-              cells: ['Free is $0 with 200 credits per month and 1 project', 'Works with a paid plan', 'On paid plans'],
+              cells: ['Free is $0 with 500 credits per month and 1 project', 'Works with a paid plan', 'On paid plans'],
             },
           ],
         },
@@ -2255,7 +2255,7 @@ Two deeper reads live on the Kortix blog. [Kortix vs Perplexity Computer](https:
               id: 'what-you-keep',
               question: 'What do you keep when you move to the open-source option?',
               answer:
-                'The repo: agents, skills, memory, and connector rules as files in git, with the work\u0027s record in commits and change requests. Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
+                'The repo: agents, skills, memory, and connector rules as files in git, with the work\u0027s record in commits and change requests. Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
             },
           ],
         },
@@ -2537,7 +2537,7 @@ Run the decision as three questions instead of a feature count. A team that live
               id: 'cost',
               question: 'What does each option cost?',
               answer:
-                'Microsoft bills a per-person Microsoft 365 Copilot subscription, then Cowork tasks in Copilot Credits at a posted pay-as-you-go rate of $0.01 per credit; Claude includes Cowork in paid plans, Pro at $17 a month billed annually and Max from $100 (checked October 2026). Kortix: Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
+                'Microsoft bills a per-person Microsoft 365 Copilot subscription, then Cowork tasks in Copilot Credits at a posted pay-as-you-go rate of $0.01 per credit; Claude includes Cowork in paid plans, Pro at $17 a month billed annually and Max from $100 (checked October 2026). Kortix: Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
             },
             {
               id: 'self-host',
@@ -3503,7 +3503,7 @@ Work lands through a change request a person reviews and merges, whichever job p
 
 Anthropic's pricing page lists Claude Code on every paid plan and leaves it off the Free plan (checked October 2026). Cowork rides the same ladder: Pro at $17 a month billed annually, Max 5x at $100, Max 20x at $200. Team sits at $20 a standard seat, Enterprise at $20 a seat with a 20-seat minimum ([claude.com/pricing](https://claude.com/pricing)). Both jobs draw on the same usage limits. Anthropic's own card warns that Cowork "consumes limits faster than Chat", so heavy hand-offs push a team up the tiers.
 
-Kortix retired its seats in October 2026 and prices credits: "Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool." Where the stack runs is a separate decision: run it on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free. The [pricing page on this site](/claude-cowork-pricing) works the Anthropic math in detail. The [self-hosting guide](/self-hosting) takes an operator through the install.`,
+Kortix retired its seats in October 2026 and prices credits: Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Where the stack runs is a separate decision: run it on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free. The [pricing page on this site](/claude-cowork-pricing) works the Anthropic math in detail. The [self-hosting guide](/self-hosting) takes an operator through the install.`,
         },
         {
           type: 'prose',
@@ -3646,7 +3646,7 @@ If the setup has to outlive the machine, the balance tips to the open-source sid
               id: 'cost',
               question: 'What does the open-source route cost?',
               answer:
-                'Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
+                'Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
             },
           ],
         },
@@ -3911,7 +3911,7 @@ The catch is written in the project's own install docs, in a section called Requ
 
 What the hosting buys back is the model choice: "Any model provider with your own keys. Or the ChatGPT plan you already pay for." The routing lives in your repo as a setting. Routine work can point at a cheaper model, and the judgment calls keep the strong one.
 
-Running a box is one kind of free, and it is a job. On Kortix Cloud the same system prices credits instead: "Free is $0 with 200 credits per month and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool." Credits pay for the agent computer, the cloud machine where a session runs, and the machine costs nothing while it is stopped. The post [Is Kortix free?](https://kortix.com/blog/is-kortix-ai-free) on the Kortix blog answers the same question at more length.
+Running a box is one kind of free, and it is a job. On Kortix Cloud the same system prices credits instead: Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Credits pay for the agent computer, the cloud machine where a session runs, and the machine costs nothing while it is stopped. The post [Is Kortix free?](https://kortix.com/blog/is-kortix-ai-free) on the Kortix blog answers the same question at more length.
 
 ## Which free fits which reader
 
@@ -3939,7 +3939,7 @@ Among the three, the free that lasts is the one that lives in software you hold.
               id: 'after-free',
               question: 'How much does Kortix cost after the free start?',
               answer:
-                'On Kortix Cloud, Free is $0 with 200 credits per month and 1 project, paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool (checked October 2026). Self-hosting stays free, and your costs are the server and your model provider.',
+                'On Kortix Cloud: Free is $0 with 500 credits per month, managed models, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool (checked October 2026). Self-hosting stays free, and your costs are the server and your model provider.',
             },
             {
               id: 'team-of-five',
@@ -4407,7 +4407,7 @@ That is the design, and Anthropic says so plainly. Its safety page puts the limi
           type: 'prose',
           body: `## The same settings, as files in a repo
 
-Kortix takes the other route. The environment is a git repo, and the manifest is a file in it that the repository's own header calls "the source of truth for project-wide config that lives in git alongside the code" ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). A \`agents:\` map in that file names what each agent may reach. The behavior lives a directory away, in the agent's own markdown file, where three lines settle the prompt, the mode and the permission:
+Kortix takes the other route. The environment is a git repo, and the manifest is a file in it that the repository's own header calls "the source of truth for project-wide config that lives in git alongside the code" ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). An \`agents:\` map in that file names what each agent may reach. The behavior lives a directory away, in the agent's own markdown file, where three lines settle the prompt, the mode and the permission:
 
 \`\`\`markdown
 ---
@@ -4643,19 +4643,19 @@ Both pages lead with the company that pays for the domain. Eigent's page closes 
 
 The shape is familiar even without bad faith. A ranked list written by someone with a download button on the page will put their own product first. The shortlist underneath is real. [The alternatives page on this site](/claude-cowork-alternatives) sorts the same projects by where each one runs.
 
-The threads carry an interest too. In [the October 2026 thread that asks for this comparison outright](https://www.reddit.com/r/LocalLLaMA/comments/1wuu9ip/best_opensource_claude_cowork_alternative/), several replies are people linking their own project, or a maintainer declaring an interest before answering. Pretending the threads are neutral would be dishonest. What a thread has that a list does not: a date, a reply button, and someone who installed the thing and came back to say what happened next.
+The threads carry an interest too. In [the April r/LocalLLaMA thread about OpenWork's terms](https://www.reddit.com/r/LocalLLaMA/comments/1sgnppg/openwork_an_opensource_claude_cowork_alternative/), the contributor who made the commit declares that stake in his first sentence: "Hey Omar here (OpenWork contributor, made the commit in question)" (I_am_McAdam, 2026-04-09). One reply is a link to the commenter's own project, repeated twice more under the same handle (BidWestern1056, 2026-04-09). Pretending the threads are neutral would be dishonest. What a thread has that a list does not: a date, a reply button, and someone who installed the thing and came back to say what happened next.
 
 ## What the threads keep hitting
 
-The demand is consistent. On the [Show HN thread that launched OpenWork in January 2026](https://news.ycombinator.com/item?id=46612494), one commenter described the reader this niche serves. "I was left hoping for something a bit more batteries included to give to my non technical colleagues" (2026-01-15). Nobody there wanted a chat window. They wanted a harness they could hand to a colleague who will never open a config file.
+The demand is consistent. On the [Show HN thread that launched OpenWork in January 2026](https://news.ycombinator.com/item?id=46612494), one commenter described the reader this niche serves. "I was left hoping for something a bit more batteries included to give to my non technical colleagues" (yowlingcat, 2026-01-15). Nobody there wanted a chat window. They wanted a harness they could hand to a colleague who will never open a config file.
 
-The failures are consistent too, and they are not the ones a feature table lists. In April 2026 [a thread on r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/comments/1sgnppg/openwork_an_opensource_claude_cowork_alternative/) went after OpenWork over terms that had changed inside a commit rather than in an announcement. The maintainer who made the commit replied that the app itself had not changed. What had moved was the cloud and enterprise part. Whatever you make of that decision, note the shape of the complaint: nobody found out from the home page.
+The failures are consistent too, and they are not the ones a feature table lists. That April thread went after OpenWork over terms that had changed inside a commit rather than in an announcement. The contributor who made the commit replied, under the handle I_am_McAdam, that the app itself had not changed. What had moved was the cloud and enterprise part. Whatever you make of that decision, note the shape of the complaint: nobody found out from the home page.
 
-Windows broke hardest. Readers complained that the Windows build sat behind a $99-a-year price while it was still broken. The maker's defense in the same thread is the sentence to keep. "We've been testing the builds with Parallels and got to a stage where we could not replicate some of the issues that other people were reporting because 'it worked on our machines'" (2026-04-10). Days later the Windows builds were back on the releases page.
+Windows broke hardest. Readers complained that the Windows build sat behind a $99-a-year price while it was still broken. The maker's defense in the same thread is the sentence to keep. "We've been testing the builds with Parallels and got to a stage where we could not replicate some of the issues that other people were reporting because 'it worked on our machines'" (Empty_Hovercraft8739, 2026-04-10). Days later the Windows builds were back on the releases page.
 
-The terms problem runs wider than one project. The sharpest comment in that thread is about who gets to watch a repo at all. "We need better tools to auto monitor repositories changes, and they need to be independent from the repo owners" (2026-04-09). Another reply names the stake: "transparency is the only currency these projects have. once that's gone, the stars don't mean anything" (2026-04-09). A repository you can read is not a guarantee. Someone still has to diff it.
+The terms problem runs wider than one project. The sharpest comment in that thread is about how long the change sat unnoticed: "Still took 3 weeks. Imagine if it was a backdoor." (lrq3000, 2026-04-09). Another reply names the stake: "transparency is the only currency these projects have. once that's gone, the stars don't mean anything" (Ornery-Peanut-1737, 2026-04-09). A repository you can read is not a guarantee. Someone still has to diff it.
 
-Then the quieter failure, the one that shows up after the demo. A commenter in the same launch thread, thinking about how Cowork handles files, put it plainly. "giving an LLM permission to edit files without being able to track exactly what it's doing still feels risky" (2026-01-19). A file agent with no record of its edits is one you cannot review. The thread's advice on timing is worth taking literally: "I ignore these things until they're 3-6 months old and still iterating" (2026-01-15).
+Then the quieter failure, the one that shows up after the demo. A commenter in the same launch thread, thinking about how Cowork handles files, put it plainly. "giving an LLM permission to edit files without being able to track exactly what it's doing still feels risky" (jannesblobel, 2026-01-19). A file agent with no record of its edits is one you cannot review. The thread's advice on timing is worth taking literally: "I ignore these things until they're 3-6 months old and still iterating" (browningstreet, 2026-01-15).
 
 Read the complaints together. None of them is about features. Each is about where the thing runs, who holds the code, and whether you can see what changed. All three are checkable in an hour.`,
         },
@@ -4745,7 +4745,7 @@ Kortix is the setup that passed these checks for us, and the reason is structura
               id: 'which-alternative',
               question: 'Which open source alternative to Claude Cowork do the threads point to?',
               answer:
-                "Several, and the names move month to month: OpenWork, OpenClaw, Hermes, AionUI and Composio's open Cowork all come up by name. What the threads reward is a property rather than a product: something you can read, build on your own machines, and keep after a reinstall.",
+                "OpenWork and OpenClaw come up most in the threads, and the round-ups add AionUI and Composio's open Cowork. What the threads reward is a property rather than a product: something you can read, build on your own machines, and keep after a reinstall.",
             },
             {
               id: 'is-it-open-source',

@@ -1,31 +1,31 @@
 {
   "": {
-    "hash": "4c4cf9f876705c5b",
-    "updated": "2026-10-18"
+    "hash": "bf7978ad3cef70f9",
+    "updated": "2026-10-19"
   },
   "ai-agent-orchestration": {
     "hash": "93e045c07f1c9017",
     "updated": "2026-10-17"
   },
   "claude-cowork-alternative-free": {
-    "hash": "046a158717dd85b3",
-    "updated": "2026-10-17"
+    "hash": "31a4dd3396f781f5",
+    "updated": "2026-10-19"
   },
   "claude-cowork-alternative-google": {
     "hash": "d82131487123fc16",
     "updated": "2026-10-17"
   },
   "claude-cowork-alternatives": {
-    "hash": "f5dd5e9c3a7ad225",
-    "updated": "2026-10-17"
+    "hash": "4f8276db09048933",
+    "updated": "2026-10-19"
   },
   "claude-cowork-data-privacy": {
     "hash": "207b0bd9d2747dc8",
     "updated": "2026-10-17"
   },
   "claude-cowork-for-mac": {
-    "hash": "9d34d6a5d157b1b1",
-    "updated": "2026-10-17"
+    "hash": "472c51d139699cde",
+    "updated": "2026-10-19"
   },
   "claude-cowork-for-teams": {
     "hash": "e0fce65f363882a5",
@@ -48,16 +48,16 @@
     "updated": "2026-10-18"
   },
   "claude-cowork-pricing": {
-    "hash": "55b489c821b5df0d",
-    "updated": "2026-10-17"
+    "hash": "c6c5e461bd6fd9a0",
+    "updated": "2026-10-19"
   },
   "claude-cowork-vs-chatgpt-work": {
     "hash": "9b58c4adae0106e5",
     "updated": "2026-10-17"
   },
   "claude-cowork-vs-claude-code": {
-    "hash": "0ff645fdd1ffb4a9",
-    "updated": "2026-10-17"
+    "hash": "37def50e89cc339f",
+    "updated": "2026-10-19"
   },
   "claude-cowork-vs-microsoft-copilot": {
     "hash": "b1e05f570a9a66d1",
@@ -72,8 +72,8 @@
     "updated": "2026-10-19"
   },
   "claude-cowork-vs-perplexity-computer": {
-    "hash": "826d3d67ebb9ac72",
-    "updated": "2026-10-17"
+    "hash": "398ce2434227ef06",
+    "updated": "2026-10-19"
   },
   "how-to-use-claude-cowork": {
     "hash": "11b42bc1eed26870",
@@ -92,7 +92,7 @@
     "updated": "2026-10-18"
   },
   "open-source-claude-cowork-reddit": {
-    "hash": "7e615e6d20929430",
+    "hash": "b2dc6f119a7ada4e",
     "updated": "2026-10-19"
   },
   "self-hosted-ai-agent": {
@@ -100,8 +100,8 @@
     "updated": "2026-10-19"
   },
   "self-hosted-ai-agent-platform": {
-    "hash": "f092af690710df04",
-    "updated": "2026-10-17"
+    "hash": "0ccb617823d6d3f2",
+    "updated": "2026-10-19"
   },
   "self-hosted-ai-workspace": {
     "hash": "892e06e9e90b3e54",
