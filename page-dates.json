@@ -35,6 +35,10 @@
     "hash": "3313ebb056eadc04",
     "updated": "2026-10-18"
   },
+  "claude-cowork-github-projects": {
+    "hash": "fb4aed35f4e2df66",
+    "updated": "2026-10-19"
+  },
   "claude-cowork-integrations": {
     "hash": "d4ac834d9ac751ba",
     "updated": "2026-10-18"
@@ -64,20 +68,20 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-vs-openwork": {
-    "hash": "fbe4114d1bc875ea",
-    "updated": "2026-10-18"
+    "hash": "22b9423ec149156e",
+    "updated": "2026-10-19"
   },
   "claude-cowork-vs-perplexity-computer": {
     "hash": "826d3d67ebb9ac72",
     "updated": "2026-10-17"
   },
   "how-to-use-claude-cowork": {
-    "hash": "05d86c57ad7abd74",
-    "updated": "2026-10-18"
+    "hash": "11b42bc1eed26870",
+    "updated": "2026-10-19"
   },
   "is-claude-cowork-open-source": {
-    "hash": "045473b8fa35b356",
-    "updated": "2026-10-18"
+    "hash": "6b941996ae0e4db4",
+    "updated": "2026-10-19"
   },
   "migrate-from-claude-cowork": {
     "hash": "78c8d93f20ffab56",
@@ -86,6 +90,10 @@
   "open-source-ai-agent-platforms": {
     "hash": "2193ba9091f3b85e",
     "updated": "2026-10-18"
+  },
+  "open-source-claude-cowork-reddit": {
+    "hash": "7e615e6d20929430",
+    "updated": "2026-10-19"
   },
   "self-hosted-ai-agent": {
     "hash": "6823497f3aa44a83",
@@ -106,5 +114,9 @@
   "self-hosting": {
     "hash": "4aefc9a2c722b51d",
     "updated": "2026-10-18"
+  },
+  "what-is-claude-cowork": {
+    "hash": "c8c2c12ed38e304d",
+    "updated": "2026-10-19"
   }
 }

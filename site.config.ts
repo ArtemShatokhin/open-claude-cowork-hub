@@ -58,6 +58,9 @@ const site: SiteConfig = {
     { label: 'Free', href: '/claude-cowork-alternative-free' },
     { label: 'Self-hosted Claude Code', href: '/self-hosted-claude-code' },
     { label: 'Self-hosted AI agent', href: '/self-hosted-ai-agent' },
+    { label: 'What is Cowork', href: '/what-is-claude-cowork' },
+    { label: 'Projects on GitHub', href: '/claude-cowork-github-projects' },
+    { label: 'Reddit threads', href: '/open-source-claude-cowork-reddit' },
   ],
   footer: {
     blurb:
@@ -72,6 +75,7 @@ const site: SiteConfig = {
           { label: 'Pricing', href: '/claude-cowork-pricing' },
           { label: 'Migrate', href: '/migrate-from-claude-cowork' },
           { label: 'How to use', href: '/how-to-use-claude-cowork' },
+          { label: 'What Cowork is', href: '/what-is-claude-cowork' },
         ],
       },
       {
@@ -97,6 +101,8 @@ const site: SiteConfig = {
           { label: 'vs OpenClaw', href: '/claude-cowork-vs-openclaw' },
           { label: 'vs Claude Code', href: '/claude-cowork-vs-claude-code' },
           { label: 'Google options', href: '/claude-cowork-alternative-google' },
+          { label: 'Projects on GitHub', href: '/claude-cowork-github-projects' },
+          { label: 'Reddit threads', href: '/open-source-claude-cowork-reddit' },
         ],
       },
       {
@@ -1502,7 +1508,7 @@ Work that already lives in Claude, on a plan you pay for, belongs with the merge
 
 One person's files on one laptop call for a desktop. OpenWork suits the Cowork shape, one agent on your files with no account needed, while Eigent suits a small group of agents that share context. [Claude Cowork vs OpenWork](/claude-cowork-vs-openwork) runs the desktop route through a fuller comparison.
 
-A company that wants the system owned wants Kortix, with configuration, memory, and review in one place. The repo is the unit of ownership, and the change request is the gate a person holds. The [Kortix vs Eigent vs Kuse AI comparison](https://kortix.com/blog/kortix-vs-eigent-vs-kuse-ai) on the Kortix blog sets the desktops against a hosted workspace.`,
+A company that wants the system owned wants Kortix, with configuration, memory, and review in one place. The repo is the unit of ownership, and the change request is the gate a person holds. The [Kortix vs Eigent vs Kuse AI comparison](https://kortix.com/blog/kortix-vs-eigent-vs-kuse-ai) on the Kortix blog sets the desktops against a hosted workspace. Two further lists sit behind it: [the projects on GitHub](/claude-cowork-github-projects), sorted by what each repo keeps, and [what the Reddit threads report](/open-source-claude-cowork-reddit).`,
         },
         {
           type: 'faq',
@@ -1595,7 +1601,7 @@ Two things make a product genuinely open source. The read: source anyone can ope
 
 Kortix is built the other way. It is the open-source AI Operating System, and its README carries the one-liner: "Open source. Read it, fork it, audit it." The [Kortix docs](https://kortix.com/docs) define a project as a git repo with kortix.yaml at its root. The agents, skills, memory, tools, triggers and connectors are files in it. Hosting stays a choice: "Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free."
 
-The next question is what to move to. The [migration guide](https://opensourceclaudecowork.com/migrate-from-claude-cowork) on this site gives the order of steps that avoids rework. The [Kortix vs Claude Cowork](https://kortix.com/blog/kortix-vs-claude-cowork) post on the Kortix blog covers the trade in more depth.`,
+The next question is what to move to. The [migration guide](https://opensourceclaudecowork.com/migrate-from-claude-cowork) on this site gives the order of steps that avoids rework. The [Kortix vs Claude Cowork](https://kortix.com/blog/kortix-vs-claude-cowork) post on the Kortix blog covers the trade in more depth. For the definition itself, [what Claude Cowork is](/what-is-claude-cowork) starts from Anthropic's own pages, and [the projects on GitHub](/claude-cowork-github-projects) sort the open rebuilds by what each repo keeps.`,
         },
         {
           type: 'faq',
@@ -2051,7 +2057,7 @@ Kortix puts that step in the repo. Session work reaches \`main\` through a chang
 
 Pick by the shape of the work. One person working through files on one machine is OpenWork's exact job, done free on the model and keys you choose. Handing a task to Claude and coming back to finished work is Cowork's territory now. The capability sits one conversation away, on a paid plan. Work that has to keep running when the office is empty needs a server-side system. Passing a review before it lands is part of the same need. Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work.
 
-The [self-hosting guide](/self-hosting) on this site walks the install, and the [alternatives roundup](/claude-cowork-alternatives) maps the wider field. For the worked version of this comparison, read the [Kortix vs OpenWork post](https://kortix.com/blog/kortix-vs-openwork) on the Kortix blog.`,
+The [self-hosting guide](/self-hosting) on this site walks the install, and the [alternatives roundup](/claude-cowork-alternatives) maps the wider field. For the worked version of this comparison, read the [Kortix vs OpenWork post](https://kortix.com/blog/kortix-vs-openwork) on the Kortix blog. What people reported after installing the desktops is [collected from the Reddit threads](/open-source-claude-cowork-reddit).`,
         },
         {
           type: 'faq',
@@ -3041,7 +3047,7 @@ Where the agent works has a direct parallel in Cowork: One isolated sandbox per 
 
 For one person, Cowork's choices hold the boundary well. Pick the folders, vet the connectors, leave Manual on for anything that matters. The same decision gets heavier when several people run the same kind of work, because every desk repeats it in its own settings and no screen shows the whole picture. At that point the decision is worth keeping as files: a file comes with a diff, a history, and a reviewer who is not the person who wrote it.
 
-Kortix runs that way, and where it runs is your call: Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free. The [self-hosting guide](/self-hosting) covers the install on your own hardware, and the [getting-started walkthrough](https://kortix.com/blog/getting-started-with-kortix) on the Kortix blog covers a first project from install to review.`,
+Kortix runs that way, and where it runs is your call: Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free. The [self-hosting guide](/self-hosting) covers the install on your own hardware, and the [getting-started walkthrough](https://kortix.com/blog/getting-started-with-kortix) on the Kortix blog covers a first project from install to review. [What Claude Cowork is](/what-is-claude-cowork) covers the product itself and where an open-source version keeps the same settings.`,
         },
         {
           type: 'faq',
@@ -4294,6 +4300,476 @@ The test is two questions. Who can change a grant, and where does the machine th
         },
       ],
     },
+
+    /* ── what-is-claude-cowork ────────────────────────────────────────────── */
+    {
+      slug: 'what-is-claude-cowork',
+      navLabel: 'What is Cowork',
+      title: 'What Claude Cowork actually is, and what open source changes about it',
+      metaDescription:
+        "Claude Cowork is Anthropic's agent for multi-step work, now part of Claude. The open-source difference is where its files, skills and permissions live.",
+      h1: 'What Claude Cowork is, and where an open-source version keeps its files',
+      lead: "Claude Cowork is Anthropic's agent for multi-step knowledge work: hand it a goal and it reads your files, runs tools, and returns finished documents or slides. Since September 2026 it runs inside Claude itself. Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work.",
+      sections: [
+        {
+          type: 'prose',
+          body: `## What Claude Cowork is
+
+Claude Cowork is Anthropic's agent for multi-step knowledge work. You describe an outcome, it works in the files and tools you name, and it comes back with finished documents, spreadsheets or slides. Claude is the assistant it belongs to, the chat product of the same name. Cowork was the part of Claude built for whole tasks rather than single questions. Anthropic describes it as using "the same agentic architecture that powers Claude Code, with no terminal required" ([help center](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)).
+
+The two products became one in September 2026. "Starting today, Claude Cowork and chat are merging into one Claude," [Anthropic's announcement](https://claude.com/resources/articles/cowork-is-now-claude) reads, with what Cowork could do now "available from any conversation". Accounts move in stages, so plenty of paid accounts still show separate Chat and Cowork buttons, and Anthropic warns the move is one way once yours is in.
+
+What Anthropic ships, checked October 2026 on its own pages:
+
+- Desktop apps for macOS and Windows on every paid plan, Linux in beta.
+- Web and mobile on Pro, Max and Team, plus Claude in Chrome on Max and Team.
+- Sessions that run on Anthropic's servers "in an isolated environment", saved to your Claude account, so a task keeps going after your laptop closes.
+- Scheduled tasks that run with no device online, memory shared with chat, projects, skills, plugins and connectors.
+- A data path you choose: a Claude account, or an Amazon Bedrock, Google Cloud or Microsoft Foundry account ([product page](https://claude.com/product/cowork)).
+
+The price is the subscription rather than the task. The Cowork page includes Cowork in Pro and Enterprise, lists Max at $100 and $200 a month and Team at $20, and applies usage limits to all of them ([the plan math](/claude-cowork-pricing)).
+
+## Where the setup actually lives
+
+Everything that makes Cowork useful to one particular team is configuration. Which folders Claude may read. The connectors it may call. The skills that encode how a job is done here, and the plugins that bundle them. The instructions that apply to every conversation, the projects holding files and context, and the permission setting. That last one decides whether Claude asks first. Manual, where it asks, is the default.
+
+Almost none of that is a file you can open. Anthropic's help center puts folders under "Trusted folders", connectors in "Customize > Connectors", and global instructions in "Instructions for Claude in Settings > General" ([one Claude](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). The sentence worth reading twice is a migration note: "Your chats, tasks, projects, and settings come with you when your account moves over." Everything a team built travels with the account, and the only place it can travel to is another Anthropic account.
+
+That is the design, and Anthropic says so plainly. Its safety page puts the limit in one line: "Isolation limits where Claude's code runs. It doesn't limit what Claude reads or does" ([use Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)). You are setting permissions inside someone else's product. The loop is the easy part of a system like this; ask any engineer who has wired an agent to a model and a few tools. The environment is the hard part, which is why every serious open-source attempt at Cowork ends up rebuilding the environment rather than the chat.
+`,
+        },
+        {
+          type: 'comparison',
+          heading: {
+            title: 'Where the setup lives, and who keeps it',
+            sub: "One row decides the rest: what a person's work is attached to when they leave.",
+          },
+          columns: [
+            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
+            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://github.com/different-ai/openwork' },
+          ],
+          rows: [
+            {
+              label: 'Where the agent runs',
+              cells: [
+                'A sandbox per session, on Kortix Cloud or your own network.',
+                "Anthropic's servers, or your Bedrock, Google Cloud or Foundry account.",
+                'Your own computer; files stay local, cloud optional.',
+              ],
+            },
+            {
+              label: 'Where its skills and config live',
+              cells: [
+                'Files in the project repo: agents/*.md, skills/, kortix.yaml.',
+                'Your Claude account: instructions, projects, skills, connectors.',
+                'Local to the app; a team admin interface publishes shared skills.',
+              ],
+            },
+            {
+              label: 'Which models it can use',
+              cells: [
+                'Any model provider with your own keys.',
+                'Claude models, through the picker in the conversation.',
+                '50+ providers, your own API keys, local models via Ollama.',
+              ],
+            },
+            {
+              label: 'Who keeps the setup when a person leaves',
+              cells: [
+                'The repo stays; the next person is invited to it.',
+                "It stays in that person's Claude account, with their projects.",
+                'The local setup leaves with them.',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'artifact',
+          heading: { title: "Where an agent's permissions are written down" },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
+            lines: [
+              'agents:',
+              '  kortix:',
+              '    file: agents/kortix.md',
+              '    connectors: all',
+              '    secrets: all',
+              '    kortix_permissions: all',
+              '    skills: all',
+            ],
+          },
+          caption: "The manifest registers what exists and what each agent may reach; the agent's own file holds the prompt.",
+        },
+        {
+          type: 'prose',
+          body: `## The same settings, as files in a repo
+
+Kortix takes the other route. The environment is a git repo, and the manifest is a file in it that the repository's own header calls "the source of truth for project-wide config that lives in git alongside the code" ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). A \`agents:\` map in that file names what each agent may reach. The behavior lives a directory away, in the agent's own markdown file, where three lines settle the prompt, the mode and the permission:
+
+\`\`\`markdown
+---
+description: "Generic Kortix general knowledge worker. Hands-on, full tool access, handles coding / research / content / ops / data tasks end-to-end in an isolated session sandbox. Edit this file to specialize for your project."
+mode: primary
+permission: allow
+---
+\`\`\`
+
+That is the whole of it. Changing what the agent does, or what it is allowed to do, is a diff somebody can read and review before it lands, with the reason written next to it. The starter's own agent file calls that session an ephemeral branch of the repo. Its rule is what makes the arrangement hold: only what you commit and push survives ([agents/kortix.md](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/agents/kortix.md)).
+
+Open source is what makes the arrangement checkable. "Open source. Read it, fork it, audit it." You can read the loop, read the permission model, and run the whole thing where you choose: "Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free."
+
+## The test that settles the choice
+
+Do three things before you commit a team's work to any of them. Clone it, point an agent at a real folder, and then take away the account that sold it to you. What is left tells you whether you own a setup or rent one.
+
+On the open-source side the answer survives the third step: the repo is still yours, the manifest still says what each agent may reach, and a colleague can be invited to it. On Cowork the setup is the account, so the third step ends the work. If you want the stack on your own hardware next, [the self-hosting guide](/self-hosting) covers the install; [the alternatives page](/claude-cowork-alternatives) sorts the open projects by where they run.`,
+        },
+        {
+          type: 'faq',
+          heading: {
+            title: 'Two questions the definition leaves open',
+            sub: "Short answers, with Anthropic's pages behind the first one.",
+          },
+          items: [
+            {
+              id: 'open-source-version',
+              question: 'Is there an open-source version of Claude Cowork?',
+              answer:
+                'No. Anthropic publishes no source for Cowork, and after the September 2026 merge it is a feature of Claude, which ships as a product. Kortix is the open-source alternative, with the agent, its skills and its permissions written as files in a git repo you own.',
+            },
+            {
+              id: 'free',
+              question: 'Can I run Claude Cowork for free?',
+              answer:
+                'Not yet. Cowork is included in the paid Claude plans Anthropic lists, and Anthropic says Team and Free plans follow for the merged experience. Self-host is free.',
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: 'Keep the setup, not just the subscription',
+          sub: 'Your agents, their skills and the permissions they run under, in a repo you can clone today.',
+          ctas: [TRY_KORTIX],
+        },
+      ],
+    },
+
+    /* ── claude-cowork-github-projects ────────────────────────────────────── */
+    {
+      slug: 'claude-cowork-github-projects',
+      navLabel: 'Projects on GitHub',
+      title: 'Open-source Claude Cowork projects on GitHub, read by what each repo keeps',
+      metaDescription:
+        'Open-source Claude Cowork projects on GitHub compared by what each repo covers, where the agent runs and when it last changed, plus Kortix.',
+      h1: 'Open-source Claude Cowork projects on GitHub, sorted by what each repo keeps',
+      lead: 'Seven open-source Claude Cowork projects turn up in the GitHub results, split three ways: a window over someone else\u0027s agent loop, a launcher for someone else\u0027s CLI, or a whole system with its own runtime. Kortix is the open-source AI Operating System: your agents, their skills, your company memory, and every connector in one git repo you own.',
+      sections: [
+        {
+          type: 'comparison',
+          heading: {
+            title: 'Four of those repos, side by side',
+            sub: "Every rival cell comes from that project's own README, checked 19 October 2026.",
+          },
+          columns: [
+            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
+            { id: 'openwork', label: 'OpenWork', href: 'https://github.com/different-ai/openwork' },
+            { id: 'open-claude-cowork', label: 'Open Claude Cowork', href: 'https://github.com/composio-community/open-claude-cowork' },
+            { id: 'open-cowork', label: 'Open Cowork', href: 'https://github.com/OpenCoworkAI/open-cowork' },
+          ],
+          rows: [
+            {
+              label: 'What it is',
+              cells: [
+                'Open-source AI Operating System, configured by a repo',
+                'Desktop app built on the OpenCode harness',
+                'Desktop chat app on the Claude Agent SDK',
+                'Desktop GUI over Claude Code and other models',
+              ],
+            },
+            {
+              label: 'Open source',
+              cells: [
+                { text: 'Yes', mark: 'yes' },
+                'The app, yes; ee/ carries enterprise terms',
+                { text: 'Yes', mark: 'yes' },
+                { text: 'Yes', mark: 'yes' },
+              ],
+            },
+            {
+              label: 'Where the agent runs',
+              cells: [
+                'Kortix Cloud, your VPC, or your own network',
+                'Your machine, in the desktop app',
+                'A local Node server behind an Electron window',
+                'Your desktop, in a VM (WSL2 or Lima)',
+              ],
+            },
+            {
+              label: 'Which keys you bring',
+              cells: [
+                'Any model provider with your own keys',
+                '50+ providers, own keys, or a local model',
+                'An Anthropic key; OpenCode is optional',
+                'Anthropic, OpenRouter, or OpenAI-compatible keys',
+              ],
+            },
+            {
+              label: 'Where skills live',
+              cells: [
+                'skills/ and agents/*.md in the repo you own',
+                'In the app; teams publish them from the Den',
+                'SKILL.md files under .claude/skills/',
+                '.claude/skills/, bundled and editable in the app',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'artifact',
+          heading: { title: 'The manifest, with the agents and their grants in it' },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: 'https://kortix.com/docs/project/manifest',
+            lines: [
+              'kortix_version: 2',
+              'default_agent: kortix',
+              'env:',
+              '  optional: [STRIPE_API_KEY]',
+              'agents:',
+              '  kortix:',
+              '    file: agents/kortix.md',
+              '    connectors: all',
+              '    secrets: all',
+              '    skills: all',
+              '    kortix_permissions: all',
+            ],
+          },
+          caption: "The sample project's manifest: the agents, the file each one runs from, and what each may reach.",
+        },
+        {
+          type: 'faq',
+          heading: { title: 'Questions the GitHub results raise' },
+          items: [
+            {
+              id: 'open-source-version',
+              question: 'Is there an open-source version of Claude Cowork?',
+              answer:
+                'Yes. Several teams publish one, and they differ on where the agent runs: a desktop app on your own machine, or a server-side system you host yourself. Kortix is the second kind, and its configuration is a git repo you own.',
+            },
+            {
+              id: 'which-to-pick',
+              question: 'Which open-source Claude Cowork alternative should a team pick?',
+              answer:
+                'Kortix, when the work has to outlive one laptop. The repo holds the agents, skills, grants and memory, and a session boots from that checkout instead of from an app someone installed on a desktop.',
+            },
+            {
+              id: 'self-host',
+              question: 'Can I self-host these projects?',
+              answer:
+                'The desktop apps run on your own machine, which is where their files and keys stay. Kortix runs on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.',
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: "One repo, and every agent's rules inside it",
+          sub: 'Read the code, run it where you like, keep the configuration in git.',
+          ctas: [TRY_KORTIX],
+        },
+        {
+          type: 'prose',
+          body: `## Three kinds of project wear the same name
+
+Search GitHub for an open-source Claude Cowork and the first page mixes three different things. The names look alike. The repos are not alike, and the difference decides where your setup ends up.
+
+The first kind is a window over an agent loop that somebody else maintains. Composio's [open-claude-cowork](https://github.com/composio-community/open-claude-cowork) is an Electron chat app on the Claude Agent SDK and Composio's own tool router. Its setup asks for an Anthropic key, and it advertises 500+ app integrations. [OpenWork](https://github.com/different-ai/openwork) is a desktop app built on OpenCode, the same harness Kortix runs. You get a good interface and a fast start, and the loop underneath belongs to someone else.
+
+The second kind launches a CLI you still have to bring. [Open Cowork](https://github.com/OpenCoworkAI/open-cowork) wraps Claude Code, OpenAI, Gemini and DeepSeek in a GUI with installers for Windows and macOS. It keeps the work inside a VM on your own disk, through WSL2 or Lima. [claude-cowork-linux](https://github.com/johnzfitch/claude-cowork-linux) goes the other way and stubs the macOS-only pieces of Anthropic's Claude Desktop, so Cowork mode runs on Linux without a virtual machine. Both are useful when you already have the thing underneath. Neither replaces it.
+
+The third kind owns the runtime. [CoWork OS](https://github.com/CoWork-OS/CoWork-OS) is a desktop app with approval profiles for each risky step, and its memory is markdown in a local git folder. [Kuse Cowork](https://github.com/kuse-ai/kuse_cowork) is a Rust agent for the desktop that takes your own keys and calls your provider directly. Kortix is the server-side member of this group, with the whole setup in one repo you own. The desktop route gets a fuller treatment in the [OpenWork comparison](/claude-cowork-vs-openwork) on this site.
+
+## The column that decides whether you can keep it
+
+Every list ranks these projects on features. Two things printed on the repo matter more a year later, and neither shows up in a screenshot.
+
+The first is what the repo's own terms cover, and OpenWork's README is unusually precise. Everything outside \`ee/\` is open source and free for any use. The \`ee/\` directory, the org control plane it calls OpenWork Den, is public so you can audit it. Production use needs a subscription, free for organizations of up to five people and free to evaluate for 30 days at any size. The other projects here state one set of terms for the whole tree. Read that section before you plan on forking the control plane.
+
+The second is whether terms exist at all. [DevAgentForge's Open-Claude-Cowork](https://github.com/DevAgentForge/Open-Claude-Cowork) is a desktop assistant with a polished README. GitHub records no terms for that repo, which leaves a forker with nothing written down to rely on. What you cannot read, you cannot plan around.
+
+Kortix answers with the dullest arrangement available: the parts a team edits are the files it already cloned. An agent is \`agents/<name>.md\` (behavior) plus an \`agents.<name>\` block in \`kortix.yaml\` (governance). Fork the config and you have forked the setup. The [open-source question](/is-claude-cowork-open-source) gets a longer answer on this site.
+
+## The last push date is the honest feature list
+
+Checked on 19 October 2026, the commit dates split the field. OpenWork and CoWork OS pushed that day. Kuse Cowork pushed on 18 October, Open Cowork on 13 October, claude-cowork-linux on 11 October. Composio's open-claude-cowork last pushed on 23 May 2026, five months behind the rest, and DevAgentForge's on 21 March.
+
+A date is not a quality score. A small project can be finished rather than abandoned. The date does tell you whether anyone is still watching the moving parts. The model APIs these apps call change often, and an app pinned to a spring release has not absorbed the summer's changes. A desktop app that stopped in May still opens. It stops working the week a provider changes an endpoint.
+
+For a team the question is harsher, because by then the setup is more than the app: skills, grants, connector config and memory. Those have to live somewhere that outlasts the window you run them in. Kept inside an app that stopped in May, they are a snapshot of somebody else's project management.
+
+## One afternoon settles it
+
+Clone the repo you are considering. Point it at a folder with real files and give it a task you would actually hand over.
+
+Then take the vendor key away. Unset the Anthropic key and put in a different provider, or a local model. If the app starts, the loop is yours to choose. If it refuses, you have your answer. The open-source Cowork was a window, and the model behind it was never yours.
+
+Last, find where the configuration went. Skills, grants and secrets should be files you can commit and diff. If they are rows in a vendor's table, the app is a rental. One afternoon told you that before your team built anything on top of it.
+
+Kortix holds up on those three steps. Any model provider with your own keys. Sessions boot from a checkout of the project repo. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free, and the [self-hosting guide](/self-hosting) walks the install.`,
+        },
+      ],
+    },
+
+    /* ── open-source-claude-cowork-reddit ─────────────────────────────────── */
+    {
+      slug: 'open-source-claude-cowork-reddit',
+      navLabel: 'Reddit threads',
+      title: 'What Reddit threads show about open source Claude Cowork that the lists hide',
+      metaDescription:
+        'The top open source Claude Cowork lists are published by vendors ranking themselves. Reddit threads record what broke after install, and when.',
+      h1: 'Why open source Claude Cowork lists and Reddit threads disagree',
+      lead: 'Reddit threads on open source Claude Cowork keep returning to two complaints: a build that works on the maker\u0027s laptop and nowhere else, and terms that change after you depend on them. Kortix is the open-source AI Operating System. The vendor lists that rank well carry neither, and the gap is worth an hour of your time.',
+      sections: [
+        {
+          type: 'prose',
+          body: `## The lists are written by one of the entries
+
+Search for an open source Claude Cowork and the same handful of names comes back. The order changes with the page you land on. [Eigent's round-up](https://www.eigent.ai/blog/best-open-source-claude-cowork-alternatives-2026) puts Eigent first and labels it "Best Overall". After it come OpenClaw, Open Cowork, Composio's open Cowork and OpenWork. [Kuse's round-up](https://www.kuse.ai/blogs/top-5-open-source-claude-cowork-alternatives) puts Kuse first. Then OpenWork, Eigent, Composio's project, AionUI.
+
+Both pages lead with the company that pays for the domain. Eigent's page closes by naming Eigent as the one to start with, just before a Download Eigent button. Kuse's page gives Kuse the first slot, then hands its rivals narrower virtues: OpenWork for automation, Eigent for multi-agent work, Composio for integrations, AionUI for monitoring. Three entries repeat across the two lists. What moves is the order, and the top slot always goes to the publisher.
+
+The shape is familiar even without bad faith. A ranked list written by someone with a download button on the page will put their own product first. The shortlist underneath is real. [The alternatives page on this site](/claude-cowork-alternatives) sorts the same projects by where each one runs.
+
+The threads carry an interest too. In [the October 2026 thread that asks for this comparison outright](https://www.reddit.com/r/LocalLLaMA/comments/1wuu9ip/best_opensource_claude_cowork_alternative/), several replies are people linking their own project, or a maintainer declaring an interest before answering. Pretending the threads are neutral would be dishonest. What a thread has that a list does not: a date, a reply button, and someone who installed the thing and came back to say what happened next.
+
+## What the threads keep hitting
+
+The demand is consistent. On the [Show HN thread that launched OpenWork in January 2026](https://news.ycombinator.com/item?id=46612494), one commenter described the reader this niche serves. "I was left hoping for something a bit more batteries included to give to my non technical colleagues" (2026-01-15). Nobody there wanted a chat window. They wanted a harness they could hand to a colleague who will never open a config file.
+
+The failures are consistent too, and they are not the ones a feature table lists. In April 2026 [a thread on r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/comments/1sgnppg/openwork_an_opensource_claude_cowork_alternative/) went after OpenWork over terms that had changed inside a commit rather than in an announcement. The maintainer who made the commit replied that the app itself had not changed. What had moved was the cloud and enterprise part. Whatever you make of that decision, note the shape of the complaint: nobody found out from the home page.
+
+Windows broke hardest. Readers complained that the Windows build sat behind a $99-a-year price while it was still broken. The maker's defense in the same thread is the sentence to keep. "We've been testing the builds with Parallels and got to a stage where we could not replicate some of the issues that other people were reporting because 'it worked on our machines'" (2026-04-10). Days later the Windows builds were back on the releases page.
+
+The terms problem runs wider than one project. The sharpest comment in that thread is about who gets to watch a repo at all. "We need better tools to auto monitor repositories changes, and they need to be independent from the repo owners" (2026-04-09). Another reply names the stake: "transparency is the only currency these projects have. once that's gone, the stars don't mean anything" (2026-04-09). A repository you can read is not a guarantee. Someone still has to diff it.
+
+Then the quieter failure, the one that shows up after the demo. A commenter in the same launch thread, thinking about how Cowork handles files, put it plainly. "giving an LLM permission to edit files without being able to track exactly what it's doing still feels risky" (2026-01-19). A file agent with no record of its edits is one you cannot review. The thread's advice on timing is worth taking literally: "I ignore these things until they're 3-6 months old and still iterating" (2026-01-15).
+
+Read the complaints together. None of them is about features. Each is about where the thing runs, who holds the code, and whether you can see what changed. All three are checkable in an hour.`,
+        },
+        {
+          type: 'comparison',
+          heading: {
+            title: 'What a dated thread gives you that a ranked list does not',
+            sub: 'Three ways to arrive at the same shortlist, and who is answerable for each.',
+          },
+          columns: [
+            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
+            { id: 'desktop-app', label: 'A desktop app named in a thread' },
+            { id: 'vendor-list', label: 'The first entry on a vendor list' },
+          ],
+          rows: [
+            {
+              label: 'Open source',
+              cells: [
+                { text: 'Yes', mark: 'yes' },
+                { text: 'Yes, per its own repo', mark: 'yes' },
+                { text: 'Yes, says the list', mark: 'yes' },
+              ],
+            },
+            {
+              label: 'Where the config lives',
+              cells: ['A git repo you own', 'Settings inside the app', 'Settings inside the app'],
+            },
+            {
+              label: 'Model keys',
+              cells: ['Yours', 'Yours, on its own page', "Yours, on the list's word"],
+            },
+            {
+              label: 'What you can read before install',
+              cells: ['The manifest and the agent files', 'Source code on a forge', 'A marketing page'],
+            },
+            {
+              label: 'Who fixes a break',
+              cells: ['Your repo, your change requests', 'The maintainer, or you', 'The vendor'],
+            },
+            {
+              label: 'Who recommends it',
+              cells: ['This page, and says so', 'A poster, sometimes its author', 'The vendor, in its own first slot'],
+            },
+          ],
+        },
+        {
+          type: 'artifact',
+          heading: { title: "The whole of one agent's governance, in a file you can diff" },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
+            lines: [
+              'agents:',
+              '  kortix:',
+              '    file: agents/kortix.md',
+              '    connectors: all',
+              '    secrets: all',
+              '    kortix_permissions: all',
+              '    skills: all',
+              '    workspace: { project_repository: true }',
+            ],
+          },
+          caption: "The starter manifest's first agent, quoted from the Kortix starter template.",
+        },
+        {
+          type: 'prose',
+          body: `## Five checks that take about an hour
+
+Start with the commit history, filtered to the paths that hold configuration and docs. Look for changes to terms or to the build that no release note mentions. That r/LocalLLaMA thread took three weeks to notice one, which is why the check is yours.
+
+Then open the issue tracker filtered to the operating system you use, and count install problems from the last 60 days. A project with a healthy Mac story and a dead Windows story says so here, in public, long before a round-up mentions it.
+
+Build it from source on a second machine. Or install it there fresh and reproduce one workflow from the project's own documentation. If the setup only works on the machine where the author tested it, you have found the failure the thread described. It cost an hour.
+
+Run one task over a folder of your own files, then look at what changed. Every file the agent touched should appear somewhere you can read, with the old version recoverable. If you cannot answer "what did it do to these files" afterwards, the tool is not ready for work you care about.
+
+Last, decide who can change the rules without you. If you cannot pin a version and revert a configuration change in one command, terms and behavior belong to whoever maintains the project. Your only recourse is to hope they announce the next change.
+
+Kortix is the setup that passed these checks for us, and the reason is structural rather than a feature. The config that governs an agent is a file in your repo, so a change to your setup lands as a diff you can read. Session work reaches \`main\` through a change request. Merge is default-deny for agents. Any model provider with your own keys. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free. [The self-hosting page](/self-hosting) covers what the first run asks for.`,
+        },
+        {
+          type: 'faq',
+          heading: { title: 'Questions the threads answer better than the lists' },
+          items: [
+            {
+              id: 'which-alternative',
+              question: 'Which open source alternative to Claude Cowork do the threads point to?',
+              answer:
+                "Several, and the names move month to month: OpenWork, OpenClaw, Hermes, AionUI and Composio's open Cowork all come up by name. What the threads reward is a property rather than a product: something you can read, build on your own machines, and keep after a reinstall.",
+            },
+            {
+              id: 'is-it-open-source',
+              question: 'Is Claude Cowork open source?',
+              answer:
+                'No. Cowork runs inside the closed Claude app, and since the September 2026 merge there is no separate surface of it to host. Every project called an open source Claude Cowork alternative is a rebuild of the idea by somebody else, usually as a desktop app. [The longer answer](/is-claude-cowork-open-source) has the dates.',
+            },
+            {
+              id: 'why-orders-differ',
+              question: 'Why do vendor lists rank the same products in different orders?',
+              answer:
+                'Because each list puts its own publisher first and fills the remaining slots with real projects, so the set repeats while the order moves. Read the ordering as an advertisement and the entries as a shortlist, then check the threads for what happened after people installed them.',
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: 'Start from a config you can read and revert',
+          sub: 'Your agents, skills and permissions, as files in a repo you own.',
+          ctas: [TRY_KORTIX, cta('Compare the open source options', '/claude-cowork-vs-openwork')],
+        },
+      ],
+    },
+
   ],
 };
 
