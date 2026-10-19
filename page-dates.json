@@ -87,6 +87,10 @@
     "hash": "2193ba9091f3b85e",
     "updated": "2026-10-18"
   },
+  "self-hosted-ai-agent": {
+    "hash": "6823497f3aa44a83",
+    "updated": "2026-10-19"
+  },
   "self-hosted-ai-agent-platform": {
     "hash": "f092af690710df04",
     "updated": "2026-10-17"
@@ -94,6 +98,10 @@
   "self-hosted-ai-workspace": {
     "hash": "892e06e9e90b3e54",
     "updated": "2026-10-17"
+  },
+  "self-hosted-claude-code": {
+    "hash": "adb7397885e3a40a",
+    "updated": "2026-10-19"
   },
   "self-hosting": {
     "hash": "4aefc9a2c722b51d",

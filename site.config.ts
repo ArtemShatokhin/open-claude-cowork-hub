@@ -20,7 +20,7 @@ const site: SiteConfig = {
   siteName: 'Open Source Claude Cowork',
   description:
     'An independent handbook of open-source alternatives to Claude Cowork: what you can read, what you can host, and what you can review. It recommends Kortix, the open-source AI Operating System.',
-  updated: '2026-10-17',
+  updated: '2026-10-19',
   lang: 'en',
   accent: '#1e3a8a',
   fonts: 'system',
@@ -56,6 +56,8 @@ const site: SiteConfig = {
     { label: 'For Mac', href: '/claude-cowork-for-mac' },
     { label: 'Google options', href: '/claude-cowork-alternative-google' },
     { label: 'Free', href: '/claude-cowork-alternative-free' },
+    { label: 'Self-hosted Claude Code', href: '/self-hosted-claude-code' },
+    { label: 'Self-hosted AI agent', href: '/self-hosted-ai-agent' },
   ],
   footer: {
     blurb:
@@ -79,6 +81,8 @@ const site: SiteConfig = {
           { label: 'Self-hosted platform guide', href: '/self-hosted-ai-agent-platform' },
           { label: 'AI workspace', href: '/self-hosted-ai-workspace' },
           { label: 'Orchestration', href: '/ai-agent-orchestration' },
+          { label: 'Self-hosted Claude Code', href: '/self-hosted-claude-code' },
+          { label: 'Self-hosted AI agent', href: '/self-hosted-ai-agent' },
           { label: 'Local LLM', href: '/claude-cowork-local-llm' },
           { label: 'Integrations', href: '/claude-cowork-integrations' },
         ],
@@ -3944,6 +3948,349 @@ Among the three, the free that lasts is the one that lives in software you hold.
           title: 'Pick the free you can keep',
           sub: 'Kortix is open source, free to start on the cloud and free to self-host on a server you own.',
           ctas: [TRY_KORTIX, cta('Read the self-hosting guide', 'https://opensourceclaudecowork.com/self-hosting')],
+        },
+      ],
+    },
+    /* ── self-hosted-claude-code ─────────────────────────────────────────── */
+    {
+      slug: 'self-hosted-claude-code',
+      navLabel: 'Self-hosted Claude Code',
+      title: 'What Self-Hosted Claude Code Leaves You to Own, and What Open Source Changes',
+      metaDescription:
+        "Anthropic's self-hosted Claude Code keeps the control plane and transcript; an open-source harness puts the repo and review on your side.",
+      h1: 'Self-hosted Claude Code: where an open-source harness draws the line',
+      lead: "Self-hosted Claude Code in 2026 means Anthropic's public beta runs cloud sessions on a runner inside your network, not on your laptop. The control plane, the queue and the transcript stay with Anthropic. Kortix is the open-source AI Operating System that puts the harness, the repo and the review on your side.",
+      updated: '2026-10-19',
+      sections: [
+        {
+          type: 'comparison',
+          heading: {
+            title: 'Self-hosted Claude Code against an open-source harness',
+            sub: 'The same four layers, split in different places.',
+          },
+          columns: [
+            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
+            { id: 'anthropic-self-hosted', label: 'Anthropic self-hosted Claude Code', href: 'https://code.claude.com/docs/en/self-hosted-environments' },
+          ],
+          rows: [
+            {
+              label: 'Open source',
+              cells: [{ text: 'Yes', mark: 'yes' }, { text: 'No', mark: 'no' }],
+            },
+            {
+              label: 'What runs on your hardware',
+              cells: [
+                "The platform stack; each session's sandbox stays managed compute",
+                'The runner and the Claude Code processes it starts',
+              ],
+            },
+            {
+              label: 'Where the control plane lives',
+              cells: [
+                'In your instance, on your server',
+                "Anthropic's infrastructure: orchestration, queueing, the claude.ai interface",
+              ],
+            },
+            {
+              label: 'Where session content goes',
+              cells: [
+                'Your instance, sandbox provider and model provider',
+                'api.anthropic.com; Anthropic stores the transcript',
+              ],
+            },
+            {
+              label: 'Model choice',
+              cells: [
+                'Any model provider with your own keys',
+                'Anthropic API, Amazon Bedrock or Google Cloud',
+              ],
+            },
+            {
+              label: 'Who reviews a change',
+              cells: [
+                'A person merges; merge is default-deny for agents',
+                "Your git host's rules; the runner pushes commits",
+              ],
+            },
+            {
+              label: 'Plan needed',
+              cells: [
+                'Self-host is free',
+                'Team or Enterprise; an Owner enables the beta',
+              ],
+            },
+          ],
+          footnote: "Anthropic's cells come from its self-hosted environments documentation, checked October 2026.",
+        },
+        {
+          type: 'artifact',
+          heading: { title: 'The manifest that defines a project' },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: "https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml",
+            lines: [
+              '# Hardware: cpu = cores, memory = GiB, disk = GiB. All optional.',
+              '# sandbox:',
+              '#   templates:',
+              '#     - slug: python',
+              '#       name: Python 3.12',
+              '#       image: python:3.12-slim',
+              '#       cpu: 2',
+              '#       memory: 4',
+              'agents:',
+              '  kortix:',
+              '    file: agents/kortix.md',
+              '    connectors: all',
+            ],
+          },
+          caption: "A sandbox template and the starter agent's grants, copied from the base kortix.yaml.",
+        },
+        {
+          type: 'prose',
+          body: `## Anthropic's beta moves the runner, not the control plane
+
+Anthropic's self-hosted environments are in public beta on Team and Enterprise and off by default; an Owner turns them on in the Cloud environments admin page ([the documentation](https://code.claude.com/docs/en/self-hosted-environments), checked October 2026). Three pieces make the feature. An environment is a named destination in claude.ai admin settings. A runner is a program on a host inside your network. A session is one Claude Code task a developer starts.
+
+When a developer picks your environment, Anthropic's control plane places the session on its queue. A runner claims it, clones the repository the developer chose, and starts a Claude Code process on your host. Traffic back to Anthropic runs over outbound HTTPS: queue polling, the session's event stream, and by default model inference. Anthropic never connects into your network.
+
+That split is the whole story. The runner executes work on your hardware. The queue, the orchestration and the claude.ai interface remain Anthropic-hosted. Repository checkouts, build artifacts, secrets and the files a session creates stay on your machines. The session's content, including prompts, responses and tool results, goes to api.anthropic.com, and Anthropic stores the transcript so the session can resume elsewhere. Model inference uses the Anthropic API unless you configure a runner for Amazon Bedrock or Google Cloud. The transcript goes to Anthropic either way.
+
+Two exclusions narrow the field. The beta is unavailable to organizations with Zero Data Retention enabled or the HIPAA configuration applied. And someone has to build and maintain the runner image, operate the fleet and control its network. Anthropic's own guidance says most teams are better served by its hosted environments.
+
+## The runner image is yours; the queue is not
+
+For a team whose blocker is network reach, the runner image is a real win. Pre-install compilers, SDKs and internal CLIs in the runner image, and every session starts ready to build. Sessions can reach internal services, databases and registries without exposing them to the public internet. A compliance team gets repository checkouts and build artifacts on infrastructure the company controls.
+
+Then look at what the image cannot change. The session still arrives through Anthropic's queue. The transcript still lands on Anthropic's side. The model still comes from Anthropic unless a cloud account takes over inference. The runner is durable work, and it is also a client of a hosted control plane. A team that reads "self-hosted" as "the system is ours" will overestimate what the beta delivers.
+
+The beta fits a specific buyer: an enterprise already on Claude, with cloud sessions in use, whose security review asks where code executes rather than where orchestration lives. That buyer gets network access and a fleet to run. Anthropic stays in the path.
+
+## What open source changes
+
+Kortix takes the other end of the split. The repo is the unit of ownership. Open source. Read it, fork it, audit it.
+
+A project is a git repo with \`kortix.yaml\` at its root, and the manifest holds the pieces that decide how sessions run: sandbox templates, tool lists, agent grants and triggers ([Read the docs](https://kortix.com/docs)). An agent's behavior lives in a markdown file, its governance in the manifest. Change a grant and the change is a diff someone can review.
+
+Sessions do not run on the box that hosts the stack. The self-host README says agent sessions still run on a cloud sandbox provider, Daytona, E2B or Platinum, and that sandboxes are managed compute outside the self-hosted box ([the README](https://github.com/kortix-ai/suna/blob/dev/self-host/README.md), checked October 2026). What stays on your disks is the stack and the instance directory: the database, the stored files and the secrets. What stays in your git is the configuration that defines the fleet. The restart test is the honest one. Power-cycle the host and the stack returns from the instance directory; the agents return from the repo.
+
+The harness is where model choice lives. OpenCode is the harness, and a project can point at a custom OpenAI-compatible endpoint: enter a provider id, base URL and model id, then commit the provider snippet to \`opencode.jsonc\` in the project's config directory ([Read the docs](https://kortix.com/docs/project/models), checked October 2026). Any model provider with your own keys. A self-hosted instance has no managed models, so each project connects its own provider.
+
+That combination changes the question a buyer asks. With Anthropic's beta, the question is which parts of a hosted system can execute in your network. With an open-source harness, it is which files define the system and who may change them. The second question survives a repricing or a product rename, because the answer is a repo you can clone.
+
+## The review gate a runner does not give you
+
+Anthropic's documentation describes the runner's job and stops at the git host. The runner clones and pushes with credentials you configure. What happens between a pushed branch and a merged default branch is your git host's policy, and the review belongs to the team's workflow.
+
+Kortix makes that boundary part of the product. Session work reaches \`main\` through a change request. Merge is default-deny for agents. The agent commits on its session branch, opens the change request and stops. A person reads the diff. An agent can merge only when its grant includes \`project.gitops.merge\`; the starter agent has that grant, and a scoped specialist without it waits for a person.
+
+The gate matters more once configuration lives in the repo. A new skill, a widened connector grant and a changed trigger all arrive as diffs. The same review that catches a bad function catches a permission change. That is the practical difference between owning a runner image and owning the system that defines the work.
+
+## A decision guide for the first quarter
+
+Pick Anthropic's self-hosted environments when the hard requirement is execution inside your network and the rest of the stack can stay with Anthropic. The beta suits an organization on the Team or Enterprise plan that already runs cloud sessions, has people ready to operate a runner fleet, and accepts that the transcript and model calls go to Anthropic. It is the shorter path when the alternative is moving the whole system.
+
+Pick an open-source harness when ownership has to include the configuration, the model route and the review gate, not only the machine that executes. [Kortix](https://kortix.com/blog/self-hosted-claude-cowork) covers that case. Run it on Kortix Cloud, in your VPC, or on [your own on-prem network](/self-hosting). Self-host is free. A team that wants the repo on its own disk and sessions on managed compute can have both.
+
+Change nothing when the team only uses [Claude Code in a terminal or an IDE](/claude-cowork-vs-claude-code). Those sessions already run on the developer's machine, and Anthropic's documentation says there is nothing to configure. A server-side beta adds work only when cloud sessions are part of how the team works.
+
+The mistake to avoid is treating self-hosting as one decision. It is four: where the runner executes, where the control plane lives, where the session content goes, and which files define the system. Anthropic's beta settles the first and keeps the other three. Kortix moves the control plane and the configuration to the team's side, and is candid that sessions still run on managed compute.`,
+        },
+        {
+          type: 'faq',
+          heading: {
+            title: 'Questions the search box asks',
+            sub: "Answers from Anthropic's documentation, checked October 2026.",
+          },
+          items: [
+            {
+              id: 'shcc-1',
+              question: "Can Claude Code be self-hosted?",
+              answer: "Partly. Anthropic's self-hosted environments, in public beta on Team and Enterprise, run cloud sessions on a runner inside your network while the control plane and transcript stay with Anthropic.",
+            },
+            {
+              id: 'shcc-2',
+              question: "Can Claude Code use self-hosted models?",
+              answer: "Not locally. A runner can send model requests to Amazon Bedrock or Google Cloud, and the session transcript still goes to api.anthropic.com.",
+            },
+            {
+              id: 'shcc-3',
+              question: "Can I host a Claude code locally for free?",
+              answer: "The client, yes. Claude Code in a terminal or IDE runs on the developer's own machine at no hosting cost. A self-hosted server environment needs a Team or Enterprise plan.",
+            },
+            {
+              id: 'shcc-4',
+              question: "Can I run a claude code locally?",
+              answer: "Yes. In a terminal or IDE, Claude Code runs on the developer's machine with no server. The self-hosted beta is for cloud sessions a team dispatches to its own network.",
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: 'Run the system you own',
+          sub: 'The repo, the harness and the review stay on your side.',
+          ctas: [TRY_KORTIX],
+        },
+      ],
+    },
+    /* ── self-hosted-ai-agent ────────────────────────────────────────────── */
+    {
+      slug: 'self-hosted-ai-agent',
+      navLabel: 'Self-hosted AI agent',
+      title: 'Open source self-hosted AI agent: what you own, what you rent',
+      metaDescription:
+        "A self-hosted AI agent is a session machine plus the file that governs what it may touch, and Kortix makes both open source.",
+      h1: 'Self-host an open-source AI agent with its own machine and file',
+      lead: "A self-hosted AI agent is two things: the machine its session boots on, and the file in your repo that says what the agent may touch. Kortix is open source, and both artifacts are readable before the first session starts. In many stacks that call themselves self-hosted, the machine half is rented.",
+      updated: '2026-10-19',
+      sections: [
+        {
+          type: 'artifact',
+          id: 'harness',
+          heading: {
+            eyebrow: "Harness",
+            title: "OpenCode turns a model into a session",
+            sub: "The harness is the program that gives the model tools and a working directory, and in Kortix it is OpenCode, configured from a folder in the repo.",
+          },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: "https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml",
+            lines: [
+              "opencode:",
+              "  config_dir: harnesses/opencode",
+            ],
+          },
+        },
+        {
+          type: 'artifact',
+          id: 'governance',
+          heading: {
+            eyebrow: "Governance",
+            title: "The manifest says what an agent may touch",
+            sub: "Grants live in the agents map, and a grant you leave out resolves to none.",
+          },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: "https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml",
+            lines: [
+              "agents:",
+              "  kortix:",
+              "    file: agents/kortix.md",
+              "    connectors: all",
+              "    secrets: all",
+              "    kortix_permissions: all",
+            ],
+          },
+        },
+        {
+          type: 'artifact',
+          id: 'compute',
+          heading: {
+            eyebrow: "Compute",
+            title: "A template names the machine each session boots",
+            sub: "The template carries the image or Dockerfile and the hardware, and leaving it out means sessions boot on the platform image.",
+          },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: "https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml",
+            lines: [
+              "# sandbox:",
+              "#   templates:",
+              "#     - slug: python",
+              "#       image: python:3.12-slim",
+              "#       cpu: 2",
+              "#       memory: 4",
+            ],
+          },
+        },
+        {
+          type: 'prose',
+          body: `## Which layer becomes yours
+
+People use "self-hosted" for three different layers, and most comparisons start from the wrong one. The model is inference: a hosted API behind your own key, a subscription you already pay for, or a server on your hardware. The harness is the program that turns a model into a session with tools, and in Kortix it is OpenCode. The machine is the sandbox one session runs on, created at the start of the session and discarded at the end.
+
+A self-hosted AI agent, in the sense that matters here, is those parts placed by you: the harness, the file that governs what the agent may reach, and the machine its session runs on. Two of the three are code in a git repo. The third is compute, and in most setups that call themselves self-hosted it is rented from a provider even when [the platform runs on your own server](/self-hosted-ai-agent-platform).
+
+[Kortix](https://kortix.com/blog/best-self-hosted-ai-workspace) is open source, which matters here for a narrow reason. The manifest and the template are readable at a public URL before you install anything, at the same address a reviewer will open later.
+
+## The template decides the machine
+
+The [project manifest](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml), \`kortix.yaml\`, carries a \`sandbox.templates\` list. Each entry has a slug and either an \`image\` or a \`dockerfile\` from the repo, plus \`cpu\` in cores, \`memory\` in GiB and \`disk\` in GiB. A project default is set once with \`sandbox.default\`, and a single agent can point at a different template through \`agents.<name>.sandbox\`. Leave the block out and sessions boot on the platform's default image, which clones the repo into \`/workspace\` at start.
+
+Writing the machine down changes a review. An agent that runs a build and an agent that drafts a reply do not need the same memory, and the difference becomes a number in a diff instead of a support request. The template also states a ceiling. A session cannot grow past the box it names, so an agent that runs out of memory is a line to edit.
+
+## The file says what an agent may touch
+
+Governance sits in the \`agents.<name>\` block, and nothing else sits there. Connectors, secrets, skills, Kortix permissions and the workspace boundary are grants. The prompt, the model and the tool rules live in the agent's markdown file, a stock OpenCode agent file that any editor opens. The template calls version 2 deny-by-default: a grant you leave out resolves to none.
+
+This is where a self-hosted install earns the name, because the permission model is a file your review already covers. Grant a connector and the agent can call it. Grant a secret by name and the value stays out of the repo, in the project's secrets, so the file records what is allowed without holding what it unlocks. One line decides what a session can change before it starts. \`workspace.project_repository: true\` gives each session a checkout on its own branch, and \`false\` gives the session no repository access at all.
+
+Connector credentials are brokered server-side and never enter the machine. The file names a connector, and the key stays outside the repo.
+
+## Where the session machine comes from
+
+The Compose project on your server runs the web app, the API, the LLM gateway, the database, auth and storage. None of those services executes an agent turn. Your provider key is what creates each session's machine, on Daytona, E2B or Platinum, and that machine calls back to your instance over the network. The [self-host README](https://github.com/kortix-ai/suna/blob/dev/self-host/README.md) states the consequence without softening it: sandboxes are "managed compute, not part of this box".
+
+So a self-hosted agent in this shape is two ownerships. You hold the file, the review and the stack. You rent the machine, per session, from a provider whose account and key are yours. A security reviewer will ask both questions, and they have different answers.
+
+Renting the machine buys one that is already built: a session starts in seconds, and the work stays off a laptop. The disk it ran on still sits under the provider you chose, under the terms you accepted, which is a boundary worth naming in writing. A team that needs the machine inside its own perimeter is making a second decision, and installing the platform does not make it for them.
+
+One isolated sandbox per session. Each session has its own isolated machine and branch.
+
+## What setup asks for
+
+The README puts the floor at 2 vCPU and 4 GB of memory, with 4 vCPU and 16 GB or more for real use. The server needs a public IP, DNS records for the domain and its API subdomain, and ports 80 and 443 open, as the [self-hosting docs](https://kortix.com/docs/host) lay out. \`kortix self-host init\` then asks about reachability, an admin email, the deployment shape, a sandbox provider and its API key, the optional connector catalog, and the update policy.
+
+No model key appears in that list. A self-hosted instance has no managed models, so the key goes in after the first sign-in, per project ([models docs](https://kortix.com/docs/project/models)). Any model provider with your own keys. A custom OpenAI-compatible endpoint takes the same slot, which is how a local model server joins a self-hosted instance.
+
+Do DNS first, because it is the step that fails. A missing wildcard record for previews turns a link that should open into a path proxy that breaks it.
+
+## Self-hosted or managed, decided by the file
+
+The file travels with the product across placements, so the choice is about who holds what.
+
+- Self-host when the grants, the agent files and the review need to sit behind your own access control, or when a reviewer wants to read the permission file rather than a settings screen.
+- Choose the managed cloud when you want the same repo and the same review without owning Postgres, backups and upgrades.
+- Self-hosting makes the platform yours. It does not move the session machine. If that machine has to stay on infrastructure you control, the sandbox provider is a separate decision, and it is the one most guides in this category skip.
+
+The test is two questions. Who can change a grant, and where does the machine that executes it live? When both answers are acceptable, the install is a formality.`,
+        },
+        {
+          type: 'faq',
+          heading: {
+            title: 'Questions people ask before they choose',
+          },
+          items: [
+            {
+              id: 'shaa-1',
+              question: "Can I host my own AI agent?",
+              answer: "Yes. Kortix is open source and [self-hosts as one Docker Compose stack](/self-hosting) on a Linux server you control. Sessions still boot on a sandbox provider you name, so the platform is yours while the session machine is rented.",
+            },
+            {
+              id: 'shaa-2',
+              question: "What is a self-hosted AI agent?",
+              answer: "It is an agent system you run on infrastructure you control: a harness, a file that governs what the agent may reach, and a machine per session. The machine is often rented from a sandbox provider even when the platform sits on your own server.",
+            },
+            {
+              id: 'shaa-3',
+              question: "Which self-hosted AI agent is best?",
+              answer: "Pick the one whose permission file you can read and review. Kortix suits teams that declare connectors, secrets and workspace access in a repo, with session work landing through a change request a person approves.",
+            },
+            {
+              id: 'shaa-4',
+              question: "What AI platform is best for agents?",
+              answer: "One where configuration lives in a repo you own, the model takes your own key, and each session gets its own machine. Kortix is open source and meets all three, on its cloud or on your server.",
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: 'Read the manifest, then run it',
+          sub: 'One repo holds the agents, the grants and the machine templates.',
+          ctas: [TRY_KORTIX],
         },
       ],
     },
