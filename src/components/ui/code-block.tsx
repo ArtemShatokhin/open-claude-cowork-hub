@@ -138,8 +138,9 @@ export function CodeBlock({
       {footer ??
         (artifact.source ? (
           <div className="border-terminal-row border-t px-4 text-xs">
-            <a {...linkProps({ href: artifact.source })} className="text-cap hover:text-ink flex min-h-11 flex-wrap items-center gap-1.5">
-              <span>Source:</span> <span className="font-mono">{artifact.source}</span>
+            <a {...linkProps({ href: artifact.source })} className="text-cap hover:text-ink flex min-h-11 min-w-0 flex-wrap items-center gap-1.5">
+              <span>Source:</span>{' '}
+              <span className="min-w-0 font-mono break-all">{artifact.source}</span>
             </a>
           </div>
         ) : null)}
