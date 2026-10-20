@@ -1,6 +1,6 @@
 {
   "": {
-    "hash": "4d3e6edcd41252f4",
+    "hash": "d074c04a50bb9bc7",
     "updated": "2026-10-20"
   },
   "ai-agent-orchestration": {
@@ -8,7 +8,7 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-alternative-free": {
-    "hash": "3ac7500faa2062f0",
+    "hash": "c278961bb22b8741",
     "updated": "2026-10-20"
   },
   "claude-cowork-alternative-google": {
@@ -16,7 +16,7 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-alternatives": {
-    "hash": "18bb3acd2f7da6dd",
+    "hash": "d6e14a6ae20b7ce2",
     "updated": "2026-10-20"
   },
   "claude-cowork-data-privacy": {
@@ -24,7 +24,7 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-for-mac": {
-    "hash": "517bbe0d79fbde3b",
+    "hash": "687967ab493d2f92",
     "updated": "2026-10-20"
   },
   "claude-cowork-for-teams": {
@@ -56,7 +56,7 @@
     "updated": "2026-10-20"
   },
   "claude-cowork-pricing": {
-    "hash": "6af83f06917dd920",
+    "hash": "3f63f170488b76d3",
     "updated": "2026-10-20"
   },
   "claude-cowork-security-and-approvals": {
@@ -68,7 +68,7 @@
     "updated": "2026-10-17"
   },
   "claude-cowork-vs-claude-code": {
-    "hash": "782bd566c238510d",
+    "hash": "d3d6992856b3e00b",
     "updated": "2026-10-20"
   },
   "claude-cowork-vs-microsoft-copilot": {
@@ -84,7 +84,7 @@
     "updated": "2026-10-19"
   },
   "claude-cowork-vs-perplexity-computer": {
-    "hash": "b851dc95f5ea4f0e",
+    "hash": "d727e97aa483df20",
     "updated": "2026-10-20"
   },
   "how-to-use-claude-cowork": {
@@ -112,7 +112,7 @@
     "updated": "2026-10-19"
   },
   "self-hosted-ai-agent-platform": {
-    "hash": "ae332aa0ca55e4c4",
+    "hash": "e14094988d5daecb",
     "updated": "2026-10-20"
   },
   "self-hosted-ai-workspace": {

@@ -393,7 +393,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
               id: 'free-alternative',
               question: 'Is there a free alternative to Claude Cowork?',
               answer:
-                'Claude Cowork works with a paid plan today: Pro starts at $17 a month, and usage limits apply ([the product page](https://claude.com/product/cowork), checked October 2026). Free is $0 with 500 credits per month, every feature and 1 project. Self-host is free too, so the open-source route adds no subscription beyond the hardware.',
+                'Claude Cowork works with a paid plan today: Pro starts at $17 a month, and usage limits apply ([the product page](https://claude.com/product/cowork), checked October 2026). Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Self-host is free too, so the open-source route adds no subscription beyond the hardware.',
             },
             {
               id: 'who-reviews',
@@ -1158,7 +1158,7 @@ A first trial needs no DNS at all. The docs' tunnel mode runs the stack on your 
               id: 'cost',
               question: 'What does a self-hosted AI agent platform cost to run?',
               answer:
-                'Two bills: the hardware and the tokens. The managed option bills credits: Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. ([Kortix pricing](https://kortix.com/pricing), checked October 2026). OpenWork\u0027s desktop app is free with your own keys; its cloud plan includes five seats before charging $10 a seat a month ([openworklabs.com](https://openworklabs.com), checked October 2026).',
+                'Two bills: the hardware and the tokens. The managed option bills credits: Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. ([Kortix pricing](https://kortix.com/pricing), checked October 2026). OpenWork\u0027s desktop app is free with your own keys; its cloud plan includes five seats before charging $10 a seat a month ([openworklabs.com](https://openworklabs.com), checked October 2026).',
             },
             {
               id: 'why-self-host',
@@ -1827,7 +1827,7 @@ A company that wants the system owned wants Kortix, with configuration, memory, 
               id: 'cost',
               question: 'What does it cost to run an alternative?',
               answer:
-                'The software is free on all three open options, and the model provider still bills unless you run a local model. Kortix runs on credits: Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
+                'The software is free on all three open options, and the model provider still bills unless you run a local model. Kortix runs on credits: Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
             },
           ],
         },
@@ -2226,7 +2226,7 @@ Self-hosting moves the question off the invoice. "Run it on Kortix Cloud, in you
               id: 'open-source-cost',
               question: 'What does the open source alternative cost?',
               answer:
-                'Kortix prices credits: Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Self-host is free ([Kortix pricing](https://kortix.com/pricing)).',
+                'Kortix prices credits: Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Self-host is free ([Kortix pricing](https://kortix.com/pricing)).',
             },
           ],
         },
@@ -2546,7 +2546,7 @@ Two deeper reads live on the Kortix blog. [Kortix vs Perplexity Computer](https:
               id: 'what-you-keep',
               question: 'What do you keep when you move to the open-source option?',
               answer:
-                'The repo: agents, skills, memory, and connector rules as files in git, with the work\u0027s record in commits and change requests. Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
+                'The repo: agents, skills, memory, and connector rules as files in git, with the work\u0027s record in commits and change requests. Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
             },
           ],
         },
@@ -2827,7 +2827,7 @@ Run the decision as three questions instead of a feature count. A team that live
               id: 'cost',
               question: 'What does each option cost?',
               answer:
-                'Microsoft bills a per-person Microsoft 365 Copilot subscription, then Cowork tasks in Copilot Credits at a posted pay-as-you-go rate of $0.01 per credit; Claude includes Cowork in paid plans, Pro at $17 a month billed annually and Max from $100 (checked October 2026). Kortix: Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
+                'Microsoft bills a per-person Microsoft 365 Copilot subscription, then Cowork tasks in Copilot Credits at a posted pay-as-you-go rate of $0.01 per credit; Claude includes Cowork in paid plans, Pro at $17 a month billed annually and Max from $100 (checked October 2026). Kortix: Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
             },
             {
               id: 'self-host',
@@ -3792,7 +3792,7 @@ Work lands through a change request a person reviews and merges, whichever job p
 
 Anthropic's pricing page lists Claude Code on every paid plan and leaves it off the Free plan (checked October 2026). Cowork rides the same ladder: Pro at $17 a month billed annually, Max 5x at $100, Max 20x at $200. Team sits at $20 a standard seat, Enterprise at $20 a seat with a 20-seat minimum ([claude.com/pricing](https://claude.com/pricing)). Both jobs draw on the same usage limits. Anthropic's own card warns that Cowork "consumes limits faster than Chat", so heavy hand-offs push a team up the tiers.
 
-Kortix retired its seats in October 2026 and prices credits: Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Where the stack runs is a separate decision: run it on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free. The [pricing page on this site](/claude-cowork-pricing) works the Anthropic math in detail. The [self-hosting guide](/self-hosting) takes an operator through the install.`,
+Kortix retired its seats in October 2026 and prices credits: Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Where the stack runs is a separate decision: run it on Kortix Cloud, in your VPC, or on your own on-prem network, and self-host is free. The [pricing page on this site](/claude-cowork-pricing) works the Anthropic math in detail. The [self-hosting guide](/self-hosting) takes an operator through the install.`,
         },
         {
           type: 'prose',
@@ -3935,7 +3935,7 @@ If the setup has to outlive the machine, the balance tips to the open-source sid
               id: 'cost',
               question: 'What does the open-source route cost?',
               answer:
-                'Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
+                'Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool.',
             },
           ],
         },
@@ -4200,7 +4200,7 @@ The catch is written in the project's own install docs, in a section called Requ
 
 What the hosting buys back is the model choice: "Any model provider with your own keys. Or the ChatGPT plan you already pay for." The routing lives in your repo as a setting. Routine work can point at a cheaper model, and the judgment calls keep the strong one.
 
-Running a box is one kind of free, and it is a job. On Kortix Cloud the same system prices credits instead: Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Credits pay for the agent computer, the cloud machine where a session runs, and the machine costs nothing while it is stopped. The post [Is Kortix free?](https://kortix.com/blog/is-kortix-ai-free) on the Kortix blog answers the same question at more length.
+Running a box is one kind of free, and it is a job. On Kortix Cloud the same system prices credits instead: Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool. Credits pay for the agent computer, the cloud machine where a session runs, and the machine costs nothing while it is stopped. The post [Is Kortix free?](https://kortix.com/blog/is-kortix-ai-free) on the Kortix blog answers the same question at more length.
 
 ## Which free fits which reader
 
@@ -4228,7 +4228,7 @@ Among the three, the free that lasts is the one that lives in software you hold.
               id: 'after-free',
               question: 'How much does Kortix cost after the free start?',
               answer:
-                'On Kortix Cloud: Free is $0 with 500 credits per month, every feature and 1 project. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool (checked October 2026). Self-hosting stays free, and your costs are the server and your model provider.',
+                'On Kortix Cloud: Free is $0 with 500 credits per month, every feature and 1 project, on your own provider keys or ChatGPT subscription. Paid plans start at $50 a month for 5,000 credits, and members are free, sharing one credit pool (checked October 2026). Self-hosting stays free, and your costs are the server and your model provider.',
             },
             {
               id: 'team-of-five',
