@@ -51,6 +51,8 @@ const site: SiteConfig = {
     { label: 'Privacy', href: '/claude-cowork-data-privacy' },
     { label: 'How to use', href: '/how-to-use-claude-cowork' },
     { label: 'Integrations', href: '/claude-cowork-integrations' },
+    { label: 'Plugins', href: '/claude-cowork-plugins' },
+    { label: 'Memory', href: '/claude-cowork-memory' },
     { label: 'vs OpenClaw', href: '/claude-cowork-vs-openclaw' },
     { label: 'vs Claude Code', href: '/claude-cowork-vs-claude-code' },
     { label: 'For Mac', href: '/claude-cowork-for-mac' },
@@ -92,6 +94,8 @@ const site: SiteConfig = {
           { label: 'Self-hosted AI agent', href: '/self-hosted-ai-agent' },
           { label: 'Local LLM', href: '/claude-cowork-local-llm' },
           { label: 'Integrations', href: '/claude-cowork-integrations' },
+          { label: 'Cowork plugins', href: '/claude-cowork-plugins' },
+          { label: 'Cowork memory', href: '/claude-cowork-memory' },
         ],
       },
       {
@@ -413,21 +417,42 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
     {
       slug: 'self-hosting',
       navLabel: 'Self-hosting',
-      title: 'The gate after the install: self-hosting an open-source Claude Cowork alternative',
+      title: 'No self-hosted Claude Cowork: what open source makes yours',
       metaDescription:
-        'Self-hosting an open-source Claude Cowork alternative is a couple of commands, and the change-request gate that reviews the work is the part to plan.',
-      h1: 'Self-hosting an open-source Claude Cowork alternative: plan the gate',
-      lead: "People searching for a self-hosted Claude Cowork want a system that runs on their own server. Claude Cowork itself has been a hosted capability of Claude since September 16, 2026. Kortix is the open-source system to run instead: the install is a couple of commands, and the planning goes into the gate that reviews the agents' work.",
+        'There is no self-hosted Claude Cowork. The open source stack that runs instead makes the install the easy half of the move.',
+      h1: 'Self-hosting a Claude Cowork replacement: open source covers the easy half',
+      lead: "No. Claude Cowork runs on Anthropic's servers, and Anthropic publishes no build to install; since September 16, 2026 it is not even a separate product. The stack a team runs instead is Kortix. It is the open-source AI Operating System. This page counts the parts of the move that no installer does for you.",
       sections: [
+        {
+          type: 'comparison',
+          heading: {
+            title: 'Where the work, the rules and the review sit',
+            sub: "Each rival cell comes from that vendor's own pages, read this month.",
+          },
+          columns: [
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs/host', nofollow: true },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
+            { id: 'cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+          ],
+          rows: [
+            { label: 'Open source', cells: ['Yes', 'Yes, the desktop app', 'No'] },
+            { label: 'What you install', cells: ['The stack behind `kortix self-host`', 'A desktop app for macOS, Windows, Linux', 'Nothing; it comes with a paid plan'] },
+            { label: 'Where the work runs', cells: ['Your server, your VPC or Kortix Cloud', 'Your desktop, plus optional cloud workers', "Anthropic's servers, or your own cloud account"] },
+            { label: 'Where the rules live', cells: ['`kortix.yaml` and markdown, in one repo', 'Skills and MCP servers shared by one link', 'Admin settings inside Claude'] },
+            { label: 'Who reviews the work', cells: ['A person merges a change request', 'You read the files on your machine', 'Claude asks before acting by default'] },
+            { label: 'What a move leaves behind', cells: ['Nothing, once the repo and `.env` are copied', 'History, saved credentials, scheduled tasks', 'Chats, projects and connectors stay in Claude'] },
+            { label: 'Model keys', cells: ['Your own provider key, per project', 'Your own keys across 50+ providers', "Anthropic's plan and its usage limits"] },
+          ],
+        },
         {
           type: 'code-panels',
           heading: {
-            title: 'The install, verbatim',
-            sub: 'Commands copied from the Kortix self-hosting docs and the quickstart, checked October 2026.',
+            title: 'The commands, copied from the docs',
+            sub: 'On a server that already runs Docker, a tunnel for a first look, and the review that follows.',
           },
           panels: [
             {
-              tab: 'By hand',
+              tab: 'Server',
               file: 'terminal',
               lang: 'sh',
               source: 'https://kortix.com/docs/host',
@@ -445,7 +470,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
               lines: ['kortix self-host init --tunnel cloudflare', 'kortix self-host start'],
             },
             {
-              tab: 'The gate',
+              tab: 'Review',
               file: 'terminal',
               lang: 'sh',
               source: 'https://kortix.com/docs/quickstart',
@@ -459,85 +484,357 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
           ],
         },
         {
-          type: 'trust',
-          heading: { title: 'What the docs settle', sub: 'Three facts an operator can check in the Kortix self-hosting docs.' },
-          seals: [
-            { line1: 'Self-host is free', line2: 'one Compose stack' },
-            { line1: 'Six things at setup', line2: 'no model key' },
-            { line1: 'Merge gate', line2: 'default-deny for agents' },
-          ],
+          type: 'prose',
+          body: `## Anthropic's own pages settle the first question
+
+Claude Cowork has no self-hosted edition, and nothing is scheduled to change that. The help center describes where the work happens: "Cowork runs your sessions remotely in the cloud (in beta on Team and Enterprise plans), so your sessions and files live with your Claude account and follow you across desktop, web, and mobile" ([Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork), as of October 20, 2026).
+
+The product page offers two placements, and both sit inside Anthropic's estate: a Claude account, or your own cloud provider account through Amazon Bedrock, Google Cloud or Microsoft Foundry ([the Cowork page](https://claude.com/product/cowork), checked October 2026). Neither is a build you put on a machine of your own.
+
+September 16, 2026 removed the last place such an edition could have lived. Anthropic folded Cowork into Claude, and VentureBeat reported that "the Cowork name itself will eventually disappear" ([the report](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides), September 16, 2026). Existing work carried over: chats, projects, artifacts, connectors and skills.
+
+Waiting will not produce a release. A team that wants the work on hardware it controls is choosing another system, and choosing is the easy part. Carrying is the rest of this page.
+
+## The install a stack finishes for you
+
+The platform a team installs in its place is a set of files. What shapes how its agents work, from the skills they load to the memory they keep to the connectors they reach, sits in a repository the team controls, and the sessions run on real cloud computers.
+
+On a server that already runs Docker and Compose, installing it is the three commands in the first panel (checked October 2026). A bootstrap script does the same job on a bare box. Either route writes four files into one instance directory, \`~/.config/kortix/self-host/<instance>/\`: \`docker-compose.yml\`, \`.env\`, a Caddyfile and \`updater.sh\`. Then \`kortix self-host start\` brings up one Compose project. It holds the web app, the API and the gateway that fronts model calls, a migration job that runs once, a daily updater, and the data, auth and storage services. Caddy holds ports 80 and 443.
+
+The setup questions arrive after the download: a reachability mode, the admin email, the sandbox provider, a preview domain, an update policy. One answer is not optional. The docs say it in two lines: "Sessions run on Platinum sandboxes, not on the server. The instance must be reachable from the internet so those sandboxes can call back." A \`PLATINUM_API_KEY\` pays for that compute, and without it no session starts.
+
+That sentence rearranges the plan a team usually has. The box you own holds the platform. The sessions do not run on it. That means a public address, a DNS record and outbound routes before anything works, and a machine behind a locked rack will not do. Tunnel mode, the second panel, is the cheap trial: the web app stays on \`http://localhost:13737\` and only the API is published, at an address that changes whenever the tunnel restarts.
+
+The last two steps sit outside the terminal. Sign up as the admin, connect GitHub at \`/admin/git\`, create a project, then add a model key inside it. A self-hosted instance has no managed models, so every project brings its own provider key. After that, \`kortix self-host doctor\` lists what is still wrong, and every failing check comes with the value to set.
+
+## What never travels in a move
+
+Two vendors describe the same boundary from opposite sides. OpenWork's migration guide lists what its import does not bring: "Conversation history, saved credentials, and scheduled tasks do not move" ([OpenWork's Cowork migration guide](https://openworklabs.com/docs/start-here/migrate-from-claude-cowork), checked October 2026). Anthropic's version is the mirror image, with the same items staying put because the merge kept them in place, memory included: "Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud" ([the help center](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context), checked October 2026).
+
+Read together, the two lists describe one rule. What travels is the material somebody wrote down: a prompt, a permission, a skill, a cadence. What stays is the history that material produced and the credentials it spent. The [Claude Cowork migration kit](https://github.com/ArtemShatokhin/claude-cowork-migration-kit) keeps that list, dated, beside the checklist for the move. A team planning only the install plans the half a vendor will do for it, and the rebuilt order on [the migration walkthrough of this site](/migrate-from-claude-cowork) is the other half.
+
+## Three things the server has to carry
+
+The first is the rules. \`kortix.yaml\` sits at the root of the project repository, and its agents map holds governance alone: the path of each agent's markdown file, and the connectors, secrets, permissions and skills that agent may use. The template's own comment states the default: v2 is deny-by-default, so an omitted grant resolves to none. The excerpt on this page is six lines of it.
+
+The second is the review. Merge is default-deny for agents. The agent commits to a branch of its own and opens a change request, which proposes to merge that branch into the default branch ([Read the docs](https://kortix.com/docs/quickstart), checked October 2026). It stops there. Someone reads the diff first. The grant decides the rest. The starter agent carries \`kortix_permissions: all\`, which lets the API merge what it opened. The managed skill that Kortix adds to every session tells it to stop there, and to hand the change request up instead. Two controls, and the second one is a person.
+
+The third is the keys. Your provider accounts, one per project, billed by the provider that serves them. Nothing about that bill is ours to change, and the configuration line that names it sits in \`.env\` and in the project, in files a reviewer can read.
+
+The code behind the platform is public, so anyone can read it and change it. When the box stops being interesting, the same install runs on Kortix Cloud, and [the page on whether Claude Cowork is open source](/is-claude-cowork-open-source) covers why the other product has nothing to fork.
+
+## The cost, counted in habits
+
+"Self-host is free." Nothing else in the budget is large. A Linux server with a public IP. A Platinum key. A provider bill per project. Attention is the part that does not come bundled with an install:
+
+- A person owns the review queue. Default-deny means nothing lands until someone merges.
+- A person owns the DNS. A and AAAA records for the domain and \`api.<domain>\`, a wildcard \`*.p.<domain>\` for sandbox previews, and ports 80 and 443 open. Without the wildcard, previews fall back to a path proxy that breaks links and doctor fails.
+- A person owns the instance directory. It holds the \`.env\` with every secret and signing key, and \`API_KEY_SECRET\` encrypts every stored secret. Lose that value and the stored credentials stop being readable.
+- A person closes sign-up once the team is in, with \`EMAIL_URL\` or \`DISABLE_SIGNUP=true\`. Until then, anyone who reaches the instance can create a confirmed account, the admin address included.
+- A person watches the updater. It checks once a day, migrates the database before it swaps the app services, keeps the previous version for a rollback, and reports the last outcome in \`kortix self-host status\`.
+
+The bullets are the shape of the answer. Self-hosting a replacement for Cowork is one server and one Compose stack, plus five jobs that a hosted product was quietly doing. A team that can name someone for each of them will run this comfortably, and [what a self-hosted stack keeps after a restart](/self-hosted-ai-agent-platform) is the test to run on the box a month later.
+
+Two alternatives are worth naming and both appear in the table on this page. The desktop case is set out on [the Cowork and OpenWork comparison](/claude-cowork-vs-openwork), which is the nearer read if the work never leaves one laptop.`,
         },
         {
-          type: 'prose',
-          body: `## The install is the short part
-
-Start with what the docs call the install. On a bare Linux server it is one bootstrap command; on a server that already runs Docker and the Compose plugin it is three. The bootstrap installs Docker, installs the CLI and starts the stack with a TLS certificate, and re-running it is safe. Either route writes the same four files into one instance directory: a Compose file, the \`.env\`, a Caddyfile and the updater script.
-
-The questions come after the download, and there are few of them. The first run asks six things and no model key. Sign up as the admin the moment the stack responds. Connect GitHub in the dashboard, at the \`/admin/git\` page the docs name. Create the team account and a project, then add a model key in the app. A self-hosted instance has no managed models, so each project carries its own provider key.
-
-Self-hosting is one of three placements. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free. What comes up is one Compose project: the web app, the API, the LLM gateway, a one-shot migration job, a daily updater, and the database, auth and storage services. Caddy fronts the public ports. The stack has no Redis and no separate worker, so there is one less service to patch and back up.
-
-## What runs on the box, and what never does
-
-Kortix is the open-source AI Operating System, and a self-hosted instance is the whole platform on a server you control. Nothing in that service list runs a session. One isolated sandbox per session. Each session has its own isolated machine and branch. The API creates the machine on a sandbox provider you configure, Daytona by default with Platinum and E2B supported, and the sandbox calls back to the instance's public API URL. That callback is why the instance must be reachable from the internet, and why local mode, which binds every port to \`127.0.0.1\`, runs no sessions at all.
-
-The trade is outbound access. The stack pulls its images from a registry, the pulls need no credentials, and the daily updater checks for new ones once a day. Sessions reach their provider over the network too. A self-hosted instance is not an offline install, so keep outbound routes open to both.
-
-## The gate that reviews the work
-
-Once the stack is up, the question worth planning arrives: what stands between a finished session and your default branch? On Kortix the answer is built in. Session work reaches \`main\` through a change request. Merge is default-deny for agents. The agent commits on its own branch, opens the change request, and stops; a person reads the diff and decides.
-
-The docs make the default precise. An agent declared in \`kortix.yaml\` merges only when its grants include \`project.gitops.merge\`. Without the grant, the merge is refused. The gate panel on this page shows the review from the CLI: list the open change requests, read the diff, merge, then pull the merged work into your clone.
-
-This is the part to plan before the first session runs. The sandbox hands the agent a machine to work in; the change request is the one place its work meets a person. Decide who reads and merges before anyone starts. A review queue with no owner is a queue nobody reads. The configuration gets the same treatment, because agents, skills and company memory are files in a repo, and a change request shows code and settings side by side.
-
-## What to settle in the first week
-
-The install ends in minutes. The rest outlasts it, and each item has a line in the docs.
-
-- The reviewers. Name the people who read and merge each change request; default-deny means nothing merges until someone does.
-- The DNS. A or AAAA records for the domain and \`api.<domain>\`, a wildcard \`*.p.<domain>\` for the sandbox previews, and ports 80 and 443 open before the first start. Without the wildcard, browser previews fall back to a path proxy that breaks links, and \`kortix self-host doctor\` fails.
-- The backups. Stop the stack, copy the instance directory, start it again. The directory holds the \`.env\` with every secret and signing key, the Postgres data and the stored files, and the docs count it as the whole backup. Guard \`API_KEY_SECRET\`: it encrypts every stored secret, and a lost value makes them unreadable.
-- The update policy. The bundled updater pulls new images once a day on the stable channel; \`kortix self-host update --tag <version>\` pins a release instead, and \`status\` reports the last outcome.
-- Closed sign-up. Set \`EMAIL_URL\` or \`DISABLE_SIGNUP=true\` once the team is in. Until then, anyone who reaches the instance can create a confirmed account, the admin address included. Then run \`kortix self-host doctor\` and fix every failing check.
-
-With the reviewers named and the copies off the box, a self-hosted instance behaves like the managed one, and the [getting-started walkthrough](https://kortix.com/blog/getting-started-with-kortix) takes a first project from an empty repo to a merged change request. For the wider comparison of what survives a restart, the [platform guide](/self-hosted-ai-agent-platform) on this site is the place to start.`,
+          type: 'artifact',
+          heading: { title: 'The file that holds the setup after the move' },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
+            lines: [
+              '# v2 is deny-by-default: an omitted connectors/secrets/kortix_permissions/',
+              '# skills grant resolves to "none", so a scoped specialist starts locked down.',
+              'agents:',
+              '  kortix:',
+              '    file: agents/kortix.md',
+              '    kortix_permissions: all',
+            ],
+          },
+          caption:
+            "Six lines from the starter manifest: the agent's markdown file, and the grant that decides what it may do without a person.",
         },
         {
           type: 'faq',
-          heading: { title: 'Questions operators ask before the first session', sub: 'Sourced answers, with the moving facts dated.' },
+          heading: {
+            title: 'The four questions this query arrives with',
+            sub: 'The answer first, then the fact that moves, dated where it moves.',
+          },
           items: [
             {
-              id: 'self-host-cowork',
-              question: 'Can Claude Cowork itself be self-hosted?',
+              id: 'sh-claude-self-hosted',
+              question: 'Can Claude be self-hosted?',
               answer:
-                "No. On September 16, 2026, Anthropic merged Cowork into Claude, and the capability runs in Anthropic's apps on a paid plan; even the cloud-provider options, Amazon Bedrock, Google Cloud and Microsoft Foundry, run Anthropic's managed service ([the product page](https://claude.com/product/cowork), checked October 2026). The self-host path on this page belongs to Kortix.",
+                "No. Claude runs on Anthropic's servers, or in your own cloud provider account through one of the three the Cowork page names. Anthropic publishes no install and no on-premises edition, so there is nothing to put on a machine of your own.",
             },
             {
-              id: 'self-host-claude-code',
-              question: 'Is that the same as self-hosting Claude Code?',
+              id: 'sh-still-cowork',
+              question: 'Does Claude still have cowork?',
               answer:
-                'Claude Code is a terminal coding agent: it runs on your machine, in the terminal, the desktop app or an IDE ([the product page](https://claude.com/product/cowork), checked October 2026). There is no server of yours to host. A self-hosted platform adds what sits around the agent: shared memory, connectors, and a change-request gate over every session.',
+                'The capability, yes; the name is on its way out. Anthropic folded Cowork into Claude on September 16, 2026, and Claude now decides whether a request gets an answer or a task. Sessions still run in the cloud, and existing chats and projects carried over.',
             },
             {
-              id: 'domain',
-              question: 'Do I need a domain to try it?',
+              id: 'sh-run-locally',
+              question: 'Does Claude Cowork run locally?',
               answer:
-                'Not for a first look. \`kortix self-host init --tunnel cloudflare\` keeps the web app on localhost and publishes only the API at an address that changes on every restart. That is enough to judge the system; a stable domain is the production setup.',
+                "Only the front half. Sessions run on Anthropic's servers, and the desktop app is what reaches local files, your browser and your screen. Anthropic documents no mode that runs a session on a machine you own.",
             },
             {
-              id: 'failed-update',
-              question: 'What happens when an update fails midway?',
+              id: 'sh-cost',
+              question: 'How much does it cost to have Claude Cowork?',
               answer:
-                'The updater migrates the database before it touches the app services, so a failed migration swaps nothing and the running version keeps serving. A rollout that misses its health checks keeps the previous version serving too, and \`kortix self-host rollback --release <version>\` names the version to return to.',
+                'Nothing beyond a paid Claude plan, which is the only way in: Pro, Max, Team or Enterprise. The [Cowork page](https://claude.com/product/cowork) lists Pro at $17 and Team seats at $20 (checked October 2026).',
             },
           ],
         },
         {
           type: 'cta',
-          title: 'Name the reviewers, then run the first session',
-          sub: 'A couple of commands brings the stack up; the review plan is what makes the box yours.',
-          ctas: [TRY_KORTIX, cta('See the platform guide', 'https://opensourceclaudecowork.com/self-hosted-ai-agent-platform')],
+          title: 'Name the reviewer, then run the install',
+          sub: 'One Compose stack on a server you own, with a change request as the only way work lands.',
+          ctas: [TRY_KORTIX, cta('What survives a reboot', '/self-hosted-ai-agent-platform')],
+        },
+      ],
+    },
+
+    /* ── claude-cowork-plugins ────────────────────────────────────────────── */
+    {
+      slug: 'claude-cowork-plugins',
+      navLabel: 'Plugins',
+      title: 'Claude Cowork plugins: open source files, a closed runtime',
+      metaDescription:
+        'Claude Cowork plugins are forkable files inside a product you do not host. Kortix, the open-source AI Operating System, keeps those parts in your repo.',
+      h1: 'Claude Cowork plugins are open source; the runtime is not',
+      lead: 'A Claude Cowork plugin is a folder of markdown and JSON that tells Claude how a role gets done: skills, slash commands, connectors, and sub-agents in one package. Kortix, the open-source AI Operating System, keeps the same four things as files in a git repo you own.',
+      sections: [
+        {
+          type: 'prose',
+          body: `## What a Claude Cowork plugin holds
+
+Anthropic answers this in one sentence on its help center, and the sentence is worth reading twice. A plugin "bundles skills, connectors, and sub-agents into a single package, so you get a ready-to-go setup from your first conversation instead of configuring each piece yourself" ([Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude), checked October 2026).
+
+Four parts sit in the package, and all four are files. A skill is markdown carrying how one job is done, and Claude draws on it when that job comes up. A slash command is an action a person triggers on purpose, typed as \`/sales:call-prep\`. Connectors are declared in \`.mcp.json\` and wire the package to the services the role depends on. Sub-agents ship as separate agents inside the same folder.
+
+Anthropic also says where each part runs. Skills and commands work in chat on the web, in the chat tab of Claude Desktop, and in Cowork. Hooks and sub-agents run in Cowork and Claude Code only, so they appear grayed out in chat. Cowork itself has been part of Claude since September 2026 ([the announcement](https://claude.com/resources/articles/cowork-is-now-claude)).
+
+## The catalogue is a repository anyone can read
+
+Anthropic publishes 11 plugins at [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins), described on the repo as "built for Claude Cowork, also compatible with Claude Code". The set covers a company by job function: sales, legal, finance, marketing, product management, support, data, productivity, enterprise search, bio-research, and one that builds more plugins.
+
+Every folder repeats the same shape. \`.claude-plugin/plugin.json\` is the manifest. \`.mcp.json\` holds the tool connections, \`commands/\` the slash commands, and \`skills/\` the domain knowledge. So a reader can answer the question a buyer actually has, which is what the sales plugin will tell Claude to do with a call transcript, before anyone installs it. Anthropic puts the offer plainly at the end: "Plugins are just markdown files. Fork the repo, make your changes, and submit a PR."
+
+That is the half of the story worth keeping. A team can read the skill a plugin ships, hold it against the way the team works, and fork it. Customizing is mostly file edits. Point \`.mcp.json\` at your own tools, drop your terminology and process into the skill files, adjust the workflow where the team does it differently.
+
+## What a fork cannot reach
+
+Three documented details decide what a forked plugin can touch. None of them lives in the folder a team edits.
+
+The install is an account record. "Plugins you add in Claude on the web or in Claude Desktop are saved to your account, not to your computer", and plugins are available "to all paid plans (Pro, Max, Team, Enterprise)". On Team and Enterprise plans an owner can turn on sharing, and a shared plugin arrives view-only, with access gone when the person leaves the organization. Plugins added from a marketplace cannot be shared at all.
+
+The call leaves from Anthropic's cloud. "In Cowork, connectors reach external services through Anthropic's cloud, not through your local network. A custom connector must point to a server that's reachable over the public internet from Anthropic's IP ranges." A plugin edited to reach an internal inventory service still has to clear that rule. The edit is yours. The network path belongs to the product.
+
+The execution boundary is set the same way. Some plugins ship local MCP servers, which Anthropic says "run on your computer with the same permissions as any other program you run". Its advice follows from that: install only from sources you trust, and Enterprise administrators can switch local MCP servers off.
+
+Put the three side by side and the investment splits in two. The skill you wrote, the commands you renamed and the manifest you forked travel with you. Who may install the package, which network the call leaves from and which processes run beside it are settled by a runtime outside the repository, at a layer your reviewers cannot read.
+
+## The same four parts, as files the company reviews
+
+Kortix is the open-source AI Operating System, and a Kortix project is a git repo. The manifest documents its own layout in the header. \`agents/<name>.md\` holds one agent per file, \`skills/<name>/SKILL.md\` holds a skill every harness loads, \`tools/<name>.ts\` holds a tool the project wrote, and \`kortix.yaml\` sits beside them as the governance layer. The mapping from a Cowork plugin is direct:
+
+- the plugin's skill becomes \`skills/<name>/SKILL.md\`, which a reviewer reads in a change request like any other file;
+- its sub-agents become \`agents/<name>.md\`, one markdown file each;
+- its connectors become connector grants in \`kortix.yaml\`, and the manifest is deny-by-default, so an omitted grant resolves to none and a scoped agent starts locked down;
+- its commands become skills and tools the agent can call, listed under \`tools:\` for every agent of the project.
+
+The manifest section on this page shows six lines of that file: the agent's file pointer, its connector grant, its skills grant, and the repo checkout a session gets in \`/workspace\`. Open source. Read it, fork it, audit it. Session work reaches \`main\` through a change request. Merge is default-deny for agents. [Read the docs](https://kortix.com/docs) for the manifest fields and the self-host install.
+
+Placement is the last piece. One isolated sandbox per session. Each session has its own isolated machine and branch. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
+
+So the question a team asks before investing changes shape. With a Cowork plugin, it is whether the tool you need is reachable from Anthropic's IP ranges. With the repo-owned layout, it is whether the file that grants the reach is one you wrote and can show. [Cowork connectors and who holds the credential](/claude-cowork-integrations) takes that second question apart, and [there is no open-source Claude Cowork](/is-claude-cowork-open-source) covers why the product has nothing to fork.
+
+## When a plugin is the right answer
+
+If one person or a small team works inside Claude, the tools are services Anthropic's IP ranges can reach, and nobody needs to approve a config change, install Anthropic's plugins and edit \`.mcp.json\`. An afternoon, no platform to run, and a better starting point than a blank skill file. Building a harness first would buy nothing.
+
+The owned layout starts to pay when the conditions change. Several unattended agents have to share one setup. A connector has to reach a service that is not publicly reachable. A review has to show which agent may touch which system. A person leaving must not take the setup with them. Those are checkable, and a team that fails none of them should keep the plugin and get on with the work.
+
+If the appeal is working on your own files rather than on a system that runs server-side, the [comparison of Cowork against OpenWork](/claude-cowork-vs-openwork) is the nearer read. [The Claude Cowork migration kit](https://github.com/ArtemShatokhin/claude-cowork-migration-kit) is the sibling repository that keeps the dated record of what a move out of Cowork carries and what it leaves behind.`,
+        },
+        {
+          type: 'artifact',
+          heading: { title: 'Six lines of the manifest that registers the same four things' },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
+            lines: [
+              'agents:',
+              '  kortix:',
+              '    file: agents/kortix.md',
+              '    connectors: all',
+              '    skills: all',
+              '    workspace: { project_repository: true }',
+            ],
+          },
+          caption:
+            "The agent's markdown file, its connector grant, its skills grant, and the repo checkout each session gets, exactly as the starter ships them.",
+        },
+        {
+          type: 'faq',
+          heading: {
+            title: "Plugin questions, answered from Anthropic's own pages",
+            sub: 'Each answer starts with the short version.',
+          },
+          items: [
+            {
+              id: 'plugins-best',
+              question: 'Which plugins for Claude Cowork are best?',
+              answer:
+                "Anthropic's own legal, sales, and data plugins, because Anthropic publishes them and anyone can read the files before installing. Start with the one matching the role, then edit `.mcp.json` to point at your tools.",
+            },
+            {
+              id: 'plugins-legal',
+              question: 'Is there a legal plugin for Claude Cowork?',
+              answer:
+                'Yes. Anthropic ships one that reviews contracts, triages NDAs, navigates compliance, assesses risk, and drafts templated responses, wired to Slack, Box, Egnyte, Jira, and Microsoft 365.',
+            },
+            {
+              id: 'plugins-claude-ai',
+              question: 'Does Claude AI have plugins?',
+              answer:
+                'Yes. Plugins work on every paid plan, in chat on the web, in the Claude Desktop chat tab, and in Cowork, and the skills and commands they bundle work in all three.',
+            },
+            {
+              id: 'plugins-integrations',
+              question: 'What integrations does Claude Cowork have?',
+              answer:
+                "Cowork reaches tools through connectors, which means a directory of prebuilt apps plus custom remote MCP connectors. In Cowork those calls leave through Anthropic's cloud, so a custom server must be reachable from its IP ranges.",
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: 'Read the plugin, then decide who owns the runtime',
+          sub: 'One open-source stack, with skills, agents and connectors as files in a repo you own, on Kortix Cloud or your own hardware.',
+          ctas: [TRY_KORTIX, cta('Start self-hosting', 'https://opensourceclaudecowork.com/self-hosting')],
+        },
+      ],
+    },
+
+    /* ── claude-cowork-memory ─────────────────────────────────────────────── */
+    {
+      slug: 'claude-cowork-memory',
+      navLabel: 'Memory',
+      title: 'Claude Cowork memory follows the session, which is why open source keeps it in your repo',
+      metaDescription:
+        "Cowork memory works in cloud sessions and not in local ones, per Anthropic's help center. Open source Kortix keeps project memory in a repo you own.",
+      h1: 'Where Claude Cowork memory lives, and what open source keeps instead',
+      lead: "Yes, Claude Cowork has memory, but only when the session runs in the cloud: Anthropic's help center says sessions that run locally on your computer don't use memory. Kortix is the open-source AI Operating System, where project memory is files in a repository you own. What that difference means for a team is the rest of this page.",
+      sections: [
+        {
+          type: 'prose',
+          body: `## What Anthropic's help center says about memory
+
+One sentence settles the question. Anthropic's [article on chat search and memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context) says this, as of October 20, 2026: "Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud; Cowork sessions that run locally on your computer don't use memory."
+
+A note further down repeats the boundary: "Memory across Cowork and chat only works when Cowork runs in the cloud. It isn't available in Cowork sessions that run locally on your computer." Both sentences come from the same article, and the second one is where the feature stops. Summaries that quote only the first half give the wrong answer to anyone whose session runs on their own machine.
+
+The article also says what memory is made of. Claude saves it as individual topics while you chat, rather than writing a summary after the fact, and each project carries its own. The setting is fixed when a task starts, so a task that begins without memory cannot pick it up later. On Team and Enterprise plans, "owners control whether memory is available, and it's off for each member until they turn it on."
+
+One more fact from the same page matters to anyone comparing setups: memory is switched on by default for Free, Pro, and Max plans, which makes it the default experience for an individual and an opt-in one for a team.
+
+## Where the session runs decides whether memory applies
+
+Anthropic's [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) explains the placement. "Cowork runs your sessions remotely in the cloud (in beta on Team and Enterprise plans), so your sessions and files live with your Claude account and follow you across desktop, web, and mobile." Its mechanics section adds that the work "runs on Anthropic's servers, in an isolated environment, and your sessions and files are saved to your Claude account."
+
+Cloud is the ordinary case today, so the cloud half of the memory article is the half that applies. The answer to "does Claude Cowork have memory" turns on where the session runs.
+
+The product's edges are still moving. The same article now says "Claude Cowork is now just Claude", with Claude deciding whether a request gets a quick answer or a task. Memory behaves as before: it belongs to the account, and it is present when the session runs in the cloud.
+
+## Three questions that separate account memory from company memory
+
+Memory written from one person's chats answers a question about that person. A team has a different question. What does the company know after six months of work, and can anyone open that knowledge, review it, and hand it on? Three questions sort the two arrangements.
+
+**Who can read it.** Memory settings sit on each person's own Settings → Memory screen. On Team and Enterprise plans, a member begins with memory off until they turn it on. What a colleague learned last month is not a document anyone else can open.
+
+**Where it lives.** With the Claude account, on Anthropic's servers, for a session that runs in the cloud. For a session on your own machine, the article says there is no memory to read at all.
+
+**What happens when someone leaves.** A memory built out of one person's chats is held with that account. There is no file to pass to whoever picks up the work, so the context goes with the person.
+
+Account memory does what it says, and it makes one person's Claude more useful over time. The gap opens when "what the company knows" has to hold more than "what I discussed with Claude last month".
+
+## What owned memory looks like in Kortix
+
+In Kortix, memory is a folder. The [Kortix docs](https://kortix.com/docs) describe a project as a git repo with \`kortix.yaml\` at its root, where agents, skills, memory, tools, triggers and connectors are files. The base template says the same in its opening comment block. \`memory/\` is "the project brain (the \`kortix-memory\` skill)", sitting beside \`agents/\`, \`skills/\` and \`tools/\`. The manifest gives the memory tool to every agent of the project, so what one session writes is there for the next person's session in the same repo.
+
+Because memory is a file, a change to it arrives the way every other change does. "Session work reaches \`main\` through a change request. Merge is default-deny for agents." A person reads the diff before it lands, and that review is where a wrong lesson gets caught before it becomes policy. Who can read the folder is an ordinary permission question: "Per-resource permissions for people and agents. Roles, groups, and an audit trail." [The security and approvals page](/claude-cowork-security-and-approvals) takes the gate apart.
+
+Placement stays a choice. "Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free." And the property that matters when a vendor renames a product, merges it, or changes its plan: "Open source. Read it, fork it, audit it." What that covers is set out on [the page about whether Claude Cowork is open source](/is-claude-cowork-open-source).
+
+A person leaving is then a permissions change, and their notes stay in the history. So does every version of a memory file. That history is what a review process needs, and it is the part an account setting cannot give. The [Claude Cowork migration kit](https://github.com/ArtemShatokhin/claude-cowork-migration-kit) lists what moves and what stays when a team leaves Cowork, memory included, each item with the page it came from.
+
+## When account-level memory is enough
+
+For one person working alone, Anthropic's arrangement is the shorter path. Cloud sessions only, and the switch already on. There is no colleague to hand context to and nothing that needs a reviewer, and the memory is genuinely personal: how you like a draft, who your manager is, which deadline moved. Building a repository to hold that would be work with no reader.
+
+The calculation changes with the second person. Two members, each starting with memory off until they turn it on, make a company whose shared knowledge depends on settings nobody audits. That is where a folder in a repo you own starts earning its place.`,
+        },
+        {
+          type: 'artifact',
+          heading: { title: 'The layout the base template ships' },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
+            lines: [
+              '#   agents/<name>.md          one file per agent (`agents.<name>.file`)',
+              '#   skills/<name>/SKILL.md    skills, loaded by every harness',
+              '#   memory/                   the project brain (the `kortix-memory` skill)',
+              '#   tools/<name>.ts           project tools, loaded by every harness (`tools:` below)',
+              '#   harnesses/opencode/       files only OpenCode reads (`opencode.config_dir`)',
+            ],
+          },
+          caption: "Five lines from the manifest in the starter's base template.",
+        },
+        {
+          type: 'faq',
+          heading: {
+            title: 'Four questions the memory answer raises',
+            sub: 'Short answers, with the facts that move dated where they are used.',
+          },
+          items: [
+            {
+              id: 'memory-feature',
+              question: 'Does Claude AI have a memory feature?',
+              answer:
+                'Yes. Claude builds memory from your chats and saves it as individual topics, each one added as you go. On Team and Enterprise plans an owner decides whether the feature is available.',
+            },
+            {
+              id: 'memory-vs-claude',
+              question: 'Is Claude Cowork different from regular Claude?',
+              answer:
+                'Less than it used to be. Anthropic\'s Cowork article says "Claude Cowork is now just Claude", and Claude now decides whether a request gets a quick answer or a task. Cloud sessions, scheduled tasks and shared memory describe the same product.',
+            },
+            {
+              id: 'memory-files',
+              question: 'Does Claude Cowork access your files?',
+              answer:
+                "Yes. On desktop it reads and writes local files without uploads, and in a cloud session it works on the files you hand it and saves the output to your account. Anthropic's Cowork article documents both.",
+            },
+            {
+              id: 'memory-background',
+              question: 'Does Claude Cowork run in the background?',
+              answer:
+                'Yes, in the cloud. Anthropic says a cloud session keeps working when you close your laptop, and scheduled tasks run with no device online. A task that needs something on your machine reaches it through the desktop app.',
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: 'Put the memory where your company can keep it',
+          sub: 'Start on Kortix Cloud, or self-host the whole stack on your own box.',
+          ctas: [TRY_KORTIX, cta('Read the data privacy page', '/claude-cowork-data-privacy')],
         },
       ],
     },

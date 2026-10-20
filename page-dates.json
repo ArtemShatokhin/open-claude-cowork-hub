@@ -47,6 +47,14 @@
     "hash": "68fd08114170f612",
     "updated": "2026-10-18"
   },
+  "claude-cowork-memory": {
+    "hash": "d2c55e393015fd7b",
+    "updated": "2026-10-20"
+  },
+  "claude-cowork-plugins": {
+    "hash": "520031bbb832d88f",
+    "updated": "2026-10-20"
+  },
   "claude-cowork-pricing": {
     "hash": "711be2649cd3da1e",
     "updated": "2026-10-20"
@@ -116,8 +124,8 @@
     "updated": "2026-10-19"
   },
   "self-hosting": {
-    "hash": "4aefc9a2c722b51d",
-    "updated": "2026-10-18"
+    "hash": "f05f34c4c76e506b",
+    "updated": "2026-10-20"
   },
   "what-happened-to-claude-cowork": {
     "hash": "1de134ff5e7f3e96",
