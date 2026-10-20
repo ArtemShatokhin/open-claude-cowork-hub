@@ -421,7 +421,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
       metaDescription:
         'There is no self-hosted Claude Cowork. The open source stack that runs instead makes the install the easy half of the move.',
       h1: 'Self-hosting a Claude Cowork replacement: open source covers the easy half',
-      lead: "No. Claude Cowork runs on Anthropic's servers, and Anthropic publishes no build to install; since September 16, 2026 it is not even a separate product. The stack a team runs instead is Kortix. It is the open-source AI Operating System. This page counts the parts of the move that no installer does for you.",
+      lead: "No. Anthropic publishes no build of Claude Cowork; sessions run on Anthropic's servers. On September 16, 2026 Anthropic folded Cowork into Claude: the name will eventually disappear, the rollout is gradual, the unified experience in beta on Enterprise. Kortix, the open-source AI Operating System, is the stack a team runs instead; this page covers the rest of the move.",
       sections: [
         {
           type: 'comparison',
@@ -440,7 +440,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
             { label: 'Where the work runs', cells: ['Your server, your VPC or Kortix Cloud', 'Your desktop, plus optional cloud workers', "Anthropic's servers, or your own cloud account"] },
             { label: 'Where the rules live', cells: ['`kortix.yaml` and markdown, in one repo', 'Skills and MCP servers shared by one link', 'Admin settings inside Claude'] },
             { label: 'Who reviews the work', cells: ['A person merges a change request', 'You read the files on your machine', 'Claude asks before acting by default'] },
-            { label: 'What a move leaves behind', cells: ['Nothing, once the repo and `.env` are copied', 'History, saved credentials, scheduled tasks', 'Chats, projects and connectors stay in Claude'] },
+            { label: 'What a move leaves behind', cells: ['Nothing, once the repo and instance directory (secrets, database, files) are copied', 'History, saved credentials, scheduled tasks', 'Chats, projects and connectors stay in Claude'] },
             { label: 'Model keys', cells: ['Your own provider key, per project', 'Your own keys across 50+ providers', "Anthropic's plan and its usage limits"] },
           ],
         },
@@ -491,7 +491,7 @@ Claude Cowork has no self-hosted edition, and nothing is scheduled to change tha
 
 The product page offers two placements, and both sit inside Anthropic's estate: a Claude account, or your own cloud provider account through Amazon Bedrock, Google Cloud or Microsoft Foundry ([the Cowork page](https://claude.com/product/cowork), checked October 2026). Neither is a build you put on a machine of your own.
 
-September 16, 2026 removed the last place such an edition could have lived. Anthropic folded Cowork into Claude, and VentureBeat reported that "the Cowork name itself will eventually disappear" ([the report](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides), September 16, 2026). Existing work carried over: chats, projects, artifacts, connectors and skills.
+September 16, 2026 closed off the last place such an edition could have lived. Anthropic's help center carries the change: "Claude Cowork is now just Claude", with the merge "rolling out gradually to Pro and Max plans, and it's in beta for Enterprise plans" ([Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork), checked October 2026). The name is the part that goes, and VentureBeat reported that day it "will eventually disappear" ([the report](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides), September 16, 2026). Existing work carried over: chats, projects, artifacts, connectors and skills.
 
 Waiting will not produce a release. A team that wants the work on hardware it controls is choosing another system, and choosing is the easy part. Carrying is the rest of this page.
 
@@ -511,7 +511,7 @@ The last two steps sit outside the terminal. Sign up as the admin, connect GitHu
 
 Two vendors describe the same boundary from opposite sides. OpenWork's migration guide lists what its import does not bring: "Conversation history, saved credentials, and scheduled tasks do not move" ([OpenWork's Cowork migration guide](https://openworklabs.com/docs/start-here/migrate-from-claude-cowork), checked October 2026). Anthropic's version is the mirror image, with the same items staying put because the merge kept them in place, memory included: "Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud" ([the help center](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context), checked October 2026).
 
-Read together, the two lists describe one rule. What travels is the material somebody wrote down: a prompt, a permission, a skill, a cadence. What stays is the history that material produced and the credentials it spent. The [Claude Cowork migration kit](https://github.com/ArtemShatokhin/claude-cowork-migration-kit) keeps that list, dated, beside the checklist for the move. A team planning only the install plans the half a vendor will do for it, and the rebuilt order on [the migration walkthrough of this site](/migrate-from-claude-cowork) is the other half.
+Read together, the two lists describe one rule. What travels is the material somebody wrote down: a prompt, a permission, a skill, a cadence. What stays is the history that material produced and the credentials it spent. A team planning only the install plans the half a vendor will do for it, and the rebuilt order on [the migration walkthrough of this site](/migrate-from-claude-cowork) is the other half.
 
 ## Three things the server has to carry
 
@@ -573,7 +573,7 @@ Two alternatives are worth naming and both appear in the table on this page. The
               id: 'sh-still-cowork',
               question: 'Does Claude still have cowork?',
               answer:
-                'The capability, yes; the name is on its way out. Anthropic folded Cowork into Claude on September 16, 2026, and Claude now decides whether a request gets an answer or a task. Sessions still run in the cloud, and existing chats and projects carried over.',
+                'The capability, yes; the name is on its way out. Anthropic folded Cowork into Claude on September 16, 2026, and Claude decides whether a request gets an answer or a task. The change is rolling out gradually to Pro and Max, and it is in beta on Enterprise, where an admin turns it on. Sessions still run in the cloud, and existing chats and projects carried over.',
             },
             {
               id: 'sh-run-locally',
@@ -678,7 +678,7 @@ If one person or a small team works inside Claude, the tools are services Anthro
 
 The owned layout starts to pay when the conditions change. Several unattended agents have to share one setup. A connector has to reach a service that is not publicly reachable. A review has to show which agent may touch which system. A person leaving must not take the setup with them. Those are checkable, and a team that fails none of them should keep the plugin and get on with the work.
 
-If the appeal is working on your own files rather than on a system that runs server-side, the [comparison of Cowork against OpenWork](/claude-cowork-vs-openwork) is the nearer read. [The Claude Cowork migration kit](https://github.com/ArtemShatokhin/claude-cowork-migration-kit) is the sibling repository that keeps the dated record of what a move out of Cowork carries and what it leaves behind.`,
+If the appeal is working on your own files rather than on a system that runs server-side, the [comparison of Cowork against OpenWork](/claude-cowork-vs-openwork) is the nearer read.`,
         },
         {
           type: 'faq',
@@ -789,7 +789,7 @@ Because memory is a file, a change to it arrives the way every other change does
 
 Placement stays a choice. "Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free." And the property that matters when a vendor renames a product, merges it, or changes its plan: "Open source. Read it, fork it, audit it." What that covers is set out on [the page about whether Claude Cowork is open source](/is-claude-cowork-open-source).
 
-A person leaving is then a permissions change, and their notes stay in the history. So does every version of a memory file. That history is what a review process needs, and it is the part an account setting cannot give. The [Claude Cowork migration kit](https://github.com/ArtemShatokhin/claude-cowork-migration-kit) lists what moves and what stays when a team leaves Cowork, memory included, each item with the page it came from.
+A person leaving is then a permissions change, and their notes stay in the history. So does every version of a memory file. That history is what a review process needs, and it is the part an account setting cannot give.
 
 ## When account-level memory is enough
 
