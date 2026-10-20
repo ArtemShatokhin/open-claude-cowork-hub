@@ -3,7 +3,7 @@
  * closing sign-off slip (cta).
  *  - ArtifactSection: heading with the thumb-tab, the exhibit plate, the caption muted.
  *  - ProseSection: the chapter copy on the centered reading measure inside HB.
- *  - CtaBand: a framed card with a mono dateline strip from the config (domain + updated), the
+ *  - CtaBand: a framed card with a mono strip from the config (domain), the
  *    accent top rule, copy left and CTAs stacked full-width right, the mono trust line under a
  *    hairline.
  */
@@ -57,9 +57,7 @@ export function CtaBand({ section }: { section: CtaSection }) {
           <div className="border-border relative overflow-hidden rounded-lg border">
             <span aria-hidden className="bg-rule-accent absolute inset-x-0 top-0 h-0.5" />
             <div className="border-border bg-surface flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3 sm:px-6">
-              <p className="text-cap font-mono text-xs">
-                {site.domain} · <span className="hb-date">updated {site.updated}</span>
-              </p>
+              <p className="text-cap font-mono text-xs">{site.domain}</p>
               <p className="text-cap hb-date font-mono text-xs">© {year}</p>
             </div>
             <div className="grid gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-12 lg:items-end lg:gap-8">

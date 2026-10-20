@@ -179,10 +179,10 @@ const site: SiteConfig = {
             sub: "Rival cells come from each vendor's own pages, checked October 2026.",
           },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'chatgpt-work', label: 'ChatGPT Work', note: 'the rival', href: 'https://openai.com/chatgpt-work' },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'chatgpt-work', label: 'ChatGPT Work', href: 'https://openai.com/chatgpt-work' },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
           ],
           rows: [
             {
@@ -556,10 +556,10 @@ With the reviewers named and the copies off the box, a self-hosted instance beha
           type: 'comparison',
           heading: { title: 'Three kinds, measured on what a team owns', sub: 'Every rival cell comes from that project\u0027s own site or repository, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'the company platform', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
-            { id: 'crewai', label: 'CrewAI', note: 'the framework', href: 'https://www.crewai.com' },
-            { id: 'autogpt', label: 'AutoGPT', note: 'the autonomous agent', href: 'https://github.com/Significant-Gravitas/AutoGPT' },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
+            { id: 'crewai', label: 'CrewAI', href: 'https://www.crewai.com' },
+            { id: 'autogpt', label: 'AutoGPT', href: 'https://github.com/Significant-Gravitas/AutoGPT' },
           ],
           rows: [
             {
@@ -719,9 +719,9 @@ Pick the kind before the brand. Agent steps inside an application the team alrea
           type: 'comparison',
           heading: { title: 'Three projects, one restart test', sub: 'Each rival cell comes from that project\u0027s own site or docs, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
-            { id: 'eigent', label: 'Eigent', note: 'the self-hosted desk', href: 'https://www.eigent.ai/docs/self-hosting' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
+            { id: 'eigent', label: 'Eigent', href: 'https://www.eigent.ai/docs/self-hosting' },
           ],
           rows: [
             {
@@ -922,10 +922,10 @@ A first trial needs no DNS at all. The docs' tunnel mode runs the stack on your 
           type: 'comparison',
           heading: { title: 'Four workspaces, two layers each', sub: 'Every cell comes from the product\u0027s own site, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
-            { id: 'eigent', label: 'Eigent', note: 'the workforce desk', href: 'https://www.eigent.ai/docs/self-hosting' },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
+            { id: 'eigent', label: 'Eigent', href: 'https://www.eigent.ai/docs/self-hosting' },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
           ],
           rows: [
             {
@@ -1077,10 +1077,10 @@ Start with the tooling layer. It is the half that decides who owns the work, and
           type: 'comparison',
           heading: { title: 'Four orchestration options, compared on the gate', sub: 'What starts a run, where the wiring lives, and who checks the work.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'crewai', label: 'CrewAI', note: 'the framework', href: 'https://github.com/crewAIInc/crewAI' },
-            { id: 'langgraph', label: 'LangGraph', note: 'the stateful framework', href: 'https://github.com/langchain-ai/langgraph' },
-            { id: 'n8n', label: 'n8n', note: 'the visual platform', href: 'https://github.com/n8n-io/n8n' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'crewai', label: 'CrewAI', href: 'https://github.com/crewAIInc/crewAI' },
+            { id: 'langgraph', label: 'LangGraph', href: 'https://github.com/langchain-ai/langgraph' },
+            { id: 'n8n', label: 'n8n', href: 'https://github.com/n8n-io/n8n' },
           ],
           rows: [
             {
@@ -1256,9 +1256,9 @@ Orchestration is not always the answer. One agent in one session covers a lookup
           type: 'comparison',
           heading: { title: 'Who reviews the work, and who can audit it', sub: 'Rival cells state what each vendor\u0027s own pages document, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'chatgpt-work', label: 'ChatGPT Work', note: 'the rival', href: 'https://openai.com/chatgpt-work' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'chatgpt-work', label: 'ChatGPT Work', href: 'https://openai.com/chatgpt-work' },
           ],
           rows: [
             {
@@ -1411,10 +1411,10 @@ If the work can live in the vendor's app, pick the chat product you already pay 
           type: 'comparison',
           heading: { title: 'The field, sorted by where the capability runs', sub: 'Every rival cell comes from that product\u0027s own pages, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
-            { id: 'eigent', label: 'Eigent', note: 'the workforce desk', href: 'https://www.eigent.ai' },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
+            { id: 'eigent', label: 'Eigent', href: 'https://www.eigent.ai' },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
           ],
           rows: [
             {
@@ -1821,12 +1821,12 @@ After the first job merges, the rest of the setup follows the same path, one pro
             periodLabel: '/mo',
             seats: { label: 'Seats', min: 1, max: 150, default: 5 },
             options: [
-              { id: 'pro', label: 'Pro, one seat', perSeat: 0, flat: 17, note: 'For one person now and then or most days; $200 billed annually, $20 billed monthly' },
-              { id: 'max-5x', label: 'Max 5x, one seat', perSeat: 0, flat: 100, note: 'For one seat worked all day' },
-              { id: 'max-20x', label: 'Max 20x, one seat', perSeat: 0, flat: 200, note: 'For one seat worked all day' },
-              { id: 'team-standard', label: 'Team standard seat', perSeat: 20, note: '$25 a seat billed monthly' },
-              { id: 'team-premium', label: 'Team premium seat', perSeat: 100, note: '5x usage; $125 a seat billed monthly' },
-              { id: 'enterprise', label: 'Enterprise seat', perSeat: 20, note: '20-seat minimum, plus usage at API rates' },
+              { id: 'pro', label: 'Pro, one seat', perSeat: 0, flat: 17 },
+              { id: 'max-5x', label: 'Max 5x, one seat', perSeat: 0, flat: 100 },
+              { id: 'max-20x', label: 'Max 20x, one seat', perSeat: 0, flat: 200 },
+              { id: 'team-standard', label: 'Team standard seat', perSeat: 20 },
+              { id: 'team-premium', label: 'Team premium seat', perSeat: 100 },
+              { id: 'enterprise', label: 'Enterprise seat', perSeat: 20 },
             ],
             footnote:
               'US dollars per month, annual billing unless the line says monthly. The Pro card on Anthropic\u0027s product page says "Claude Cowork consumes limits faster than Chat. For heavy usage, consider upgrading," so heavier use climbs this ladder rather than adding an overage line. On Team, extra usage bills at API rates. Source: claude.com/product/cowork and claude.com/pricing, checked October 2026.',
@@ -1836,9 +1836,9 @@ After the first job merges, the rest of the setup follows the same path, one pro
           type: 'comparison',
           heading: { title: 'Three ways to pay for agent work', sub: 'Each cell comes from the vendor\u0027s own pages, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
           ],
           rows: [
             {
@@ -1966,9 +1966,9 @@ Self-hosting moves the question off the invoice. "Run it on Kortix Cloud, in you
           type: 'comparison',
           heading: { title: 'The two questions, asked of all three', sub: 'Each rival cell states only what that vendor\u0027s own pages say, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
           ],
           rows: [
             {
@@ -2116,9 +2116,9 @@ The [self-hosting guide](/self-hosting) on this site walks the install, and the 
           type: 'comparison',
           heading: { title: 'What each option keeps of yours', sub: 'Every rival cell restates that vendor\u0027s own page, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'perplexity', label: 'Perplexity Computer', note: 'the rival', href: 'https://www.perplexity.ai/computer' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'perplexity', label: 'Perplexity Computer', href: 'https://www.perplexity.ai/computer' },
           ],
           rows: [
             {
@@ -2286,8 +2286,8 @@ Two deeper reads live on the Kortix blog. [Kortix vs Perplexity Computer](https:
           type: 'comparison',
           heading: { title: 'Three questions every reviewer asks', sub: 'Rival cells come from Anthropic\u0027s own pricing and product pages, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-team', label: 'Claude Team plan', note: 'the reference', href: 'https://claude.com/pricing' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-team', label: 'Claude Team plan', href: 'https://claude.com/pricing' },
           ],
           rows: [
             {
@@ -2427,12 +2427,11 @@ The merge made Cowork easier to reach. It changed nothing about who holds the ga
           type: 'comparison',
           heading: { title: 'The levers, the record, and the exit, compared', sub: 'Every rival cell comes from the vendor\u0027s own pages, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
             {
               id: 'microsoft-copilot',
               label: 'Microsoft Copilot',
-              note: 'the rival',
               href: 'https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview',
             },
           ],
@@ -3106,11 +3105,10 @@ Kortix runs that way, and where it runs is your call: Run it on Kortix Cloud, in
           type: 'comparison',
           heading: { title: 'Reach and credentials, side by side', sub: 'Every Cowork cell states what Anthropic\u0027s own help pages document, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
+            { id: 'kortix', label: 'Kortix', highlight: true },
             {
               id: 'claude-cowork',
               label: 'Claude Cowork',
-              note: 'the reference',
               href: 'https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities',
             },
           ],
@@ -3243,9 +3241,9 @@ The second half is per-agent. Grants live in \`kortix.yaml\` beside the code. An
           type: 'comparison',
           heading: { title: 'Kortix, Claude Cowork and OpenClaw, in five rows', sub: 'Each rival column states only what its own pages document, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'openclaw', label: 'OpenClaw', note: 'the personal desk', href: 'https://github.com/openclaw/openclaw' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'openclaw', label: 'OpenClaw', href: 'https://github.com/openclaw/openclaw' },
           ],
           rows: [
             {
@@ -3401,9 +3399,9 @@ For the wider argument, [Kortix vs OpenClaw](https://kortix.com/blog/kortix-vs-o
           type: 'comparison',
           heading: { title: 'The two Anthropic jobs beside the open-source system', sub: 'Anthropic\u0027s cells restate its product page, Claude Code docs, and pricing page, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'claude-code', label: 'Claude Code', note: 'the rival', href: 'https://code.claude.com/docs/en/overview' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'claude-code', label: 'Claude Code', href: 'https://code.claude.com/docs/en/overview' },
           ],
           rows: [
             {
@@ -3677,10 +3675,10 @@ If the setup has to outlive the machine, the balance tips to the open-source sid
           type: 'comparison',
           heading: { title: 'Four options, one ownership question', sub: 'Every rival cell comes from that vendor\u0027s own pages, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
-            { id: 'gemini-enterprise', label: 'Gemini Enterprise', note: 'the work agent', href: 'https://cloud.google.com/gemini-enterprise' },
-            { id: 'antigravity', label: 'Antigravity', note: 'the developer agent', href: 'https://antigravity.google' },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
+            { id: 'gemini-enterprise', label: 'Gemini Enterprise', href: 'https://cloud.google.com/gemini-enterprise' },
+            { id: 'antigravity', label: 'Antigravity', href: 'https://antigravity.google' },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
           ],
           rows: [
             {
@@ -3840,9 +3838,9 @@ Staying inside Anthropic on a paid plan keeps Claude Cowork, which since Septemb
           type: 'comparison',
           heading: { title: 'Three kinds of free, priced', sub: 'Every rival cell comes from that vendor\u0027s own pages, checked October 2026.' },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
+            { id: 'kortix', label: 'Kortix', highlight: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
           ],
           rows: [
             {
@@ -3979,7 +3977,7 @@ Among the three, the free that lasts is the one that lives in software you hold.
             sub: 'The same four layers, split in different places.',
           },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true },
+            { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'anthropic-self-hosted', label: 'Anthropic self-hosted Claude Code', href: 'https://code.claude.com/docs/en/self-hosted-environments' },
           ],
           rows: [
@@ -4344,9 +4342,9 @@ That is the design, and Anthropic says so plainly. Its safety page puts the limi
             sub: "One row decides the rest: what a person's work is attached to when they leave.",
           },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
-            { id: 'claude-cowork', label: 'Claude Cowork', note: 'the reference', href: 'https://claude.com/product/cowork' },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://github.com/different-ai/openwork' },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
+            { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
+            { id: 'openwork', label: 'OpenWork', href: 'https://github.com/different-ai/openwork' },
           ],
           rows: [
             {
@@ -4473,7 +4471,7 @@ On the open-source side the answer survives the third step: the repo is still yo
             sub: "Every rival cell comes from that project's own README, checked 19 October 2026.",
           },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
             { id: 'openwork', label: 'OpenWork', href: 'https://github.com/different-ai/openwork' },
             { id: 'open-claude-cowork', label: 'Open Claude Cowork', href: 'https://github.com/composio-community/open-claude-cowork' },
             { id: 'open-cowork', label: 'Open Cowork', href: 'https://github.com/OpenCoworkAI/open-cowork' },
@@ -4665,7 +4663,7 @@ Read the complaints together. None of them is about features. Each is about wher
             sub: 'Three ways to arrive at the same shortlist, and who is answerable for each.',
           },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
             { id: 'desktop-app', label: 'A desktop app named in a thread' },
             { id: 'vendor-list', label: 'The first entry on a vendor list' },
           ],
@@ -4810,7 +4808,7 @@ Kortix is built so that layer is a repository. An agent is a markdown file under
 
 \`kortix.yaml\` registers what exists in the project, and each agent enables what it needs by name. An omitted grant resolves to \`none\`, so a narrow agent starts with nothing ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). Work then lands the way code lands. Session work reaches \`main\` through a change request, and merge is default-deny for agents. An admin can grant \`project.gitops.merge\` to change that.
 
-The repo is readable, the permission is a diff a colleague reviews, and the log is yours to export. Who may merge is written down too. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
+The repo is readable, the permission is a diff a colleague reviews, and the log is exportable on the plans that include export. Who may merge is written down too. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
 
 If you are still working out what the product was, [what Claude Cowork is](/what-is-claude-cowork) covers it. [The alternatives page](/claude-cowork-alternatives) sorts the open projects by where they run, and [moving a team off Cowork](/migrate-from-claude-cowork) covers the handover.`,
         },
@@ -4821,10 +4819,10 @@ If you are still working out what the product was, [what Claude Cowork is](/what
             sub: "Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work, with each rival cell taken from that vendor's own pages in October 2026.",
           },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://kortix.com', nofollow: true },
-            { id: 'claude', label: 'Claude, with Cowork inside it', note: 'the reference', href: 'https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude' },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
-            { id: 'chatgpt-work', label: 'ChatGPT Work', note: 'the rival', href: 'https://openai.com/index/chatgpt-for-your-most-ambitious-work' },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com', nofollow: true },
+            { id: 'claude', label: 'Claude, with Cowork inside it', href: 'https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude' },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
+            { id: 'chatgpt-work', label: 'ChatGPT Work', href: 'https://openai.com/index/chatgpt-for-your-most-ambitious-work' },
           ],
           rows: [
             {
@@ -4857,8 +4855,8 @@ If you are still working out what the product was, [what Claude Cowork is](/what
             {
               label: 'Audit trail',
               cells: [
-                'Every action is recorded',
-                'Enterprise audit logs, and a Compliance API',
+                'Every action is recorded; reading and export depend on the plan',
+                'Compliance API transcripts for Enterprise; no Cowork events in the audit log',
                 'Not documented',
                 'A Compliance API for Enterprise and Edu',
               ],
@@ -5026,10 +5024,10 @@ A reviewer can put four questions to any product that runs agents, and each one 
             sub: 'Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work, and every rival cell comes from that vendor\'s own pages or documentation in October 2026.',
           },
           columns: [
-            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://kortix.com', nofollow: true },
-            { id: 'claude', label: 'Claude, with Cowork inside it', note: 'the reference', href: 'https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide' },
-            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com/enterprise' },
-            { id: 'chatgpt-work', label: 'ChatGPT Work', note: 'the rival', href: 'https://learn.chatgpt.com/docs/get-started-with-work' },
+            { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com', nofollow: true },
+            { id: 'claude', label: 'Claude, with Cowork inside it', href: 'https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide' },
+            { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com/enterprise' },
+            { id: 'chatgpt-work', label: 'ChatGPT Work', href: 'https://learn.chatgpt.com/docs/get-started-with-work' },
           ],
           rows: [
             {

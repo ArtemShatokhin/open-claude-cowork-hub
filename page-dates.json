@@ -1,6 +1,6 @@
 {
   "": {
-    "hash": "f632eb37c9884ee7",
+    "hash": "ef77cf7038358c66",
     "updated": "2026-10-20"
   },
   "ai-agent-orchestration": {
@@ -36,8 +36,8 @@
     "updated": "2026-10-18"
   },
   "claude-cowork-github-projects": {
-    "hash": "fb4aed35f4e2df66",
-    "updated": "2026-10-19"
+    "hash": "c619bb11fded0e1e",
+    "updated": "2026-10-20"
   },
   "claude-cowork-integrations": {
     "hash": "d4ac834d9ac751ba",
@@ -48,8 +48,8 @@
     "updated": "2026-10-18"
   },
   "claude-cowork-pricing": {
-    "hash": "c6c5e461bd6fd9a0",
-    "updated": "2026-10-19"
+    "hash": "711be2649cd3da1e",
+    "updated": "2026-10-20"
   },
   "claude-cowork-security-and-approvals": {
     "hash": "3496d6c3fd47e491",
@@ -120,11 +120,11 @@
     "updated": "2026-10-18"
   },
   "what-happened-to-claude-cowork": {
-    "hash": "8c59a517536c911d",
+    "hash": "f72bd029a85b3929",
     "updated": "2026-10-20"
   },
   "what-is-claude-cowork": {
-    "hash": "c8c2c12ed38e304d",
-    "updated": "2026-10-19"
+    "hash": "8b54ff6b91ebb8a6",
+    "updated": "2026-10-20"
   }
 }
