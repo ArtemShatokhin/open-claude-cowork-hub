@@ -609,6 +609,25 @@ Two alternatives are worth naming and both appear in the table on this page. The
       lead: 'A Claude Cowork plugin is a folder of markdown and JSON that tells Claude how a role gets done: skills, slash commands, connectors, and sub-agents in one package. Kortix, the open-source AI Operating System, keeps the same four things as files in a git repo you own.',
       sections: [
         {
+          type: 'artifact',
+          heading: { title: 'Six lines of the manifest that registers the same four things' },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
+            lines: [
+              'agents:',
+              '  kortix:',
+              '    file: agents/kortix.md',
+              '    connectors: all',
+              '    skills: all',
+              '    workspace: { project_repository: true }',
+            ],
+          },
+          caption:
+            "The agent's markdown file, its connector grant, its skills grant, and the repo checkout each session gets, exactly as the starter ships them.",
+        },
+        {
           type: 'prose',
           body: `## What a Claude Cowork plugin holds
 
@@ -660,25 +679,6 @@ If one person or a small team works inside Claude, the tools are services Anthro
 The owned layout starts to pay when the conditions change. Several unattended agents have to share one setup. A connector has to reach a service that is not publicly reachable. A review has to show which agent may touch which system. A person leaving must not take the setup with them. Those are checkable, and a team that fails none of them should keep the plugin and get on with the work.
 
 If the appeal is working on your own files rather than on a system that runs server-side, the [comparison of Cowork against OpenWork](/claude-cowork-vs-openwork) is the nearer read. [The Claude Cowork migration kit](https://github.com/ArtemShatokhin/claude-cowork-migration-kit) is the sibling repository that keeps the dated record of what a move out of Cowork carries and what it leaves behind.`,
-        },
-        {
-          type: 'artifact',
-          heading: { title: 'Six lines of the manifest that registers the same four things' },
-          artifact: {
-            file: 'kortix.yaml',
-            lang: 'yaml',
-            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
-            lines: [
-              'agents:',
-              '  kortix:',
-              '    file: agents/kortix.md',
-              '    connectors: all',
-              '    skills: all',
-              '    workspace: { project_repository: true }',
-            ],
-          },
-          caption:
-            "The agent's markdown file, its connector grant, its skills grant, and the repo checkout each session gets, exactly as the starter ships them.",
         },
         {
           type: 'faq',
@@ -733,6 +733,23 @@ If the appeal is working on your own files rather than on a system that runs ser
       lead: "Yes, Claude Cowork has memory, but only when the session runs in the cloud: Anthropic's help center says sessions that run locally on your computer don't use memory. Kortix is the open-source AI Operating System, where project memory is files in a repository you own. What that difference means for a team is the rest of this page.",
       sections: [
         {
+          type: 'artifact',
+          heading: { title: 'The layout the base template ships' },
+          artifact: {
+            file: 'kortix.yaml',
+            lang: 'yaml',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
+            lines: [
+              '#   agents/<name>.md          one file per agent (`agents.<name>.file`)',
+              '#   skills/<name>/SKILL.md    skills, loaded by every harness',
+              '#   memory/                   the project brain (the `kortix-memory` skill)',
+              '#   tools/<name>.ts           project tools, loaded by every harness (`tools:` below)',
+              '#   harnesses/opencode/       files only OpenCode reads (`opencode.config_dir`)',
+            ],
+          },
+          caption: "Five lines from the manifest in the starter's base template.",
+        },
+        {
           type: 'prose',
           body: `## What Anthropic's help center says about memory
 
@@ -779,23 +796,6 @@ A person leaving is then a permissions change, and their notes stay in the histo
 For one person working alone, Anthropic's arrangement is the shorter path. Cloud sessions only, and the switch already on. There is no colleague to hand context to and nothing that needs a reviewer, and the memory is genuinely personal: how you like a draft, who your manager is, which deadline moved. Building a repository to hold that would be work with no reader.
 
 The calculation changes with the second person. Two members, each starting with memory off until they turn it on, make a company whose shared knowledge depends on settings nobody audits. That is where a folder in a repo you own starts earning its place.`,
-        },
-        {
-          type: 'artifact',
-          heading: { title: 'The layout the base template ships' },
-          artifact: {
-            file: 'kortix.yaml',
-            lang: 'yaml',
-            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml',
-            lines: [
-              '#   agents/<name>.md          one file per agent (`agents.<name>.file`)',
-              '#   skills/<name>/SKILL.md    skills, loaded by every harness',
-              '#   memory/                   the project brain (the `kortix-memory` skill)',
-              '#   tools/<name>.ts           project tools, loaded by every harness (`tools:` below)',
-              '#   harnesses/opencode/       files only OpenCode reads (`opencode.config_dir`)',
-            ],
-          },
-          caption: "Five lines from the manifest in the starter's base template.",
         },
         {
           type: 'faq',
