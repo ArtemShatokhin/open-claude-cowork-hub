@@ -499,11 +499,11 @@ Waiting will not produce a release. A team that wants the work on hardware it co
 
 The platform a team installs in its place is a set of files. What shapes how its agents work, from the skills they load to the memory they keep to the connectors they reach, sits in a repository the team controls, and the sessions run on real cloud computers.
 
-On a server that already runs Docker and Compose, installing it is the three commands in the first panel (checked October 2026). A bootstrap script does the same job on a bare box. Either route writes four files into one instance directory, \`~/.config/kortix/self-host/<instance>/\`: \`docker-compose.yml\`, \`.env\`, a Caddyfile and \`updater.sh\`. Then \`kortix self-host start\` brings up one Compose project. It holds the web app, the API and the gateway that fronts model calls, a migration job that runs once, a daily updater, and the data, auth and storage services. Caddy holds ports 80 and 443.
+On a server that already runs Docker and Compose, installing it is three commands: \`curl -fsSL https://kortix.com/install | bash\`, then \`kortix self-host init --domain\` with your domain and admin address, then \`kortix self-host start\` (checked October 2026). A bootstrap script does the same job on a bare box. Either route writes four files into one instance directory, \`~/.config/kortix/self-host/<instance>/\`: \`docker-compose.yml\`, \`.env\`, a Caddyfile and \`updater.sh\`. Then \`kortix self-host start\` brings up one Compose project. It holds the web app, the API and the gateway that fronts model calls, a migration job that runs once, a daily updater, and the data, auth and storage services. Caddy holds ports 80 and 443.
 
 The setup questions arrive after the download: a reachability mode, the admin email, the sandbox provider, a preview domain, an update policy. One answer is not optional. The docs say it in two lines: "Sessions run on Platinum sandboxes, not on the server. The instance must be reachable from the internet so those sandboxes can call back." A \`PLATINUM_API_KEY\` pays for that compute, and without it no session starts.
 
-The box you own holds the platform; the sessions run on Platinum, not on it. That means a public address, a DNS record and outbound routes before anything works, and a machine behind a locked rack will not do. Tunnel mode, the second panel, is the cheap trial: the web app stays on \`http://localhost:13737\` and only the API is published, at an address that changes whenever the tunnel restarts.
+The box you own holds the platform; the sessions run on Platinum, not on it. That means a public address, a DNS record and outbound routes before anything works, and a machine behind a locked rack will not do. The tunnel install is the cheap trial: the web app stays on \`http://localhost:13737\` and only the API is published, at an address that changes whenever the tunnel restarts.
 
 The last two steps sit outside the terminal. Sign up as the admin, connect GitHub at \`/admin/git\`, create a project, then add a model key inside it. A self-hosted instance has no managed models, so every project brings its own provider key. After that, \`kortix self-host doctor\` lists what is still wrong, and every failing check comes with the value to set.
 
@@ -511,7 +511,7 @@ The last two steps sit outside the terminal. Sign up as the admin, connect GitHu
 
 Two vendors describe the same boundary from opposite sides. OpenWork's migration guide lists what its import does not bring: "Conversation history, saved credentials, and scheduled tasks do not move" ([OpenWork's Cowork migration guide](https://openworklabs.com/docs/start-here/migrate-from-claude-cowork), checked October 2026). Anthropic's version is the mirror image, with the same items staying put because the merge kept them in place, memory included: "Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud" ([the help center](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context), checked October 2026).
 
-Read together, the two lists describe one rule. What travels is the material somebody wrote down: a prompt, a permission, a skill, a cadence. What stays is the history that material produced and the credentials it spent. A team planning only the install plans the half a vendor will do for it, and the rebuilt order on [the migration walkthrough of this site](/migrate-from-claude-cowork) is the other half.
+Read together, the two lists describe one rule. What travels is the material somebody wrote down: a prompt, a permission, a skill, a cadence. What stays is the history that material produced and the credentials it spent. A team planning only the install plans the half a vendor will do for it, and the rebuilt order on [the migration walkthrough](/migrate-from-claude-cowork) is the other half.
 
 ## Three things the server has to carry
 
@@ -625,7 +625,7 @@ Two routes stay outside this install. One is staying on Claude, which keeps chat
             ],
           },
           caption:
-            "The agent's markdown file, its connector grant, its skills grant, and the repo checkout each session gets, exactly as the starter ships them.",
+            "The agent's markdown file, its connector grant, its skills grant, and the repo checkout each session gets, excerpted from the starter's longer manifest block, which also carries \`secrets: all\` and \`kortix_permissions: all\`.",
         },
         {
           type: 'prose',
@@ -670,7 +670,7 @@ Kortix is the open-source AI Operating System, and a Kortix project is a git rep
 
 Placement is the last piece. One isolated sandbox per session. Each session has its own isolated machine and branch. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
 
-So the question a team asks before investing changes shape. With a Cowork plugin, it is whether the tool you need is reachable from Anthropic's IP ranges. With the repo-owned layout, it is whether the file that grants the reach is one you wrote and can show. [Cowork connectors and who holds the credential](/claude-cowork-integrations) takes that second question apart, and [there is no open-source Claude Cowork](/is-claude-cowork-open-source) covers why the product has nothing to fork.
+So the question a team asks before investing changes shape. With a Cowork plugin, it is whether the tool you need is reachable from Anthropic's IP ranges. With the repo-owned layout, it is whether the file that grants the reach is one you wrote and can show. [Cowork connectors and who holds the credential](/claude-cowork-integrations) takes that second question apart, and [the page on whether Claude Cowork is open source](/is-claude-cowork-open-source) explains why the product has nothing to fork.
 
 ## When a plugin is the right answer
 
@@ -767,7 +767,7 @@ Anthropic's [Get started with Claude Cowork](https://support.claude.com/en/artic
 
 Cloud is the ordinary case today, so the cloud half of the memory article is the half that applies. The answer to "does Claude Cowork have memory" turns on where the session runs.
 
-The product's edges are still moving. The same article now says "Claude Cowork is now just Claude", with Claude deciding whether a request gets a quick answer or a task. Memory behaves as before: it belongs to the account, and it is present when the session runs in the cloud.
+The product's edges are still moving. Anthropic's [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) now says "Claude Cowork is now just Claude", with Claude deciding whether a request gets a quick answer or a task. Memory behaves as before: it belongs to the account, and it is present when the session runs in the cloud.
 
 ## Three questions that separate account memory from company memory
 
