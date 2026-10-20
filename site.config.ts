@@ -427,7 +427,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
           type: 'comparison',
           heading: {
             title: 'Where the work, the rules and the review sit',
-            sub: "Each rival cell comes from that vendor's own pages, read this month.",
+            sub: "Figures for OpenWork and Claude Cowork come from those vendors' pages.",
           },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs/host', nofollow: true },
@@ -485,7 +485,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
         },
         {
           type: 'prose',
-          body: `## Anthropic's own pages settle the first question
+          body: `## There is no self-hosted edition, and none scheduled
 
 Claude Cowork has no self-hosted edition, and nothing is scheduled to change that. The help center describes where the work happens: "Cowork runs your sessions remotely in the cloud (in beta on Team and Enterprise plans), so your sessions and files live with your Claude account and follow you across desktop, web, and mobile" ([Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork), as of October 20, 2026).
 
@@ -501,7 +501,7 @@ The platform a team installs in its place is a set of files. What shapes how its
 
 On a server that already runs Docker and Compose, installing it is three commands: \`curl -fsSL https://kortix.com/install | bash\`, then \`kortix self-host init --domain\` with your domain and admin address, then \`kortix self-host start\` (checked October 2026). A bootstrap script does the same job on a bare box. Either route writes four files into one instance directory, \`~/.config/kortix/self-host/<instance>/\`: \`docker-compose.yml\`, \`.env\`, a Caddyfile and \`updater.sh\`. Then \`kortix self-host start\` brings up one Compose project. It holds the web app, the API and the gateway that fronts model calls, a migration job that runs once, a daily updater, and the data, auth and storage services. Caddy holds ports 80 and 443.
 
-The setup questions arrive after the download: a reachability mode, the admin email, the sandbox provider, a preview domain, an update policy. One answer is not optional. The docs say it in two lines: "Sessions run on Platinum sandboxes, not on the server. The instance must be reachable from the internet so those sandboxes can call back." A \`PLATINUM_API_KEY\` pays for that compute, and without it no session starts.
+The setup questions arrive after the download: a reachability mode, the admin email, the sandbox provider, a preview domain, an update policy. One answer is not optional. The docs say: "Sessions run on Platinum sandboxes, not on the server. The instance must be reachable from the internet so those sandboxes can call back." A \`PLATINUM_API_KEY\` pays for that compute, and without it no session starts.
 
 The box you own holds the platform; the sessions run on Platinum, not on it. That means a public address, a DNS record and outbound routes before anything works, and a machine behind a locked rack will not do. The tunnel install is the cheap trial: the web app stays on \`http://localhost:13737\` and only the API is published, at an address that changes whenever the tunnel restarts.
 
@@ -511,7 +511,7 @@ The last two steps sit outside the terminal. Sign up as the admin, connect GitHu
 
 Two vendors describe the same boundary from opposite sides. OpenWork's migration guide lists what its import does not bring: "Conversation history, saved credentials, and scheduled tasks do not move" ([OpenWork's Cowork migration guide](https://openworklabs.com/docs/start-here/migrate-from-claude-cowork), checked October 2026). Anthropic's version is the mirror image, with the same items staying put because the merge kept them in place, memory included: "Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud" ([the help center](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context), checked October 2026).
 
-Read together, the two lists describe one rule. What travels is the material somebody wrote down: a prompt, a permission, a skill, a cadence. What stays is the history that material produced and the credentials it spent. A team planning only the install plans the half a vendor will do for it, and the rebuilt order on [the migration walkthrough](/migrate-from-claude-cowork) is the other half.
+Both lists describe one rule. What travels is the material somebody wrote down: a prompt, a permission, a skill, a cadence. What stays is the history that material produced and the credentials it spent. A team planning only the install plans the half a vendor will do for it, and the order in [the migration walkthrough](/migrate-from-claude-cowork) is the other half.
 
 ## Three things the server has to carry
 
@@ -533,7 +533,7 @@ The code behind the platform is public, so anyone can read it and change it. Whe
 - A person closes sign-up once the team is in, with \`EMAIL_URL\` or \`DISABLE_SIGNUP=true\`. Until then, anyone who reaches the instance can create a confirmed account, the admin address included.
 - A person watches the updater. It checks once a day, migrates the database before it swaps the app services, keeps the previous version for a rollback, and reports the last outcome in \`kortix self-host status\`.
 
-The bullets are the shape of the answer. Self-hosting a replacement for Cowork is one server and one Compose stack, plus five jobs that a hosted product was quietly doing. A team that can name someone for each of them will run this comfortably, and [what a self-hosted stack keeps after a restart](/self-hosted-ai-agent-platform) is the test to run on the box a month later.
+Self-hosting a replacement for Cowork is one server and one Compose stack, plus five jobs that a hosted product was quietly doing. A team that can name someone for each of them will run this comfortably, and [what a self-hosted stack keeps after a restart](/self-hosted-ai-agent-platform) is the test to run on the box a month later.
 
 Two routes stay outside this install. One is staying on Claude, which keeps chats, projects and connectors where they are and spares the team a server. The other is the desktop case on [the Cowork and OpenWork comparison](/claude-cowork-vs-openwork), the nearer read if the work never leaves one laptop.`,
         },
@@ -560,7 +560,6 @@ Two routes stay outside this install. One is staying on Claude, which keeps chat
           type: 'faq',
           heading: {
             title: 'Four questions a self-hosting team asks',
-            sub: 'The answer first, then the fact that moves, dated where it moves.',
           },
           items: [
             {
@@ -631,7 +630,7 @@ Two routes stay outside this install. One is staying on Claude, which keeps chat
           type: 'prose',
           body: `## What a Claude Cowork plugin holds
 
-Anthropic answers this in one sentence on its help center, and the sentence is worth reading twice. A plugin "bundles skills, connectors, and sub-agents into a single package, so you get a ready-to-go setup from your first conversation instead of configuring each piece yourself" ([Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude), checked October 2026).
+Anthropic's help center says what a plugin is: it "bundles skills, connectors, and sub-agents into a single package, so you get a ready-to-go setup from your first conversation instead of configuring each piece yourself" ([Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude), checked October 2026).
 
 Four parts sit in the package, and all four are files. A skill is markdown carrying how one job is done, and Claude draws on it when that job comes up. A slash command is an action a person triggers on purpose, typed as \`/sales:call-prep\`. Connectors are declared in \`.mcp.json\` and wire the package to the services the role depends on. Sub-agents ship as separate agents inside the same folder.
 
@@ -641,7 +640,7 @@ Anthropic also says where each part runs. Skills and commands work in chat on th
 
 Anthropic publishes 11 plugins at [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins), described on the repo as "built for Claude Cowork, also compatible with Claude Code". The set covers a company by job function: sales, legal, finance, marketing, product management, support, data, productivity, enterprise search, bio-research, and one that builds more plugins.
 
-Every folder repeats the same shape. \`.claude-plugin/plugin.json\` is the manifest. \`.mcp.json\` holds the tool connections, \`commands/\` the slash commands, and \`skills/\` the domain knowledge. So a reader can answer the question a buyer actually has, which is what the sales plugin will tell Claude to do with a call transcript, before anyone installs it. Anthropic puts the offer plainly at the end: "Plugins are just markdown files. Fork the repo, make your changes, and submit a PR."
+Every folder repeats the same shape. \`.claude-plugin/plugin.json\` is the manifest. \`.mcp.json\` holds the tool connections, \`commands/\` the slash commands, and \`skills/\` the domain knowledge. The files answer the question a buyer actually has, which is what the sales plugin will tell Claude to do with a call transcript, before anyone installs it. The repository states the offer: "Plugins are just markdown files. Fork the repo, make your changes, and submit a PR."
 
 A team can read the skill a plugin ships, hold it against the way the team works, and fork it. Customizing is mostly file edits. Point \`.mcp.json\` at your own tools, drop your terminology and process into the skill files, adjust the workflow where the team does it differently.
 
@@ -655,7 +654,7 @@ The call leaves from Anthropic's cloud. "In Cowork, connectors reach external se
 
 The execution boundary is set the same way. Some plugins ship local MCP servers, which Anthropic says "run on your computer with the same permissions as any other program you run". Its advice follows from that: install only from sources you trust, and Enterprise administrators can switch local MCP servers off.
 
-Put the three side by side and the investment splits in two. The skill you wrote, the commands you renamed and the manifest you forked travel with you. Who may install the package, which network the call leaves from and which processes run beside it are settled by a runtime outside the repository, at a layer your reviewers cannot read.
+The investment splits in two. The skill you wrote, the commands you renamed and the manifest you forked travel with you. Who may install the package, which network the call leaves from and which processes run beside it are settled by a runtime outside the repository, at a layer your reviewers cannot read.
 
 ## The same four parts, as files the company reviews
 
@@ -668,7 +667,7 @@ Kortix is the open-source AI Operating System, and a Kortix project is a git rep
 
 \`kortix.yaml\` holds the agent's file pointer, its connector grant, its skills grant, and the repo checkout a session gets in \`/workspace\`. Open source. Read it, fork it, audit it. Session work reaches \`main\` through a change request. Merge is default-deny for agents. [Read the docs](https://kortix.com/docs) for the manifest fields and the self-host install.
 
-Placement is the last piece. One isolated sandbox per session. Each session has its own isolated machine and branch. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
+One isolated sandbox per session. Each session has its own isolated machine and branch. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
 
 So the question a team asks before investing changes shape. With a Cowork plugin, it is whether the tool you need is reachable from Anthropic's IP ranges. With the repo-owned layout, it is whether the file that grants the reach is one you wrote and can show. [Cowork connectors and who holds the credential](/claude-cowork-integrations) takes that second question apart, and [the page on whether Claude Cowork is open source](/is-claude-cowork-open-source) explains why the product has nothing to fork.
 
@@ -684,7 +683,6 @@ If the appeal is working on your own files rather than on a system that runs ser
           type: 'faq',
           heading: {
             title: "Plugin questions, answered from Anthropic's own pages",
-            sub: 'The help center and the plugin repository supply both halves, dated where they move.',
           },
           items: [
             {
@@ -753,13 +751,11 @@ If the appeal is working on your own files rather than on a system that runs ser
           type: 'prose',
           body: `## What Anthropic's help center says about memory
 
-One sentence settles the question. Anthropic's [article on chat search and memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context) says this, as of October 20, 2026: "Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud; Cowork sessions that run locally on your computer don't use memory."
+Anthropic's [article on chat search and memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context) says this, as of October 20, 2026: "Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud; Cowork sessions that run locally on your computer don't use memory."
 
-A note further down repeats the boundary: "Memory across Cowork and chat only works when Cowork runs in the cloud. It isn't available in Cowork sessions that run locally on your computer." Both sentences come from the same article, and the second one is where the feature stops. Summaries that quote only the first half give the wrong answer to anyone whose session runs on their own machine.
+Anthropic states the boundary a second time: "Memory across Cowork and chat only works when Cowork runs in the cloud. It isn't available in Cowork sessions that run locally on your computer." The local case is where the feature stops. Summaries that quote only the first half give the wrong answer to anyone whose session runs on their own machine.
 
-The article also says what memory is made of. Claude saves it as individual topics while you chat, rather than writing a summary after the fact, and each project carries its own. The setting is fixed when a task starts, so a task that begins without memory cannot pick it up later. On Team and Enterprise plans, "owners control whether memory is available, and it's off for each member until they turn it on."
-
-One more fact from the same page matters to anyone comparing setups: memory is switched on by default for Free, Pro, and Max plans, which makes it the default experience for an individual and an opt-in one for a team.
+The article also says what memory is made of. Claude saves it as individual topics while you chat, rather than writing a summary after the fact, and each project carries its own. The setting is fixed when a task starts, so a task that begins without memory cannot pick it up later. On Team and Enterprise plans, "owners control whether memory is available, and it's off for each member until they turn it on." Memory is switched on by default for Free, Pro, and Max plans, which makes it the default experience for an individual and an opt-in one for a team.
 
 ## Where the session runs decides whether memory applies
 
@@ -771,7 +767,7 @@ The product's edges are still moving. Anthropic's [Get started with Claude Cowor
 
 ## Three questions that separate account memory from company memory
 
-Memory written from one person's chats answers a question about that person. A team has a different question. What does the company know after six months of work, and can anyone open that knowledge, review it, and hand it on? Three questions sort the two arrangements.
+Memory written from one person's chats answers a question about that person. A team has a different question. What does the company know after six months of work, and can anyone open that knowledge, review it, and hand it on?
 
 **Who can read it.** Memory settings sit on each person's own Settings → Memory screen. On Team and Enterprise plans, a member begins with memory off until they turn it on. What a colleague learned last month is not a document anyone else can open.
 
@@ -801,7 +797,6 @@ The calculation changes with the second person. Two members, each starting with 
           type: 'faq',
           heading: {
             title: 'Four questions the memory answer raises',
-            sub: 'Short answers, with the facts that move dated where they are used.',
           },
           items: [
             {
