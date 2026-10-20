@@ -42,7 +42,7 @@ export function SiteFooter({ site }: { site: SiteConfig }) {
       <div className="border-border border-t">
         <div className={`${HB} flex flex-col gap-2 py-5 text-xs sm:flex-row sm:items-center sm:justify-between`}>
           <p className="text-muted-foreground max-w-3xl leading-relaxed">{site.footer.legal}</p>
-          <p className="text-cap hb-date font-mono">
+          <p className="text-caption hb-date font-mono">
             © {year} {site.domain}
           </p>
         </div>

@@ -84,7 +84,7 @@ export function UseCasesSection({ section }: { section: UseCasesConfig }) {
   return (
     <section id={section.id} aria-labelledby={headingId} className={HB_Y}>
       <div className={HB}>
-        <SectionHeader heading={section.heading} id={headingId} aside={<span className="text-cap hidden font-mono text-xs lg:block">{section.artifactLabel}</span>} />
+        <SectionHeader heading={section.heading} id={headingId} aside={<span className="text-caption hidden font-mono text-xs lg:block">{section.artifactLabel}</span>} />
         <Reveal delay={0.05} className="mt-8">
           <ul className="grid gap-8 md:grid-cols-3 md:gap-6">
             {section.cards.map((card) => (
@@ -95,10 +95,10 @@ export function UseCasesSection({ section }: { section: UseCasesConfig }) {
                 <h3 className="text-foreground-strong text-lg leading-snug text-balance">{card.headline}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed text-pretty">{card.body}</p>
                 <figure className="mt-auto min-w-0">
-                  <figcaption className="text-cap truncate font-mono text-xs">{card.artifact.file}</figcaption>
+                  <figcaption className="text-caption truncate font-mono text-xs">{card.artifact.file}</figcaption>
                   {card.artifact.kind === 'checks' ? <ChecksFigure artifact={card.artifact} /> : null}
                   {card.artifact.kind === 'sheet' ? <SheetFigure artifact={card.artifact} /> : null}
-                  <p className="border-border text-cap mt-2 border-t pt-2 font-mono text-xs">{card.artifact.footer}</p>
+                  <p className="border-border text-caption mt-2 border-t pt-2 font-mono text-xs">{card.artifact.footer}</p>
                 </figure>
               </li>
             ))}

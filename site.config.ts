@@ -4808,7 +4808,7 @@ Kortix is built so that layer is a repository. An agent is a markdown file under
 
 \`kortix.yaml\` registers what exists in the project, and each agent enables what it needs by name. An omitted grant resolves to \`none\`, so a narrow agent starts with nothing ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). Work then lands the way code lands. Session work reaches \`main\` through a change request, and merge is default-deny for agents. An admin can grant \`project.gitops.merge\` to change that.
 
-The repo is readable, the permission is a diff a colleague reviews, and the log is exportable on the plans that include export. Who may merge is written down too. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
+The repo is readable and the permission is a diff a colleague reviews. Every action is recorded. Reading, exporting and streaming the audit log depend on the plan. Who may merge is written down too. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
 
 If you are still working out what the product was, [what Claude Cowork is](/what-is-claude-cowork) covers it. [The alternatives page](/claude-cowork-alternatives) sorts the open projects by where they run, and [moving a team off Cowork](/migrate-from-claude-cowork) covers the handover.`,
         },
@@ -4855,7 +4855,7 @@ If you are still working out what the product was, [what Claude Cowork is](/what
             {
               label: 'Audit trail',
               cells: [
-                'Every action is recorded; reading and export depend on the plan',
+                'Every action is recorded. Reading, exporting and streaming depend on the plan',
                 'Compliance API transcripts for Enterprise; no Cowork events in the audit log',
                 'Not documented',
                 'A Compliance API for Enterprise and Edu',
@@ -5069,7 +5069,7 @@ A reviewer can put four questions to any product that runs agents, and each one 
             {
               label: 'Audit trail',
               cells: [
-                'Every action is recorded; reading and export depend on the plan',
+                'Every action is recorded. Reading, exporting and streaming depend on the plan',
                 'Compliance API transcripts; no Cowork events in the audit log',
                 'Every agent action logged and exportable to a SIEM',
                 'Compliance API events; not every local action is recorded',

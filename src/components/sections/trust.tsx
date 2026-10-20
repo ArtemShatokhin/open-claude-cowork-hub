@@ -35,7 +35,7 @@ export function TrustSection({ section }: { section: TrustConfig }) {
                   {s.line1}
                   <span className="sr-only">{s.state ? `, ${s.state}` : ''}</span>
                 </span>
-                {s.line2 ? <span className="text-cap font-mono text-xs">{s.line2}</span> : null}
+                {s.line2 ? <span className="text-caption font-mono text-xs">{s.line2}</span> : null}
                 {s.state ? <span className="text-muted-foreground font-mono text-xs">{s.state}</span> : null}
               </li>
             ))}

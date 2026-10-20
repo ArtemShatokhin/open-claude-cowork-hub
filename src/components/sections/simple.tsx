@@ -57,8 +57,8 @@ export function CtaBand({ section }: { section: CtaSection }) {
           <div className="border-border relative overflow-hidden rounded-lg border">
             <span aria-hidden className="bg-rule-accent absolute inset-x-0 top-0 h-0.5" />
             <div className="border-border bg-surface flex flex-wrap items-center justify-between gap-2 border-b px-4 py-3 sm:px-6">
-              <p className="text-cap font-mono text-xs">{site.domain}</p>
-              <p className="text-cap hb-date font-mono text-xs">© {year}</p>
+              <p className="text-caption font-mono text-xs">{site.domain}</p>
+              <p className="text-caption hb-date font-mono text-xs">© {year}</p>
             </div>
             <div className="grid gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:grid-cols-12 lg:items-end lg:gap-8">
               <div className="min-w-0 lg:col-span-7">

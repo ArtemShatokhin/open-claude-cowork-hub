@@ -62,6 +62,7 @@
   --color-terminal-row: var(--terminal-row);
   --color-terminal-cap: var(--terminal-cap);
   --color-cap: var(--terminal-cap);
+  --color-caption: var(--caption-ink);
   --color-ink: var(--terminal-ink);
   --color-strong: var(--terminal-strong);
   --color-flag: var(--terminal-flag);

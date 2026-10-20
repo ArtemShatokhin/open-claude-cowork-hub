@@ -108,12 +108,12 @@ export function ComparisonSection({ section }: { section: ComparisonConfig }) {
                     <p className="hb-heading text-foreground-strong text-base sm:col-span-4 lg:col-span-3">{row.label}</p>
                     <div className="sm:col-span-8 lg:col-span-4">
                       <CellText cell={recommended} prominent />
-                      <span className="text-cap mt-1 block font-mono text-xs">{highlight?.label}</span>
+                      <span className="text-caption mt-1 block font-mono text-xs">{highlight?.label}</span>
                     </div>
                     <ul className="border-border divide-border divide-y border-t pt-1 sm:col-span-12 lg:col-span-5 lg:border-t-0 lg:pt-0">
                       {rivalCells.map((x) => (
                         <li key={x.col.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-2 lg:py-1.5 lg:first:pt-0 lg:last:pb-0">
-                          <span className="text-cap w-full shrink-0 font-mono text-xs">{x.col.label}</span>
+                          <span className="text-caption w-full shrink-0 font-mono text-xs">{x.col.label}</span>
                           <span className="min-w-0 flex-1">
                             <CellText cell={x.cell} />
                           </span>

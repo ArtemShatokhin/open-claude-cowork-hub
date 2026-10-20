@@ -156,6 +156,10 @@
 
 /* Site additions (not in the kit). */
 :root {
+  /* Caption ink on the page ground (figure captions, product labels, the sign-off strip,
+     the footer date line). It is --foreground-weak: 6.8:1 on white, 6.6:1 on --surface.
+     --terminal-cap stays inside the dark plates only, where it reads 7.5:1 on the ink. */
+  --caption-ink: var(--foreground-weak);
   /* The accent as a glyph or link on the page ground. Dark: mixed toward the ink. */
   --kortix-base-ink: var(--kortix-base);
   /* The filled thumb-tab and check squares. */

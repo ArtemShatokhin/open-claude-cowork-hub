@@ -77,7 +77,7 @@ export function OpenSourceSection({ section }: { section: OpenSourceConfig }) {
                   {FORMAT.format(value)}
                   {settled ? section.stars.suffix : null}
                 </div>
-                <p className="text-cap mt-3 font-mono text-xs">{section.stars.caption}</p>
+                <p className="text-caption mt-3 font-mono text-xs">{section.stars.caption}</p>
               </div>
               <div className="min-w-0 sm:col-span-7">
                 <h2 className="text-foreground-strong max-w-lg text-xl tracking-tight text-pretty sm:text-2xl">{section.title}</h2>
