@@ -20,7 +20,7 @@ const site: SiteConfig = {
   siteName: 'Open Source Claude Cowork',
   description:
     'An independent handbook of open-source alternatives to Claude Cowork: what you can read, what you can host, and what you can review. It recommends Kortix, the open-source AI Operating System.',
-  updated: '2026-10-19',
+  updated: '2026-10-20',
   lang: 'en',
   accent: '#1e3a8a',
   fonts: 'system',
@@ -59,6 +59,8 @@ const site: SiteConfig = {
     { label: 'Self-hosted Claude Code', href: '/self-hosted-claude-code' },
     { label: 'Self-hosted AI agent', href: '/self-hosted-ai-agent' },
     { label: 'What is Cowork', href: '/what-is-claude-cowork' },
+    { label: 'What happened to Cowork', href: '/what-happened-to-claude-cowork' },
+    { label: 'Security and audit log', href: '/claude-cowork-security-and-approvals' },
     { label: 'Projects on GitHub', href: '/claude-cowork-github-projects' },
     { label: 'Reddit threads', href: '/open-source-claude-cowork-reddit' },
   ],
@@ -76,6 +78,7 @@ const site: SiteConfig = {
           { label: 'Migrate', href: '/migrate-from-claude-cowork' },
           { label: 'How to use', href: '/how-to-use-claude-cowork' },
           { label: 'What Cowork is', href: '/what-is-claude-cowork' },
+          { label: 'What happened to Cowork', href: '/what-happened-to-claude-cowork' },
         ],
       },
       {
@@ -112,6 +115,7 @@ const site: SiteConfig = {
           { label: 'For Windows', href: '/claude-cowork-for-windows' },
           { label: 'For Mac', href: '/claude-cowork-for-mac' },
           { label: 'Data privacy', href: '/claude-cowork-data-privacy' },
+          { label: 'Security and audit log', href: '/claude-cowork-security-and-approvals' },
           { label: 'Free alternative', href: '/claude-cowork-alternative-free' },
           { label: 'Is it open source?', href: '/is-claude-cowork-open-source' },
         ],
@@ -4761,6 +4765,396 @@ Kortix is the setup that passed these checks for us, and the reason is structura
           title: 'Start from a config you can read and revert',
           sub: 'Your agents, skills and permissions, as files in a repo you own.',
           ctas: [TRY_KORTIX, cta('Compare the open source options', '/claude-cowork-vs-openwork')],
+        },
+      ],
+    },
+
+    /* ── what-happened-to-claude-cowork ───────────────────────────────────── */
+    {
+      slug: 'what-happened-to-claude-cowork',
+      navLabel: 'What happened to Cowork',
+      title: 'What happened to Claude Cowork, and the open-source layer you keep',
+      metaDescription:
+        'Anthropic merged Claude Cowork into Claude on 16 September 2026. What changed, what did not, and the open-source layer you keep.',
+      h1: 'What happened to Claude Cowork, and what open source keeps',
+      lead: 'Anthropic merged Claude Cowork into Claude on 16 September 2026, so the Cowork toggle is going away and Claude now decides when a chat becomes a longer job. Kortix is the open-source AI Operating System: your agents, skills, company memory and connectors in one git repo you own. Details checked 20 October 2026.',
+      updated: '2026-10-20',
+      sections: [
+        {
+          type: 'prose',
+          body: `## The merge, dated
+
+Claude Cowork was Anthropic's mode for work that outlasted a single answer. A request became a job: it read your files, used your connectors, and came back as a document, a spreadsheet or a deck. On 16 September 2026 Anthropic stopped keeping that in a separate place and folded it into Claude itself ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides)).
+
+- **12 January 2026.** Cowork arrived as a research preview for Max subscribers in the macOS desktop app. It was an agentic workspace built on the architecture behind Claude Code, with no terminal ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides)).
+- **By 16 September 2026.** Every paid plan carried Cowork, on desktop, web and mobile, and Enterprise accounts had it where an admin enabled it ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides), 16 September 2026).
+- **16 September 2026.** "Starting today, Claude Cowork and chat are merging into one Claude," Anthropic's announcement reads ([Anthropic](https://claude.com/resources/articles/cowork-is-now-claude)). Existing chats, projects, artifacts, connectors and skills carry over, the Cowork name will eventually disappear, and Claude Code stays a separate product ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides)).
+- **From 16 September 2026.** Pro and Max accounts move first on web, desktop and mobile, with more plans to follow. Enterprise admins hear at least 30 days before anything changes for their organization. For them the unified experience is a beta an admin turns on ([Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)).
+- **6 October 2026.** New Cowork tasks on Pro and Max start in the cloud. Work on files stored on your own computer still needs the desktop app open ([ClickForest](https://www.clickforest.com/en/blog/claude-cowork-explained), checked 3 October 2026).
+
+## What did not change
+
+The work still runs on infrastructure the team does not hold. Anthropic's help centre says Cowork "runs your tasks in the cloud" and that "Claude's work runs on Anthropic's servers, in an isolated environment". Sessions and files are saved to the Claude account ([Claude Help Center](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)). An organization can point Claude Desktop at its own inference endpoint instead. Conversation content then goes to Bedrock, Google Cloud or Foundry, and history stays on the device ([Claude docs](https://claude.com/docs/third-party/claude-desktop/overview)). Either arrangement ships a client and a service: Anthropic publishes no Cowork source, and no build of it runs on your own hardware.
+
+Permissions stay inside the product as well. A Manual or Auto setting in the message box decides whether Claude asks before each action ([Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). On a managed desktop deployment, an MDM profile delivers the configuration ([Claude docs](https://claude.com/docs/third-party/claude-desktop/overview)). A rulebook like that is a screen to click and, at larger companies, a policy file pushed to laptops. Nobody on the team reads it as a diff before it takes effect.
+
+The agent now chooses the moment a chat becomes a job. That handover used to be the person's, a toggle under the input box. After the merge Claude makes it from the prompt, and scheduled tasks keep the job running with no device online ([Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). For a person this is simpler. For a team, it moves one more decision behind a screen the team does not own. The question of which jobs ran under what permissions then arrives after the fact.
+
+None of that is a flaw in the product Anthropic built. Asking someone to choose between a chat and a job was real friction, and removing the choice is a fair answer to it. The cost lands on the layer underneath, which the merge left exactly where it was.
+
+## What survives the next rename
+
+A label is the cheapest thing a vendor can change. The work, the permissions and the log are the expensive parts, and a rename leaves all three where the last one put them. A team that reopens the question "which Cowork-like product do we buy" will reopen it again at the next announcement. The question that survives is which layer the team holds when the name moves.
+
+Kortix is built so that layer is a repository. An agent is a markdown file under \`agents/\`, and the reach it has is a line in that file's frontmatter. Nothing about it lives in a dashboard; the artifact on this page is one whole starter agent. The same file calls the session an ephemeral branch of the repo and says that only what you commit and push survives ([the starter repo](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/agents/kortix.md)).
+
+\`kortix.yaml\` registers what exists in the project, and each agent enables what it needs by name. An omitted grant resolves to \`none\`, so a narrow agent starts with nothing ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). Work then lands the way code lands. Session work reaches \`main\` through a change request, and merge is default-deny for agents. An admin can grant \`project.gitops.merge\` to change that.
+
+The repo is readable, the permission is a diff a colleague reviews, and the log is yours to export. Who may merge is written down too. Run it on Kortix Cloud, in your VPC, or on your own on-prem network. Self-host is free.
+
+If you are still working out what the product was, [what Claude Cowork is](/what-is-claude-cowork) covers it. [The alternatives page](/claude-cowork-alternatives) sorts the open projects by where they run, and [moving a team off Cowork](/migrate-from-claude-cowork) covers the handover.`,
+        },
+        {
+          type: 'comparison',
+          heading: {
+            title: 'Four options, six questions',
+            sub: "Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work, with each rival cell taken from that vendor's own pages in October 2026.",
+          },
+          columns: [
+            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://kortix.com', nofollow: true },
+            { id: 'claude', label: 'Claude, with Cowork inside it', note: 'the reference', href: 'https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude' },
+            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com' },
+            { id: 'chatgpt-work', label: 'ChatGPT Work', note: 'the rival', href: 'https://openai.com/index/chatgpt-for-your-most-ambitious-work' },
+          ],
+          rows: [
+            {
+              label: 'Open source',
+              cells: [
+                { text: 'Yes, the whole platform', mark: 'yes' },
+                { text: 'No', mark: 'no' },
+                { text: 'Yes, the desktop app', mark: 'yes' },
+                { text: 'No', mark: 'no' },
+              ],
+            },
+            {
+              label: 'Where the work runs',
+              cells: [
+                'Kortix Cloud, your VPC or on-prem, one sandbox per session',
+                "Anthropic's servers, or your Bedrock, Google Cloud or Foundry endpoint",
+                'Your own machine; cloud workers optional',
+                "OpenAI's cloud, with a desktop app on your machine",
+              ],
+            },
+            {
+              label: 'Where permissions are written',
+              cells: [
+                'agents/<name>.md, plus grants in kortix.yaml',
+                'A Manual or Auto setting per conversation',
+                'Local app settings; Enterprise desktop policies',
+                'Admin Console, by workspace and group',
+              ],
+            },
+            {
+              label: 'Audit trail',
+              cells: [
+                'Every action is recorded',
+                'Enterprise audit logs, and a Compliance API',
+                'Not documented',
+                'A Compliance API for Enterprise and Edu',
+              ],
+            },
+            {
+              label: 'Self-host',
+              cells: [
+                { text: 'Yes, on your own network', mark: 'yes' },
+                { text: 'No', mark: 'no' },
+                { text: 'Yes, or a managed private instance', mark: 'yes' },
+                { text: 'No', mark: 'no' },
+              ],
+            },
+            {
+              label: 'Model choice',
+              cells: [
+                'Any model, your keys',
+                "Anthropic's models",
+                '50+ providers, local models',
+                "OpenAI's models",
+              ],
+            },
+          ],
+        },
+        {
+          type: 'artifact',
+          heading: { title: "An agent's permission, as a line in a file" },
+          artifact: {
+            file: 'agents/kortix.md',
+            lang: 'text',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/agents/kortix.md',
+            lines: [
+              '---',
+              'mode: primary',
+              'permission: allow',
+              '---',
+              'You are a **Kortix general knowledge worker** for **{{projectName}}**.',
+              'Only what you commit + push survives.',
+            ],
+          },
+          caption: "A starter agent's frontmatter, and the rule its session runs under.",
+        },
+        {
+          type: 'faq',
+          heading: { title: 'Questions the merge left behind', sub: 'Short answers, with the dates Anthropic gives.' },
+          items: [
+            {
+              id: 'still-exist',
+              question: 'Does Claude Cowork still exist?',
+              answer:
+                'Yes, as a capability inside Claude. On Pro and Max its work now happens inside ordinary Claude conversations, and the toggle disappears as the rollout reaches each account; Team accounts still see a separate option for now. Anthropic says the Cowork name will eventually disappear, while the work it did stays.',
+            },
+            {
+              id: 'what-happened',
+              question: 'What happened to Claude Cowork?',
+              answer:
+                'Anthropic merged it into Claude on 16 September 2026, so one conversation can answer a question and then carry on as a longer task. Chats, projects, artifacts, connectors and skills carried over, and Claude now decides when a request becomes a job.',
+            },
+            {
+              id: 'lost-projects',
+              question: 'Did I lose my Cowork projects and files?',
+              answer:
+                'No. Anthropic says existing Cowork tasks, projects, connectors, skills, artifacts and files come with the account, and those tasks open as they did before ([Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). On desktop, the folder Cowork saved work to is still listed as the storage folder in Settings.',
+            },
+            {
+              id: 'not-visible',
+              question: "Why can't I see the new Claude yet?",
+              answer:
+                'Because the rollout is staged. Pro and Max go first on web, desktop and mobile over the coming weeks, more plans follow, and accounts on the same plan can move at different times. Nothing needs switching on: if the message box still shows Chat and Cowork, the account is not in the wave yet.',
+            },
+            {
+              id: 'claude-code',
+              question: 'Is Claude Code going away too?',
+              answer:
+                'No. Anthropic keeps Claude Code separate for developers working from terminals and IDEs against a codebase, and the September announcement covered Cowork and chat only ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides)).',
+            },
+            {
+              id: 'need-code',
+              question: "Do I still need Claude Code if I don't code?",
+              answer:
+                'No. Cowork already used the same agent architecture as Claude Code without the terminal, and after the merge that work happens in the chat a non-developer already uses.',
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: 'Clone the layer before the next rename',
+          sub: 'Your agents, their permissions and the merge gate live in a repo you can clone today.',
+          ctas: [TRY_KORTIX, cta('See how self-hosting works', '/self-hosting')],
+        },
+      ],
+    },
+
+    /* ── claude-cowork-security-and-approvals ─────────────────────────────── */
+    {
+      slug: 'claude-cowork-security-and-approvals',
+      navLabel: 'Security and audit log',
+      title: 'An open-source audit trail beats a gateway bolted onto Claude Cowork',
+      metaDescription:
+        'Anthropic says Audit Logs do not cover Claude Cowork yet. An open-source way to run agents where permissions are files and a person merges the work.',
+      h1: 'Claude Cowork security: an open-source audit trail you own',
+      lead: 'The open-source answer to "can you see what the agent did?" begins with a fact Anthropic publishes: Audit Logs do not cover Claude Cowork yet, so the record is a transcript feed rather than a log you keep. Kortix is the open-source AI Operating System, and here the record is the place the agent ran. Checked 20 October 2026.',
+      updated: '2026-10-20',
+      sections: [
+        {
+          type: 'prose',
+          body: `## The audit gap, in the vendor's own words
+
+Anthropic documents the gap itself. In the deployment checklist of its Claude Cowork enterprise administrator guide, one line reads: "Note that Audit Logs do not cover Claude Cowork yet." The sentence immediately after it says "The Compliance API returns Claude Cowork session transcripts for Claude Enterprise organizations." ([Claude Academy](https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide), checked 20 October 2026.)
+
+Harmonic Security's practitioner's guide, last updated 14 September 2026, pairs the two facts and calls the first one a correction: "The Compliance API now covers Cowork. The audit log still does not. This reverses our earlier guidance." The same page adds that "The Audit Log CSV export contains no Cowork event types", and that the Activity Feed "is not retroactive". A team that enables the Compliance API after rollout has a record only from that day forward ([Harmonic Security](https://www.harmonic.security/resources/securing-claude-cowork-a-security-practitioners-guide)).
+
+Three vendors that sell gateways put the exclusion at its widest. TrueFoundry writes that "Cowork activity is explicitly excluded from Anthropic's Audit Logs, Compliance API, and Data Exports on every plan tier, including Enterprise." Mintive's article states "Cowork activity is explicitly excluded from Anthropic's Audit Logs, Compliance API, and Data Exports." Repello AI writes that "Anthropic's native compliance tooling (Audit Logs, Compliance API, Data Exports) does not cover Cowork activity on any plan tier" ([TrueFoundry](https://www.truefoundry.com/blog/claude-cowork-security-risks), [Mintive](https://www.mintmcp.com/blog/claude-cowork-audit-logging-gap), [Repello AI](https://repello.ai/blog/claude-cowork-security)).
+
+Read those three beside the vendor's own page and the finding narrows to something you can check. The audit log gap is real and Anthropic states it. The Compliance API half is behind the product: Anthropic and Harmonic both describe a transcript feed for Enterprise organizations, and the three write-ups describe the state before that feed shipped. What survives all four sources is the part that matters in a review. There is no audit log entry for an agent's action, and no export a team can hold after the contract ends.
+
+All three vendors propose the same compensating control: route OpenTelemetry to your own SIEM. TrueFoundry is direct about what that feed carries, saying that "by default, prompts, MCP server names, tool names, and skill names are excluded from those logs" ([TrueFoundry](https://www.truefoundry.com/blog/claude-cowork-security-risks)). Event-level metadata is not the same record as the command that ran and the file it touched.
+
+Their finding and their remedy come from the same company, which is worth saying plainly. TrueFoundry sells an AI gateway and an MCP gateway, Repello sells an MCP gateway, and Mintive's article recommends MCP gateway visibility. That does not make the observation wrong. The audit log gap is on Anthropic's own page. It does mean the fix was never going to be a proxy. The record it hands you still sits on somebody else's side of the wall.
+
+The defaults are the part a reviewer should check first. Harmonic records that on Team plans Cowork, cloud sessions, Claude in Chrome and the built-in browser all start enabled. It also records that "Allow Automatically approve mode" is on by default, which puts a classifier rather than a person in the reviewer's seat before an action runs. On Enterprise the two browsers were off at launch and then "ON by default from 10 September 2026 unless already disabled", with no notice to members. A team that assumed the safer default was in place is running the other one.
+
+The merge widened who this question applies to. On 16 September 2026 Anthropic folded Cowork into Claude: agentic work now happens inside ordinary conversations, and the Cowork toggle disappears as the rollout reaches each account ([VentureBeat](https://venturebeat.com/technology/anthropic-is-killing-off-cowork-and-folding-it-into-claude-launching-claude-docs-and-claude-slides)). A security team cannot block "Cowork" as a separate product any more and call the review closed.
+
+## Why a gateway is not an audit trail
+
+A gateway records the traffic it can see. It sees a call leave for a model endpoint or an MCP server, and it can hold that call or log its arguments. The file the session opened before the call never crosses it. Neither does the shell line that produced an upload, or the scheduled task that ran at three in the morning. TrueFoundry's guide says where its own coverage stops. Local conversation history and file operations are covered by "your endpoint security posture", meaning disk encryption and EDR, and they never reach the proxy ([TrueFoundry](https://www.truefoundry.com/blog/claude-cowork-security-risks)).
+
+A gateway is also a second product to govern. It has its own deployment, keys, admin surface and uptime, and each of those is another thing to review. When it is down the trail has a hole; when it is misconfigured the hole is silent. The team ends up auditing a proxy's access policy next to the agent's, and the original question has doubled instead of closing.
+
+The third gap is the one no proxy can reach. A gateway can record that an action happened. It cannot record who approved it, because the approval is a click inside the vendor's client, made by the member in the session. In the automatic mode Harmonic describes, there is no click at all and a classifier decides, so the event arrives at the SIEM with no name attached to the decision.
+
+That is the structural point, and it holds whatever the next product is called. When the authority for an action is a setting inside the product, the evidence of that authority is inside the product too. Anything in front of it can witness the action. The place where the agent runs can show the permission that allowed it, and the person who let it through.
+
+## What an auditable agent looks like instead
+
+An auditable system starts with where the permissions are written. In Kortix an agent is two files: \`agents/<name>.md\` for how it behaves, and a block under \`agents:\` in \`kortix.yaml\` for what it may reach. The starter agent quoted on this page opens with \`permission: allow\` in its own frontmatter. The manifest header draws the line the same way: the \`agents:\` map is "GOVERNANCE ONLY", and "Agent BEHAVIOR (description, model, mode, temperature, permission, the prompt itself, …) lives entirely in that \`.md\`'s frontmatter + body" ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). A permission change is a diff a colleague can read.
+
+Grants fail closed by default. The header states it in the file: "v2 is deny-by-default: an omitted connectors/secrets/kortix_permissions/skills grant resolves to "none", so a scoped specialist starts locked down." Access set in a console is a checkbox somebody ticked. Access written in a repo is a line somebody wrote and somebody else merged.
+
+\`\`\`yaml
+# v2 is deny-by-default: an omitted connectors/secrets/kortix_permissions/
+# skills grant resolves to "none", so a scoped specialist starts locked down.
+\`\`\`
+
+The session is a branch of the repository. The starter agent's body describes the workspace it runs in as "an isolated sandbox", "an ephemeral branch of this repo, your own \`/workspace\`", where "Only what you commit + push survives". Each session gets one isolated sandbox with its own isolated machine and branch. What it writes and what it runs show up as repository state that a diff can reach.
+
+Work then lands the way code lands. Session work reaches the default branch through a change request, and merge is default-deny for agents. A person holding the \`project.gitops.merge\` permission reviews the diff and merges it. The name on that merge is the approval, and it sits in the history beside the change it approved. An auditor who asks who authorized something gets a person, a diff and a timestamp.
+
+The record is the repository. Commits, change requests, reviews and merges live in it, which is why a rename, a plan change or a vendor decision cannot take them away. Kortix runs on Kortix Cloud, in your VPC or on your own on-prem network, and self-host is free. The repo you clone holds the same history as the one you audit. Where the data sits is covered in [Claude Cowork data privacy](/claude-cowork-data-privacy). How sessions run is on [the self-hosted page](/self-hosted-ai-agent), and what the product is in one piece is on [whether Claude Cowork is open source](/is-claude-cowork-open-source).
+
+## A ten-minute review you can run on any product that runs agents
+
+A reviewer can put four questions to any product that runs agents, and each one has an answer that can be shown. The fourth decides most of them, because a settings panel cannot write a file.
+
+- **Where permissions are written.** Ask for a permission change as a diff, and ask what an omitted grant resolves to. A screenshot of a settings panel is not a diff, and "the admin decides" is not an answer about a file.
+- **What the log is.** Ask for an export the team keeps after the contract ends, carrying the command, the files touched and the time. If the answer is telemetry, ask whether it carries prompt content by default; on Cowork it does not.
+- **Who approves an irreversible action, and what the default is.** Ask what state a new workspace starts in, and whether a person or a classifier reviews. Harmonic's note on Anthropic's own telemetry is the reason to ask: people approved roughly 93% of permission prompts, so an approval nobody reads is a formality.
+- **What a session can reach.** Ask whether session work can reach the default branch without a person, and what the session can touch on the network. The answer you want is default-deny, with the grant named and the file it lives in. The comparison table on this page runs those questions across four products, and adds two rows a reviewer asks for: self-hosting and model choice.`,
+        },
+        {
+          type: 'comparison',
+          heading: {
+            title: 'Four products, seven questions',
+            sub: 'Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work, and every rival cell comes from that vendor\'s own pages or documentation in October 2026.',
+          },
+          columns: [
+            { id: 'kortix', label: 'Kortix', note: 'recommended', highlight: true, href: 'https://kortix.com', nofollow: true },
+            { id: 'claude', label: 'Claude, with Cowork inside it', note: 'the reference', href: 'https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide' },
+            { id: 'openwork', label: 'OpenWork', note: 'the desktop', href: 'https://openworklabs.com/enterprise' },
+            { id: 'chatgpt-work', label: 'ChatGPT Work', note: 'the rival', href: 'https://learn.chatgpt.com/docs/get-started-with-work' },
+          ],
+          rows: [
+            {
+              label: 'Open source',
+              cells: [
+                { text: 'Yes, the whole platform', mark: 'yes' },
+                { text: 'No', mark: 'no' },
+                { text: 'Yes', mark: 'yes' },
+                { text: 'No', mark: 'no' },
+              ],
+            },
+            {
+              label: 'Session isolation',
+              cells: [
+                'One isolated sandbox per session',
+                "A sandbox on Anthropic's infrastructure, or a local VM",
+                "The member's machine; cloud workers optional",
+                'A local sandbox or a Work Cloud session',
+              ],
+            },
+            {
+              label: 'Where permissions are written',
+              cells: [
+                'agents/<name>.md, with grants in kortix.yaml',
+                'Custom roles and capabilities in the admin console',
+                'Agent permissions and MCP tool policy in the organization',
+                'A control under the composer; admins set policy in Agent Security',
+              ],
+            },
+            {
+              label: 'Who approves an irreversible action',
+              cells: [
+                'A person merges the change request',
+                'A classifier, unless an admin turns automatic approval off',
+                'Tool policy per connection, set by the organization',
+                'The member, through Ask for approval',
+              ],
+            },
+            {
+              label: 'Audit trail',
+              cells: [
+                'Every action is recorded; reading and export depend on the plan',
+                'Compliance API transcripts; no Cowork events in the audit log',
+                'Every agent action logged and exportable to a SIEM',
+                'Compliance API events; not every local action is recorded',
+              ],
+            },
+            {
+              label: 'Self-host',
+              cells: [
+                'Kortix Cloud, your VPC, or on-prem. Free.',
+                { text: 'No', mark: 'no' },
+                'Self-host or a managed private instance',
+                { text: 'No', mark: 'no' },
+              ],
+            },
+            {
+              label: 'Model choice',
+              cells: [
+                'Any model provider, your own keys',
+                "Anthropic's models",
+                '50+ providers, or local models',
+                'The models OpenAI ships',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'artifact',
+          heading: { title: "One agent's permission, as a line in its own file" },
+          artifact: {
+            file: 'agents/kortix.md',
+            lang: 'text',
+            source: 'https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/agents/kortix.md',
+            lines: [
+              '---',
+              'mode: primary',
+              'permission: allow',
+              '---',
+              'You are a **Kortix general knowledge worker** for **{{projectName}}**.',
+            ],
+          },
+          caption: "The starter agent's frontmatter, and the workspace rule its session runs under.",
+        },
+        {
+          type: 'faq',
+          heading: { title: 'Questions a reviewer asks first', sub: 'Short answers, each sourced to the vendor page it came from.' },
+          items: [
+            {
+              id: 'audit-logs',
+              question: "Is Claude Cowork activity captured in Anthropic's audit logs?",
+              answer:
+                'No. Anthropic\'s administrator guide states that "Audit Logs do not cover Claude Cowork yet", and Harmonic reports that the Audit Log CSV export contains no Cowork event types. Enterprise organizations can retrieve session transcripts through the Compliance API instead, from the day it is enabled.',
+            },
+            {
+              id: 'regulated',
+              question: 'Is Claude Cowork safe to use in a regulated industry?',
+              answer:
+                'Only with Enterprise controls in place, and those still leave the audit gap open. There is no audit-log entry for a Cowork action yet, and automatic approval puts a classifier in the reviewer\'s seat. A regulated team needs Compliance API transcripts enabled before rollout, custom roles that scope Cowork per group, and read-only tools wherever a write is not required.',
+            },
+            {
+              id: 'audit-agent',
+              question: 'How do I audit what an AI agent did on my machine?',
+              answer:
+                "From the agent's own log plus your endpoint record, or from the repository if the agent works in one. Ask the product for an export carrying the command, the files touched, the time and the approver. Where it keeps no such log, telemetry into a SIEM gives events, not content.",
+            },
+            {
+              id: 'vs-claude-code',
+              question: 'What is the difference between Claude Cowork and Claude Code from a security perspective?',
+              answer:
+                'Cowork was the same agent architecture pointed at files, browsers and connectors instead of a repository, and since 16 September 2026 those abilities run inside ordinary Claude conversations. Claude Code stays a separate product for developers working against a codebase from a terminal or an IDE.',
+            },
+            {
+              id: 'self-host',
+              question: 'Can you self-host Claude Cowork?',
+              answer:
+                'No. There is no server to install: Cowork is Anthropic\'s hosted service, and the Bedrock, Google Cloud and Foundry routes change who bills the inference, not who operates the software. Kortix is open source, self-hosts on your own network, and self-host is free.',
+            },
+          ],
+        },
+        {
+          type: 'cta',
+          title: 'Put the record where you can read it',
+          sub: 'Agents, their permissions and the merge gate live in a repo you can clone today.',
+          ctas: [TRY_KORTIX, cta('See the self-hosted option', '/self-hosted-ai-agent')],
         },
       ],
     },

@@ -36,6 +36,7 @@ export function AccordionTrigger({
         {children}
         <CaretDownIcon
           data-js-only
+          aria-hidden
           className="text-muted-foreground pointer-events-none mt-1 size-4 shrink-0 transition-transform duration-moderate ease-out"
         />
       </AccordionPrimitive.Trigger>

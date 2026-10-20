@@ -1,7 +1,7 @@
 {
   "": {
-    "hash": "bf7978ad3cef70f9",
-    "updated": "2026-10-19"
+    "hash": "f632eb37c9884ee7",
+    "updated": "2026-10-20"
   },
   "ai-agent-orchestration": {
     "hash": "93e045c07f1c9017",
@@ -50,6 +50,10 @@
   "claude-cowork-pricing": {
     "hash": "c6c5e461bd6fd9a0",
     "updated": "2026-10-19"
+  },
+  "claude-cowork-security-and-approvals": {
+    "hash": "3496d6c3fd47e491",
+    "updated": "2026-10-20"
   },
   "claude-cowork-vs-chatgpt-work": {
     "hash": "9b58c4adae0106e5",
@@ -114,6 +118,10 @@
   "self-hosting": {
     "hash": "4aefc9a2c722b51d",
     "updated": "2026-10-18"
+  },
+  "what-happened-to-claude-cowork": {
+    "hash": "8c59a517536c911d",
+    "updated": "2026-10-20"
   },
   "what-is-claude-cowork": {
     "hash": "c8c2c12ed38e304d",

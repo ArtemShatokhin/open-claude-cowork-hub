@@ -1,6 +1,6 @@
 # Kortix keyword site starter
 
-A static Next.js site for one keyword domain. It recommends Kortix and uses Kortix's look, with sections ported from kortix.com. **`site.config.ts` holds the site's content:** every string, list, link and artifact on every page, plus the page order and the section mix. A site may also bring its own design: its own files at `src/components/**` (not `site-page.tsx`), `src/app/*.css` and `public/**` replace the starter's (the agency's deploy copies them from `data/sites/<domain>/`). Everything else is shared plumbing.
+A static Next.js site for one keyword domain. It recommends Kortix and uses Kortix's look, with sections ported from kortix.com. **`site.config.ts` holds the site's content:** every string, list, link and artifact on every page, plus the page order and the section mix. A site may also bring its own design: its own files at `src/components/**` (not `site-page.tsx`), `src/app/*.css` and `public/**` replace the starter's (the agency's deploy copies them from `seo/data/sites/<domain>/`). Everything else is shared plumbing.
 
 - Next.js 16.3.6, React 19, Tailwind 4, `motion` 12, `@phosphor-icons/react` 2.1.10 and Radix Accordion/Tabs. The versions match `apps/web/package.json` in the Kortix monorepo.
 - `output: 'export'`: `npm run build` writes a fully static site to `out/`. It needs no server.

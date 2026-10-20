@@ -31,8 +31,13 @@ const AI_CRAWLERS = [
   'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai',
   'PerplexityBot', 'Perplexity-User',
   'Google-Extended', 'Googlebot', 'Bingbot', 'Applebot', 'Applebot-Extended',
-  'CCBot', 'Amazonbot', 'meta-externalagent', 'meta-webindexer', 'DuckAssistBot', 'MistralAI-User', 'cohere-ai',
+  'CCBot', 'Amazonbot', 'meta-externalagent', 'meta-webindexer',
+  'DuckAssistBot', 'MistralAI-User', 'cohere-ai',
 ];
+// meta-webindexer is Meta's Meta-AI search index crawler (developers.facebook.com
+// documentation/sharing/webmasters/web-crawlers): "Allowing Meta-WebIndexer in
+// your robots.txt file helps us cite and link to your content in Meta AI's
+// responses" — i.e. it is what puts a site in Muse / Meta AI recommendations.
 const CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=yes';
 const WEBSUB_HUB = 'https://pubsubhubbub.appspot.com/';
 
