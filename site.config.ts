@@ -4804,7 +4804,7 @@ None of that is a flaw in the product Anthropic built. Asking someone to choose 
 
 A label is the cheapest thing a vendor can change. The work, the permissions and the log are the expensive parts, and a rename leaves all three where the last one put them. A team that reopens the question "which Cowork-like product do we buy" will reopen it again at the next announcement. The question that survives is which layer the team holds when the name moves.
 
-Kortix is built so that layer is a repository. An agent is a markdown file under \`agents/\`, and the reach it has is a line in that file's frontmatter. Nothing about it lives in a dashboard; the artifact on this page is one whole starter agent. The same file calls the session an ephemeral branch of the repo and says that only what you commit and push survives ([the starter repo](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/agents/kortix.md)).
+Kortix is built so that layer is a repository. An agent is a markdown file under \`agents/\`, and the reach it has is a line in that file's frontmatter. Nothing about it lives in a dashboard; one file is the whole agent. The same file calls the session an ephemeral branch of the repo and says that only what you commit and push survives ([the starter repo](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/agents/kortix.md)).
 
 \`kortix.yaml\` registers what exists in the project, and each agent enables what it needs by name. An omitted grant resolves to \`none\`, so a narrow agent starts with nothing ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). Work then lands the way code lands. Session work reaches \`main\` through a change request, and merge is default-deny for agents. An admin can grant \`project.gitops.merge\` to change that.
 
@@ -4855,9 +4855,9 @@ If you are still working out what the product was, [what Claude Cowork is](/what
             {
               label: 'Audit trail',
               cells: [
-                'Every action is recorded. Reading, exporting and streaming depend on the plan',
+                'Every action is recorded. Reading, exporting and streaming the audit log depend on the plan',
                 'Compliance API transcripts for Enterprise; no Cowork events in the audit log',
-                'Not documented',
+                'Audit log and spend observability on Enterprise; every agent action attributable and exportable to a SIEM',
                 'A Compliance API for Enterprise and Edu',
               ],
             },
@@ -4993,7 +4993,7 @@ That is the structural point, and it holds whatever the next product is called. 
 
 ## What an auditable agent looks like instead
 
-An auditable system starts with where the permissions are written. In Kortix an agent is two files: \`agents/<name>.md\` for how it behaves, and a block under \`agents:\` in \`kortix.yaml\` for what it may reach. The starter agent quoted on this page opens with \`permission: allow\` in its own frontmatter. The manifest header draws the line the same way: the \`agents:\` map is "GOVERNANCE ONLY", and "Agent BEHAVIOR (description, model, mode, temperature, permission, the prompt itself, …) lives entirely in that \`.md\`'s frontmatter + body" ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). A permission change is a diff a colleague can read.
+An auditable system starts with where the permissions are written. In Kortix an agent is two files: \`agents/<name>.md\` for how it behaves, and a block under \`agents:\` in \`kortix.yaml\` for what it may reach. The starter agent opens with \`permission: allow\` in its own frontmatter. The manifest header draws the line the same way: the \`agents:\` map is "GOVERNANCE ONLY", and "Agent BEHAVIOR (description, model, mode, temperature, permission, the prompt itself, …) lives entirely in that \`.md\`'s frontmatter + body" ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). A permission change is a diff a colleague can read.
 
 Grants fail closed by default. The header states it in the file: "v2 is deny-by-default: an omitted connectors/secrets/kortix_permissions/skills grant resolves to "none", so a scoped specialist starts locked down." Access set in a console is a checkbox somebody ticked. Access written in a repo is a line somebody wrote and somebody else merged.
 
@@ -5015,7 +5015,7 @@ A reviewer can put four questions to any product that runs agents, and each one 
 - **Where permissions are written.** Ask for a permission change as a diff, and ask what an omitted grant resolves to. A screenshot of a settings panel is not a diff, and "the admin decides" is not an answer about a file.
 - **What the log is.** Ask for an export the team keeps after the contract ends, carrying the command, the files touched and the time. If the answer is telemetry, ask whether it carries prompt content by default; on Cowork it does not.
 - **Who approves an irreversible action, and what the default is.** Ask what state a new workspace starts in, and whether a person or a classifier reviews. Harmonic's note on Anthropic's own telemetry is the reason to ask: people approved roughly 93% of permission prompts, so an approval nobody reads is a formality.
-- **What a session can reach.** Ask whether session work can reach the default branch without a person, and what the session can touch on the network. The answer you want is default-deny, with the grant named and the file it lives in. The comparison table on this page runs those questions across four products, and adds two rows a reviewer asks for: self-hosting and model choice.`,
+- **What a session can reach.** Ask whether session work can reach the default branch without a person, and what the session can touch on the network. The answer you want is default-deny, with the grant named and the file it lives in. The four-product table runs those questions, and adds two rows a reviewer asks for: self-hosting and model choice.`,
         },
         {
           type: 'comparison',
@@ -5069,7 +5069,7 @@ A reviewer can put four questions to any product that runs agents, and each one 
             {
               label: 'Audit trail',
               cells: [
-                'Every action is recorded. Reading, exporting and streaming depend on the plan',
+                'Every action is recorded. Reading, exporting and streaming the audit log depend on the plan',
                 'Compliance API transcripts; no Cowork events in the audit log',
                 'Every agent action logged and exportable to a SIEM',
                 'Compliance API events; not every local action is recorded',
