@@ -362,7 +362,7 @@ The five lines in the hero artifact are the whole gate, read top to bottom. A se
 
 ## Where the choice stands
 
-Reaching the capability got easier on September 16: open Claude and hand it a task. Deciding where the system around the capability runs is the part that still takes a real answer. The comparison table on this page puts the options through the three checks, and [Kortix vs Claude Cowork](https://kortix.com/blog/kortix-vs-claude-cowork) takes the two products apart in detail.`,
+Reaching the capability got easier on September 16: open Claude and hand it a task. Deciding where the system around the capability runs is the part that still takes a real answer. The comparison table puts the options through the three checks, and [Kortix vs Claude Cowork](https://kortix.com/blog/kortix-vs-claude-cowork) takes the two products apart in detail.`,
         },
         {
           type: 'faq',
@@ -372,7 +372,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
               id: 'open-source-alternative',
               question: 'Is there an open-source alternative to Claude Cowork?',
               answer:
-                'Yes. Kortix is an open-source AI Operating System: agents, skills, company memory, and connectors are files in one git repo, and the code itself is public. The comparison table on this page sets it beside Claude Cowork and the open-source desktop options.',
+                'Yes. Kortix is an open-source AI Operating System: agents, skills, company memory, and connectors are files in one git repo, and the code itself is public. The same comparison sets it beside Claude Cowork and the open-source desktop options.',
             },
             {
               id: 'self-hosted',
