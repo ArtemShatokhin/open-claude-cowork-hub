@@ -2964,9 +2964,9 @@ Run the decision as three questions instead of a feature count. A team that live
               source: 'https://kortix.com/docs/project/models',
               lines: [
                 'A custom endpoint. For a self-hosted or unlisted OpenAI-compatible endpoint, open the Custom tab.',
-                'Enter a provider id, a name, the base URL, a model id and a model name.',
-                'The key is optional.',
-                'Kortix saves the key as CUSTOM_<ID>_API_KEY and shows an OpenCode provider snippet.',
+                'Enter a provider id, a name, the base URL and one or more models (an id and a name each).',
+                'Kortix stores the endpoint in the project.',
+                'The key is optional: Kortix saves it as the project secret CUSTOM_<ID>_API_KEY and sends it as a Bearer token.',
               ],
             },
           ],
