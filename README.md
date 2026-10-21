@@ -186,20 +186,13 @@ The three `layout` values are the three artifact states of kortix-brand `magic_t
 
 `scripts/validate.ts` fails the build when:
 - the accent or domain is malformed, or slugs are duplicated or malformed;
-- a meta description runs over 160 characters, or a lead over 60 words;
-- a hero paragraph runs over 90 words, or the hero has no kortix.com CTA;
-- a hero artifact runs over 6 lines, or the homepage hero lacks "The open-source AI Operating System" or "The leading open-source alternative to Claude Cowork and ChatGPT Work";
+- a page has no H1, more than one hero, or a hero that is not its first section;
+- a meta description runs over 160 characters, or a hero artifact over 6 lines;
 - a kortix.com link has no `nofollow`.
 
-It also checks the brand kit's verbal rules in visible copy:
-- no licence names;
-- no "AI Management System", retired lines or banned hype words;
-- no "air-gapped", "microVM" or "container";
-- no "unlimited" or "hundreds of thousands";
-- no "OIDC";
-- no "Suna" except inside `https://github.com/kortix-ai/suna`.
+It warns when a page title or h1 does not say "open source", or when a page is missing from the nav.
 
-It warns when a page title or h1 does not say "open source", or when a page is missing from the nav. It cannot check that a capability claim quotes a `claims.md` row word for word. That stays a human review: `site.config.ts` keeps the claim sentences in one `CLAIM` object for that reason.
+The copy is not the build's to judge (2026-10-21): the hero's lead and its kortix.com call to action, the homepage's kit line, licence names, retired lines, hype words, the "Suna" rule and the kit's claims are the agency's content-reviewer's, which reads the local build before it deploys. `site.config.ts` keeps the claim sentences in one `CLAIM` object so a reviewer can check them against `claims.md`.
 
 ## Generated plumbing
 

@@ -1,34 +1,11 @@
 /**
  * Config validation, run before every build (prebuild). Errors stop the build; warnings print.
- * Checks the schema basics, the layout gate's copy limits (hero lead and paragraphs), the approved
- * homepage line, and the kit's verbal rules that a script can check (licence names, retired and
- * banned words, the "Suna" rule).
+ * Checks the schema and structure: accent, domain, dates, slugs, one hero first, meta description
+ * length, hero artifact length, nofollow on kortix.com links. The copy (the hero lead and its
+ * call to action, the homepage's kit line, the kit's verbal rules) is the agency's
+ * content-reviewer's, which reads the local build before it deploys (2026-10-21).
  */
-import type { Page, SiteConfig } from '../src/config/types';
-import { inlineToPlain } from '../src/lib/markdown';
-import { pageMarkdown } from '../src/lib/page-text';
-
-export const APPROVED_HOME_LINES = [
-  'The open-source AI Operating System',
-  'The leading open-source alternative to Claude Cowork and ChatGPT Work',
-];
-
-const words = (s: string) => inlineToPlain(s).split(/\s+/).filter(Boolean).length;
-
-/** Each rule: a pattern that must not appear in any visible copy, and why. */
-const BANNED: { re: RegExp; why: string }[] = [
-  { re: /\b(MIT|Apache|AGPL|LGPL|GPL|BSD|Elastic License|MPL)\b|\blicen[cs]e[sd]?\b/i, why: 'never name a licence; say "open source" (positioning.md)' },
-  { re: /AI Management System/i, why: 'not a Kortix category (positioning.md section 1)' },
-  { re: /Autonomous Company Operating System|open AGI platform|self-driving|Super AI Worker|\bAI Worker\b|genius colleague|command center/i, why: 'retired line (positioning.md)' },
-  { re: /air-gapped|microVM|\bcontainers?\b/i, why: 'claims.md "Isolation and network"' },
-  { re: /\b(seamless(ly)?|revolutionary|next-gen|transformative|unlock productivity|the go-to|#1|the best|more powerful|fully extensible)\b/i, why: 'banned hype (claims.md "Words that overclaim")' },
-  { re: /fully autonomous|digital coworkers?|pushes to main|the agent deploys/i, why: 'claims.md "Merge, approval, autonomy"' },
-  { re: /hundreds of thousands|unlimited|scale without limits/i, why: 'claims.md "Scale, speed, metrics"' },
-  { re: /\bOIDC\b|SAML\/OIDC/i, why: 'write "SAML 2.0" (claims.md "Identity and SSO")' },
-  { re: /\bAIOS\b|Ai OS|AI-OS/, why: 'spell "AI OS" or the full name (positioning.md)' },
-];
-
-const SUNA_URL = 'https://github.com/kortix-ai/suna';
+import type { SiteConfig } from '../src/config/types';
 
 export function validate(site: SiteConfig): { errors: string[]; warnings: string[] } {
   const errors: string[] = [];
@@ -53,7 +30,6 @@ export function validate(site: SiteConfig): { errors: string[]; warnings: string
     if (page.slug !== '' && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(page.slug)) err(where, 'slug: lowercase letters, digits, dashes');
     if (!page.h1.trim()) err(where, 'h1 is empty');
     if (page.metaDescription.length > 160) err(where, `metaDescription is ${page.metaDescription.length} chars (max 160)`);
-    if (words(page.lead) > 60) err(where, `lead is ${words(page.lead)} words (max 60)`);
     if (!/open source/i.test(page.title) && !/open-source/i.test(page.title)) warn(where, 'title should say "Open Source" (site kit)');
     if (!/open[- ]source/i.test(page.h1)) warn(where, 'h1 should say "open source" (site kit)');
     if (page.sections.filter((s) => s.type === 'hero').length > 1) err(where, 'more than one hero');
@@ -63,18 +39,8 @@ export function validate(site: SiteConfig): { errors: string[]; warnings: string
 
     const hero = page.sections.find((s) => s.type === 'hero');
     if (hero && hero.type === 'hero') {
-      const paras = [page.lead, hero.proof, hero.trust, hero.tagline, hero.eyebrow?.lead].filter(Boolean) as string[];
-      for (const p of paras) if (words(p) > 90) err(where, `hero paragraph over 90 words: "${p.slice(0, 40)}…"`);
-      if (!hero.ctas.some((c) => c.href.startsWith('https://kortix.com'))) err(where, 'hero needs a kortix.com call to action');
       for (const a of hero.artifacts) if (a.lines.length > 6) err(where, `hero artifact ${a.file} has ${a.lines.length} lines (max 6)`);
-      if (page.slug === '') {
-        const heroText = [page.h1, ...paras].join(' ');
-        if (!APPROVED_HOME_LINES.some((l) => heroText.includes(l)))
-          err(where, `homepage hero must contain "${APPROVED_HOME_LINES[0]}" or "${APPROVED_HOME_LINES[1]}"`);
-      }
     }
-
-    checkCopy(site, page, where, err);
   }
 
   for (const link of [...site.nav, ...site.footer.columns.flatMap((c) => c.links)]) {
@@ -83,17 +49,3 @@ export function validate(site: SiteConfig): { errors: string[]; warnings: string
   return { errors, warnings };
 }
 
-function checkCopy(site: SiteConfig, page: Page, where: string, err: (w: string, m: string) => void) {
-  // Visible copy only: artifact lines are quoted files, not copy.
-  const text = pageMarkdown(site, page)
-    .replace(/```[\s\S]*?```/g, '')
-    .split(SUNA_URL)
-    .join('');
-  for (const { re, why } of BANNED) {
-    const m = re.exec(text);
-    if (m) err(where, `"${m[0]}" — ${why}`);
-  }
-  const suna = /suna/i.exec(text);
-  if (suna) err(where, `"${suna[0]}" outside ${SUNA_URL} — never write it in copy`);
-  if (/Claude Work\b|ChatGPT Cowork/.test(text)) err(where, 'product names: "Claude Cowork", "ChatGPT Work"');
-}

@@ -248,7 +248,7 @@ export type Page = {
   /** One to three short sentences, 60 words or fewer. */
   lead: string;
   /** Sub-pages only: the button under the page header. Defaults to the site's `headerCta`, so
-   *  every page has a kortix.com action in its first screen (the agency's hero_cta check). */
+   *  every page has a kortix.com action in its first screen (the content-reviewer reads for it). */
   cta?: Cta;
   /** Short label for nav, sitemap and llms.txt. Defaults to `title`. */
   navLabel?: string;
