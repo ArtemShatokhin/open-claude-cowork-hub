@@ -2063,7 +2063,7 @@ After the first job merges, the rest of the setup follows the same path, one pro
             },
             {
               label: 'Entry price',
-              cells: ['Free is $0 with 500 credits per month, 1 project, on the user\'s own provider keys or ChatGPT subscription', 'Pro, $17 a month billed annually', '$0 on desktop with your own keys'],
+              cells: ['Free is $0 with 500 credits per month and 1 project', 'Pro, $17 a month billed annually', '$0 on desktop with your own keys'],
             },
             {
               label: 'Next tier up',
@@ -2502,7 +2502,7 @@ The [self-hosting guide](/self-hosting) on this site walks the install, and the 
             },
             {
               label: 'Entry cost',
-              cells: ['Free is $0 with 500 credits per month, 1 project, on the user\'s own provider keys or ChatGPT subscription', 'Works with a paid plan', 'On paid plans'],
+              cells: ['Free is $0 with 500 credits per month and 1 project', 'Works with a paid plan', 'On paid plans'],
             },
           ],
         },
