@@ -120,15 +120,17 @@ export function CodeBlock({
 }) {
   return (
     <figure className={cn('border-terminal-row bg-terminal-surface flex min-w-0 flex-col overflow-hidden rounded-lg border', className)}>
-      <figcaption className="border-terminal-row bg-terminal-caption flex min-h-11 items-center gap-3 border-b px-4 py-1">
-        <span className="text-cap min-w-0 truncate text-xs">{artifact.file}</span>
-        {artifact.copyText ? <CopyButton text={artifact.copyText} /> : null}
-      </figcaption>
+      {artifact.file ? (
+        <figcaption className="border-terminal-row bg-terminal-caption flex min-h-11 items-center gap-3 border-b px-4 py-1">
+          <span className="text-cap min-w-0 truncate text-xs">{artifact.file}</span>
+          {artifact.copyText ? <CopyButton text={artifact.copyText} /> : null}
+        </figcaption>
+      ) : null}
       <div className={cn('min-h-0 flex-1 overflow-x-auto px-4 py-3.5 sm:px-5 sm:py-4', size === 'hero' && 'sm:py-5')}>
         <pre className={cn('font-mono leading-relaxed', size === 'hero' ? 'text-xs sm:text-sm' : 'text-xs')}>
           <code>
             {artifact.lines.map((line, i) => (
-              <span key={i} className="block whitespace-pre">
+              <span key={i} className="block whitespace-pre-wrap break-words">
                 <CodeLine line={line} lang={artifact.lang} />
               </span>
             ))}

@@ -189,7 +189,13 @@ export function Prose({ body, className }: { body: string; className?: string })
             return (
               <div key={i} className={cn('w-full max-w-3xl', first ? '' : 'mt-6')}>
                 <CodeBlock
-                  artifact={{ file: b.lang, lang: b.lang === 'yaml' || b.lang === 'sh' || b.lang === 'ts' ? b.lang : 'text', lines: b.lines }}
+                  artifact={{
+                    /* A prose fence carries a language, not a file name, so the plate has no
+                       caption bar rather than a leaked `text` or `sh` label. */
+                    file: '',
+                    lang: b.lang === 'yaml' || b.lang === 'sh' || b.lang === 'ts' ? b.lang : 'text',
+                    lines: b.lines,
+                  }}
                 />
               </div>
             );
