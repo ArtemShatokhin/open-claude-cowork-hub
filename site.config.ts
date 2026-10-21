@@ -3003,7 +3003,7 @@ What makes a local runner attachable is its API shape. Ollama serves an OpenAI-c
 
 Test any candidate platform on the model layer first. Can a session's agent take its model from an endpoint you run? Can that choice differ per agent? Kortix states its model options in one line: "Any model provider with your own keys. Or the ChatGPT plan you already pay for. Or sign in with your OpenCode Console account for OpenCode Zen and Go."
 
-The local endpoint enters through the Custom tab in the model settings. There you enter a provider id, a name, the base URL, a model id and a model name; the key is optional ([the model docs](https://kortix.com/docs/project/models), checked October 2026). A custom provider calls its endpoint directly, not through the gateway. Budgets, logs and routing do not apply to it, and only the OpenCode harness reads it. Whatever metering you want on local-model spend is yours to build. The endpoint also has to be reachable from the instance: localhost works when Ollama runs on the same box as a self-hosted stack.
+The local endpoint enters through the Custom tab in the model settings. There you enter a provider id, a name, the base URL and one or more models, an id and a name each; the key is optional ([the model docs](https://kortix.com/docs/project/models), checked October 2026). The gateway calls /chat/completions under that base URL in the OpenAI chat-completions format, and a model id reads as my-vllm/qwen-3. A custom endpoint is routed like any other model: budgets, logs, access rules and routing apply, and Kortix charges no credits for it. Both harnesses, OpenCode and pi, can use its models. The provider id cannot be a catalog id such as openai, and the gateway refuses a base URL on a private, loopback or link-local address, so a local Ollama host goes in KORTIX_LLM_CUSTOM_PROVIDER_ALLOW_HOSTS on the API, comma-separated.
 
 Hosted providers take the documented CLI instead: \`kortix providers set anthropic\` reads a key from stdin, \`kortix models default <model-id>\` sets the project default, and \`kortix agents model <agent> <model-id>\` pins one agent (checked October 2026). A session that names no model walks that chain from the pin down to the platform default.
 
@@ -3011,7 +3011,7 @@ The per-agent split is the useful part for a local-LLM buyer. The nightly summar
 
 ## What a local model changes, and what it leaves alone
 
-An agent makes many model calls to finish one job, so a local model's speed is the hardware's speed, and every step waits on it. The gateway-side comforts stop at a custom endpoint too: as the model docs state, budgets, logs and routing do not apply. Weigh both before you move the first agent.
+An agent makes many model calls to finish one job, so a local model's speed is the hardware's speed, and every step waits on it. The gateway treats a custom endpoint like any other model: budgets, logs, access rules and routing apply, Kortix charges no credits for it, and both harnesses can use its models ([the model docs](https://kortix.com/docs/project/models), checked October 2026). The bill moves from credits to the hardware you run. Weigh both before you move the first agent.
 
 Governance survives the swap. Session work reaches \`main\` through a change request. Merge is default-deny for agents. That gate lives at the platform layer, and a bare local-model setup has no equivalent.
 
@@ -3043,7 +3043,7 @@ Kortix passes the model-layer checks, which is why it is the recommendation here
               id: 'point-kortix',
               question: 'What does it take to point Kortix at a local model?',
               answer:
-                'A running OpenAI-compatible endpoint, such as Ollama\u0027s at http://localhost:11434/v1, reachable from the Kortix instance. Connect it in the Custom tab with a provider id, base URL and model id; the key is optional (the model docs, checked October 2026). A custom provider calls its endpoint directly, outside the gateway\u0027s budgets, logs and routing.',
+                'A running OpenAI-compatible endpoint, such as Ollama at http://localhost:11434/v1. Connect it in the Custom tab with a provider id, a name, the base URL and one or more models, an id and a name each; the key is optional (the model docs, checked October 2026). The gateway calls /chat/completions under that base URL and applies budgets, logs, access rules and routing as for any other model, and Kortix charges no credits. On a self-hosted deployment, list a loopback host in KORTIX_LLM_CUSTOM_PROVIDER_ALLOW_HOSTS, or the gateway refuses the address.',
             },
             {
               id: 'who-after-merge',
