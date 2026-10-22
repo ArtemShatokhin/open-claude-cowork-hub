@@ -829,7 +829,7 @@ The calculation changes with the second person. Two members, each starting with 
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Three kinds, measured on what a team owns', sub: 'Every rival cell comes from that project\u0027s own site or repository, checked 21 October 2026.' },
+          heading: { title: 'Three kinds, measured on what a team owns', sub: 'Three kinds of project, and each hands the team a different share of the system.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
             { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
@@ -1000,7 +1000,7 @@ Pick the kind before the brand. Agent steps inside an application the team alrea
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Three projects, one restart test', sub: 'Each rival cell comes from that project\u0027s own site or docs, checked October 2026.' },
+          heading: { title: 'Three projects, one restart test', sub: 'Restart the machine: whatever comes back is what the project actually kept.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
@@ -1215,7 +1215,7 @@ A first trial needs no DNS at all. The docs' tunnel mode runs the stack on your 
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Four workspaces, two layers each', sub: 'Every cell comes from the product\u0027s own site, checked October 2026.' },
+          heading: { title: 'Four workspaces, two layers each', sub: 'Two layers, tooling and compute, and no two options place them the same way.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
             { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
@@ -1425,7 +1425,6 @@ Start with the tooling layer. It is the half that decides who owns the work, and
               ],
             },
           ],
-          footnote: "Rival cells come from each project's own repository and docs, checked 21 October 2026.",
         },
         {
           type: 'code-panels',
@@ -1554,7 +1553,7 @@ Orchestration is not always the answer. One agent in one session covers a lookup
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Who reviews the work, and who can audit it', sub: "Rival cells state what each vendor's own pages document, checked October 2026." },
+          heading: { title: 'Who reviews the work, and who can audit it', sub: "What gets written down, and who keeps it, is where the three answers part." },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
@@ -1698,7 +1697,7 @@ If the work can live in the vendor's app, pick the chat product you already pay 
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'The field, sorted by where the capability runs', sub: 'Every rival cell comes from that product\u0027s own pages, checked October 2026.' },
+          heading: { title: 'The field, sorted by where the capability runs', sub: 'A desktop app, a hosted workspace, or a server you own: that split decides the rest.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
             { id: 'openwork', label: 'OpenWork', href: 'https://openworklabs.com' },
@@ -2116,12 +2115,12 @@ After the first job merges, the rest of the setup follows the same path, one pro
               { id: 'enterprise', label: 'Enterprise seat', perSeat: 20 },
             ],
             footnote:
-              'US dollars per month, annual billing unless the line says monthly. The Pro card on Anthropic\u0027s product page says "Claude Cowork consumes limits faster than Chat. For heavy usage, consider upgrading," so heavier use climbs this ladder rather than adding an overage line. On Team, extra usage bills at API rates. Source: claude.com/product/cowork and claude.com/pricing, checked October 2026.',
+              'US dollars per month, annual billing unless the line says monthly. The Pro card on Anthropic\'s product page says "Claude Cowork consumes limits faster than Chat. For heavy usage, consider upgrading," so heavier use climbs this ladder rather than adding an overage line. On Team, extra usage bills at API rates ([the pricing page](https://claude.com/pricing)).',
           },
         },
         {
           type: 'comparison',
-          heading: { title: 'Three ways to pay for agent work', sub: 'Each cell comes from the vendor\u0027s own pages, checked October 2026.' },
+          heading: { title: 'Three ways to pay for agent work', sub: 'Seats, credits and free self-hosting, priced for one person and again for five.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
@@ -2196,7 +2195,7 @@ Self-hosting moves the question off the invoice. "Run it on Kortix Cloud, in you
         },
         {
           type: 'faq',
-          heading: { title: 'Price questions buyers ask', sub: 'Answers quote each vendor\u0027s own pages, checked October 2026.' },
+          heading: { title: 'Price questions buyers ask', sub: 'What a seat includes, what extra usage bills, and which plan a five-person team needs.' },
           items: [
             {
               id: 'separate-billing',
@@ -2251,7 +2250,7 @@ Self-hosting moves the question off the invoice. "Run it on Kortix Cloud, in you
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'The two questions, asked of all three', sub: 'Each rival cell states only what that vendor\u0027s own pages say, checked October 2026.' },
+          heading: { title: 'The two questions, asked of all three', sub: 'Where the work runs, and who reads it before it lands, are the answers that differ.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
@@ -2400,7 +2399,7 @@ The [self-hosting guide](/self-hosting) walks the install, and the [alternatives
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'What each option keeps of yours', sub: "Every rival cell restates that vendor's own page, checked October 2026." },
+          heading: { title: 'What each option keeps of yours', sub: "What survives an exit: the configuration, the history, the model route, the review gate." },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
@@ -2558,7 +2557,7 @@ Two deeper reads live on the Kortix blog. [Kortix vs Perplexity Computer](https:
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Three questions every reviewer asks', sub: "Rival cells come from Anthropic's own pricing and product pages, checked October 2026." },
+          heading: { title: 'Three questions every reviewer asks', sub: "Approval, visibility and the record: three questions a sign-off turns on, answered per seat." },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-team', label: 'Claude Team plan', href: 'https://claude.com/pricing' },
@@ -2607,7 +2606,7 @@ The admin controls are real. Anthropic's product page says admins set access by 
 
 ## The three questions a sign-off asks
 
-Whoever approves the purchase rarely asks what the agent can do. The review runs through three questions: who approves the work, who can read the record, and where it runs. The comparison table answers all three, cell by cell from each vendor's own pages.
+Whoever approves the purchase rarely asks what the agent can do. The review runs through three questions: who approves the work, who can read the record, and where it runs.
 
 On approvals, Anthropic's model is the person inside the task. Claude asks before taking an action by default. You can let it keep working and check in when something needs a closer look. You keep the final say. That is approval by the person running the task, in that person's conversation. A second person signing off on what the first person's agent did does not appear in the documented flow. The audit log that would carry the record waits for Enterprise.
 
@@ -2682,7 +2681,7 @@ The merge made Cowork easier to reach. It changed nothing about who holds the ga
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'The levers, the record, and the exit, compared', sub: "Every rival cell comes from the vendor's own pages, checked October 2026." },
+          heading: { title: 'The levers, the record, and the exit, compared', sub: "Each vendor sets agent access somewhere different, and only one writes it into a file." },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
@@ -2967,7 +2966,7 @@ Kortix passes all three, which is why it is the recommendation, and its README l
               'Self-hosting | The kortix self-host commands install and run the full stack on your own infrastructure.',
             ],
           },
-          caption: 'The client surfaces, quoted from the Kortix docs and checked October 2026.',
+          caption: 'Four ways in, and an install that puts the same stack on your own hardware.',
         },
         {
           type: 'prose',
@@ -2987,7 +2986,7 @@ The built-in browser covers part of the rest. Cowork opens its own browser in th
 
 The answer is nothing, and the design puts the work elsewhere. The web app in a browser is a full surface: start and follow sessions, review change requests, and manage projects and accounts. The agent's computer is a separate machine. One isolated sandbox per session. Each session has its own isolated machine and branch. It clones the project repo and does the task there. The operating system at the desk stops being a variable in how the work runs.
 
-The Windows facts, checked October 2026:
+Windows is where the two diverge most, and the differences are about where the work runs:
 
 | On Windows | Kortix | Claude Cowork |
 | --- | --- | --- |
@@ -3320,7 +3319,7 @@ Kortix runs that way, and where it runs is your call: Run it on Kortix Cloud, in
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Reach and credentials, side by side', sub: "Every Cowork cell comes from Anthropic's own pages, checked 21 October 2026." },
+          heading: { title: 'Reach and credentials, side by side', sub: "The credential is the row to read: whoever stores the token decides whose permissions apply." },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities' },
@@ -3450,7 +3449,7 @@ The second half is per-agent. Grants live in \`kortix.yaml\` beside the code. An
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Kortix, Claude Cowork and OpenClaw, in five rows', sub: 'Each rival column states only what its own pages document, checked October 2026.' },
+          heading: { title: 'Kortix, Claude Cowork and OpenClaw, in five rows', sub: 'Two of the three are open source; the line between them is the machine the agent runs on.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
@@ -3600,7 +3599,7 @@ For the wider argument, [Kortix vs OpenClaw](https://kortix.com/blog/kortix-vs-o
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'The two Anthropic jobs beside the open-source system', sub: 'Anthropic\u0027s cells restate its product page, Claude Code docs, and pricing page, checked October 2026.' },
+          heading: { title: 'The two Anthropic jobs beside the open-source system', sub: 'One plan carries both jobs, so the setup files are where the choice lands.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
@@ -3652,7 +3651,6 @@ For the wider argument, [Kortix vs OpenClaw](https://kortix.com/blog/kortix-vs-o
               cells: ['Free tier; paid plans from $50 a month', 'Paid plans, and limits drain faster than Chat', 'Every paid plan; absent from Free'],
             },
           ],
-          footnote: "Anthropic's cells restate its own pages, checked October 2026; the sources sit in the column links and in the text.",
         },
         {
           type: 'artifact',
@@ -3877,7 +3875,7 @@ If the setup has to outlive the machine, the balance tips to the open-source sid
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Four options, one ownership question', sub: "Every rival cell comes from that vendor's own pages, checked October 2026." },
+          heading: { title: 'Four options, one ownership question', sub: "Gemini Enterprise and Antigravity keep the setup; one option lets a team carry it out the door." },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com/docs', nofollow: true },
             { id: 'gemini-enterprise', label: 'Gemini Enterprise', href: 'https://cloud.google.com/gemini-enterprise' },
@@ -4036,7 +4034,7 @@ Staying inside Anthropic on a paid plan keeps Claude Cowork, which since Septemb
       sections: [
         {
           type: 'comparison',
-          heading: { title: 'Three kinds of free, priced', sub: 'Every rival cell comes from that vendor\u0027s own pages, checked October 2026.' },
+          heading: { title: 'Three kinds of free, priced', sub: 'Three kinds of free, and the bill that arrives when a second person joins.' },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true },
             { id: 'claude-cowork', label: 'Claude Cowork', href: 'https://claude.com/product/cowork' },
@@ -4228,7 +4226,6 @@ The free that survives a repricing is the one in software you hold. Vendors repr
               ],
             },
           ],
-          footnote: "Anthropic's cells come from its self-hosted environments documentation, checked October 2026.",
         },
         {
           type: 'artifact',
@@ -4308,7 +4305,7 @@ The mistake to avoid is treating self-hosting as one decision. It is four: where
           type: 'faq',
           heading: {
             title: 'Questions the search box asks',
-            sub: "Answers from Anthropic's documentation, checked October 2026.",
+            sub: "What the beta runs, where the queue sits, and who keeps the transcript.",
           },
           items: [
             {
@@ -4518,7 +4515,7 @@ Claude Cowork is Anthropic's agent for multi-step knowledge work. You describe a
 
 The two products became one in September 2026. "Starting today, Claude Cowork and chat are merging into one Claude," [Anthropic's announcement](https://claude.com/resources/articles/cowork-is-now-claude) reads, with what Cowork could do now "available from any conversation". Accounts move in stages, so plenty of paid accounts still show separate Chat and Cowork buttons, and Anthropic warns the move is one way once yours is in.
 
-What Anthropic ships, checked October 2026 on its own pages:
+What Anthropic ships on a Claude plan:
 
 - Desktop apps for macOS and Windows on every paid plan, Linux in beta.
 - Web and mobile on Pro, Max and Team, plus Claude in Chrome on Max and Team.
@@ -4586,8 +4583,6 @@ That is the design, and Anthropic says so plainly. Its safety page puts the limi
               ],
             },
           ],
-          footnote:
-            "Licence cells come from each project's own pages and licence file, checked 21 October 2026.",
         },
         {
           type: 'artifact',
@@ -4676,7 +4671,7 @@ On the open-source side the answer survives the third step: the repo is still yo
           type: 'comparison',
           heading: {
             title: 'Four of those repos, side by side',
-            sub: "Every rival cell comes from that project's own README, checked 19 October 2026.",
+            sub: "Each repo is read by the keys it asks for and where the skills are kept.",
           },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://github.com/kortix-ai/suna', nofollow: true },
@@ -5042,7 +5037,7 @@ If you are still working out what the product was, [what Claude Cowork is](/what
         },
         {
           type: 'comparison',
-          heading: { title: 'Four options, six questions', sub: "Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work, with each rival cell taken from that vendor's own pages in October 2026." },
+          heading: { title: 'Four options, six questions', sub: "What each option still hands you after a rename: the files, the record, the exit." },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com', nofollow: true },
             { id: 'claude', label: 'Claude, with Cowork inside it', href: 'https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude' },
@@ -5239,7 +5234,7 @@ A reviewer can put four questions to any product that runs agents, and each one 
           type: 'comparison',
           heading: {
             title: 'Four products, seven questions',
-            sub: 'Kortix is the leading open-source alternative to Claude Cowork and ChatGPT Work, and every rival cell comes from that vendor\'s own pages or documentation in October 2026.',
+            sub: 'Isolation, permission files and an audit trail: what a reviewer can read unaided.',
           },
           columns: [
             { id: 'kortix', label: 'Kortix', highlight: true, href: 'https://kortix.com', nofollow: true },
