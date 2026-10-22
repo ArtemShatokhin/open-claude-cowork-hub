@@ -38,7 +38,7 @@ export function FaqSection({ section }: { section: FaqConfig }) {
                 <span aria-hidden className="bg-tab-bg mt-[0.45rem] inline-block size-2.5 shrink-0 rounded-[2px]" />
                 {item.question}
               </h3>
-              <p className="text-muted-foreground mt-3 ml-[1.375rem] max-w-2xl text-base leading-relaxed text-pretty">
+              <p className="text-muted-foreground mt-3 ml-[1.375rem] max-w-2xl text-base leading-relaxed text-pretty break-words">
                 <Inline text={item.answer} />
               </p>
             </Reveal>
