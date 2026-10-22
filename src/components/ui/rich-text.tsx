@@ -50,6 +50,7 @@ type Block =
   | { kind: 'h2'; text: string }
   | { kind: 'h3'; text: string }
   | { kind: 'p'; text: string }
+  | { kind: 'testimony'; text: string }
   | { kind: 'ul'; items: string[] }
   | { kind: 'ol'; items: string[]; start?: number }
   | { kind: 'code'; lang: string; lines: string[] }
@@ -133,7 +134,14 @@ function parseBlocks(body: string): Block[] {
     para.push(line.trim());
   }
   flush();
-  return blocks;
+  /* A passage that stacks three or more separate direct quotations is a run of testimony
+   * (three vendors on the same finding, say), so it is set as a quoted block instead of a
+   * fourth paragraph. The words are untouched: only the element changes. */
+  return blocks.map((b) =>
+    b.kind === 'p' && (b.text.match(/"[^"]{25,}"/g) ?? []).length >= 3
+      ? ({ kind: 'testimony', text: b.text } as Block)
+      : b,
+  );
 }
 
 /** Long-form prose on the handbook's reading measure. */
@@ -159,9 +167,37 @@ export function Prose({ body, className }: { body: string; className?: string })
                 <Inline text={b.text} />
               </h3>
             );
-          case 'p':
+          case 'testimony':
             return (
-              <p key={i} className={cn('text-muted-foreground text-base leading-relaxed text-pretty', first ? '' : 'mt-4')}>
+              <blockquote
+                key={i}
+                className={cn(
+                  'border-kortix-base-ink bg-surface text-muted-foreground border-l-2 py-4 pr-5 text-base leading-relaxed text-pretty break-words',
+                  first ? 'pl-5' : 'mt-4 pl-5',
+                )}
+              >
+                <p>
+                  <Inline text={b.text} />
+                </p>
+              </blockquote>
+            );
+          case 'p':
+            /* A block quoted from a page keeps its citation line under it, in the same mono
+             * role the exhibit plates use for their source footer. */
+            if (/^Source:\s*https?:\/\//.test(b.text))
+              return (
+                <p key={i} className="text-caption mt-3 font-mono text-xs leading-relaxed break-all">
+                  {b.text}
+                </p>
+              );
+            return (
+              <p
+                key={i}
+                className={cn(
+                  'text-muted-foreground text-base leading-relaxed text-pretty break-words',
+                  first ? '' : 'mt-4',
+                )}
+              >
                 <Inline text={b.text} />
               </p>
             );
@@ -189,13 +225,7 @@ export function Prose({ body, className }: { body: string; className?: string })
             return (
               <div key={i} className={cn('w-full max-w-3xl', first ? '' : 'mt-6')}>
                 <CodeBlock
-                  artifact={{
-                    /* A prose fence carries a language, not a file name, so the plate has no
-                       caption bar rather than a leaked `text` or `sh` label. */
-                    file: '',
-                    lang: b.lang === 'yaml' || b.lang === 'sh' || b.lang === 'ts' ? b.lang : 'text',
-                    lines: b.lines,
-                  }}
+                  artifact={{ file: b.lang, lang: b.lang === 'yaml' || b.lang === 'sh' || b.lang === 'ts' ? b.lang : 'text', lines: b.lines }}
                 />
               </div>
             );
