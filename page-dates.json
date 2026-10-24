@@ -1,11 +1,11 @@
 {
   "": {
-    "hash": "0e65958fc4a9132c",
-    "updated": "2026-10-22"
+    "hash": "395fffa7231173ec",
+    "updated": "2026-10-24"
   },
   "ai-agent-orchestration": {
-    "hash": "c1509a87b1fe26a5",
-    "updated": "2026-10-22"
+    "hash": "0f07b2778a70e38d",
+    "updated": "2026-10-24"
   },
   "claude-cowork-alternative-free": {
     "hash": "7023edcb93ce5fbf",
@@ -28,8 +28,8 @@
     "updated": "2026-10-22"
   },
   "claude-cowork-for-teams": {
-    "hash": "47bc9e3cfa2ccf21",
-    "updated": "2026-10-22"
+    "hash": "1d1674b700f38f64",
+    "updated": "2026-10-24"
   },
   "claude-cowork-for-windows": {
     "hash": "9086a7cf043cecac",
@@ -60,32 +60,32 @@
     "updated": "2026-10-22"
   },
   "claude-cowork-security-and-approvals": {
-    "hash": "6e2d3fb234d464d3",
-    "updated": "2026-10-22"
+    "hash": "60441e305783b4e6",
+    "updated": "2026-10-24"
   },
   "claude-cowork-vs-chatgpt-work": {
-    "hash": "4943e92dbe9e44c6",
-    "updated": "2026-10-22"
+    "hash": "5adaf85e4633d625",
+    "updated": "2026-10-24"
   },
   "claude-cowork-vs-claude-code": {
-    "hash": "6470ecdb46b8d82e",
-    "updated": "2026-10-22"
+    "hash": "173710424462f1bd",
+    "updated": "2026-10-24"
   },
   "claude-cowork-vs-microsoft-copilot": {
-    "hash": "47bccc8dd6e77f45",
-    "updated": "2026-10-22"
+    "hash": "286773b51b539047",
+    "updated": "2026-10-24"
   },
   "claude-cowork-vs-openclaw": {
-    "hash": "6ec5e46621aca083",
-    "updated": "2026-10-22"
+    "hash": "530d76e9c7654cc2",
+    "updated": "2026-10-24"
   },
   "claude-cowork-vs-openwork": {
-    "hash": "65803e4fa21d630a",
-    "updated": "2026-10-22"
+    "hash": "f2dee8dfc614ecda",
+    "updated": "2026-10-24"
   },
   "claude-cowork-vs-perplexity-computer": {
-    "hash": "d5ffb127bde2e017",
-    "updated": "2026-10-22"
+    "hash": "525700748f839c6a",
+    "updated": "2026-10-24"
   },
   "how-to-use-claude-cowork": {
     "hash": "4e0c8dd9a804c0a7",
@@ -96,8 +96,8 @@
     "updated": "2026-10-22"
   },
   "migrate-from-claude-cowork": {
-    "hash": "63c5933e88e86469",
-    "updated": "2026-10-22"
+    "hash": "f5e40e85160f610c",
+    "updated": "2026-10-24"
   },
   "open-source-ai-agent-platforms": {
     "hash": "87a9aeec63bbfc48",
@@ -124,15 +124,15 @@
     "updated": "2026-10-22"
   },
   "self-hosting": {
-    "hash": "2f0296dbe1531c36",
-    "updated": "2026-10-22"
+    "hash": "3d9d109f28660467",
+    "updated": "2026-10-24"
   },
   "what-happened-to-claude-cowork": {
-    "hash": "5e38086e309a9531",
-    "updated": "2026-10-22"
+    "hash": "94ce3eb13bff32fa",
+    "updated": "2026-10-24"
   },
   "what-is-claude-cowork": {
-    "hash": "46ae6cca180a8a50",
-    "updated": "2026-10-22"
+    "hash": "1fa6868c79bf0c97",
+    "updated": "2026-10-24"
   }
 }

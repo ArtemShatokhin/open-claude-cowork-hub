@@ -25,7 +25,9 @@ export function FaqSection({ section }: { section: FaqConfig }) {
   };
   return (
     <section id={section.id} aria-labelledby={headingId} className={cn(HB, HB_Y)}>
-      <SectionHeader heading={section.heading} id={headingId} />
+      <Reveal>
+        <SectionHeader heading={section.heading} id={headingId} />
+      </Reveal>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
@@ -33,7 +35,7 @@ export function FaqSection({ section }: { section: FaqConfig }) {
       <ul className="divide-border mt-6 divide-y">
         {section.items.map((item, i) => (
           <li key={item.id} id={item.id} className="py-6">
-            <Reveal delay={Math.min(i * 0.04, 0.2)}>
+            <Reveal delay={Math.min(i * 0.04, 0.24)}>
               <h3 className="text-foreground-strong flex items-start gap-3 text-base leading-snug text-balance sm:text-lg">
                 <span aria-hidden className="bg-tab-bg mt-[0.45rem] inline-block size-2.5 shrink-0 rounded-[2px]" />
                 {item.question}

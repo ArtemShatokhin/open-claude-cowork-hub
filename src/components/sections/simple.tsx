@@ -22,7 +22,9 @@ export function ArtifactSection({ section }: { section: ArtifactConfig }) {
   return (
     <section id={section.id} aria-labelledby={headingId} className="border-border border-b py-10 md:py-14">
       <div className={HB}>
-        <SectionHeader heading={section.heading} id={headingId} />
+        <Reveal>
+          <SectionHeader heading={section.heading} id={headingId} />
+        </Reveal>
         <Reveal className="mt-6 w-full max-w-3xl">
           <CodeBlock artifact={section.artifact} className="kx-shadow-card" />
           {section.caption ? (
@@ -40,9 +42,9 @@ export function ProseSection({ section }: { section: ProseConfig }) {
   return (
     <section id={section.id} className="py-10 md:py-14">
       <div className={HB}>
-        <div className={HB_MEASURE}>
+        <Reveal className={HB_MEASURE}>
           <Prose body={section.body} />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

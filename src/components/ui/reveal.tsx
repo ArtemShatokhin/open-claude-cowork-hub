@@ -1,13 +1,20 @@
 'use client';
 
 /**
- * Progressive reveal: the server HTML is the final, visible state. After mount, a block still
- * below the fold is hidden and then faded in once it scrolls in; anything already on screen is
- * left alone. Opacity only, 500ms, ease-out, no transform — so a block's measured box never
- * moves (the layout gate measures edges before it scrolls) and reduced motion needs no variant.
+ * Progressive reveal, wired site-wide (design review 2026-10-24).
+ *
+ * The server HTML is the visible, final state: a reader without JavaScript, a crawler and an
+ * answer engine all get every section. Once the client mounts, a block still below the fold is
+ * held back and then rises once as it scrolls in — opacity 0 → 1 with a 10px lift, 460ms
+ * ease-out, an optional 40ms item delay for a stagger. Blocks already on screen are left alone,
+ * so nothing above the fold flashes.
+ *
+ * Every wrapper carries `data-reveal` (`shown` | `pending` | `in`) at all times, so the motion is
+ * measurable after mount, not only while it runs. Under `prefers-reduced-motion: reduce` the
+ * component never arms: the page simply renders its final state.
  */
-import { motion } from 'motion/react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 type State = 'shown' | 'pending' | 'in';
 
@@ -18,6 +25,7 @@ export function Reveal({
 }: {
   children: ReactNode;
   className?: string;
+  /** Seconds of item stagger, e.g. `index * 0.04`. */
   delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -26,7 +34,8 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof IntersectionObserver === 'undefined') return;
-    if (el.getBoundingClientRect().top < window.innerHeight) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
     setState('pending');
     const obs = new IntersectionObserver(
       ([entry]) => {
@@ -35,22 +44,20 @@ export function Reveal({
           obs.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0, rootMargin: '0px 0px -60px 0px' },
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  const hidden = state === 'pending';
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={false}
-      animate={{ opacity: hidden ? 0 : 1 }}
-      transition={hidden ? { duration: 0 } : { duration: 0.5, delay, ease: [0, 0, 0.2, 1] }}
-      className={className}
+      data-reveal={state}
+      className={cn('hb-reveal', className)}
+      style={delay ? { animationDelay: `${delay.toFixed(3)}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

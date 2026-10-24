@@ -84,11 +84,13 @@ export function UseCasesSection({ section }: { section: UseCasesConfig }) {
   return (
     <section id={section.id} aria-labelledby={headingId} className={HB_Y}>
       <div className={HB}>
-        <SectionHeader heading={section.heading} id={headingId} aside={<span className="text-caption hidden font-mono text-xs lg:block">{section.artifactLabel}</span>} />
-        <Reveal delay={0.05} className="mt-8">
-          <ul className="grid gap-8 md:grid-cols-3 md:gap-6">
-            {section.cards.map((card) => (
-              <li key={card.id} className="border-border flex min-w-0 flex-col gap-3 border-l-2 pl-4 md:pl-5">
+        <Reveal>
+          <SectionHeader heading={section.heading} id={headingId} aside={<span className="text-caption hidden font-mono text-xs lg:block">{section.artifactLabel}</span>} />
+        </Reveal>
+        <ul className="mt-8 grid gap-8 md:grid-cols-3 md:gap-6">
+          {section.cards.map((card, i) => (
+            <li key={card.id} className="border-border min-w-0 border-l-2 pl-4 md:pl-5">
+              <Reveal delay={Math.min(i * 0.04, 0.24)} className="flex min-w-0 flex-col gap-3">
                 <span className="text-muted-foreground inline-flex w-fit items-center rounded-[3px] border border-border px-2 font-mono text-xs uppercase">
                   {card.tag}
                 </span>
@@ -100,10 +102,10 @@ export function UseCasesSection({ section }: { section: UseCasesConfig }) {
                   {card.artifact.kind === 'sheet' ? <SheetFigure artifact={card.artifact} /> : null}
                   <p className="border-border text-caption mt-2 border-t pt-2 font-mono text-xs">{card.artifact.footer}</p>
                 </figure>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

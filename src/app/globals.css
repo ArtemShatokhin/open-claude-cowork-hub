@@ -292,6 +292,35 @@
   }
 }
 
+/* ── Reveal on scroll — every section below the fold ─────────────────────
+   The server HTML is the final, visible state; scripts only add motion. A
+   block that is below the fold when the client mounts is held (opacity 0),
+   then rises once as it enters: 10px lift, 460ms ease-out, with the item
+   delay carried in an inline animation-delay for a ~40ms stagger. The
+   animation name stays on the block after it settles, so the state is
+   measurable; reduced motion never arms (see reveal.tsx). */
+@keyframes hb-reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hb-reveal[data-reveal='in'] {
+  animation: hb-reveal-rise 460ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hb-reveal[data-reveal='in'] {
+    animation-name: hb-fade;
+    animation-duration: 260ms;
+  }
+}
+
 /* ── Progressive enhancement ─────────────────────────────────────────────
    html.js is set by an inline script before first paint. Without it every
    panel and revealed block stays visible: the static HTML is the final

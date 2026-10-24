@@ -20,7 +20,7 @@ const site: SiteConfig = {
   siteName: 'Open Source Claude Cowork',
   description:
     'An independent handbook of open-source alternatives to Claude Cowork: what you can read, what you can host, and what you can review. It recommends Kortix, the open-source AI Operating System.',
-  updated: '2026-10-21',
+  updated: '2026-10-24',
   lang: 'en',
   accent: '#1e3a8a',
   fonts: 'system',
@@ -218,7 +218,7 @@ const site: SiteConfig = {
               label: 'How work lands',
               cells: [
                 'A change request a person merges',
-                'Shows its plan and waits for approval',
+                'Auto on Pro, Max and Team; Manual asks first on Enterprise',
                 'You approve the plan in Plan mode',
                 'Waits for a yes before it posts',
               ],
@@ -351,7 +351,7 @@ Self-hosting Kortix is one Docker Compose stack on a Linux box you control. The 
 
 ## What you can review
 
-The five lines in the hero artifact are the whole gate, read top to bottom. A session works in its own sandbox on a branch of its own, and the agent commits there before opening a change request against the default branch. A person with the merge permission reads it and merges it. Nothing merges itself: work reaches \`main\` through a change request a person approves, unless an admin granted the merge capability. That capability is the \`project.gitops.merge\` grant, and an admin is the one who grants it. Without that grant, the merge waits for a person. Anthropic's Cowork asks before actions by default, and you keep the final say there too. The difference is where the gate sits: here it is the repo's own merge path, on hardware you hold.
+The five lines in the hero artifact are the whole gate, read top to bottom. A session works in its own sandbox on a branch of its own, and the agent commits there before opening a change request against the default branch. A person with the merge permission reads it and merges it. Nothing merges itself: work reaches \`main\` through a change request a person approves, unless an admin granted the merge capability. That capability is the \`project.gitops.merge\` grant, and an admin is the one who grants it. Without that grant, the merge waits for a person. Anthropic's side of that gate depends on the plan. Auto is the default on Pro, Max and Team, where Claude keeps working and automated safety checks run before each action. Manual is the default on Enterprise, where it asks before each action and the person allows each one ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). The difference is where the gate sits: here it is the repo's own merge path, on hardware you hold.
 
 ## Where the choice stands
 
@@ -427,7 +427,7 @@ Reaching the capability got easier on September 16: open Claude and hand it a ta
             { label: 'What you install', cells: ['The stack behind `kortix self-host`', 'A desktop app for macOS, Windows, Linux', 'Nothing; it comes with a paid plan'] },
             { label: 'Where the work runs', cells: ['Stack on your server, VPC or Kortix Cloud; sessions on Platinum sandboxes', 'Your desktop, plus optional cloud workers', "Anthropic's servers, or your own cloud account"] },
             { label: 'Where the rules live', cells: ['`kortix.yaml` and markdown, in one repo', 'Skills and MCP servers shared by one link', 'Admin settings inside Claude'] },
-            { label: 'Who reviews the work', cells: ['A person merges a change request', 'You read the files on your machine', 'Claude asks before acting by default'] },
+            { label: 'Who reviews the work', cells: ['A person merges a change request', 'You read the files on your machine', 'Auto on Pro, Max and Team; Manual asks first on Enterprise'] },
             { label: 'What a move leaves behind', cells: ['Nothing, once the repo and instance directory (secrets, database, files) are copied', 'History, saved credentials, scheduled tasks', 'Chats, projects and connectors stay in Claude'] },
             { label: 'Model keys', cells: ['Your own provider key, per project', 'Your own keys across 50+ providers', "Anthropic's plan and its usage limits"] },
           ],
@@ -1510,7 +1510,7 @@ Orchestration is not always the answer. One agent in one session covers a lookup
             {
               id: 'merge-effect',
               question: 'What changed when Claude Cowork merged into Claude?',
-              answer:"The message box took on both jobs on 16 September 2026, so a request can begin as a question and carry on as a task, with the context, skills, and connectors you already have ([the announcement](https://claude.com/blog/cowork-is-now-claude)). Tasks can be scheduled to a cadence and run unattended, and by default Claude asks before taking an action. The wiring stays inside Anthropic's product; on Kortix it is files in a repo you own.",
+              answer:"The message box took on both jobs on 16 September 2026, so a request can begin as a question and carry on as a task, with the context, skills, and connectors you already have ([the announcement](https://claude.com/blog/cowork-is-now-claude)). Tasks can be scheduled to a cadence and run unattended. Whether it stops to ask depends on the plan: Auto is the default on Pro, Max and Team, and Manual, which asks before each action, is the default on Enterprise ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). The wiring stays inside Anthropic's product; on Kortix it is files in a repo you own.",
             },
             {
               id: 'session-mode',
@@ -1565,7 +1565,7 @@ Orchestration is not always the answer. One agent in one session covers a lookup
               label: 'Who reviews the work',
               cells: [
                 'Session work reaches `main` through a change request; default-deny for agents',
-                'Claude asks before acting; it shows its plan and waits for approval',
+                'Auto on Pro, Max and Team; Manual asks first on Enterprise',
                 'Plan mode: approve the plan to start the work',
               ],
             },
@@ -1624,7 +1624,7 @@ After both mergers the products converge on paper. Hand over a goal, and decks, 
 
 ## Where the review happens
 
-Cowork's review is a setting inside the vendor's app. "By default, Claude asks before taking an action," the merge post says. You can let it keep working and check in only when something needs a closer look. "You keep the final say." Tasks can also run unattended on a schedule, so the review can be a check-in after the fact rather than a stop before it.
+Cowork's review is a setting inside the vendor's app, and the plan decides where it starts. Auto is the default on Pro, Max and Team, where Claude keeps working and automated safety checks run before each action. Manual is the default on Enterprise, where it asks before each action and the person allows each one ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). The setting can change mid-conversation, and the person can stop or redirect the work while it runs. Tasks also run unattended on a schedule, so the review can be a check-in after the fact rather than a stop before it.
 
 ChatGPT Work reviews in two places. Plan mode "gathers context, asks questions, and creates a step-by-step plan" that you can edit or approve before work starts. While the agent works, "you can follow its progress, answer questions, change direction, and approve important actions" ([its launch post](https://openai.com/index/chatgpt-for-your-most-ambitious-work)). That review also lives in the vendor's interface, on the vendor's record of what happened.
 
@@ -2040,7 +2040,7 @@ The starter agent file every Kortix session boots from states the constraint in 
 
 ## The gate survives the move
 
-Cowork's control is a mode you pick. The Help Center names three: Manual, where Claude pauses and asks before each action; Auto, where it keeps working and reviews each action for safety while consuming more of the usage limit; and Skip, where nothing checks the work at all. The announcement puts the default in one sentence: "By default, Claude asks before taking an action."
+Cowork's control is a mode you pick. The Help Center names three: Manual, where Claude pauses and asks before each action; Auto, where it keeps working and reviews each action for safety while consuming more of the usage limit; and Skip, where nothing checks the work at all. The Help Center sets the default by plan: Auto on Pro, Max and Team, where Claude keeps working and automated safety checks run before each action, and Manual on Enterprise, where it asks before each one ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude), checked October 2026).
 
 Kortix keeps the same final say and puts it in the repo. Session work reaches \`main\` through a change request. Merge is default-deny for agents. A person with \`project.gitops.merge\` reads the diff and merges. A session cannot merge the change request it opened unless its grant in \`kortix.yaml\` includes that permission. The governance panel shows the shape in practice. The support agent holds \`project.review.submit\`, so it can hand its work up. It holds no merge permission, so it cannot land its own output.
 
@@ -2277,7 +2277,7 @@ Self-hosting moves the question off the invoice. "Run it on Kortix Cloud, in you
               label: 'The review before work lands',
               cells: [
                 'A change request; merge is default-deny for agents',
-                'By default, Claude asks before taking an action',
+                'Auto on Pro, Max and Team; Manual asks first on Enterprise',
                 'Work lands in the files on your machine',
               ],
             },
@@ -2337,7 +2337,7 @@ Kortix puts the machine in the middle on purpose. One isolated sandbox per sessi
 
 ## Who reviews the work
 
-Anthropic's answer is consent at the moment of action: by default, Claude asks before taking an action, and you keep the final say. A setting lets it keep working and check in when something needs a closer look. Team and Enterprise admins set access by team and control tool permissions by department. Activity streams to a SIEM ([the Cowork product page](https://claude.com/product/cowork), checked October 2026). The record of what the agent did sits next to the work, inside Anthropic's product.
+Anthropic's answer is a permission setting in the message box, and the plan decides where it starts. Auto is the default on Pro, Max and Team: Claude keeps working, and automated safety checks run before each action. Manual is the default on Enterprise: Claude asks before each action and the person allows or denies it ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude), checked October 2026). Team and Enterprise admins set access by team and control tool permissions by department, and Enterprise activity streams to a SIEM ([the Cowork product page](https://claude.com/product/cowork)). The record of what the agent did sits next to the work, inside Anthropic's product.
 
 OpenWork's docs cover control over access and distribution. The app works only in folders you authorize; desktop policies manage its reach. A team sets up skills, plugins, and MCP servers once, then shares them through one link, and the cloud plans add roles, SSO, and SCIM ([OpenWork's docs](https://openworklabs.com/docs/start-here/get-started), checked October 2026). Those controls decide who can use the agent. Reviewing what the agent produced is a separate step. On a desktop app, that step happens wherever you happen to read your files.
 
@@ -2437,7 +2437,7 @@ The [self-hosting guide](/self-hosting) walks the install, and the [alternatives
               label: 'Review gate',
               cells: [
                 'Work reaches main through a change request',
-                'Shows its plan and waits for approval on significant actions',
+                'Auto on Pro, Max and Team; Manual asks first on Enterprise',
                 'The orchestrator checks in when the work needs a person',
               ],
             },
@@ -2492,7 +2492,7 @@ The carry-over deserves a second read. Chats, projects, artifacts, connectors, a
 
 The mechanics are worth knowing before the custody question ever matters. On Perplexity, a skill deploys specialist sub-agents, "often several in parallel, each handling one part of the task" ([the Help Center](https://www.perplexity.ai/help-center/en/articles/13914413-how-to-use-computer-skills), checked October 2026). You can build your own skill in a conversation with Computer, or upload a SKILL.md file. One frontier model carries the core reasoning; sub-agents route to other models as the task demands. Perplexity can change that roster as models improve ([the announcement](https://www.perplexity.ai/hub/blog/introducing-perplexity-computer)). You can also run dozens of Computers in parallel. The product page sells the pattern plainly: hand off a project, get "polished, reliable deliverables around the clock."
 
-On Cowork, you choose the folders and tools Claude can reach. It shows its plan and waits for your approval before anything significant, and a scheduled task runs unattended ([the product page](https://claude.com/product/cowork)). Anthropic's models carry the work. The app can also reach your own Amazon Bedrock, Gemini Enterprise Agent Platform, or Microsoft Foundry account. Both products hand back polished output, and the system that produced it stays where it is.
+On Cowork, you choose the folders and tools Claude can reach. Whether each action waits for a person depends on the plan: Auto, the default on Pro, Max and Team, lets Claude keep working while automated safety checks run, and Manual, the default on Enterprise, asks before each action ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude), checked October 2026). A scheduled task runs unattended either way. Anthropic's models carry the work. The app can also reach your own Amazon Bedrock, Gemini Enterprise Agent Platform, or Microsoft Foundry account. Both products hand back polished output, and the system that produced it stays where it is.
 
 ## The repo answer
 
@@ -2564,7 +2564,7 @@ Two deeper reads live on the Kortix blog. [Kortix vs Perplexity Computer](https:
           ],
           rows: [
             { label: 'Open source', cells: [{ text: 'Yes', mark: 'yes' }, 'No; Anthropic publishes no source'] },
-            { label: 'Who approves the work', cells: ['Approval gates you set. Off until you set them.', 'Claude asks before acting; you keep the final say'] },
+            { label: 'Who approves the work', cells: ['Approval gates you set. Off until you set them.', 'Auto by default: automated safety checks; Manual asks before each action'] },
             { label: 'How work lands', cells: ['Session work reaches main through a change request', 'You review the finished work and redirect anytime'] },
             { label: 'Who can see the work', cells: ['Per-resource permissions for people and agents', 'Access by team and tool permissions by department'] },
             { label: 'Who can read the record', cells: ['Roles, groups, and an audit trail', 'Audit logs wait for the Enterprise plan'] },
@@ -2608,7 +2608,7 @@ The admin controls are real. Anthropic's product page says admins set access by 
 
 Whoever approves the purchase rarely asks what the agent can do. The review runs through three questions: who approves the work, who can read the record, and where it runs.
 
-On approvals, Anthropic's model is the person inside the task. Claude asks before taking an action by default. You can let it keep working and check in when something needs a closer look. You keep the final say. That is approval by the person running the task, in that person's conversation. A second person signing off on what the first person's agent did does not appear in the documented flow. The audit log that would carry the record waits for Enterprise.
+On approvals, Anthropic's model is the person inside the task, and the plan picks the starting point. A Team plan starts on Auto, where Claude keeps working and automated safety checks run before each action. Manual, where Claude asks before each action and the person allows each one, is the default on Enterprise and one setting away on Team ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude), checked October 2026). Either way the approval belongs to the person running the task, in that person's conversation. A second person signing off on what the first person's agent did does not appear in the documented flow. The audit log that would carry the record waits for Enterprise.
 
 Where it runs reads the same way. The choice is Anthropic's cloud or the customer's own account on Amazon Bedrock, Gemini Enterprise Agent Platform, or Microsoft Foundry. A self-hosted edition is not on the list.
 
@@ -2644,7 +2644,7 @@ The merge made Cowork easier to reach. It changed nothing about who holds the ga
               id: 'approvals',
               question: 'Who approves an agent\u0027s actions on the Team plan?',
               answer:
-                'By default Claude asks before taking an action, and the person running the task keeps the final say. The audit log that records what happened is marked for Enterprise in Anthropic\u0027s own comparison table.',
+                'On a Team plan the default is Auto: Claude keeps working and automated safety checks run before each action, and the person can switch to Manual and allow each one. The audit log that records what happened is marked for Enterprise in Anthropic\u0027s own comparison table.',
             },
             {
               id: 'set-approvals',
@@ -2709,7 +2709,7 @@ The merge made Cowork easier to reach. It changed nothing about who holds the ga
               label: 'Who approves the work',
               cells: [
                 'Work reaches main through a change request. Merge is default-deny for agents.',
-                'By default Claude asks before taking an action',
+                'Auto on Pro, Max and Team; Manual asks first on Enterprise',
                 'Each action waits for approval before it happens',
               ],
             },
@@ -2757,9 +2757,9 @@ Kortix keeps its levers in the repo instead of a console. Nothing merges itself:
 
 ## What the record shows
 
-Microsoft's record is chiefly a cost record. The admin console reports usage at the tenant, group, and user levels, and each task's price appears in credits as it runs ([Microsoft's GA announcement](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available)). That accountability is what a usage-billed product owes. Anthropic's record leans on the controls that govern access: deleting anything in Cowork needs the person's approval, and Enterprise customers stream activity to their own SIEM through OpenTelemetry ([Claude Cowork](https://claude.com/product/cowork)).
+Microsoft's record is wider than a bill, and it is read from a console Microsoft runs. Cowork prompts, responses and generated artifacts flow through the existing Microsoft 365 controls, and the general availability post names the protected surface: audit log, Data Security Posture Management, eDiscovery, Insider Risk Management, Data Lifecycle Management, and Communication Compliance policies ([Microsoft's GA announcement](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available)). Beside that sits the cost view, with usage reported at the tenant, group and user level and a price in credits on each task as it runs. Both halves are real, and both live inside the Microsoft 365 trust boundary the same post describes. Anthropic's record leans on the controls that govern access: deleting anything in Cowork needs the person's approval, and Enterprise customers stream activity to their own SIEM through OpenTelemetry ([Claude Cowork](https://claude.com/product/cowork)).
 
-Kortix records the work in two places a team already owns. The audit log keeps 90 days of events live, with an archive up to 365 days ([the Kortix docs](https://kortix.com/docs)). The repo keeps the rest: a session's output arrives as a change request, and its history reads as a git log with a reviewer's decision on each entry. A console answers what was spent; the repo answers what changed, line by line.
+Kortix records the work in two places a team already owns. The audit log keeps 90 days of events live, with an archive up to 365 days ([the Kortix docs](https://kortix.com/docs)). The repo keeps the rest: a session's output arrives as a change request, and its history reads as a git log with a reviewer's decision on each entry. A console answers what happened, inside a tenant the vendor runs. The repo answers the same question from a copy the team can clone.
 
 ## The exit path
 
@@ -3247,7 +3247,7 @@ Folders come first. On desktop, Claude reads and writes only in the folders you 
 
 Connectors come second. You choose which apps Claude can use from the plus menu in the chat box or the Customize page, and each connector carries its own setting: "Always allow", "Needs approval", or "Blocked". Every connector widens what a session can reach, so add the ones you have vetted and leave the rest off. A plugin widens it further in one step, because a single install can bundle skills, connectors and sub-agents together.
 
-The approval mode is the dial on top of both. The selector in the chat box offers Manual, Auto and Skip; in the merged experience it offers Auto and Manual, and Manual is the default. Manual pauses and asks before each action, and you allow or deny it. Auto keeps the work moving and screens every action itself, which consumes more of your usage limit than the other modes. Skip runs with nothing checking its actions, and Anthropic reserves it for work where you trust every action, connector, file and app involved. The guide's rule for choosing is to match oversight to the stakes: switch to Manual when a task touches sensitive files, accounts or sites, when a tool is new to you, or when a mistake would be hard to undo.
+The approval mode is the dial on top of both. The selector in the chat box offers Manual, Auto and Skip; in the merged experience it offers Auto and Manual. Auto is the default on Pro, Max and Team, and Manual is the default on Enterprise ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude), checked October 2026). Manual pauses and asks before each action, and you allow or deny it. Auto keeps the work moving and screens every action itself, which consumes more of your usage limit than the other modes. Skip runs with nothing checking its actions, and Anthropic reserves it for work where you trust every action, connector, file and app involved. The guide's rule for choosing is to match oversight to the stakes: switch to Manual when a task touches sensitive files, accounts or sites, when a tool is new to you, or when a mistake would be hard to undo.
 
 Two boundaries sit outside that dial. Computer use asks permission before it touches each application, and it still runs with no sandbox between Claude and your screen; Claude reads the screen through screenshots, and a link clicked in one app can open inside another you never approved. Scheduled tasks act while nobody watches, so the guide says to start them on low-risk jobs, keep sensitive data out, and review past runs from the Scheduled page. Anthropic ends the guide with the line that makes the decision yours: you remain responsible for every action Claude takes on your behalf.
 
@@ -3524,7 +3524,7 @@ For one person, that is a complete answer. The assistant lives where your files 
 
 Anthropic changed the hosted half of the comparison on September 16, 2026, when Cowork and chat became one Claude. What Cowork could do is now available from any conversation, with the context, skills, and connectors you already have. Existing Cowork work carried over: chats, projects, artifacts, connectors, and skills ([the announcement](https://claude.com/blog/cowork-is-now-claude)). The rollout was still moving in October 2026. Pro and Max plans get the merged Claude first, on web, desktop, and mobile. Team and Free plans will follow soon, and Anthropic promised Enterprise admins at least 30 days' notice before anything changes for their organizations.
 
-The behavior defaults stayed conservative. By default, Claude asks before taking an action; you can let it keep working and check in only when something needs a closer look, and you keep the final say. Tasks can be scheduled to any cadence and run unattended. The help center still describes Cowork as a paid-plan capability, on Pro, Max, Team and Enterprise ([Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork), checked October 2026). Cowork's product page notes the cost: it consumes limits faster than Chat.
+The behavior defaults follow the plan. Auto is the default on Pro, Max and Team: Claude keeps working, and automated safety checks run before each action. Manual is the default on Enterprise: it asks before each action, and the person allows each one ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude), checked October 2026). Tasks can be scheduled to any cadence and run unattended. The help center still describes Cowork as a paid-plan capability, on Pro, Max, Team and Enterprise ([Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)). Cowork's product page notes the cost: it consumes limits faster than Chat.
 
 So the personal question now has two good answers with different owners. The capability that used to live in a separate Cowork space arrives inside Claude itself, on the subscription many people already pay for. OpenClaw answers with your own hardware, your own models and no subscription at all.
 
@@ -3634,7 +3634,7 @@ For the wider argument, [Kortix vs OpenClaw](https://kortix.com/blog/kortix-vs-o
               label: 'Who reviews the work',
               cells: [
                 'The agent opens a change request; a person merges it',
-                'Claude asks before acting by default; you keep the final say',
+                'Auto on Pro, Max and Team; Manual asks first on Enterprise',
                 'Diffs and pull requests in your git workflow',
               ],
             },
@@ -3686,7 +3686,7 @@ So the question behind "Claude Cowork vs Claude Code" is which job you are handi
 
 Claude Code's overview doc describes an agent that reads an entire codebase, edits across files, and runs commands. It stages changes, writes commit messages, creates branches, and opens pull requests. A CLAUDE.md file at the project root carries the standards it re-reads every session ([the overview](https://code.claude.com/docs/en/overview), checked October 2026). Its surfaces are a terminal, VS Code and JetBrains extensions, a desktop app, and the web. Most surfaces need a Claude subscription or an Anthropic Console account. The terminal, VS Code, and JetBrains also accept third-party providers.
 
-Cowork's job reads differently. You hand over a goal, it works across the files and tools you chose, and you review what comes back: a deck, a spreadsheet, or research ([Claude Cowork](https://claude.com/product/cowork)). A task can be scheduled to any cadence and run unattended. By default "Claude asks before taking an action" ([the announcement](https://claude.com/blog/cowork-is-now-claude)). Let it keep working and check in only when something needs a closer look; "You keep the final say". Sessions and files live in your Claude account. On Enterprise, the run can point at your own Amazon Bedrock, Gemini Enterprise Agent Platform, or Microsoft Foundry account instead.
+Cowork's job reads differently. You hand over a goal, it works across the files and tools you chose, and you review what comes back: a deck, a spreadsheet, or research ([Claude Cowork](https://claude.com/product/cowork)). A task can be scheduled to any cadence and run unattended. Whether it stops to ask depends on the plan. Auto is the default on Pro, Max and Team, where it keeps working and automated safety checks run before each action. Manual is the default on Enterprise, where it asks before each action and the person allows each one ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). Sessions and files live in your Claude account. On Enterprise, the run can point at your own Amazon Bedrock, Gemini Enterprise Agent Platform, or Microsoft Foundry account instead.
 
 ## Who owns the system the two jobs run on
 
@@ -4527,7 +4527,7 @@ The price is the subscription rather than the task. The Cowork page includes Cow
 
 ## Where the setup actually lives
 
-Everything that makes Cowork useful to one particular team is configuration. Which folders Claude may read. The connectors it may call. The skills that encode how a job is done here, and the plugins that bundle them. The instructions that apply to every conversation, the projects holding files and context, and the permission setting. That last one decides whether Claude asks first. Manual, where it asks, is the default.
+Everything that makes Cowork useful to one particular team is configuration. Which folders Claude may read. The connectors it may call. The skills that encode how a job is done here, and the plugins that bundle them. The instructions that apply to every conversation, the projects holding files and context, and the permission setting. That last one decides whether Claude asks first, and the plan sets where it starts. Auto is the default on Pro, Max and Team, and Manual, which asks before each action, is the default on Enterprise ([the Claude Help Center](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude), checked October 2026).
 
 Almost none of that is a file you can open. Anthropic's help center puts folders under "Trusted folders", connectors in "Customize > Connectors", and global instructions in "Instructions for Claude in Settings > General" ([one Claude](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude)). The sentence worth reading twice is a migration note: "Your chats, tasks, projects, and settings come with you when your account moves over." Everything a team built travels with the account, and the only place it can travel to is another Anthropic account.
 
@@ -4999,7 +4999,7 @@ Kortix is the setup that passed these checks for us, and the reason is structura
         'Anthropic merged Claude Cowork into Claude on 16 September 2026. What changed, what did not, and the open-source layer you keep.',
       h1: 'What happened to Claude Cowork, and what open source keeps',
       lead: 'Anthropic merged Claude Cowork into Claude on 16 September 2026, so the Cowork toggle is going away and Claude now decides when a chat becomes a longer job. Kortix is the open-source AI Operating System: your agents, skills, company memory and connectors in one git repo you own. Details checked 20 October 2026.',
-      updated: '2026-10-20',
+      updated: '2026-10-24',
       sections: [
         {
           type: 'prose',
@@ -5027,7 +5027,7 @@ The cost lands one layer down. Who runs the job, where the permissions are writt
 
 A label is the cheapest thing a vendor can change. The work, the permissions and the log are the expensive parts, and a rename leaves all three where the last one put them. A team that reopens the question "which Cowork-like product do we buy" will reopen it again at the next announcement. The question that survives is which layer the team holds when the name moves.
 
-Kortix is built so that layer is a repository. An agent is a markdown file under \`agents/\`, and the reach it has is a line in that file's frontmatter. Nothing about it lives in a dashboard; one file is the whole agent. The same file calls the session an ephemeral branch of the repo and says that only what you commit and push survives ([the starter repo](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/agents/kortix.md)).
+Kortix is built so that layer is a repository. An agent is \`agents/<name>.md\` (behavior) plus an \`agents.<name>\` block in \`kortix.yaml\` (governance). The markdown holds the prompt and the tool rules. The block in the manifest holds the connector, secret, skill and permission grants. Nothing about it lives in a dashboard; the pair is the whole agent. The agent file calls the session an ephemeral branch of the repo and says that only what you commit and push survives ([the starter repo](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/agents/kortix.md)).
 
 \`kortix.yaml\` registers what exists in the project, and each agent enables what it needs by name. An omitted grant resolves to \`none\`, so a narrow agent starts with nothing ([kortix.yaml](https://github.com/kortix-ai/suna/blob/dev/packages/starter/templates/base/kortix.yaml)). Work then lands the way code lands. Session work reaches \`main\` through a change request, and merge is default-deny for agents. An admin can grant \`project.gitops.merge\` to change that.
 
@@ -5168,16 +5168,16 @@ If you are still working out what the product was, [what Claude Cowork is](/what
       navLabel: 'Security and audit log',
       title: 'An open-source audit trail beats a gateway bolted onto Claude Cowork',
       metaDescription:
-        'Anthropic says Audit Logs do not cover Claude Cowork yet. An open-source way to run agents where permissions are files and a person merges the work.',
+        'Anthropic says its audit logs do not record Claude Cowork activity. An open-source way to run agents where permissions are files and a person merges the work.',
       h1: 'Claude Cowork security: an open-source audit trail you own',
-      lead: 'The open-source answer to "can you see what the agent did?" begins with a fact Anthropic publishes: Audit Logs do not cover Claude Cowork yet, so the record is a transcript feed rather than a log you keep. Kortix is the open-source AI Operating System, and here the record is the place the agent ran. Checked 20 October 2026.',
+      lead: 'The open-source answer to "can you see what the agent did?" starts with a fact Anthropic publishes: its audit logs do not record Claude Cowork activity, so the record is a transcript feed rather than a log you keep. Kortix is the open-source AI Operating System, and here the record is the place the agent ran. Checked 24 October 2026.',
       updated: '2026-10-20',
       sections: [
         {
           type: 'prose',
           body: `## The audit gap, in the vendor's own words
 
-Anthropic documents the gap itself. In the deployment checklist of its Claude Cowork enterprise administrator guide, one line reads: "Note that Audit Logs do not cover Claude Cowork yet." The sentence immediately after it says "The Compliance API returns Claude Cowork session transcripts for Claude Enterprise organizations." ([Claude Academy](https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide), checked 20 October 2026.)
+Anthropic documents the gap itself. In the security review step of its Claude Cowork enterprise administrator guide, one line reads: "Audit logs record the events listed in Access audit logs, and Claude Cowork activity isn't among them; use the Compliance API for Cowork session transcripts." ([Claude Academy](https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide), checked 24 October 2026.)
 
 Harmonic Security's practitioner's guide, last updated 14 September 2026, pairs the two facts and calls the first one a correction: "The Compliance API now covers Cowork. The audit log still does not. This reverses our earlier guidance." The same page adds that "The Audit Log CSV export contains no Cowork event types", and that the Activity Feed "is not retroactive". A team that enables the Compliance API after rollout has a record only from that day forward ([Harmonic Security](https://www.harmonic.security/resources/securing-claude-cowork-a-security-practitioners-guide)).
 
@@ -5274,7 +5274,7 @@ A reviewer can put four questions to any product that runs agents, and each one 
               label: 'Who approves an irreversible action',
               cells: [
                 'A person merges the change request',
-                'A classifier, unless an admin turns automatic approval off',
+                'Auto on Pro, Max and Team; Manual asks first on Enterprise',
                 'Tool policy per connection, set by the organization',
                 'The member, through Ask for approval',
               ],
@@ -5333,7 +5333,7 @@ A reviewer can put four questions to any product that runs agents, and each one 
               id: 'audit-logs',
               question: "Is Claude Cowork activity captured in Anthropic's audit logs?",
               answer:
-                'No. Anthropic\u0027s administrator guide states that "Audit Logs do not cover Claude Cowork yet", and Harmonic reports that the Audit Log CSV export contains no Cowork event types. Enterprise organizations can retrieve session transcripts through the Compliance API instead, from the day it is enabled.',
+                'No. Anthropic\u0027s administrator guide says its audit logs record the events listed in Access audit logs, "and Claude Cowork activity isn\u0027t among them"; it points admins to the Compliance API for Cowork session transcripts. Harmonic reports that the Audit Log CSV export contains no Cowork event types. Enterprise organizations can retrieve transcripts through the Compliance API, from the day it is enabled.',
             },
             {
               id: 'regulated',

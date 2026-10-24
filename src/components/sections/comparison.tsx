@@ -61,7 +61,9 @@ export function ComparisonSection({ section }: { section: ComparisonConfig }) {
   return (
     <section id={section.id} aria-labelledby={headingId} className={HB_Y}>
       <div className={HB}>
-        <SectionHeader heading={section.heading} id={headingId} />
+        <Reveal>
+          <SectionHeader heading={section.heading} id={headingId} />
+        </Reveal>
 
         <Reveal className="mt-8">
           <div className="border-border overflow-hidden rounded-lg border">
@@ -98,13 +100,17 @@ export function ComparisonSection({ section }: { section: ComparisonConfig }) {
 
             {/* criterion bands */}
             <ol className="divide-border divide-y">
-              {section.rows.map((row) => {
+              {section.rows.map((row, i) => {
                 const recommended = highlight ? row.cells[section.columns.indexOf(highlight)] ?? '' : '';
                 const rivalCells = section.columns
                   .map((c, i) => ({ col: c, cell: row.cells[i] ?? '' }))
                   .filter((x) => !x.col.highlight);
                 return (
-                  <li key={row.label} className="grid gap-3 px-4 py-5 sm:grid-cols-12 sm:gap-5 sm:px-5">
+                  <li key={row.label}>
+                    <Reveal
+                      delay={Math.min(i * 0.04, 0.24)}
+                      className="grid gap-3 px-4 py-5 sm:grid-cols-12 sm:gap-5 sm:px-5"
+                    >
                     <p className="hb-heading text-foreground-strong text-base sm:col-span-4 lg:col-span-3">{row.label}</p>
                     <div className="sm:col-span-8 lg:col-span-4">
                       <CellText cell={recommended} prominent />
@@ -120,6 +126,7 @@ export function ComparisonSection({ section }: { section: ComparisonConfig }) {
                         </li>
                       ))}
                     </ul>
+                    </Reveal>
                   </li>
                 );
               })}

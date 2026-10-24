@@ -196,7 +196,9 @@ export function WidgetSection({ section }: { section: WidgetConfig }) {
   return (
     <section id={section.id} aria-labelledby={headingId} className={cn(HB_Y, 'border-border border-b')}>
       <div className={HB}>
-        <SectionHeader heading={section.heading} id={headingId} />
+        <Reveal>
+          <SectionHeader heading={section.heading} id={headingId} />
+        </Reveal>
         <Reveal className="mt-8">
           {section.widget.variant === 'quiz' ? <Quiz quiz={section.widget} /> : <Calculator calc={section.widget} />}
         </Reveal>
